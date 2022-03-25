@@ -24,4 +24,5 @@ deploy-job: # This job runs in the deploy stage.
     refs:
       - main
     changes:
-      - apps/web-cn/*
+      - apps/web-cn/**/*
+      - packages/ui/**/*
