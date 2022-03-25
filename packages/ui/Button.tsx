@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from 'react'
 
 export const Button = () => {
-  return <button>Zolplay</button>
+  return <button className="block">Zolplay</button>
 }

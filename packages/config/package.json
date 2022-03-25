@@ -10,14 +10,18 @@
     "prettier-next.js"
   ],
   "dependencies": {
-    "@typescript-eslint/parser": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.0.0",
     "eslint-config-next": "^12.0.8",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "7.28.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "eslint-plugin-react": "7.28.0",
     "prettier": "^2.5.1",
     "prettier-plugin-sort-class-names": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "typescript": "^4.5.3"
   }
 }
