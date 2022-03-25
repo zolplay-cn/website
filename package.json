@@ -10,11 +10,16 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.0",
     "autoprefixer": "^10.4.4",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.8",
@@ -25,5 +30,18 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@6.32.3"
+  "packageManager": "pnpm@6.32.3",
+  "lint-staged": {
+    "apps/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix .",
+      "prettier --write ."
+    ],
+    "packages/ui/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix .",
+      "prettier --write ."
+    ],
+    "*.json": [
+      "prettier --write ."
+    ]
+  }
 }

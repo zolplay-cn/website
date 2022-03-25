@@ -10,7 +10,7 @@ pnpm dev
 
 ## 学习资源
 
-访问下面的资源来学习关于Next.js的知识:
+访问下面的资源来学习关于 Next.js 的知识:
 
 - [Next.js 文档](https://nextjs.org/docs) - Next.js 的功能特性以及 API。
 - [学习 Next.js](https://nextjs.org/learn) - 一个可互动的 Next.js 教程。

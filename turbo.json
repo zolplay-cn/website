@@ -4,6 +4,7 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "test": {},
     "lint": {
       "outputs": []
     },
