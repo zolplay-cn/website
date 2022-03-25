@@ -18,7 +18,7 @@ deploy-job: # This job runs in the deploy stage.
     - chmod 644 ~/.ssh/known_hosts
   script:
     - echo "部署应用中..."
-    - ssh $SSH_USER@$VM_IPADDRESS "cd $SSH_SITE_DIRECTORY && sh deploy.sh"
+    - ssh $SSH_USER@$VM_IPADDRESS "cd $SSH_SITE_DIRECTORY && git pull && sh deploy.sh"
     - echo "应用已成功部署。"
   only:
     refs:
