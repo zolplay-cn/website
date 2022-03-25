@@ -48,6 +48,7 @@ importers:
       autoprefixer: ^10.4.4
       config: workspace:*
       eslint: 7.32.0
+      framer-motion: ^6.2.8
       next: 12.0.8
       next-transpile-modules: 9.0.0
       postcss: ^8.4.12
@@ -58,6 +59,7 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
       next: 12.0.8_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -139,11 +141,13 @@ importers:
       '@types/react-dom': ^17.0.11
       clsx: ^1.1.1
       config: workspace:*
+      framer-motion: ^6.2.8
       tailwind-merge: ^1.2.1
       tsconfig: workspace:*
       typescript: ^4.5.3
     dependencies:
       clsx: 1.1.1
+      framer-motion: 6.2.8
       tailwind-merge: 1.2.1
     devDependencies:
       '@types/react': 17.0.43
@@ -4102,6 +4106,24 @@ packages:
     dependencies:
       map-cache: 0.2.2
     dev: true
+
+  /framer-motion/6.2.8:
+    resolution:
+      {
+        integrity: sha512-4PtBWFJ6NqR350zYVt9AsFDtISTqsdqna79FvSYPfYDXuuqFmiKtZdkTnYPslnsOMedTW0pEvaQ7eqjD+sA+HA==,
+      }
+    peerDependencies:
+      react: '>=16.8 || ^17.0.0 || ^18.0.0'
+      react-dom: '>=16.8 || ^17.0.0 || ^18.0.0'
+    dependencies:
+      framesync: 6.0.1
+      hey-listen: 1.0.8
+      popmotion: 11.0.3
+      style-value-types: 5.0.0
+      tslib: 2.3.1
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+    dev: false
 
   /framer-motion/6.2.8_react-dom@17.0.2+react@17.0.2:
     resolution:

@@ -98,7 +98,28 @@ export default function HomePageInChina() {
         </motion.h1>
       </section>
 
-      <footer className="mb-4">
+      <footer className="mb-4 flex flex-col items-center space-y-4 px-4 md:flex-row md:space-x-5 md:space-y-0">
+        <motion.span
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: 'spring', delay: 0.35 }}
+          className="text-neon text-xs text-violet-100/60"
+        >
+          &copy; {new Date().getFullYear() + 5} 深圳市佐玩信息技术有限公司
+          {' - '}
+          来自未来的版权
+        </motion.span>
+        <motion.span
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: 'spring', delay: 0.4 }}
+          className="text-neon text-xs text-green-100/60"
+        >
+          联系邮箱：
+          <a href="mailto:contact@zolplay.cn" className="hover:underline">
+            contact@zolplay.cn
+          </a>
+        </motion.span>
         <ICPLicense />
       </footer>
     </Layout>

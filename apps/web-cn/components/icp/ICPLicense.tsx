@@ -6,9 +6,9 @@ import NationalEmblem from '~/components/icp/NationalEmblem'
 const IcpLicense: FC = () => {
   return (
     <motion.a
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, type: 'spring', delay: 0.5 }}
+      transition={{ duration: 0.5, type: 'spring', delay: 0.55 }}
       href="https://beian.miit.gov.cn/#/Integrated/index"
       target="_blank"
       rel="noopener noreferrer"
