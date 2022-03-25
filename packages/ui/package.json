@@ -10,5 +10,9 @@
     "config": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.3"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "tailwind-merge": "^1.2.1"
   }
 }

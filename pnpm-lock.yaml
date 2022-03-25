@@ -80,6 +80,7 @@ importers:
       '@types/react': 17.0.37
       config: workspace:*
       eslint: 7.32.0
+      framer-motion: ^6.2.8
       next: 12.0.8
       next-transpile-modules: 9.0.0
       react: 17.0.2
@@ -88,6 +89,7 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
       next: 12.0.8_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -135,9 +137,14 @@ importers:
     specifiers:
       '@types/react': ^17.0.37
       '@types/react-dom': ^17.0.11
+      clsx: ^1.1.1
       config: workspace:*
+      tailwind-merge: ^1.2.1
       tsconfig: workspace:*
       typescript: ^4.5.3
+    dependencies:
+      clsx: 1.1.1
+      tailwind-merge: 1.2.1
     devDependencies:
       '@types/react': 17.0.43
       '@types/react-dom': 17.0.14
@@ -666,6 +673,25 @@ packages:
       exec-sh: 0.3.6
       minimist: 1.2.6
     dev: true
+
+  /@emotion/is-prop-valid/0.8.8:
+    resolution:
+      {
+        integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==,
+      }
+    requiresBuild: true
+    dependencies:
+      '@emotion/memoize': 0.7.4
+    dev: false
+    optional: true
+
+  /@emotion/memoize/0.7.4:
+    resolution:
+      {
+        integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==,
+      }
+    dev: false
+    optional: true
 
   /@eslint/eslintrc/0.4.3:
     resolution:
@@ -2556,6 +2582,14 @@ packages:
       wrap-ansi: 7.0.0
     dev: true
 
+  /clsx/1.1.1:
+    resolution:
+      {
+        integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==,
+      }
+    engines: { node: '>=6' }
+    dev: false
+
   /co/4.6.0:
     resolution: { integrity: sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ= }
     engines: { iojs: '>= 1.0.0', node: '>= 0.12.0' }
@@ -4069,6 +4103,35 @@ packages:
       map-cache: 0.2.2
     dev: true
 
+  /framer-motion/6.2.8_react-dom@17.0.2+react@17.0.2:
+    resolution:
+      {
+        integrity: sha512-4PtBWFJ6NqR350zYVt9AsFDtISTqsdqna79FvSYPfYDXuuqFmiKtZdkTnYPslnsOMedTW0pEvaQ7eqjD+sA+HA==,
+      }
+    peerDependencies:
+      react: '>=16.8 || ^17.0.0 || ^18.0.0'
+      react-dom: '>=16.8 || ^17.0.0 || ^18.0.0'
+    dependencies:
+      framesync: 6.0.1
+      hey-listen: 1.0.8
+      popmotion: 11.0.3
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      style-value-types: 5.0.0
+      tslib: 2.3.1
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+    dev: false
+
+  /framesync/6.0.1:
+    resolution:
+      {
+        integrity: sha512-fUY88kXvGiIItgNC7wcTOl0SNRCVXMKSWW2Yzfmn7EKNc+MpCzcz9DhdHcdjbrtN3c6R4H5dTY2jiCpPdysEjA==,
+      }
+    dependencies:
+      tslib: 2.3.1
+    dev: false
+
   /fs.realpath/1.0.0:
     resolution: { integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8= }
 
@@ -4328,6 +4391,20 @@ packages:
     engines: { node: '>= 0.4.0' }
     dependencies:
       function-bind: 1.1.1
+
+  /hashlru/2.3.0:
+    resolution:
+      {
+        integrity: sha512-0cMsjjIC8I+D3M44pOQdsy0OHXGLVz6Z0beRuufhKa0KfaD2wGwAev6jILzXsd3/vpnNQJmWyZtIILqM1N+n5A==,
+      }
+    dev: false
+
+  /hey-listen/1.0.8:
+    resolution:
+      {
+        integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==,
+      }
+    dev: false
 
   /html-encoding-sniffer/2.0.1:
     resolution:
@@ -6525,6 +6602,18 @@ packages:
       find-up: 4.1.0
     dev: true
 
+  /popmotion/11.0.3:
+    resolution:
+      {
+        integrity: sha512-Y55FLdj3UxkR7Vl3s7Qr4e9m0onSnP8W7d/xQLsoJM40vs6UKHFdygs6SWryasTZYqugMjm3BepCF4CWXDiHgA==,
+      }
+    dependencies:
+      framesync: 6.0.1
+      hey-listen: 1.0.8
+      style-value-types: 5.0.0
+      tslib: 2.3.1
+    dev: false
+
   /posix-character-classes/0.1.1:
     resolution: { integrity: sha1-AerA/jta9xoqbAL+q7jB/vfgDqs= }
     engines: { node: '>=0.10.0' }
@@ -7531,6 +7620,16 @@ packages:
     engines: { node: '>=8' }
     dev: true
 
+  /style-value-types/5.0.0:
+    resolution:
+      {
+        integrity: sha512-08yq36Ikn4kx4YU6RD7jWEv27v4V+PUsOGa4n/as8Et3CuODMJQ00ENeAVXAeydX4Z2j1XHZF1K2sX4mGl18fA==,
+      }
+    dependencies:
+      hey-listen: 1.0.8
+      tslib: 2.3.1
+    dev: false
+
   /styled-jsx/5.0.0-beta.6_react@17.0.2:
     resolution:
       {
@@ -7648,6 +7747,15 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
     dev: true
+
+  /tailwind-merge/1.2.1:
+    resolution:
+      {
+        integrity: sha512-kWfy/u91XoE408Kb42HQd1krdiZjw2sbSWjE1C/lXXXsbK+6dhTpnd37DHrwNP6ofKj5/HKXlY/jTjPYgPxSsw==,
+      }
+    dependencies:
+      hashlru: 2.3.0
+    dev: false
 
   /tailwindcss/3.0.23_autoprefixer@10.4.4:
     resolution:
@@ -7825,7 +7933,6 @@ packages:
       {
         integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==,
       }
-    dev: true
 
   /tsutils/3.21.0_typescript@4.6.3:
     resolution:

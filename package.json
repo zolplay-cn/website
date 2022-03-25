@@ -42,11 +42,11 @@
   "packageManager": "pnpm@6.32.3",
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix .",
+      "eslint --fix",
       "prettier --write ."
     ],
     "packages/ui/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix .",
+      "eslint --fix",
       "prettier --write ."
     ],
     "*.json": [
