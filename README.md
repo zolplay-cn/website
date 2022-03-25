@@ -6,11 +6,11 @@ It includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `web`: Website for international audiences.
+- `web-cn`: Website for hosting in China only.
+- `config`: `eslint`, `prettier` and other configurations.
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo.
+- `ui`: a shared React component library for all our web applications.
 
 ### Tools
 
