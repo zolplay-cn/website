@@ -26,3 +26,4 @@ deploy-job: # This job runs in the deploy stage.
     changes:
       - apps/web-cn/**/*
       - packages/ui/**/*
+      - .gitlab-ci.yml
