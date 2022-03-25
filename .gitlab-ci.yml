@@ -21,6 +21,7 @@ deploy-job:      # This job runs in the deploy stage.
     - ssh $SSH_USER@$VM_IPADDRESS "cd $SSH_SITE_DIRECTORY && sh deploy.sh"
     - echo "应用已成功部署。"
   only:
-    - main
+    refs:
+      - main
     changes:
       - apps/web-cn/*
