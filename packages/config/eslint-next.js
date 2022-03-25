@@ -86,4 +86,15 @@ module.exports = {
     ],
     //#endregion  //*======== Import Sort ===========
   },
+  ignorePatterns: [
+    '**/*.js',
+    '**/*.json',
+    'node_modules',
+    'public',
+    'styles',
+    '.next',
+    'coverage',
+    'dist',
+    '.turbo',
+  ],
 }

@@ -7,7 +7,9 @@
     "eslint-preset.js",
     "eslint-next.js",
     "prettier-preset.js",
-    "prettier-next.js"
+    "prettier-next.js",
+    "jest-preset.js",
+    "jest-next.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.1",
