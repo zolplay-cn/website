@@ -1,6 +1,8 @@
-import React, { FC } from 'react'
+import React from 'react'
 
-export const Logo: FC<{ className?: string }> = ({ className }) => {
+import { UIComponent } from './@types/core'
+
+export const Logo: UIComponent = ({ className }) => {
   return (
     <svg className={className} viewBox="0 0 702 703" fill="none">
       <g opacity="0.5">

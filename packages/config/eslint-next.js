@@ -13,6 +13,7 @@ module.exports = {
     'next',
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
+    'plugin:mdx/recommended',
     'prettier',
   ],
   plugins: ['@typescript-eslint', 'simple-import-sort', 'unused-imports'],
@@ -96,5 +97,27 @@ module.exports = {
     'coverage',
     'dist',
     '.turbo',
+  ],
+  overrides: [
+    {
+      files: ['*.md'],
+      rules: {
+        'prettier/prettier': [
+          2,
+          {
+            // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
+            parser: 'markdown',
+          },
+        ],
+      },
+    },
+    {
+      files: ['*.mdx'],
+      extends: ['plugin:mdx/overrides'],
+    },
+    {
+      files: '**/*.{md,mdx}/**',
+      extends: 'plugin:mdx/code-blocks',
+    },
   ],
 }

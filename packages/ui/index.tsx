@@ -1,4 +1,4 @@
 export * from './Button'
-export * from './Layout'
+export * from './icons'
 export * from './Logo'
-export * from './utils/clsxm'
+export * from './utils'

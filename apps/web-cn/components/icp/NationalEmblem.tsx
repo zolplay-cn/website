@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import { clsxm } from 'ui'
+import type { UIComponent } from 'ui/@types/core'
+import { clsxm } from 'ui/utils'
 
-const NationalEmblem: FC<{ className?: string }> = ({ className }) => {
+const NationalEmblem: UIComponent = ({ className }) => {
   return (
     <svg
       className={clsxm('h-5 w-5', className)}

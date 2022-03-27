@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     '../../packages/ui/**/*.{js,ts,jsx,tsx}',
@@ -5,17 +7,26 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    container: {
+      center: true,
+    },
+
     extend: {
       backgroundImage: {
         'gradient-bg':
           'radial-gradient(26.96% 41.05% at 51.76% -18%, rgba(24, 114, 97, 0.2) 0%, rgba(24, 114, 97, 0) 100%), linear-gradient(113.5deg, #1C1C1F 10.29%, #121A2E 39.01%, #110B25 66.3%, #260F45 94.71%)',
       },
       colors: {
+        dark: '#0A0D23',
         neon: {
           500: '#A1DDFFE5',
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'Noto Sans SC', ...defaultTheme.fontFamily.sans],
+        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+      },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

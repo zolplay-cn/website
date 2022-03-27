@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion'
-import Head from 'next/head'
-import { Layout, Logo } from 'ui'
+import { NextSeo } from 'next-seo'
+import { Logo } from 'ui'
 
 import ICPLicense from '~/components/icp/ICPLicense'
+import { BareLayout } from '~/components/layouts/BareLayout'
 
 export default function HomePageInChina() {
   return (
-    <Layout className="items-center justify-between">
-      <Head>
-        <title>佐玩｜敬请期待</title>
-      </Head>
+    <BareLayout className="items-center justify-between">
+      <NextSeo title="敬请期待" />
 
       <header className="mt-8">
         <motion.div
@@ -122,6 +121,6 @@ export default function HomePageInChina() {
         </motion.span>
         <ICPLicense />
       </footer>
-    </Layout>
+    </BareLayout>
   )
 }

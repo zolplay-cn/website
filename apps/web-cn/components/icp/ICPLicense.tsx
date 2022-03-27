@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import { FC } from 'react'
+import { UIComponent } from 'ui/@types/core'
 
 import NationalEmblem from '~/components/icp/NationalEmblem'
 
-const IcpLicense: FC = () => {
+const IcpLicense: UIComponent = () => {
   return (
     <motion.a
       initial={{ opacity: 0, y: 10 }}

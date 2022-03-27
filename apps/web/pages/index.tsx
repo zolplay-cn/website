@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 import Head from 'next/head'
-import { Layout, Logo } from 'ui'
+import { Logo } from 'ui'
+
+import { BareLayout } from '~/components/layouts/BareLayout'
 
 export default function HomePage() {
   return (
-    <Layout className="items-center justify-between">
+    <BareLayout className="items-center justify-between">
       <Head>
         <title>Zolplay | Coming Soon</title>
       </Head>
@@ -106,6 +108,6 @@ export default function HomePage() {
           future.
         </motion.span>
       </footer>
-    </Layout>
+    </BareLayout>
   )
 }

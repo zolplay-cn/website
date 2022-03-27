@@ -11,12 +11,13 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^7.0.2",
@@ -32,6 +33,7 @@
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.8",
+    "remark-preset-prettier": "^1.0.0",
     "tailwindcss": "^3.0.23",
     "turbo": "latest"
   },
@@ -41,11 +43,11 @@
   },
   "packageManager": "pnpm@6.32.3",
   "lint-staged": {
-    "apps/**/*.{js,jsx,ts,tsx}": [
+    "apps/**/*.{js,jsx,ts,tsx,mdx}": [
       "eslint --fix",
       "prettier --write ."
     ],
-    "packages/ui/**/*.{js,jsx,ts,tsx}": [
+    "packages/ui/**/*.{js,jsx,ts,tsx,mdx}": [
       "eslint --fix",
       "prettier --write ."
     ],

@@ -1,5 +1,7 @@
 # [Turborepo](https://turborepo.org) for Zolplay Website.
 
+![Zolplay Banner](apps/web-cn/public/og-image.jpg)
+
 ## What's inside?
 
 It includes the following packages/apps:
@@ -23,6 +25,7 @@ This turborepo is built by these amazing tools:
 - [Next.js](https://nextjs.org/) for building the web apps
 - [pnpm](https://pnpm.io/) for managing the packages
 - [TailwindCSS](https://tailwindcss.com/) for styling the web apps
+- [Framer Motion](https://framer.com/motion/) for composing animations
 
 ## Setup
 
