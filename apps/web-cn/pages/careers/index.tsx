@@ -12,12 +12,6 @@ import { MailOpenIcon } from '@heroicons/react/outline'
 const CareersPageInChina: NextPage = () => {
   return (
     <>
-      <NextSeo
-        openGraph={{
-          images: [{ url: makeUrl('/assets/careers/og-image.jpg') }],
-        }}
-      />
-
       <CareersLayout
         title={['加入我们', '一起匠心打造每一款产品']}
         cta={{ label: '查看开放职位', href: '/careers#open-positions' }}
@@ -60,6 +54,13 @@ const CareersPageInChina: NextPage = () => {
         <AllPositions className="my-12" />
         <p>别迟疑了！会是你吗？还不快你的大招展示给我们看看！</p>
       </CareersLayout>
+
+      <NextSeo
+        title="加入我们"
+        openGraph={{
+          images: [{ url: makeUrl('/assets/careers/og-image.jpg') }],
+        }}
+      />
     </>
   )
 }
