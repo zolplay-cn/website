@@ -10,7 +10,7 @@ import { BareLayout } from '~/components/layouts/BareLayout'
 export default function HomePageInChina() {
   return (
     <BareLayout className="items-center justify-between">
-      <NextSeo title="敬请期待" />
+      <NextSeo title="欢迎来到佐玩" />
 
       <header className="mt-8">
         <motion.div
