@@ -1,3 +1,5 @@
+export * from './CareersIcon'
+export * from './ExternalIcon'
 export * from './GithubIcon'
-export * from './JoinIcon'
+export * from './ScanIcon'
 export * from './WeChatIcon'

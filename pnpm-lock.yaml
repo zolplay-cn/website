@@ -84,6 +84,7 @@ importers:
     specifiers:
       '@mdx-js/loader': ^2.1.0
       '@next/mdx': ^12.1.1
+      '@tippyjs/react': ^4.2.6
       '@types/node': ^17.0.12
       '@types/react': 17.0.37
       config: workspace:*
@@ -94,17 +95,20 @@ importers:
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2
+      tippy.js: ^6.3.7
       tsconfig: workspace:*
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
       '@mdx-js/loader': 2.1.0
       '@next/mdx': 12.1.1_@mdx-js+loader@2.1.0
+      '@tippyjs/react': 4.2.6_react-dom@17.0.2+react@17.0.2
       framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
       next: 12.0.8_react-dom@17.0.2+react@17.0.2
       next-seo: 5.2.0_227e7fb4dbd28186517209bc65f02635
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      tippy.js: 6.3.7
       ui: link:../../packages/ui
     devDependencies:
       '@types/node': 17.0.23
@@ -1381,6 +1385,13 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
+  /@popperjs/core/2.11.4:
+    resolution:
+      {
+        integrity: sha512-q/ytXxO5NKvyT37pmisQAItCFqA7FD/vNb8dgaJy3/630Fsc+Mz9/9f2SziBoIZ30TJooXyTwZmhi1zjXmObYg==,
+      }
+    dev: false
+
   /@rushstack/eslint-patch/1.1.1:
     resolution:
       {
@@ -1516,6 +1527,20 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.8
     dev: true
+
+  /@tippyjs/react/4.2.6_react-dom@17.0.2+react@17.0.2:
+    resolution:
+      {
+        integrity: sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==,
+      }
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      tippy.js: 6.3.7
+    dev: false
 
   /@tootallnate/once/1.1.2:
     resolution:
@@ -9829,6 +9854,15 @@ packages:
   /through/2.3.8:
     resolution: { integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU= }
     dev: true
+
+  /tippy.js/6.3.7:
+    resolution:
+      {
+        integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==,
+      }
+    dependencies:
+      '@popperjs/core': 2.11.4
+    dev: false
 
   /tmpl/1.0.5:
     resolution:

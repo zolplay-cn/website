@@ -1,9 +1,26 @@
 import type { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
+import { roundArrow } from 'tippy.js'
 
 import '~/styles/globals.css'
+import '~/styles/tippy.css'
 
 import { makeUrl } from '~/lib/utils'
+
+import { tippy } from '@tippyjs/react'
+
+if (typeof window !== 'undefined') {
+  tippy.setDefaultProps({
+    animation: 'perspective-subtle',
+    theme: 'zolplay',
+    inertia: true,
+    interactive: true,
+    arrow: roundArrow,
+    hideOnClick: false,
+    maxWidth: 'none',
+    appendTo: document.body,
+  })
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

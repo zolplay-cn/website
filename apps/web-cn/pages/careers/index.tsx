@@ -14,7 +14,12 @@ const CareersPageInChina: NextPage = () => {
         }}
       />
 
-      <CareersLayout title="成为我们的一员">{/*  */}</CareersLayout>
+      <CareersLayout
+        title={['加入我们', '一起匠心打造每一款产品']}
+        cta="查看开放职位"
+      >
+        {/*  */}
+      </CareersLayout>
     </>
   )
 }
