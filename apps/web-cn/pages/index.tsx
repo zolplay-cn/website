@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { NextSeo } from 'next-seo'
+import React from 'react'
 import { Logo } from 'ui'
 
 import ICPLicense from '~/components/icp/ICPLicense'
@@ -95,6 +97,31 @@ export default function HomePageInChina() {
             佐玩
           </motion.span>
         </motion.h1>
+
+        <div className="mt-4 flex w-full items-center justify-center">
+          <Link href="/careers" passHref>
+            <motion.a
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  delay: 0.65,
+                  type: 'spring',
+                },
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.96 }}
+              className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
+            >
+              <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
+                <span className="text-sm font-bold text-zinc-200">
+                  加入我们吧！
+                </span>
+              </div>
+            </motion.a>
+          </Link>
+        </div>
       </section>
 
       <footer className="mb-4 flex flex-col items-center space-y-4 px-4 md:flex-row md:space-x-5 md:space-y-0">

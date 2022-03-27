@@ -1,81 +1,10 @@
 import { motion } from 'framer-motion'
-import { BiRestaurant } from 'react-icons/bi'
-import { IoLogoGameControllerB } from 'react-icons/io'
-import { MdEmojiFoodBeverage } from 'react-icons/md'
-import {
-  CalendarMultipleIcon,
-  CatIcon,
-  clsxm,
-  KeyboardIcon,
-  SeatReclineIcon,
-} from 'ui'
+import { clsxm } from 'ui'
 import { UIComponent } from 'ui/@types/core'
 
+import { coreBenefits, miscBenefits } from '~/lib/data'
+
 import { EmploymentBenefit } from '~/@types/careers'
-
-import { PlusCircleIcon } from '@heroicons/react/outline'
-import { CurrencyYenIcon, LibraryIcon } from '@heroicons/react/solid'
-
-const coreBenefits: EmploymentBenefit[] = [
-  {
-    icon: LibraryIcon,
-    title: '五险一金',
-    description: '附加住房补助、餐补、交通补助以及加班补助',
-    className: 'bg-gradient-to-br from-sky-500 to-pink-800 shadow-pink-400/10',
-  },
-  {
-    icon: CurrencyYenIcon,
-    title: '年终奖 & 项目提成',
-    description: '不拿固定工资，跟着公司共赢，早日奔向财务自由',
-    className: 'bg-gradient-to-br from-rose-400 to-rose-900 shadow-rose-400/10',
-  },
-  {
-    icon: SeatReclineIcon,
-    title: '弹性办公',
-    description: '可居家/咖啡厅/厕所/想哪办公就哪办公 疫情再次爆发也不怕',
-    className:
-      'bg-gradient-to-br from-slate-500 to-gray-900 shadow-gray-400/10',
-  },
-  {
-    icon: CalendarMultipleIcon,
-    title: '周末双休',
-    description: '朝九晚五，俗话说：懂得休息的人，才会更效率地完成工作',
-    className:
-      'bg-gradient-to-br from-sky-400 to-slate-800 shadow-slate-400/20',
-  },
-  {
-    icon: IoLogoGameControllerB,
-    title: '周常团队游戏活动',
-    description: '每两周或不定时的团队"开黑"，释怀自己的游戏技能',
-    className:
-      'bg-gradient-to-br from-cyan-500 to-fuchsia-900 shadow-fuchsia-400/20',
-  },
-  {
-    icon: KeyboardIcon,
-    title: '国际顶尖付费软件',
-    description: '我们始终相信优秀的生产力与协同工具能造就更效率的团队',
-    className:
-      'bg-gradient-to-br from-teal-500 to-green-900 shadow-green-400/20',
-  },
-]
-const miscBenefits: EmploymentBenefit[] = [
-  {
-    icon: CatIcon,
-    title: '办公室撸猫',
-  },
-  {
-    icon: BiRestaurant,
-    title: '节日聚会、团队聚餐',
-  },
-  {
-    icon: MdEmojiFoodBeverage,
-    title: '饮料、零食供应',
-  },
-  {
-    icon: PlusCircleIcon,
-    title: '更多福利等待你来发现',
-  },
-]
 
 const BenefitCard: UIComponent<EmploymentBenefit> = ({
   icon: Icon,

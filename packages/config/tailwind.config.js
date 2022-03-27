@@ -16,6 +16,10 @@ module.exports = {
         'gradient-bg':
           'radial-gradient(26.96% 41.05% at 51.76% -18%, rgba(24, 114, 97, 0.2) 0%, rgba(24, 114, 97, 0) 100%), linear-gradient(113.5deg, #1C1C1F 10.29%, #121A2E 39.01%, #110B25 66.3%, #260F45 94.71%)',
       },
+      boxShadow: {
+        'in-dark':
+          'inset -1px -1px 2px rgba(255, 225, 215, 0.02), inset 1px 1px 2px rgba(255, 255, 255, 0.07)',
+      },
       colors: {
         dark: '#0A0D23',
         neon: {

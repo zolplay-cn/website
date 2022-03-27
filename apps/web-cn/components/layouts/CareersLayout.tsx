@@ -19,7 +19,10 @@ const PageTitle: UIComponent = ({ children }) => {
 
 type CareersLayoutProps = {
   title: string | string[]
-  cta?: string
+  cta?: {
+    href: string
+    label: string
+  }
 }
 export const CareersLayout: UIComponent<CareersLayoutProps> = ({
   className,
@@ -57,7 +60,7 @@ export const CareersLayout: UIComponent<CareersLayoutProps> = ({
           </h1>
 
           {cta !== undefined && (
-            <Link href="" passHref>
+            <Link href={cta.href} passHref>
               <motion.a
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.02 }}
@@ -65,7 +68,9 @@ export const CareersLayout: UIComponent<CareersLayoutProps> = ({
                 className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
               >
                 <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
-                  <span className="text-sm font-bold text-zinc-200">{cta}</span>
+                  <span className="text-sm font-bold text-zinc-200">
+                    {cta.label}
+                  </span>
                 </div>
               </motion.a>
             </Link>
