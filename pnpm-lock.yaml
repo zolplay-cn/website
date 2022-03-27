@@ -82,6 +82,7 @@ importers:
 
   apps/web-cn:
     specifiers:
+      '@heroicons/react': ^1.0.6
       '@mdx-js/loader': ^2.1.0
       '@next/mdx': ^12.1.1
       '@tippyjs/react': ^4.2.6
@@ -95,11 +96,13 @@ importers:
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2
+      react-icons: ^4.3.1
       tippy.js: ^6.3.7
       tsconfig: workspace:*
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      '@heroicons/react': 1.0.6_react@17.0.2
       '@mdx-js/loader': 2.1.0
       '@next/mdx': 12.1.1_@mdx-js+loader@2.1.0
       '@tippyjs/react': 4.2.6_react-dom@17.0.2+react@17.0.2
@@ -108,6 +111,7 @@ importers:
       next-seo: 5.2.0_227e7fb4dbd28186517209bc65f02635
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      react-icons: 4.3.1_react@17.0.2
       tippy.js: 6.3.7
       ui: link:../../packages/ui
     devDependencies:
@@ -802,6 +806,17 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@heroicons/react/1.0.6_react@17.0.2:
+    resolution:
+      {
+        integrity: sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==,
+      }
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /@humanwhocodes/config-array/0.5.0:
     resolution:
@@ -8195,6 +8210,17 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.8
     dev: true
+
+  /react-icons/4.3.1_react@17.0.2:
+    resolution:
+      {
+        integrity: sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==,
+      }
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /react-is/16.13.1:
     resolution:

@@ -43,7 +43,9 @@ export const CareersLayout: UIComponent<CareersLayoutProps> = ({
 
       <NavBar />
 
-      <BareLayout className={clsxm('careers', 'bg-none', className)}>
+      <BareLayout
+        className={clsxm('careers', 'items-center bg-none pb-12', className)}
+      >
         <header className="container mt-8 flex flex-col items-center text-center lg:mt-36">
           <CareersIcon className="mb-3 h-10 w-10 text-neon-500" />
           <h1 className="text-neon flex flex-col items-center px-12 text-4xl font-extrabold tracking-tight lg:px-24 lg:text-[4.2rem]">
@@ -70,7 +72,9 @@ export const CareersLayout: UIComponent<CareersLayoutProps> = ({
           )}
         </header>
 
-        {children}
+        <article className="prose prose-slate prose-sky prose-dark mt-36 lg:prose-lg">
+          {children}
+        </article>
       </BareLayout>
     </>
   )
