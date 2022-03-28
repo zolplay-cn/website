@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 import { clsxm } from 'ui'
 import { UIComponent } from 'ui/@types/core'
+
+import styles from '~/styles/Benefits.module.css'
 
 import { coreBenefits, miscBenefits } from '~/lib/data'
 
@@ -11,7 +14,25 @@ const BenefitCard: UIComponent<EmploymentBenefit> = ({
   className,
   title,
   description,
+  cardColor,
 }) => {
+  const style = useMemo(() => {
+    switch (cardColor) {
+      case 'sky-slate':
+        return styles.BenefitCardSkySlate
+      case 'sky-slate-2':
+        return styles.BenefitCardSkySlate2
+      case 'pink-indigo':
+        return styles.BenefitCardPinkIndigo
+      case 'yellow-fuchsia':
+        return styles.BenefitCardYellowFuchsia
+      case 'emerald-teal':
+        return styles.BenefitCardEmeraldTeal
+      case 'rose':
+        return styles.BenefitCardRose
+    }
+  }, [cardColor])
+
   return (
     <motion.div
       initial={{ scale: 1 }}
@@ -19,6 +40,7 @@ const BenefitCard: UIComponent<EmploymentBenefit> = ({
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className={clsxm(
         'flex h-[200px] flex-col items-center justify-center rounded-3xl rounded-bl-md p-4 text-center leading-relaxed tracking-[0.3px] text-slate-200 shadow-2xl',
+        style,
         className
       )}
     >

@@ -15,5 +15,11 @@ type EmploymentBenefit = {
   icon: UIComponent
   title: string
   description?: string
-  className?: string
+  cardColor?:
+    | 'sky-slate'
+    | 'rose'
+    | 'pink-indigo'
+    | 'emerald-teal'
+    | 'yellow-fuchsia'
+    | 'sky-slate-2'
 }

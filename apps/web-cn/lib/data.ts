@@ -55,42 +55,37 @@ export const coreBenefits: EmploymentBenefit[] = [
     icon: LibraryIcon,
     title: '五险一金',
     description: '附加住房补助、餐补、交通补助以及加班补助',
-    className:
-      'bg-gradient-to-br from-sky-700 to-slate-900 shadow-slate-400/10',
+    cardColor: 'sky-slate',
   },
   {
     icon: CurrencyYenIcon,
     title: '年终奖 & 项目提成',
     description: '不拿固定工资，跟着公司共赢，早日奔向财务自由',
-    className: 'bg-gradient-to-br from-rose-400 to-rose-900 shadow-rose-400/10',
+    cardColor: 'rose',
   },
   {
     icon: SeatReclineIcon,
     title: '弹性办公',
     description: '可居家/咖啡厅/厕所/想哪办公就哪办公 疫情再次爆发也不怕',
-    className:
-      'bg-gradient-to-br from-pink-400 to-indigo-900 shadow-indigo-400/10',
+    cardColor: 'pink-indigo',
   },
   {
     icon: CalendarMultipleIcon,
     title: '周末双休',
     description: '朝九晚五，俗话说：懂得休息的人，才会更效率地完成工作',
-    className:
-      'bg-gradient-to-br from-emerald-500 to-teal-900 shadow-teal-400/20',
+    cardColor: 'emerald-teal',
   },
   {
     icon: IoLogoGameControllerB,
     title: '周常团队游戏活动',
     description: '每两周或不定时的团队"开黑"，释怀自己的游戏技能',
-    className:
-      'bg-gradient-to-br from-yellow-500 to-fuchsia-900 shadow-fuchsia-400/20',
+    cardColor: 'yellow-fuchsia',
   },
   {
     icon: KeyboardIcon,
     title: '国际顶尖付费软件',
     description: '我们始终相信优秀的生产力与协同工具能造就更效率的团队',
-    className:
-      'bg-gradient-to-br from-sky-400 to-slate-800 shadow-slate-400/20',
+    cardColor: 'sky-slate-2',
   },
 ]
 export const miscBenefits: EmploymentBenefit[] = [
