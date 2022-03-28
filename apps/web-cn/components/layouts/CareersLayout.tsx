@@ -66,7 +66,7 @@ export const CareersLayout: FC = ({ children }) => {
             initial={{ scale: 1.15, y: -10, rotate: -1, opacity: 0 }}
             whileInView={{ scale: 1, y: 0, rotate: 0, opacity: 1 }}
             transition={{ type: 'spring', delay: 0.22 }}
-            className="text-neon flex flex-col items-center px-10 text-4xl font-extrabold tracking-tight lg:px-24 lg:text-[4.2rem]"
+            className="text-neon flex flex-col items-center px-2 text-3xl font-extrabold tracking-tight lg:px-24 lg:text-[4.2rem]"
           >
             {typeof title === 'string' ? (
               <PageTitle>{title}</PageTitle>
