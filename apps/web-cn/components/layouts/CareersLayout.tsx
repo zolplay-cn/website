@@ -45,40 +45,60 @@ export const CareersLayout: FC = ({ children }) => {
       `}</style>
 
       <header className="container mt-8 flex flex-col items-center text-center lg:mt-36">
-        {Icon ? (
-          <Icon className="mb-3 h-10 w-10 text-neon-500" />
-        ) : (
-          <CareersIcon className="mb-3 h-10 w-10 text-neon-500" />
-        )}
+        <motion.div
+          initial={{ scale: 1.35, y: 15, rotate: 2, opacity: 0 }}
+          whileInView={{ scale: 1, y: 0, rotate: 0, opacity: 1 }}
+          transition={{ type: 'spring', delay: 0.15 }}
+          className="mb-3 text-neon-500"
+        >
+          {Icon ? (
+            <Icon className="h-10 w-10" />
+          ) : (
+            <CareersIcon className="h-10 w-10" />
+          )}
+        </motion.div>
+
         {title !== undefined && (
-          <h1 className="text-neon flex flex-col items-center px-12 text-4xl font-extrabold tracking-tight lg:px-24 lg:text-[4.2rem]">
+          <motion.h1
+            initial={{ scale: 1.15, y: -10, rotate: -1, opacity: 0 }}
+            whileInView={{ scale: 1, y: 0, rotate: 0, opacity: 1 }}
+            transition={{ type: 'spring', delay: 0.22 }}
+            className="text-neon flex flex-col items-center px-12 text-4xl font-extrabold tracking-tight lg:px-24 lg:text-[4.2rem]"
+          >
             {typeof title === 'string' ? (
               <PageTitle>{title}</PageTitle>
             ) : (
               title.map((t, i) => <PageTitle key={i}>{t}</PageTitle>)
             )}
-          </h1>
+          </motion.h1>
         )}
 
         {cta !== undefined && (
-          <Link href={cta.href} passHref>
-            <motion.a
-              initial={{ scale: 1 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.96 }}
-              className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
-            >
-              <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
-                <span className="text-sm font-bold text-zinc-200">
-                  {cta.label}
-                </span>
-              </div>
-            </motion.a>
-          </Link>
+          <motion.div
+            initial={{ scale: 1.15, y: -18, opacity: 0 }}
+            whileInView={{ scale: 1, y: 0, opacity: 1 }}
+            transition={{ type: 'spring', delay: 0.3 }}
+            className="mt-10"
+          >
+            <Link href={cta.href} passHref>
+              <motion.a
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.96 }}
+                className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
+              >
+                <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
+                  <span className="text-sm font-bold text-zinc-200">
+                    {cta.label}
+                  </span>
+                </div>
+              </motion.a>
+            </Link>
+          </motion.div>
         )}
       </header>
 
-      <main className="container mt-40 flex flex-col items-center">
+      <main className="container mt-40 mb-16 flex flex-col items-center">
         <article className="prose prose-slate prose-sky prose-dark selection:bg-fuchsia-300 selection:text-fuchsia-900 lg:prose-lg">
           {children}
         </article>

@@ -1,9 +1,19 @@
-import { CareersLayout } from '~/components/layouts/CareersLayout'
+import { NextSeo } from 'next-seo'
+import { useMemo } from 'react'
 
-export const meta = {
-  author: 'Cali Castle',
-}
+import { jobs } from '~/lib/data'
+
+import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
+
+<NextSeo title="前端攻城狮面试挑战题" />
 
 export default ({ children }) => {
-  return <CareersLayout title="前端工程师面试挑战题">{children}</CareersLayout>
+  const job = useMemo(() => jobs.find(job => job.slug === 'frontend-engineer'), [])
+  useCareersLayoutConfig({
+    icon: job.icon,
+    title: '前端攻城狮面试挑战题',
+    cta: { label: '已完成？立即提交', href: 'mailto:hr@zolplay.cn' }
+  })
+
+return <>{children}</>
 }

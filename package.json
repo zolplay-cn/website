@@ -43,15 +43,15 @@
   },
   "packageManager": "pnpm@6.32.3",
   "lint-staged": {
-    "apps/**/*.{js,jsx,ts,tsx,mdx}": [
+    "apps/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write ."
     ],
-    "packages/ui/**/*.{js,jsx,ts,tsx,mdx}": [
+    "packages/ui/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write ."
     ],
-    "*.json": [
+    "*.{json,mdx}": [
       "prettier --write ."
     ]
   }
