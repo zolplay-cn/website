@@ -12,21 +12,23 @@ import Tippy from '@tippyjs/react'
 const NavBar: UIComponent = () => {
   return (
     <nav className="absolute top-0 z-[1000] flex h-20 w-full items-center antialiased">
-      <main className="container flex w-full items-center justify-between px-6">
+      <main className="container flex w-full items-center justify-between px-2 lg:px-6">
         <motion.aside
           initial={{ opacity: 0.3 }}
           whileInView={{ opacity: 1 }}
           whileHover={{ opacity: 1, scale: 1.015 }}
           whileTap={{ scale: 0.97 }}
-          className="pl-4"
+          className="pl-0 lg:pl-4"
         >
           <SiteLink href="/" strict>
             <NeonLogo type="sm" />
-            <NeonTextLogo type="sm" />
+            <div className="hidden lg:block">
+              <NeonTextLogo type="sm" />
+            </div>
           </SiteLink>
         </motion.aside>
 
-        <section className="flex flex-1 items-center justify-end">
+        <section className="hidden flex-1 items-center justify-end lg:flex">
           <motion.ul
             className="relative flex items-center space-x-5 pr-6 text-zinc-50 after:absolute after:top-[50%] after:right-0 after:-translate-y-[50%] after:text-xs after:text-slate-100/25 after:content-['|']"
             id="nav-links"

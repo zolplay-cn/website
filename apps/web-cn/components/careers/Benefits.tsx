@@ -39,16 +39,20 @@ const BenefitCard: UIComponent<EmploymentBenefit> = ({
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className={clsxm(
-        'flex h-[200px] flex-col items-center justify-center rounded-3xl rounded-bl-md p-4 text-center leading-relaxed tracking-[0.3px] text-slate-200 shadow-2xl',
+        'flex h-40 flex-col items-center justify-center rounded-2xl rounded-bl-md p-2 text-center leading-relaxed tracking-[0.3px] text-slate-200 shadow-2xl lg:h-[200px] lg:rounded-3xl lg:p-4',
         style,
         className
       )}
     >
-      <div className="mb-3">
+      <div className="mb-1.5 lg:mb-3">
         <Icon className="h-6 w-6" />
       </div>
-      <strong className="mb-3 text-lg font-semibold">{title}</strong>
-      {description && <p className="text-sm text-white/70">{description}</p>}
+      <strong className="mb-1 text-base font-semibold lg:mb-3 lg:text-lg">
+        {title}
+      </strong>
+      {description && (
+        <p className="text-xs text-white/70 lg:text-sm">{description}</p>
+      )}
     </motion.div>
   )
 }
@@ -56,7 +60,7 @@ const BenefitCard: UIComponent<EmploymentBenefit> = ({
 const Benefits: UIComponent = () => {
   return (
     <>
-      <div className="flex gap-6 space-x-6 pb-6 lg:grid lg:grid-cols-3 lg:space-x-0">
+      <div className="grid grid-cols-2 gap-4 pb-6 md:space-x-4 lg:grid-cols-3 lg:gap-6 lg:space-x-0">
         {coreBenefits.map((benefit, i) => (
           <BenefitCard key={i} {...benefit} />
         ))}

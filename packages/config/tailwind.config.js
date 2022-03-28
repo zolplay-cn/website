@@ -33,11 +33,19 @@ module.exports = {
       },
 
       typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            ul: {
+              paddingLeft: theme('spacing.4'),
+            },
+          },
+        },
         dark: {
           css: {
             color: theme('colors.slate.400'),
             h1: {
               color: theme('colors.slate.100'),
+              marginBottom: theme('spacing.10'),
             },
             'h2, h3, h4, thead th': {
               color: theme('colors.slate.200'),

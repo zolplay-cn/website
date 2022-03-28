@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
+import { useEffect } from 'react'
 import { roundArrow } from 'tippy.js'
 
 import '~/styles/globals.css'
@@ -30,6 +31,22 @@ if (typeof window !== 'undefined') {
 function MyApp({ Component, pageProps }: AppProps) {
   const { route } = useRouter()
   const Layout = useLayout(route)
+
+  useEffect(() => {
+    console.log(
+      '███████╗ ██████╗ ██╗     ██████╗ ██╗      █████╗ ██╗   ██╗     ██████╗ ██████╗\n' +
+        '╚══███╔╝██╔═══██╗██║     ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝    ██╔════╝██╔═══██╗\n' +
+        '  ███╔╝ ██║   ██║██║     ██████╔╝██║     ███████║ ╚████╔╝     ██║     ██║   ██║\n' +
+        ' ███╔╝  ██║   ██║██║     ██╔═══╝ ██║     ██╔══██║  ╚██╔╝      ██║     ██║   ██║\n' +
+        '███████╗╚██████╔╝███████╗██║     ███████╗██║  ██║   ██║       ╚██████╗╚██████╔╝██╗\n' +
+        '╚══════╝ ╚═════╝ ╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═╝\n' +
+        '\n' +
+        `岗位招聘中：${makeUrl('/careers')}\n` +
+        `GitHub：${process.env.NEXT_PUBLIC_GITHUB_URL}\n` +
+        '\n' +
+        '加入我们，一起匠心打造每一款产品'
+    )
+  }, [])
 
   return (
     <>
