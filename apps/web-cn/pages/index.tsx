@@ -43,7 +43,7 @@ export default function HomePageInChina() {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: 'spring', delay: 0.15 }}
-          className="text-neon flex flex-wrap justify-center text-6xl font-extrabold tracking-wider text-neon-500"
+          className="flex flex-wrap justify-center text-6xl font-extrabold tracking-wider text-neon-500"
         >
           <motion.span
             animate={{
@@ -57,6 +57,7 @@ export default function HomePageInChina() {
               duration: 4,
               repeat: Infinity,
             }}
+            className="text-neon h-24"
           >
             欢
           </motion.span>
@@ -72,11 +73,12 @@ export default function HomePageInChina() {
               duration: 3.5,
               repeat: Infinity,
             }}
+            className="text-neon h-24"
           >
             迎
           </motion.span>
-          <span>光</span>
-          <span>临</span>
+          <span className="text-neon h-24">光</span>
+          <span className="text-neon h-24">临</span>
           <motion.span
             animate={{
               opacity: [
@@ -89,7 +91,7 @@ export default function HomePageInChina() {
               duration: 5.5,
               repeat: Infinity,
             }}
-            className="mt-4 min-w-full bg-gradient-to-r from-pink-500 to-violet-400 bg-clip-text text-center text-transparent sm:mt-0 sm:min-w-0"
+            className="text-neon mt-4 h-24 min-w-full text-center text-pink-400 sm:mt-0 sm:min-w-0"
           >
             佐玩
           </motion.span>

@@ -262,7 +262,10 @@ const NavBar: UIComponent = () => {
               className="appearance-none p-2 text-slate-200"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <MenuButton isOpen={isOpen} />
+              <MenuButton
+                isOpen={isOpen}
+                className="pointer-events-none select-none"
+              />
             </motion.button>
           </motion.div>
         </main>

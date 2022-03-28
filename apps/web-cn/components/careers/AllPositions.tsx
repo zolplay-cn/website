@@ -68,7 +68,7 @@ const JobFlyer: UIComponent<Job> = ({
     <motion.aside
       initial={idleKey}
       whileHover={hoverKey}
-      className="relative aspect-[3/4] h-[350px] flex-shrink-0"
+      className="relative h-[350px] w-64 flex-shrink-0"
     >
       <motion.div
         variants={backCard2Variants}
@@ -114,7 +114,7 @@ const JobFlyer: UIComponent<Job> = ({
           </div>
           <strong
             className={clsxm(
-              'text-neon w-full text-center text-2xl font-semibold tracking-tight'
+              'text-neon w-full text-center text-xl font-semibold tracking-tight'
             )}
           >
             {title}
@@ -199,8 +199,13 @@ const JobFlyer: UIComponent<Job> = ({
 
 const AllPositions: UIComponent = ({ className }) => {
   return (
-    <section className={clsxm('relative max-w-xs md:max-w-none', className)}>
-      <div className="flex min-h-[420px] flex-nowrap justify-start space-x-8 overflow-x-scroll bg-dark bg-cover bg-repeat px-14 pl-10 md:pl-14 lg:min-h-[500px] lg:px-24 lg:py-20">
+    <section
+      className={clsxm(
+        'relative mx-auto max-w-[92vw] md:max-w-none',
+        className
+      )}
+    >
+      <div className="flex min-h-[420px] flex-nowrap justify-start space-x-8 overflow-x-scroll bg-dark bg-cover bg-repeat px-14 pl-3 md:pl-14 lg:min-h-[500px] lg:px-24 lg:py-20">
         {jobs.map((job, i) => (
           <JobFlyer key={i} {...job} />
         ))}
@@ -217,8 +222,8 @@ const AllPositions: UIComponent = ({ className }) => {
         `}</style>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 -left-1 z-30 w-8 select-none bg-gradient-to-r from-dark md:left-0 lg:w-12" />
-      <div className="pointer-events-none absolute inset-y-0 -right-1 z-30 w-8 select-none bg-gradient-to-l from-dark lg:w-12" />
+      <div className="pointer-events-none absolute inset-y-0 z-10 hidden w-8 select-none bg-gradient-to-r from-dark md:left-0 lg:block lg:w-12" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-8 select-none bg-gradient-to-l from-dark lg:block lg:w-12" />
     </section>
   )
 }

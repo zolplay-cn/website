@@ -10,7 +10,7 @@ import { useNavBarTransparentThreshold } from '~/components/NavBar'
 
 const PageTitle: UIComponent = ({ children }) => {
   return (
-    <span className="inline h-16 bg-gradient-to-r from-zinc-50 via-blue-200 to-pink-300 bg-clip-text object-center pt-4 text-transparent lg:h-24">
+    <span className="inline h-16 object-center pt-4 text-neon-500 lg:h-24">
       {children}
     </span>
   )
@@ -47,7 +47,7 @@ export const CareersLayout: FC = ({ children }) => {
         }
       `}</style>
 
-      <header className="container mt-20 flex flex-col items-center text-center lg:mt-36">
+      <header className="container mt-20 flex flex-col items-center bg-transparent text-center lg:mt-36">
         <motion.div
           initial={{ scale: 1.35, y: 15, rotate: 2, opacity: 0 }}
           whileInView={{ scale: 1, y: 0, rotate: 0, opacity: 1 }}
