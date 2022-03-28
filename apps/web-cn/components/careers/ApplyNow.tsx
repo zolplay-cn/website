@@ -7,7 +7,6 @@ import { MailOpenIcon } from '@heroicons/react/outline'
 const ApplyNow: UIComponent = ({ className }) => {
   return (
     <div className={clsxm('py-4', className)}>
-      <p>别迟疑了！会是你吗？还不快你的大招展示给我们看看！</p>
       <p>
         如果你也秉持着构建卓越软件的使命，欢迎随时附上你的简历并联系我们。
         <a href="mailto:hr@zolplay.cn" className="flex items-center">
