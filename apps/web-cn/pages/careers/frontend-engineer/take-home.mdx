@@ -1,18 +1,107 @@
 import { NextSeo } from 'next-seo'
 import { useMemo } from 'react'
 
+import { GithubIcon } from 'ui'
+import { IoLogoSlack } from 'react-icons/io5'
 import { jobs } from '~/lib/data'
 
 import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
 
 <NextSeo title="前端攻城狮面试挑战题" />
 
+## 恭喜 🎉
+
+首先需要恭喜您通过了佐玩的简历初步筛选！我们理解找工作不容易，我们也非常尊重您能抽出宝贵的时间来投递简历。
+
+🤔 那么过了初筛下一步是什么？
+
+## 挑战题项目 —— Zeam
+
+💪 接下来就是您大展身手的时刻到了～
+
+我们将做一个简单的前端项目：
+
+### 项目背景
+
+假设客户要求开发一款迷你版 Steam，名叫 **Zeam**；目的是让用户在网页中浏览感兴趣的游戏，并且可以点击查看详情页面等等。
+
+以下就是客户给出的项目完成要求：
+
+1. 一个首页
+
+   - 展示所有游戏
+   - 可以按照游戏的类型 与 游戏的发行时间进行排序
+   - 可以快速将游戏添加到收藏夹
+   - 可以快速根据关键字搜索过滤游戏
+   - 可以打开收藏夹页面
+
+2. 一个游戏详情页面
+
+   - 展示游戏的详细信息
+   - 可以快速将游戏添加到收藏夹
+
+3. 一个收藏夹页面
+   - 展示收藏的游戏
+   - 可以快速将游戏从收藏夹中移除
+   - 可以进入游戏的详情页面
+
+### API 说明
+
+- API 获取全部游戏的接口为：[https://www.freetogame.com/api/games](https://www.freetogame.com/api/games)
+- API 获取单个游戏的接口为：[https://www.freetogame.com/api/game?id=1](https://www.freetogame.com/api/game?id=1)
+
+游戏数据 json 结构大体如下：
+
+```json
+{
+  "id": 100,
+  "title": "游戏名称",
+  "thumbnail": "游戏缩略图",
+  "short_description": "游戏简介",
+  "description": "全长度游戏描述",
+  "genre": "游戏类型",
+  "platform": "游戏平台",
+  "developer": "开发商",
+  "release_date": "发行日期",
+  "screenshots": [
+    {
+      "id": 1024,
+      "image": "游戏截图地址"
+    }
+  ]
+}
+```
+
+## 项目技术说明
+
+- 前端框架选择 React.js 加分，也可以选择使用 Vue.js （3.0+ Composition API 优先）
+- 必须使用 TypeScript
+- 自由发挥项目的页面设计
+- CSS 框架没有限制，使用 TailwindCSS 可加分，也可以选择 Bootstrap/Ant Design 等组件库
+- （可选）将网站部署到一个可访问的 URL 有加分
+
+## 项目提交须知
+
+请将代码上传发布到公开的 Git 仓库，推荐使用 <GithubIcon className="inline w-5 h-5" /> [GitHub](https://github.com) 托管平台发布
+
+提交挑战题的方式可以二选一：
+
+- **（推荐）** 登陆你的 <IoLogoSlack className="inline w-5 h-5" /> Slack 账号，将仓库链接发送给 **@Cali**；
+- 发送邮件至：[佐玩 HR (hr@zolplay.cn)](mailto:hr@zolplay.cn)，邮件主题为：【$\{名字\}\_前端面试挑战题】，并将仓库链接粘贴到邮件正文中；
+
+## 帮助
+
+不知道 <IoLogoSlack className="inline w-5 h-5" /> Slack 账号或密码？
+请及时[联系我们的 HR](mailto:hr@zolplay.cn)，我们会帮助您找到您的账号。
+
+感谢您选择加入佐玩，我们期待您的作品～ 👋
+
 export default ({ children }) => {
   const job = useMemo(() => jobs.find(job => job.slug === 'frontend-engineer'), [])
   useCareersLayoutConfig({
     icon: job.icon,
     title: '前端攻城狮面试挑战题',
-    cta: { label: '已完成？立即提交', href: 'mailto:hr@zolplay.cn' }
+    cta: { label: '联系HR', href: 'mailto:hr@zolplay.cn' }
   })
 
 return <>{children}</>

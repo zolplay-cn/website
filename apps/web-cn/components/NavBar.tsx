@@ -6,6 +6,7 @@ import {
 } from 'framer-motion'
 import { useAtomValue } from 'jotai'
 import { atomWithReset, useResetAtom, useUpdateAtom } from 'jotai/utils'
+import { useRouter } from 'next/router'
 import React, { FC, useEffect, useMemo, useState } from 'react'
 import { clsxm } from 'ui'
 import type { UIComponent } from 'ui/@types/core'
@@ -133,6 +134,11 @@ const NavBar: UIComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isOverThreshold, setIsOverThreshold] = useState(false)
   const threshold = useAtomValue(transparentMaxThresholdAtom)
+  const { route } = useRouter()
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [route])
 
   useEffect(() => {
     const listener = () => {
