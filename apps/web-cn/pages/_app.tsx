@@ -1,11 +1,16 @@
 import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import { roundArrow } from 'tippy.js'
 
 import '~/styles/globals.css'
 import '~/styles/tippy.css'
 
+import { useLayout } from '~/lib/routes'
 import { makeUrl } from '~/lib/utils'
+
+import Footer from '~/components/Footer'
+import NavBar from '~/components/NavBar'
 
 import { tippy } from '@tippyjs/react'
 
@@ -23,6 +28,9 @@ if (typeof window !== 'undefined') {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { route } = useRouter()
+  const Layout = useLayout(route)
+
   return (
     <>
       <DefaultSeo
@@ -55,7 +63,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         ]}
       />
 
-      <Component {...pageProps} />
+      <NavBar />
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+
+      <Footer />
     </>
   )
 }

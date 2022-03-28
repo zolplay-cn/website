@@ -9,6 +9,7 @@ type Job = {
   minYearsExperience: number
   minDegree: string
   canBeRemote?: boolean
+  noDetailPage?: boolean
 }
 
 type EmploymentBenefit = {

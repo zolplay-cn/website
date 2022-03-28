@@ -1,7 +1,7 @@
 import { BiRestaurant } from 'react-icons/bi'
 import { IoLogoChrome, IoLogoGameControllerB } from 'react-icons/io'
-import { IoLogoFigma } from 'react-icons/io5'
-import { MdEmojiFoodBeverage, MdManageAccounts } from 'react-icons/md'
+import { MdArchitecture, MdEmojiFoodBeverage } from 'react-icons/md'
+import { RiPencilRuler2Fill } from 'react-icons/ri'
 import {
   CalendarMultipleIcon,
   CatIcon,
@@ -20,30 +20,31 @@ export const jobs: Job[] = [
     icon: IoLogoChrome,
     slug: 'frontend-engineer',
     title: '前端攻城狮',
-    description: '负责打造Web前端高质量项目，React.js优先',
+    description: '负责打造Web前端高质量项目 React.js、TypeScript优先',
     minYearsExperience: 3,
     minDegree: '大专',
     canBeRemote: true,
   },
   {
     status: 'closed',
-    icon: IoLogoFigma,
+    icon: RiPencilRuler2Fill,
     slug: 'ui-designer',
     title: 'UI设计狮',
-    description: '负责UI组件以及UX交互流程设计，Figma优先',
+    description: '负责UI组件、UX交互设计以及搭建设计系统 Figma优先',
     minYearsExperience: 3,
     minDegree: '本科',
     canBeRemote: false,
   },
   {
     status: 'closed',
-    icon: MdManageAccounts,
+    icon: MdArchitecture,
     slug: 'technical-manager',
     title: '技术经理',
     description: '负责业务技术架构以及管理内部全端技术工具',
     minYearsExperience: 5,
     minDegree: '本科',
     canBeRemote: false,
+    noDetailPage: true,
   },
 ]
 

@@ -4,13 +4,10 @@ import { NextSeo } from 'next-seo'
 import React from 'react'
 import { Logo } from 'ui'
 
-import ICPLicense from '~/components/icp/ICPLicense'
-import { BareLayout } from '~/components/layouts/BareLayout'
-
 export default function HomePageInChina() {
   return (
-    <BareLayout className="items-center justify-between">
-      <NextSeo title="欢迎来到佐玩" />
+    <div className="flex min-h-[70vh] flex-col items-center justify-between">
+      <NextSeo title="欢迎光临佐玩" />
 
       <header className="mt-8">
         <motion.div
@@ -41,12 +38,12 @@ export default function HomePageInChina() {
         </motion.div>
       </header>
 
-      <section className="select-none pb-[10vh]">
+      <section className="select-none px-12 pt-16 pb-[10vh]">
         <motion.h1
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: 'spring', delay: 0.15 }}
-          className="text-neon text-6xl font-extrabold tracking-wider text-neon-500"
+          className="text-neon flex flex-wrap justify-center text-6xl font-extrabold tracking-wider text-neon-500"
         >
           <motion.span
             animate={{
@@ -92,7 +89,7 @@ export default function HomePageInChina() {
               duration: 5.5,
               repeat: Infinity,
             }}
-            className="bg-gradient-to-r from-pink-500 to-violet-400 bg-clip-text text-transparent"
+            className="mt-4 min-w-full bg-gradient-to-r from-pink-500 to-violet-400 bg-clip-text text-center text-transparent sm:mt-0 sm:min-w-0"
           >
             佐玩
           </motion.span>
@@ -116,38 +113,13 @@ export default function HomePageInChina() {
             >
               <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
                 <span className="text-sm font-bold text-zinc-200">
-                  加入我们吧！
+                  我们招人啦！
                 </span>
               </div>
             </motion.a>
           </Link>
         </div>
       </section>
-
-      <footer className="mb-4 flex flex-col items-center space-y-4 px-4 md:flex-row md:space-x-5 md:space-y-0">
-        <motion.span
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: 'spring', delay: 0.35 }}
-          className="text-neon text-xs text-violet-100/60"
-        >
-          &copy; {new Date().getFullYear() + 5} 深圳市佐玩信息技术有限公司
-          {' - '}
-          来自未来的版权
-        </motion.span>
-        <motion.span
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: 'spring', delay: 0.4 }}
-          className="text-neon text-xs text-green-100/60"
-        >
-          联系邮箱：
-          <a href="mailto:contact@zolplay.cn" className="hover:underline">
-            contact@zolplay.cn
-          </a>
-        </motion.span>
-        <ICPLicense />
-      </footer>
-    </BareLayout>
+    </div>
   )
 }

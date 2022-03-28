@@ -93,6 +93,7 @@ importers:
       config: workspace:*
       eslint: 7.32.0
       framer-motion: ^6.2.8
+      jotai: ^1.6.1
       next: 12.0.8
       next-seo: ^5.2.0
       next-transpile-modules: 9.0.0
@@ -111,6 +112,7 @@ importers:
       '@next/mdx': 12.1.1_@mdx-js+loader@2.1.0
       '@tippyjs/react': 4.2.6_react-dom@17.0.2+react@17.0.2
       framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
+      jotai: 1.6.1_react@17.0.2
       next: 12.0.8_react-dom@17.0.2+react@17.0.2
       next-seo: 5.2.0_227e7fb4dbd28186517209bc65f02635
       react: 17.0.2
@@ -6318,6 +6320,46 @@ packages:
       - ts-node
       - utf-8-validate
     dev: true
+
+  /jotai/1.6.1_react@17.0.2:
+    resolution:
+      {
+        integrity: sha512-iNKHmpKGN31KXDqxGLsplb4HLTroYtiM7oBEQ9leyoXSEGQGUZKK5IOV4kN6fUmkBSJbwb5WnmInYOYzpjIDOw==,
+      }
+    engines: { node: '>=12.7.0' }
+    peerDependencies:
+      '@babel/core': '*'
+      '@babel/template': '*'
+      '@urql/core': '*'
+      immer: '*'
+      optics-ts: '*'
+      react: '>=16.8'
+      react-query: '*'
+      valtio: '*'
+      wonka: '*'
+      xstate: '*'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
+      '@urql/core':
+        optional: true
+      immer:
+        optional: true
+      optics-ts:
+        optional: true
+      react-query:
+        optional: true
+      valtio:
+        optional: true
+      wonka:
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /js-tokens/4.0.0:
     resolution:

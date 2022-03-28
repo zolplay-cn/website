@@ -1,5 +1,18 @@
-import { CareersLayout } from '~/components/layouts/CareersLayout'
+import { NextSeo } from 'next-seo'
+import { useMemo } from 'react'
+
+import { jobs } from '~/lib/data'
+
+import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
+
+<NextSeo title="前端攻城狮" />
 
 export default ({ children }) => {
-  return <CareersLayout title="前端工程师">{children}</CareersLayout>
+  const job = useMemo(() => jobs.find(job => job.slug === 'frontend-engineer'), [])
+  useCareersLayoutConfig({
+    icon: job.icon,
+    title: job.title,
+  })
+
+return <>{children}</>
 }

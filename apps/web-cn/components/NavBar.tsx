@@ -1,157 +1,99 @@
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import Link, { LinkProps } from 'next/link'
-import { useRouter } from 'next/router'
-import React, { useMemo } from 'react'
-import {
-  CareersIcon,
-  clsxm,
-  ExternalIcon,
-  GithubIcon,
-  ScanIcon,
-  WeChatIcon,
-} from 'ui'
+import React from 'react'
 import type { UIComponent } from 'ui/@types/core'
 
-import { getOpenPositions } from '~/lib/data'
-
 import { NeonLogo, NeonTextLogo } from '~/components/NeonLogos'
+import SiteLink from '~/components/SiteLink'
 
-import wechatQRCode from '~/assets/qr-wechat-work.jpg'
+import { navigation } from '~/config/navigation'
 
 import Tippy from '@tippyjs/react'
 
-type NavBarLinkProps = {
-  target?: '_blank' | '_self' | '_parent' | '_top'
-  strict?: boolean
-}
-const NavBarLink: UIComponent<LinkProps & NavBarLinkProps> = ({
-  className,
-  href,
-  children,
-  strict,
-  target,
-  ...rest
-}) => {
-  const { route } = useRouter()
-  const isRelativeUrl = useMemo(() => href.toString().startsWith('/'), [href])
-  const isActive = useMemo(() => {
-    if (!isRelativeUrl) return false
-    if (!strict) return route.startsWith(href.toString())
-
-    return route === href.toString()
-  }, [isRelativeUrl, route, href, strict])
-
-  return (
-    <Link href={href} passHref {...rest}>
-      <motion.a
-        target={target}
-        initial={{
-          opacity: isActive ? 1 : 0.8,
-        }}
-        whileHover={{ opacity: 1 }}
-        className={clsxm('text-neon flex items-center', className)}
-        onClick={(e) => {
-          if (href.toString() === '#') {
-            e.preventDefault()
-          }
-        }}
-      >
-        {children}
-        {target === '_blank' && <ExternalIcon className="ml-1 h-3 w-3" />}
-      </motion.a>
-    </Link>
-  )
-}
-
 const NavBar: UIComponent = () => {
-  const openPositions = getOpenPositions()
-
   return (
     <nav className="absolute top-0 z-[1000] flex h-20 w-full items-center antialiased">
       <main className="container flex w-full items-center justify-between px-6">
-        <aside className="pl-4">
-          <NavBarLink href="/" strict>
+        <motion.aside
+          initial={{ opacity: 0.3 }}
+          whileInView={{ opacity: 1 }}
+          whileHover={{ opacity: 1, scale: 1.015 }}
+          whileTap={{ scale: 0.97 }}
+          className="pl-4"
+        >
+          <SiteLink href="/" strict>
             <NeonLogo type="sm" />
             <NeonTextLogo type="sm" />
-          </NavBarLink>
-        </aside>
+          </SiteLink>
+        </motion.aside>
 
         <section className="flex flex-1 items-center justify-end">
-          <ul
-            className="relative flex items-center space-x-5 pr-6 text-zinc-50"
+          <motion.ul
+            className="relative flex items-center space-x-5 pr-6 text-zinc-50 after:absolute after:top-[50%] after:right-0 after:-translate-y-[50%] after:text-xs after:text-slate-100/25 after:content-['|']"
             id="nav-links"
+            initial={{ opacity: 0, y: -10 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring', delay: 0.07 }}
           >
-            <li>
-              <NavBarLink
-                href="/careers"
-                className="flex items-center text-sm font-bold"
-              >
-                <CareersIcon className="h-5" />
-                <span className="ml-1">岗位招聘</span>
-                {openPositions.length > 0 && (
-                  <motion.span
-                    animate={{ y: [0, -1], scale: [1, 0.96], rotate: [0, 6] }}
-                    transition={{
-                      type: 'spring',
-                      repeat: Infinity,
-                      repeatType: 'reverse',
-                    }}
-                    className="ml-2 rounded-lg rounded-bl-none bg-neon-500/80 px-1.5 text-xs font-bold text-dark"
-                  >
-                    {openPositions.length}
-                  </motion.span>
-                )}
-              </NavBarLink>
-            </li>
+            {navigation.main.map((item) => (
+              <li key={item.name}>
+                <SiteLink
+                  href={item.href}
+                  className="text-neon flex items-center text-sm font-semibold"
+                >
+                  {item.icon && <item.icon className="mr-1 h-5" />}
+                  <span>{item.name}</span>
+                  {item.badge && (
+                    <motion.span
+                      animate={{ y: [0, -1], scale: [1, 0.98], rotate: [0, 4] }}
+                      transition={{
+                        type: 'spring',
+                        repeat: Infinity,
+                        repeatType: 'reverse',
+                      }}
+                      className="ml-2 rounded-lg rounded-bl-none bg-neon-500/80 px-1.5 text-xs font-bold text-dark"
+                    >
+                      {typeof item.badge === 'string'
+                        ? item.badge
+                        : item.badge()}
+                    </motion.span>
+                  )}
+                </SiteLink>
+              </li>
+            ))}
+          </motion.ul>
 
-            <style jsx>{`
-              ul:after {
-                content: '|';
-                color: rgba(255, 255, 255, 0.25);
-                font-size: 0.85rem;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-              }
-            `}</style>
-          </ul>
-
-          <ul
+          <motion.ul
             id="nav-social"
             className="flex items-center space-x-5 pl-6 text-zinc-50"
+            initial={{ opacity: 0, y: -15 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring', delay: 0.15 }}
           >
-            <Tippy
-              content={
-                <div className="p-2">
-                  <div className="rounded-xl bg-white p-2">
-                    <Image src={wechatQRCode} alt="微信二维码" />
-                  </div>
-                  <div className="mt-3 flex items-center justify-center">
-                    <span className="text-sm font-medium">使用微信扫一扫</span>
-                    <ScanIcon className="ml-1 h-4 w-4 text-slate-200" />
-                  </div>
-                </div>
-              }
-            >
-              <li>
-                <NavBarLink href="#">
-                  <WeChatIcon className="h-6" />
-                </NavBarLink>
-              </li>
-            </Tippy>
-            <li>
-              <NavBarLink
-                href={process.env.NEXT_PUBLIC_GITHUB_URL || ''}
-                className="text-zinc-50"
-                target="_blank"
-              >
-                <span className="sr-only">GitHub</span>
-                <GithubIcon className="h-6" />
-              </NavBarLink>
-            </li>
-          </ul>
+            {navigation.social.map((social) => {
+              const el = (
+                <li key={social.name}>
+                  <SiteLink
+                    href={social.href}
+                    target={social.tippyContent ? undefined : '_blank'}
+                    className="text-zinc-50"
+                  >
+                    <span className="sr-only">{social.name}</span>
+                    <social.icon className="h-6" />
+                  </SiteLink>
+                </li>
+              )
+
+              return social.tippyContent ? (
+                <Tippy content={social.tippyContent} key={social.name}>
+                  {el}
+                </Tippy>
+              ) : (
+                el
+              )
+            })}
+          </motion.ul>
         </section>
       </main>
     </nav>
