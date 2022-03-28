@@ -39,7 +39,7 @@ const BenefitCard: UIComponent<EmploymentBenefit> = ({
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className={clsxm(
-        'flex h-40 flex-col items-center justify-center rounded-2xl rounded-bl-md p-2 text-center leading-relaxed tracking-[0.3px] text-slate-200 shadow-2xl lg:h-[200px] lg:rounded-3xl lg:p-4',
+        'flex h-40 flex-col items-center justify-center rounded-2xl rounded-bl-sm p-2 text-center leading-relaxed tracking-[0.3px] text-slate-200 shadow-2xl lg:h-[200px] lg:rounded-3xl lg:rounded-bl-md lg:p-4',
         style,
         className
       )}

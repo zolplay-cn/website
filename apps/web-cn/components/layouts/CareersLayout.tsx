@@ -6,6 +6,8 @@ import React, { FC, useEffect } from 'react'
 import { CareersIcon } from 'ui'
 import { UIComponent } from 'ui/@types/core'
 
+import { useNavBarTransparentThreshold } from '~/components/NavBar'
+
 const PageTitle: UIComponent = ({ children }) => {
   return (
     <span className="inline h-16 bg-gradient-to-r from-zinc-50 via-blue-200 to-pink-300 bg-clip-text object-center pt-4 text-transparent lg:h-24">
@@ -31,6 +33,7 @@ export function useCareersLayoutConfig(config: CareersLayoutConfig) {
 
 export const CareersLayout: FC = ({ children }) => {
   const { icon: Icon, title, cta } = useAtomValue(careersConfigAtom)
+  useNavBarTransparentThreshold(320)
 
   return (
     <>

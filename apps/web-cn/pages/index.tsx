@@ -95,20 +95,19 @@ export default function HomePageInChina() {
           </motion.span>
         </motion.h1>
 
-        <div className="mt-4 flex w-full items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ type: 'spring', delay: 0.62 }}
+          className="mt-4 flex w-full items-center justify-center"
+        >
           <Link href="/careers" passHref>
             <motion.a
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  delay: 0.65,
-                  type: 'spring',
-                },
-              }}
-              whileHover={{ scale: 1.02 }}
+              initial={{ scale: 0.85 }}
+              animate={{ scale: 1 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.96 }}
+              transition={{ type: 'spring' }}
               className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
             >
               <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
@@ -118,7 +117,7 @@ export default function HomePageInChina() {
               </div>
             </motion.a>
           </Link>
-        </div>
+        </motion.div>
       </section>
     </div>
   )

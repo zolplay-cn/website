@@ -44,7 +44,7 @@ const SiteLink: UIComponent<LinkProps & SiteLinkProps> = ({
         }}
       >
         {children}
-        {target === '_blank' && <ExternalIcon className="ml-1 h-3 w-3" />}
+        {target === '_blank' && <ExternalIcon className="h-3.5 w-3.5" />}
       </motion.a>
     </Link>
   )
