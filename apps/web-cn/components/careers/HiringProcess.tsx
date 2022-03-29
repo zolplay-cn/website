@@ -107,7 +107,7 @@ export const EngineerHiringProcess: UIComponent<EngineerHiringProcessProps> = ({
               <div className="relative pb-10">
                 {eventIdx !== timeline.length - 1 ? (
                   <span
-                    className="absolute top-[54px] left-[1.15rem] -ml-px h-[48px] w-0.5 bg-slate-100/10 lg:top-[72px] lg:left-6 lg:h-[40px]"
+                    className="absolute top-[60%] left-[1.15rem] -ml-px h-[50%] w-0.5 bg-slate-100/10 lg:top-[72px] lg:left-6 lg:h-[40px]"
                     aria-hidden="true"
                   />
                 ) : null}
