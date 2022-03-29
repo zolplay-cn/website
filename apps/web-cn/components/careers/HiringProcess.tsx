@@ -135,9 +135,9 @@ export const EngineerHiringProcess: UIComponent<EngineerHiringProcessProps> = ({
                   <div className="min-w-0 flex-1 space-x-4 pl-1 lg:pl-4">
                     <p
                       className={clsxm(
-                        'text-sm text-slate-300/90 mix-blend-color-dodge lg:text-base',
+                        'text-sm text-slate-200/90 mix-blend-color-dodge lg:text-base',
                         currentStep > eventIdx && 'line-through',
-                        currentStep === eventIdx && 'text-emerald-50'
+                        currentStep === eventIdx && 'text-white/50'
                       )}
                     >
                       {event.content}
