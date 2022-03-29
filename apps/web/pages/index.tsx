@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion'
-import Head from 'next/head'
+import Link from 'next/link'
+import { NextSeo } from 'next-seo'
+import React from 'react'
 import { Logo } from 'ui'
-
-import { BareLayout } from '~/components/layouts/BareLayout'
 
 export default function HomePage() {
   return (
-    <BareLayout className="items-center justify-between">
-      <Head>
-        <title>Zolplay | Coming Soon</title>
-      </Head>
+    <div className="flex min-h-[70vh] flex-col items-center justify-between">
+      <NextSeo title="Welcome" />
 
       <header className="mt-8">
         <motion.div
@@ -40,7 +38,7 @@ export default function HomePage() {
         </motion.div>
       </header>
 
-      <section className="select-none pb-[10vh]">
+      <section className="select-none px-12 pt-16 pb-[10vh]">
         <motion.h1
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -95,19 +93,31 @@ export default function HomePage() {
             come
           </motion.span>
         </motion.h1>
-      </section>
 
-      <footer className="mb-4">
-        <motion.span
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', delay: 0.55 }}
-          className="text-neon text-sm text-amber-50/50"
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ type: 'spring', delay: 0.62 }}
+          className="mt-4 flex w-full items-center justify-center"
         >
-          &copy; Zolplay. {new Date().getFullYear() + 5} All rights from the
-          future.
-        </motion.span>
-      </footer>
-    </BareLayout>
+          <Link href="/careers" passHref>
+            <motion.a
+              initial={{ scale: 0.85 }}
+              animate={{ scale: 1 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: 'spring' }}
+              className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
+            >
+              <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
+                <span className="text-sm font-bold text-zinc-200">
+                  We&apos;re hiring!
+                </span>
+              </div>
+            </motion.a>
+          </Link>
+        </motion.div>
+      </section>
+    </div>
   )
 }

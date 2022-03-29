@@ -4,7 +4,6 @@ import React from 'react'
 import { clsxm, ExternalIcon } from 'ui'
 import { UIComponent } from 'ui/@types/core'
 
-import ICPLicense from '~/components/icp/ICPLicense'
 import { NeonLogo } from '~/components/NeonLogos'
 import SiteLink from '~/components/SiteLink'
 
@@ -51,7 +50,6 @@ const Footer: UIComponent<FooterProps> = ({
               >
                 {item.icon && <item.icon className="mr-1 h-5" />}
                 <span>{item.name}</span>
-                {/* TODO: 封装组件 */}
                 {item.badge && (
                   <motion.span
                     animate={{ y: [0, -1], scale: [1, 0.98], rotate: [0, 4] }}
@@ -98,13 +96,6 @@ const Footer: UIComponent<FooterProps> = ({
           })}
         </motion.div>
         <div className="mt-8 flex flex-col items-center space-y-5">
-          <ICPLicense
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', delay: 0.12 }}
-            className="text-slate-400"
-          />
-
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,12 +104,12 @@ const Footer: UIComponent<FooterProps> = ({
           >
             <MailOpenIcon className="mr-1 h-4 w-4" />
             <span className="flex items-center">
-              联系邮箱：
+              Contact us at
               <a
                 href="mailto:contact@zolplay.cn"
-                className="flex items-center hover:underline"
+                className="ml-1 flex items-center hover:underline"
               >
-                <span>contact@zolplay.cn</span>
+                <span>contact@zolplay.com</span>
                 <ExternalIcon className="ml-1 h-3 w-3" />
               </a>
             </span>
@@ -130,10 +121,8 @@ const Footer: UIComponent<FooterProps> = ({
             transition={{ type: 'spring', delay: 0.23 }}
             className="text-neon flex items-center space-x-3 text-sm text-slate-300"
           >
-            <span>
-              &copy; {new Date().getFullYear()} 深圳市佐玩信息技术有限公司
-            </span>
-            <span className="font-mono">.匠心打造()</span>
+            <span>&copy; {new Date().getFullYear()} Zolplay Co.</span>
+            <span>Handcrafted in China</span>
           </motion.span>
 
           <motion.div

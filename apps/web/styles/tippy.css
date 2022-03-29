@@ -1,0 +1,252 @@
+.tippy-box[data-animation='fade'][data-state='hidden'] {
+  opacity: 0;
+}
+
+[data-tippy-root] {
+  max-width: calc(100vw - 10px);
+  transition: transform 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.tippy-box {
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-arrow {
+  bottom: 0;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-arrow:before {
+  bottom: -7px;
+  left: 0;
+  border-width: 8px 8px 0;
+  border-top-color: initial;
+  transform-origin: center top;
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow {
+  top: 0;
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+  top: -7px;
+  left: 0;
+  border-width: 0 8px 8px;
+  border-bottom-color: initial;
+  transform-origin: center bottom;
+}
+
+.tippy-box[data-placement^='left'] > .tippy-arrow {
+  right: 0;
+}
+
+.tippy-box[data-placement^='left'] > .tippy-arrow:before {
+  border-width: 8px 0 8px 8px;
+  border-left-color: initial;
+  right: -7px;
+  transform-origin: center left;
+}
+
+.tippy-box[data-placement^='right'] > .tippy-arrow {
+  left: 0;
+}
+
+.tippy-box[data-placement^='right'] > .tippy-arrow:before {
+  left: -7px;
+  border-width: 8px 8px 8px 0;
+  border-right-color: initial;
+  transform-origin: center right;
+}
+
+.tippy-box[data-inertia][data-state='visible'] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+
+.tippy-arrow {
+  width: 16px;
+  height: 16px;
+  color: #333;
+}
+
+.tippy-arrow:before {
+  content: '';
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.tippy-content {
+  position: relative;
+  padding: 5px 9px;
+  z-index: 1;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-svg-arrow {
+  bottom: 0;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-svg-arrow:after,
+.tippy-box[data-placement^='top'] > .tippy-svg-arrow > svg {
+  top: 16px;
+  transform: rotate(180deg);
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-svg-arrow {
+  top: 0;
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-svg-arrow > svg {
+  bottom: 16px;
+}
+
+.tippy-box[data-placement^='left'] > .tippy-svg-arrow {
+  right: 0;
+}
+
+.tippy-box[data-placement^='left'] > .tippy-svg-arrow:after,
+.tippy-box[data-placement^='left'] > .tippy-svg-arrow > svg {
+  transform: rotate(90deg);
+  top: calc(50% - 3px);
+  left: 11px;
+}
+
+.tippy-box[data-placement^='right'] > .tippy-svg-arrow {
+  left: 0;
+}
+
+.tippy-box[data-placement^='right'] > .tippy-svg-arrow:after,
+.tippy-box[data-placement^='right'] > .tippy-svg-arrow > svg {
+  transform: rotate(-90deg);
+  top: calc(50% - 3px);
+  right: 11px;
+}
+
+.tippy-svg-arrow {
+  width: 16px;
+  height: 16px;
+  fill: #333;
+  text-align: initial;
+}
+
+.tippy-svg-arrow,
+.tippy-svg-arrow > svg {
+  position: absolute;
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='top'] {
+  transform-origin: bottom;
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='top'][data-state='visible'] {
+  transform: perspective(700px);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='top'][data-state='hidden'] {
+  transform: perspective(700px) translateY(5px) rotateX(30deg);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='bottom'] {
+  transform-origin: top;
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='bottom'][data-state='visible'] {
+  transform: perspective(700px);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='bottom'][data-state='hidden'] {
+  transform: perspective(700px) translateY(-5px) rotateX(-30deg);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='left'] {
+  transform-origin: right;
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='left'][data-state='visible'] {
+  transform: perspective(700px);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='left'][data-state='hidden'] {
+  transform: perspective(700px) translateX(5px) rotateY(-30deg);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='right'] {
+  transform-origin: left;
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='right'][data-state='visible'] {
+  transform: perspective(700px);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-placement^='right'][data-state='hidden'] {
+  transform: perspective(700px) translateX(-5px) rotateY(30deg);
+}
+
+.tippy-box[data-animation='perspective-subtle'][data-state='hidden'] {
+  opacity: 0;
+}
+
+.tippy-box[data-animation='shift-toward-subtle'][data-state='hidden'] {
+  opacity: 0;
+}
+
+.tippy-box[data-animation='shift-toward-subtle'][data-state='hidden'][data-placement^='top'][data-state='hidden'] {
+  transform: translateY(-5px);
+}
+
+.tippy-box[data-animation='shift-toward-subtle'][data-state='hidden'][data-placement^='bottom'][data-state='hidden'] {
+  transform: translateY(5px);
+}
+
+.tippy-box[data-animation='shift-toward-subtle'][data-state='hidden'][data-placement^='left'][data-state='hidden'] {
+  transform: translateX(-5px);
+}
+
+.tippy-box[data-animation='shift-toward-subtle'][data-state='hidden'][data-placement^='right'][data-state='hidden'] {
+  transform: translateX(5px);
+}
+
+.tippy-box[data-theme~='zolplay'] {
+  @apply rounded-2xl bg-slate-800 bg-opacity-90 text-slate-50 shadow-xl;
+  @apply border-2 border-slate-700;
+  @apply backdrop-blur-lg backdrop-saturate-150 backdrop-filter;
+
+  & > .tippy-backdrop {
+    @apply bg-slate-700;
+  }
+
+  .tippy-content {
+    @apply overflow-hidden rounded-xl p-1;
+
+    .tippy-block {
+      @apply flex w-full items-center justify-between rounded-lg font-medium text-slate-700;
+      @apply space-x-4 px-3 py-2 text-sm outline-none ring-0;
+
+      &--dangerous {
+        @apply text-red-700;
+      }
+
+      &:hover {
+        @apply bg-slate-700 bg-opacity-90;
+      }
+
+      &--disabled {
+        @apply cursor-not-allowed opacity-50;
+      }
+
+      &[aria-current] {
+        @apply font-extrabold;
+      }
+    }
+  }
+
+  & > .tippy-svg-arrow {
+    @apply fill-current text-slate-700;
+  }
+}

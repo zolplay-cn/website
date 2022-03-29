@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#__next {
+  @apply relative h-full;
+}
+
+.glass-neon {
+  box-shadow: inset 0px 6px 10px rgba(255, 255, 255, 0.2),
+    inset 0px 98px 100px -60px rgba(202, 172, 255, 0.2),
+    inset 0px 4px 18px rgba(154, 146, 210, 0.28),
+    inset 0px 1px 40px rgba(238, 51, 221, 0.2);
+  backdrop-filter: blur(100px);
+}
+
+.text-neon {
+  text-shadow: 0px -6px 30px rgba(130, 247, 255, 0.1),
+    0px 5px 20px rgba(108, 158, 255, 0.5);
+}
