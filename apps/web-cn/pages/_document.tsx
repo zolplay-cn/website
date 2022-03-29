@@ -1,7 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document'
 
 const Document = () => (
-  <Html>
+  <Html lang="zh-Hans">
     <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -10,7 +10,7 @@ const Document = () => (
         rel="stylesheet"
       />
     </Head>
-    <body className="h-full w-full bg-dark font-sans antialiased">
+    <body className="grid bg-dark font-sans antialiased">
       <Main />
       <NextScript />
     </body>

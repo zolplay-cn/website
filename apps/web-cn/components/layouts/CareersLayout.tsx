@@ -47,12 +47,12 @@ export const CareersLayout: FC = ({ children }) => {
         }
       `}</style>
 
-      <header className="container mt-20 flex flex-col items-center bg-transparent text-center lg:mt-36">
+      <header className="container flex flex-col items-center bg-transparent pt-20 text-center md:pt-10">
         <motion.div
           initial={{ scale: 1.35, y: 15, rotate: 2, opacity: 0 }}
           whileInView={{ scale: 1, y: 0, rotate: 0, opacity: 1 }}
           transition={{ type: 'spring', delay: 0.15 }}
-          className="mb-1 text-neon-500 lg:mb-3"
+          className="mb-2 text-neon-500 lg:mb-6"
         >
           {Icon ? (
             <Icon className="h-10 w-10" />
@@ -81,7 +81,7 @@ export const CareersLayout: FC = ({ children }) => {
             initial={{ scale: 1.15, y: -18, opacity: 0 }}
             whileInView={{ scale: 1, y: 0, opacity: 1 }}
             transition={{ type: 'spring', delay: 0.3 }}
-            className="mt-0 lg:mt-10"
+            className="mt-0 lg:mt-2"
           >
             <Link href={cta.href} passHref>
               <motion.a
@@ -101,7 +101,7 @@ export const CareersLayout: FC = ({ children }) => {
         )}
       </header>
 
-      <main className="container mt-20 mb-16 flex flex-col items-center px-4 md:px-3 lg:mt-40">
+      <main className="container flex flex-col items-center px-4 pt-16 pb-20 md:px-3 lg:pt-28">
         <article className="prose prose-slate prose-sky prose-dark selection:bg-fuchsia-300 selection:text-fuchsia-900 lg:prose-lg">
           {children}
         </article>

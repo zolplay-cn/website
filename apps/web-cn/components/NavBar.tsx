@@ -159,7 +159,7 @@ const NavBar: UIComponent = () => {
     <>
       <nav
         className={clsxm(
-          'fixed top-0 z-[1000] flex h-20 w-full items-center antialiased transition-all duration-300',
+          'fixed top-0 z-[1000] flex h-20 w-full items-center antialiased transition-all duration-300 md:sticky',
           isOverThreshold &&
             !isOpen &&
             'bg-dark/90 saturate-150 backdrop-blur-xl'

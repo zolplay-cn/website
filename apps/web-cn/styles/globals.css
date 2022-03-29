@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#__next {
+  @apply h-full;
+}
+
 .glass-neon {
   box-shadow: inset 0px 6px 10px rgba(255, 255, 255, 0.2),
     inset 0px 98px 100px -60px rgba(202, 172, 255, 0.2),
