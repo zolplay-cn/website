@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #__next {
-  @apply h-full;
+  @apply relative h-full;
 }
 
 .glass-neon {

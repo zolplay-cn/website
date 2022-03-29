@@ -11,6 +11,7 @@ import { useLayout } from '~/lib/routes'
 import { makeUrl } from '~/lib/utils'
 
 import Footer from '~/components/Footer'
+import LiveCursors from '~/components/live/LiveCursors'
 import NavBar from '~/components/NavBar'
 
 import { tippy } from '@tippyjs/react'
@@ -88,6 +89,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Layout>
 
       <Footer />
+
+      <LiveCursors />
     </>
   )
 }
