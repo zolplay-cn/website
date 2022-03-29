@@ -128,7 +128,7 @@ const LiveAvatars: UIComponent<{ id: string }> = ({ id, className }) => {
   return (
     <>
       <AnimatePresence>
-        {totalUsers > 1 && (
+        {totalUsers >= 1 && (
           <motion.div
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
