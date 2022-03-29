@@ -175,7 +175,7 @@ const NavBar: UIComponent = () => {
           >
             <SiteLink href="/" strict>
               <NeonLogo type="sm" />
-              <div className="hidden lg:block">
+              <div className="hidden lg:flex lg:items-center">
                 <NeonTextLogo type="sm" />
               </div>
             </SiteLink>

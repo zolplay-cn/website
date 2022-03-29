@@ -5,6 +5,7 @@ import { makeUrl } from '~/lib/utils'
 
 import AllPositions from '~/components/careers/AllPositions'
 import Benefits from '~/components/careers/Benefits'
+import { EngineerHiringProcess } from '~/components/careers/HiringProcess'
 import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
 
 import { MailOpenIcon } from '@heroicons/react/outline'
@@ -45,6 +46,9 @@ const CareersPageInChina: NextPage = () => {
 
       <h2>佐玩的福利待遇</h2>
       <Benefits />
+
+      <h2>佐玩攻城狮的招聘流程</h2>
+      <EngineerHiringProcess />
 
       <h2 id="open-positions">开放职位</h2>
       <p>

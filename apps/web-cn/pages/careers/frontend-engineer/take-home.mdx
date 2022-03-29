@@ -6,6 +6,7 @@ import { IoLogoSlack } from 'react-icons/io5'
 import { jobs } from '~/lib/data'
 
 import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
+import { EngineerHiringProcess } from '~/components/careers/HiringProcess'
 
 <NextSeo title="前端攻城狮面试挑战题" />
 
@@ -105,6 +106,10 @@ import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
 请及时[联系我们的 HR](mailto:hr@zolplay.cn)，我们会帮助您找到您的账号。
 
 感谢您选择加入佐玩，我们期待您的作品～ 👋
+
+## 佐玩攻城狮的招聘流程
+
+<EngineerHiringProcess currentStep={1} />
 
 export default ({ children }) => {
   const job = useMemo(() => jobs.find(job => job.slug === 'frontend-engineer'), [])

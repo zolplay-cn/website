@@ -6,6 +6,7 @@ import { jobs } from '~/lib/data'
 import { useCareersLayoutConfig } from '~/components/layouts/CareersLayout'
 import Benefits from '~/components/careers/Benefits'
 import ApplyNow from '~/components/careers/ApplyNow'
+import { EngineerHiringProcess } from '~/components/careers/HiringProcess'
 
 <NextSeo title="前端攻城狮" />
 
@@ -58,6 +59,10 @@ import ApplyNow from '~/components/careers/ApplyNow'
 
 <Benefits />
 <ApplyNow />
+
+## 佐玩攻城狮的招聘流程
+
+<EngineerHiringProcess />
 
 export default ({ children }) => {
   const job = useMemo(() => jobs.find(job => job.slug === 'frontend-engineer'), [])
