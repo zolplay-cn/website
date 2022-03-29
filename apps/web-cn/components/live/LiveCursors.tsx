@@ -94,7 +94,7 @@ const LiveCursors: FC = () => {
   }, [updateCursor, route])
 
   return (
-    <div className="pointer-events-none absolute inset-0 select-none">
+    <div className="pointer-events-none absolute inset-0 select-none overflow-hidden">
       <div className="relative opacity-50">
         {othersCursors?.map((cursor) => {
           return (

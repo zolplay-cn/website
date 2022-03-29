@@ -6,16 +6,20 @@ import {
 } from 'framer-motion'
 import { useAtomValue } from 'jotai'
 import { atomWithReset, useResetAtom, useUpdateAtom } from 'jotai/utils'
+import { take } from 'lodash'
 import { useRouter } from 'next/router'
 import React, { FC, useEffect, useMemo, useState } from 'react'
-import { clsxm } from 'ui'
+import { Avatar, clsxm } from 'ui'
 import type { UIComponent } from 'ui/@types/core'
 
 import { NeonLogo, NeonTextLogo } from '~/components/NeonLogos'
 import SiteLink from '~/components/SiteLink'
 
+import { useLiveblocksStore } from '~/store/liveblocks.store'
+
 import { navigation } from '~/config/navigation'
 
+import { UserGroupIcon } from '@heroicons/react/solid'
 import Tippy from '@tippyjs/react'
 
 type MenuButtonProps = SVGMotionProps<SVGElement> & {
@@ -115,6 +119,73 @@ const MenuButton: FC<MenuButtonProps> = ({
   )
 }
 
+const maxOtherUsersCount = 4
+
+const LiveAvatars: UIComponent<{ id: string }> = ({ id, className }) => {
+  const others = useLiveblocksStore((state) => state.liveblocks.others)
+  const totalUsers = useMemo(() => others.length, [others])
+
+  return (
+    <>
+      <AnimatePresence>
+        {totalUsers > 1 && (
+          <motion.div
+            initial={{ opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 12 }}
+            transition={{ type: 'spring' }}
+            className={clsxm('relative z-0 flex h-10 items-center', className)}
+          >
+            <Tippy
+              content={
+                <span className="tippy-block">
+                  <span className="flex items-center space-x-1.5">
+                    <UserGroupIcon className="h-4 w-4 text-slate-200" />
+                    <span className="text-slate-200">
+                      其他{totalUsers - 1}人也在浏览此页面
+                    </span>
+                  </span>
+                </span>
+              }
+              interactive={false}
+            >
+              <ul className="flex items-center -space-x-1">
+                {take(others, maxOtherUsersCount).map(({ connectionId }) => (
+                  <motion.li
+                    layoutId={`${id}_${connectionId}`}
+                    className="relative z-20 h-7 w-7 lg:h-6 lg:w-6"
+                    key={connectionId}
+                  >
+                    <Avatar
+                      name={`${id}_${connectionId}`}
+                      className="z-30 inline-block h-full w-full rounded-full ring-2 ring-dark"
+                    />
+                  </motion.li>
+                ))}
+
+                {totalUsers > maxOtherUsersCount && (
+                  <motion.li
+                    className="h-7 w-7 lg:h-6 lg:w-6"
+                    key="more-users"
+                    layoutId="more"
+                  >
+                    <span className="relative z-40 inline-flex h-full w-full items-center justify-center rounded-full bg-neon-500 text-center text-xs font-bold text-slate-800 ring-2 ring-dark">
+                      +
+                      {totalUsers - maxOtherUsersCount > 9
+                        ? '9'
+                        : totalUsers - maxOtherUsersCount}
+                    </span>
+                  </motion.li>
+                )}
+              </ul>
+            </Tippy>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
 const transparentMaxThresholdAtom = atomWithReset(Infinity)
 export function useNavBarTransparentThreshold(transparentMaxThreshold: number) {
   const setValue = useUpdateAtom(transparentMaxThresholdAtom)
@@ -182,6 +253,8 @@ const NavBar: UIComponent = () => {
           </motion.aside>
 
           <section className="hidden flex-1 items-center justify-end lg:flex">
+            <LiveAvatars id="desktop" className="mr-6 hidden lg:flex" />
+
             <motion.ul
               className="relative flex items-center space-x-5 pr-6 text-zinc-50 after:absolute after:top-[50%] after:right-0 after:-translate-y-[50%] after:text-xs after:text-slate-100/25 after:content-['|']"
               id="nav-links"
@@ -274,6 +347,10 @@ const NavBar: UIComponent = () => {
               />
             </motion.button>
           </motion.div>
+
+          <div className="absolute top-0 right-16 lg:hidden">
+            <LiveAvatars id="mobile" className="z-50 h-14" />
+          </div>
         </main>
       </nav>
       <AnimatePresence>
