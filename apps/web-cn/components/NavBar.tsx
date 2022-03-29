@@ -9,6 +9,7 @@ import { atomWithReset, useResetAtom, useUpdateAtom } from 'jotai/utils'
 import { take } from 'lodash'
 import { useRouter } from 'next/router'
 import React, { FC, useEffect, useMemo, useState } from 'react'
+import { IoChatbubble } from 'react-icons/io5'
 import { Avatar, clsxm } from 'ui'
 import type { UIComponent } from 'ui/@types/core'
 
@@ -138,13 +139,17 @@ const LiveAvatars: UIComponent<{ id: string }> = ({ id, className }) => {
           >
             <Tippy
               content={
-                <span className="tippy-block">
-                  <span className="flex items-center space-x-1.5">
-                    <UserGroupIcon className="h-4 w-4 text-slate-200" />
-                    <span className="text-slate-200">
+                <span className="tippy-block flex-col text-sm">
+                  <span className="mb-1 flex items-center space-x-1.5 text-slate-200">
+                    <UserGroupIcon className="h-3.5 w-3.5" />
+                    <span>
                       {totalUsers > 1 ? `其他${totalUsers}人` : '另一个人'}
                       也在浏览此页面
                     </span>
+                  </span>
+                  <span className="flex items-center space-x-1.5 font-medium text-slate-400">
+                    <IoChatbubble className="h-3.5 w-3.5" />
+                    <span>按 / 键可开启实时消息</span>
                   </span>
                 </span>
               }

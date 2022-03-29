@@ -16,15 +16,19 @@ export type LiveblocksStoreState = {
     x: number
     y: number
   }
+  message: string | null
   setCursor: (cursor: { x: number; y: number }) => void
+  setMessage: (message: string | null) => void
 }
 
 export const useLiveblocksStore = create(
   middleware<LiveblocksStoreState>(
     (set) => ({
       cursor: { x: -100, y: -100 },
+      message: null,
       setCursor: (cursor) => set({ cursor }),
+      setMessage: (message) => set({ message }),
     }),
-    { client, presenceMapping: { cursor: true } }
+    { client, presenceMapping: { cursor: true, message: true } }
   )
 )
