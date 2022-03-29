@@ -142,7 +142,8 @@ const LiveAvatars: UIComponent<{ id: string }> = ({ id, className }) => {
                   <span className="flex items-center space-x-1.5">
                     <UserGroupIcon className="h-4 w-4 text-slate-200" />
                     <span className="text-slate-200">
-                      其他{totalUsers - 1}人也在浏览此页面
+                      {totalUsers > 1 ? `其他${totalUsers}人` : '另一个人'}
+                      也在浏览此页面
                     </span>
                   </span>
                 </span>
