@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo
         titleTemplate="%s｜佐玩"
         defaultTitle="佐玩"
+        description="佐玩是一个推崇工程师文化、誓走在技术前沿的一个勇于大胆创新的创造者团队。"
         openGraph={{
           type: 'website',
           locale: 'zh_CN',
