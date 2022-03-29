@@ -52,7 +52,7 @@ export const EngineerHiringProcess: UIComponent<EngineerHiringProcessProps> = ({
 }) => {
   return (
     <section className={clsxm('', className)}>
-      <div className="relative flow-root p-2 lg:p-12">
+      <div className="relative flow-root py-6 pl-2 pr-4 lg:p-12">
         <div className="absolute inset-0 overflow-hidden rounded-3xl">
           <svg
             width="100%"
