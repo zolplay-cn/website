@@ -9,6 +9,10 @@ import wechatQRCode from '~/assets/qr-wechat-work.jpg'
 
 export const navigation: SiteNavigation = {
   main: [
+    {
+      name: 'English',
+      href: 'https://zolplay.com',
+    },
     // {
     //   name: '团队介绍',
     //   href: '/about',

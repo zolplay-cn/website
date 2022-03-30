@@ -35,10 +35,10 @@ const CareersPageInChina: NextPage = () => {
         use and stunning to look at.
       </p>
 
-      <h2>The CPR Motto</h2>
+      <h2>The CPR motto</h2>
       <p>
         We prototype more and pontificate less, always moving in a fast pace and
-        ready for what&apos;s to come
+        ready for what&apos;s to come.
       </p>
       <ul>
         <li>‘C’ as in Craft —— we are a team of makers.</li>

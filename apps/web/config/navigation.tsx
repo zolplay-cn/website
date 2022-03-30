@@ -7,6 +7,10 @@ import { SiteNavigation } from '~/@types/site'
 export const navigation: SiteNavigation = {
   main: [
     {
+      name: '中文站',
+      href: 'https://zolplay.cn',
+    },
+    {
       name: 'Careers',
       href: '/careers',
       badge: () => getOpenPositions().length.toString(),
