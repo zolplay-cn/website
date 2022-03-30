@@ -77,6 +77,9 @@ const LiveCursorMessageTooltip: FC = () => {
         if (message === null) {
           setIsShowing(true)
           focusInput()
+
+          e.preventDefault()
+          e.stopPropagation()
         } else {
           focusInput()
         }
@@ -85,11 +88,15 @@ const LiveCursorMessageTooltip: FC = () => {
       if (message !== null) {
         if (e.key === 'Enter') {
           inputRef.current?.blur()
+          e.preventDefault()
         }
 
         if (e.key === 'Escape') {
           setIsShowing(false)
           updateMessage(null)
+
+          e.preventDefault()
+          e.stopPropagation()
         }
       }
     },

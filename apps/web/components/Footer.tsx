@@ -104,7 +104,7 @@ const Footer: UIComponent<FooterProps> = ({
           >
             <MailOpenIcon className="mr-1 h-4 w-4" />
             <span className="flex items-center">
-              Contact us at
+              Reach us via
               <a
                 href="mailto:contact@zolplay.cn"
                 className="ml-1 flex items-center hover:underline"
