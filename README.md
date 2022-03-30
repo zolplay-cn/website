@@ -1,6 +1,10 @@
-# [Turborepo](https://turborepo.org) for Zolplay Website.
+# A Monorepo for Zolplay Website.
 
 ![Zolplay Banner](apps/web-cn/public/og-image.jpg)
+
+[Zolplay Website](https://zolplay.com) - International site
+
+[佐玩官方网站](https://zolplay.cn) - 国内官网
 
 ## What's inside?
 
@@ -26,6 +30,8 @@ This turborepo is built by these amazing tools:
 - [pnpm](https://pnpm.io/) for managing the packages
 - [TailwindCSS](https://tailwindcss.com/) for styling the web apps
 - [Framer Motion](https://framer.com/motion/) for composing animations
+- [Liveblocks](https://liveblocks.io/) for real-time presense
+- [Zustand](https://github.com/pmndrs/zustand) for React state management
 
 ## Setup
 
