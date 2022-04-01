@@ -1,3 +1,4 @@
+import { SmsInput } from '~/auth/dto/sms.input'
 import { User } from '~/users/models/user.model'
 
 import { AuthService } from './auth.service'
@@ -13,9 +14,19 @@ import { Args, Mutation, Parent, ResolveField, Resolver } from '@nestjs/graphql'
 export class AuthResolver {
   constructor(private readonly auth: AuthService) {}
 
+  @Mutation(() => Boolean)
+  async sendSmsCode(@Args('data') data: SmsInput): Promise<boolean> {
+    const res = await this.auth.sendSMS(data)
+
+    return !!res.RequestId
+  }
+
   @Mutation(() => Auth)
   async signup(@Args('data') data: SignupInput) {
-    const { accessToken, refreshToken } = await this.auth.createUser(data)
+    const { accessToken, refreshToken } = await this.auth.login(
+      data.phone,
+      data.verificationCode
+    )
     return {
       accessToken,
       refreshToken,

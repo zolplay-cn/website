@@ -1,9 +1,9 @@
-import { IsNotEmpty, Length, Matches } from 'class-validator'
+import { IsIn, IsNotEmpty, Matches } from 'class-validator'
 
 import { Field, InputType } from '@nestjs/graphql'
 
 @InputType()
-export class LoginInput {
+export class SmsInput {
   @Field()
   @IsNotEmpty()
   @Matches(/^\+86(13[0-9]|14[57]|15[012356789]|17[0678]|18[0-9])[0-9]{8}$/gm, {
@@ -13,6 +13,6 @@ export class LoginInput {
 
   @Field()
   @IsNotEmpty()
-  @Length(4, 4, { message: '验证码长度为4位' })
-  verificationCode: string
+  @IsIn(['sign_in', 'sign_up'], { message: '短信类型不正确' })
+  type: 'sign_in' | 'sign_up'
 }

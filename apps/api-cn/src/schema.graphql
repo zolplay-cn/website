@@ -3,10 +3,14 @@
 # ------------------------------------------------------
 
 type Auth {
-  """JWT access token"""
+  """
+  JWT access token
+  """
   accessToken: JWT!
 
-  """JWT refresh token"""
+  """
+  JWT refresh token
+  """
   refreshToken: JWT!
   user: User!
 }
@@ -41,6 +45,7 @@ type Mutation {
   createPageComments(data: CreatePageCommentInput!): PageComment!
   login(data: LoginInput!): Auth!
   refreshToken(token: JWT!): Token!
+  sendSmsCode(data: SmsInput!): Boolean!
   signup(data: SignupInput!): Auth!
   updateUser(data: UpdateUserInput!): User!
 }
@@ -48,12 +53,16 @@ type Mutation {
 type PageComment {
   content: String!
 
-  """Identifies the date and time when the object was created."""
+  """
+  Identifies the date and time when the object was created.
+  """
   createdAt: DateTime!
   id: ID!
   route: String!
 
-  """Identifies the date and time when the object was last updated."""
+  """
+  Identifies the date and time when the object was last updated.
+  """
   updatedAt: DateTime!
   user: User!
 }
@@ -65,10 +74,14 @@ type Query {
 }
 
 input SignupInput {
-  email: String
   name: String!
   phone: String!
   verificationCode: String!
+}
+
+input SmsInput {
+  phone: String!
+  type: String!
 }
 
 type Subscription {
@@ -76,10 +89,14 @@ type Subscription {
 }
 
 type Token {
-  """JWT access token"""
+  """
+  JWT access token
+  """
   accessToken: JWT!
 
-  """JWT refresh token"""
+  """
+  JWT refresh token
+  """
   refreshToken: JWT!
 }
 
@@ -88,7 +105,9 @@ input UpdateUserInput {
 }
 
 type User {
-  """Identifies the date and time when the object was created."""
+  """
+  Identifies the date and time when the object was created.
+  """
   createdAt: DateTime!
   email: String
   id: ID!
@@ -97,6 +116,8 @@ type User {
   phone: String!
   teamLabel: String
 
-  """Identifies the date and time when the object was last updated."""
+  """
+  Identifies the date and time when the object was last updated.
+  """
   updatedAt: DateTime!
 }

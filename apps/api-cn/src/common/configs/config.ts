@@ -16,15 +16,25 @@ const config: Config = {
     path: 'api',
   },
   graphql: {
-    playgroundEnabled: true,
-    debug: true,
+    playgroundEnabled: process.env.NODE_ENV !== 'production',
+    debug: process.env.NODE_ENV !== 'production',
     schemaDestination: './src/schema.graphql',
     sortSchema: true,
   },
   security: {
-    expiresIn: '2m',
-    refreshIn: '7d',
+    expiresIn: '180d',
+    refreshIn: '90d',
     bcryptSaltOrRound: 10,
+    sms: {
+      secretId: process.env.SMS_SECRET_ID || '',
+      secretKey: process.env.SMS_SECRET_KEY || '',
+      region: process.env.SMS_REGION || 'ap-shanghai',
+      appId: process.env.SMS_APP_ID || '',
+      appKey: process.env.SMS_APP_KEY || '',
+      signInTemplateId: process.env.SMS_SIGN_IN_TEMPLATE_ID || '',
+      signUpTemplateId: process.env.SMS_SIGN_UP_TEMPLATE_ID || '',
+      signName: process.env.SMS_SIGN_NAME || '',
+    },
   },
 }
 

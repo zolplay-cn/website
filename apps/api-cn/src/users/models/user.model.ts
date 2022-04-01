@@ -13,4 +13,7 @@ export class User extends BaseModel {
 
   @HideField()
   password?: string
+
+  @HideField()
+  smsCode?: string
 }

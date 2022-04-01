@@ -1,5 +1,8 @@
+import { Chance } from 'chance'
 import { PrismaService } from 'nestjs-prisma'
+import { Client } from 'tencentcloud-sdk-nodejs/tencentcloud/services/sms/v20210111/sms_client'
 
+import { SmsInput } from '~/auth/dto/sms.input'
 import { SecurityConfig } from '~/common/configs/config.interface'
 
 import { SignupInput } from './dto/signup.input'
@@ -8,14 +11,13 @@ import { PasswordService } from './password.service'
 
 import {
   BadRequestException,
-  ConflictException,
   Injectable,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
-import { Prisma, User } from '@prisma/client'
+import { User } from '@prisma/client'
 
 @Injectable()
 export class AuthService {
@@ -26,43 +28,99 @@ export class AuthService {
     private readonly configService: ConfigService
   ) {}
 
-  async createUser({
-    // eslint-disable-next-line unused-imports/no-unused-vars
-    verificationCode,
-    phone,
-    name,
-    // eslint-disable-next-line unused-imports/no-unused-vars
-    ...rest
-  }: SignupInput): Promise<Token> {
-    // const hashedPassword = await this.passwordService.hashPassword(
-    //   payload.password
-    // )
-    // TODO: check verification code
+  async sendSMS({ phone, type }: SmsInput) {
+    const {
+      secretId,
+      secretKey,
+      region,
+      appId,
+      signInTemplateId,
+      signUpTemplateId,
+      signName,
+    } = this.configService.get<SecurityConfig>('security').sms
+    const user = await this.saveSmsCodeForUser(phone)
 
-    try {
-      const user = await this.prisma.user.create({
-        data: {
-          phone,
-          name,
-        },
-      })
+    const client = new Client({
+      credential: {
+        secretId,
+        secretKey,
+      },
+      region,
+      profile: {
+        language: 'zh-CN',
+      },
+    })
 
-      return this.generateTokens({
-        userId: user.id,
-      })
-    } catch (e) {
-      if (
-        e instanceof Prisma.PrismaClientKnownRequestError &&
-        e.code === 'P2002'
-      ) {
-        throw new ConflictException(`手机号 ${phone} 已被注册`)
-      } else {
-        throw new Error(e)
-      }
+    switch (type) {
+      case 'sign_in':
+      case 'sign_up':
+        return client.SendSms({
+          SmsSdkAppId: appId,
+          SignName: signName,
+          TemplateId: type === 'sign_in' ? signInTemplateId : signUpTemplateId,
+          TemplateParamSet: [user.smsCode],
+          PhoneNumberSet: [phone],
+        })
+      default:
+        throw new BadRequestException('无法发送短信')
     }
   }
 
-  // eslint-disable-next-line unused-imports/no-unused-vars
+  async saveSmsCodeForUser(phone: string): Promise<User> {
+    let user = await this.prisma.user.findUnique({
+      where: {
+        phone,
+      },
+    })
+
+    if (!user) {
+      user = await this.prisma.user.create({
+        data: {
+          phone,
+          name: '',
+        },
+      })
+    }
+
+    const chance = new Chance()
+
+    return this.prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        smsCode: chance.string({
+          length: 4,
+          pool: '0123456789',
+        }),
+      },
+    })
+  }
+
+  async signUp({ verificationCode, phone, name }: SignupInput): Promise<Token> {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        phone,
+      },
+    })
+
+    if (user.smsCode !== verificationCode) {
+      throw new BadRequestException('验证码错误')
+    }
+
+    await this.prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        name,
+        smsCode: null,
+      },
+    })
+
+    return this.generateTokens({ userId: user.id })
+  }
+
   async login(phone: string, verificationCode: string): Promise<Token> {
     const user = await this.prisma.user.findUnique({ where: { phone } })
 
@@ -70,12 +128,20 @@ export class AuthService {
       throw new NotFoundException(`不存在该手机号: ${phone} 用户`)
     }
 
-    // TODO: check verification code
-    const codeValid = true
+    const codeValid = user.smsCode === verificationCode
 
     if (!codeValid) {
       throw new BadRequestException('验证码错误')
     }
+
+    await this.prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        smsCode: null,
+      },
+    })
 
     return this.generateTokens({
       userId: user.id,

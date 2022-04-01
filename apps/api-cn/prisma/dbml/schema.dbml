@@ -11,6 +11,7 @@ Table User {
   name String [not null]
   phone String [unique, not null]
   teamLabel String
+  smsCode String
   pageComments PageComment [not null]
 }
 

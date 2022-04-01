@@ -22,6 +22,7 @@ model User {
   name         String
   phone        String        @unique
   teamLabel    String?
+  smsCode      String?
   pageComments PageComment[]
 }
 

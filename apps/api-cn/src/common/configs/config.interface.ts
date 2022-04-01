@@ -34,4 +34,14 @@ export interface SecurityConfig {
   expiresIn: string
   refreshIn: string
   bcryptSaltOrRound: string | number
+  sms: {
+    secretId: string
+    secretKey: string
+    region: string
+    appId: string
+    appKey: string
+    signInTemplateId: string
+    signUpTemplateId: string
+    signName: string
+  }
 }
