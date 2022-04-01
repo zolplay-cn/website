@@ -1,4 +1,4 @@
-import { PrismaClientExceptionFilter, PrismaService } from 'nestjs-prisma'
+import { PrismaService } from 'nestjs-prisma'
 
 import type {
   CorsConfig,
@@ -10,7 +10,7 @@ import { AppModule } from './app.module'
 
 import { Logger, ValidationPipe } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { HttpAdapterHost, NestFactory } from '@nestjs/core'
+import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 async function bootstrap() {
@@ -22,11 +22,7 @@ async function bootstrap() {
 
   // enable shutdown hook
   const prismaService: PrismaService = app.get(PrismaService)
-  prismaService.enableShutdownHooks(app)
-
-  // Prisma Client Exception Filter for unhandled exceptions
-  const { httpAdapter } = app.get(HttpAdapterHost)
-  app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter))
+  await prismaService.enableShutdownHooks(app)
 
   const configService = app.get(ConfigService)
   const nestConfig = configService.get<NestConfig>('nest')
@@ -47,7 +43,10 @@ async function bootstrap() {
 
   // Cors
   if (corsConfig.enabled) {
-    app.enableCors()
+    app.enableCors({
+      origin: corsConfig.origin,
+      credentials: corsConfig.credentials,
+    })
   }
 
   logger.log(`Application is running on http://127.0.0.1:${nestConfig.port}`)

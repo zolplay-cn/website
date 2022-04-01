@@ -31,6 +31,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
     "postcss": "^8.4.12",
+    "prisma": "^3.11.1",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "remark-preset-prettier": "^1.0.0",

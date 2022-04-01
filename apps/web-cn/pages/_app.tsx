@@ -7,6 +7,7 @@ import { roundArrow } from 'tippy.js'
 import '~/styles/globals.css'
 import '~/styles/tippy.css'
 
+import { useApollo } from '~/lib/apollo'
 import { useLayout } from '~/lib/routes'
 import { makeUrl } from '~/lib/utils'
 
@@ -14,6 +15,7 @@ import Footer from '~/components/Footer'
 import LiveCursors from '~/components/live/LiveCursors'
 import NavBar from '~/components/NavBar'
 
+import { ApolloProvider } from '@apollo/client'
 import { tippy } from '@tippyjs/react'
 
 if (typeof window !== 'undefined') {
@@ -32,6 +34,7 @@ if (typeof window !== 'undefined') {
 function MyApp({ Component, pageProps }: AppProps) {
   const { route } = useRouter()
   const Layout = useLayout(route)
+  const apolloClient = useApollo(pageProps)
 
   useEffect(() => {
     console.log(
@@ -82,15 +85,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         ]}
       />
 
-      <NavBar />
+      <ApolloProvider client={apolloClient}>
+        <NavBar />
 
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
 
-      <Footer />
+        <Footer />
 
-      <LiveCursors />
+        <LiveCursors />
+      </ApolloProvider>
     </>
   )
 }

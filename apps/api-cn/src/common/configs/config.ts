@@ -7,6 +7,8 @@ const config: Config = {
   },
   cors: {
     enabled: true,
+    origin: process.env.CORS_ORIGIN || '*',
+    credentials: true,
   },
   swagger: {
     enabled: true,

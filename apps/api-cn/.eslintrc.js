@@ -3,8 +3,9 @@ const config = require('config/eslint-nest')
 module.exports = {
   ...config,
   parserOptions: {
-    project: './apps/api-cn/tsconfig.json',
+    project: 'tsconfig.json',
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
   },
   ignorePatterns: [
     '.eslintrc.js',
