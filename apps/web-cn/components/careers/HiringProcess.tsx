@@ -19,19 +19,19 @@ const timeline = [
   },
   {
     id: 2,
-    content: 'HR 将面试挑战题要求与详情发送到初筛通过的候选人邮箱',
-    icon: BeakerIcon,
-    iconBackground: 'bg-blue-500 shadow-blue-300/20',
-  },
-  {
-    id: 3,
     content: 'HR 将联系候选人确认下一轮面试时间',
     icon: SwitchHorizontalIcon,
     iconBackground: 'bg-orange-500 shadow-orange-300/20',
   },
   {
+    id: 3,
+    content: '候选人将与佐玩创始人CEO 线上/线下的实时代码面试',
+    icon: BeakerIcon,
+    iconBackground: 'bg-blue-500 shadow-blue-300/20',
+  },
+  {
     id: 4,
-    content: '候选人将与佐玩创始人、技术经理与设计师进行线上/线下面试考核',
+    content: '候选人将与佐玩技术经理、设计师进行线上/线下面试考核',
     icon: UserGroupIcon,
     iconBackground: 'bg-pink-500 shadow-pink-300/20',
   },
