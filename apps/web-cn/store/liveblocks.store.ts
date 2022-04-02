@@ -4,7 +4,7 @@ import { createClient } from '@liveblocks/client'
 import { middleware } from '@liveblocks/zustand'
 
 const client = createClient({
-  publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY || '',
+  authEndpoint: '/api/live/auth',
 })
 
 export const makeRoomIdByRoute = (route: string) => {

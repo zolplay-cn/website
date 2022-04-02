@@ -340,10 +340,13 @@ const NavBar: UIComponent = () => {
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', delay: 0, duration: 0.5 }}
-                className="flex items-center rounded-lg bg-sky-500/20 px-3 py-1.5 text-sm font-semibold text-slate-50/90 shadow-lg shadow-sky-400/10"
+                className="relative flex items-center rounded-lg bg-sky-500/20 px-3 py-1.5 text-sm font-semibold text-slate-50/90 shadow-lg shadow-sky-400/10"
               >
                 <LoginIcon className="mr-1.5 h-4" />
                 <span>登陆</span>
+                <span className="absolute -right-2 -top-2 scale-75 text-xs text-white/40">
+                  即将上线
+                </span>
               </motion.button>
             </motion.div>
           </section>
