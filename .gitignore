@@ -34,3 +34,7 @@ yarn-error.log*
 
 deploy.sh
 ecosystem.config.js
+deploy-api.sh
+ecosystem-api.config.js
+
+*.code-workspace

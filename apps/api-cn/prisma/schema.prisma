@@ -15,27 +15,59 @@ generator dbml {
 
 model User {
   id           String        @id @default(cuid())
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  createdAt    DateTime      @default(now()) @map(name: "created_at")
+  updatedAt    DateTime      @updatedAt @map(name: "updated_at")
   email        String?       @unique
-  password     String?
-  name         String
-  phone        String        @unique
-  teamLabel    String?
-  smsCode      String?
+  name         String?
+  phone        String?       @unique
+  accounts     Account[]
   pageComments PageComment[]
+
+  @@map(name: "users")
+}
+
+model Account {
+  id                String    @id @default(cuid())
+  userId            String    @map(name: "user_id")
+  type              String
+  provider          String
+  providerAccountId String    @map(name: "provider_account_id")
+  refreshToken      String?   @map(name: "refresh_token")
+  accessToken       String?   @map(name: "access_token")
+  expiresAt         DateTime? @map(name: "expires_at")
+  createdAt         DateTime  @default(now()) @map(name: "created_at")
+  updatedAt         DateTime  @updatedAt @map(name: "updated_at")
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map(name: "accounts")
+}
+
+model VerificationRequest {
+  id         String   @id @default(cuid())
+  identifier String
+  token      String
+  expiresAt  DateTime @map(name: "expires_at")
+  createdAt  DateTime @default(now()) @map(name: "created_at")
+  updatedAt  DateTime @updatedAt @map(name: "updated_at")
+
+  @@index([identifier, token])
+
+  @@map(name: "verification_requests")
 }
 
 model PageComment {
   id        String        @id @default(cuid())
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
+  createdAt DateTime      @default(now()) @map(name: "created_at")
+  updatedAt DateTime      @updatedAt @map(name: "updated_at")
   route     String
   content   String
-  sectionId String?
+  sectionId String?       @map(name: "section_id")
   user      User          @relation(fields: [userId], references: [id])
-  userId    String
+  userId    String        @map(name: "user_id")
   replies   PageComment[] @relation("Sub")
   parent    PageComment?  @relation("Sub", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  parentId  String?
+  parentId  String?       @map(name: "parent_id")
+
+  @@map(name: "page_comments")
 }

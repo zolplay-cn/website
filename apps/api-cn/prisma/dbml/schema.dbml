@@ -7,12 +7,37 @@ Table User {
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   email String [unique]
-  password String
-  name String [not null]
-  phone String [unique, not null]
-  teamLabel String
-  smsCode String
+  name String
+  phone String [unique]
+  accounts Account [not null]
   pageComments PageComment [not null]
+}
+
+Table Account {
+  id String [pk]
+  userId String [not null]
+  type String [not null]
+  provider String [not null]
+  providerAccountId String [not null]
+  refreshToken String
+  accessToken String
+  expiresAt DateTime
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  user User [not null]
+
+  indexes {
+    (provider, providerAccountId) [unique]
+  }
+}
+
+Table VerificationRequest {
+  id String [pk]
+  identifier String [not null]
+  token String [not null]
+  expiresAt DateTime [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
 }
 
 Table PageComment {
@@ -28,6 +53,8 @@ Table PageComment {
   parent PageComment
   parentId String
 }
+
+Ref: Account.userId > User.id [delete: Cascade]
 
 Ref: PageComment.userId > User.id
 

@@ -1,4 +1,5 @@
 import { Chance } from 'chance'
+import dayjs from 'dayjs'
 import { PrismaService } from 'nestjs-prisma'
 import { Client } from 'tencentcloud-sdk-nodejs/tencentcloud/services/sms/v20210111/sms_client'
 
@@ -7,24 +8,22 @@ import { SecurityConfig } from '~/common/configs/config.interface'
 
 import { SignupInput } from './dto/signup.input'
 import { Token } from './models/token.model'
-import { PasswordService } from './password.service'
 
 import {
   BadRequestException,
   Injectable,
-  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
-import { User } from '@prisma/client'
+import { User, VerificationRequest } from '@prisma/client'
 
+const smsExpirationMinutes = 10
 @Injectable()
 export class AuthService {
   constructor(
     private readonly jwtService: JwtService,
     private readonly prisma: PrismaService,
-    private readonly passwordService: PasswordService,
     private readonly configService: ConfigService
   ) {}
 
@@ -38,7 +37,7 @@ export class AuthService {
       signUpTemplateId,
       signName,
     } = this.configService.get<SecurityConfig>('security').sms
-    const user = await this.saveSmsCodeForUser(phone)
+    const code = await this.generateSmsCodeForUser(phone)
 
     const client = new Client({
       credential: {
@@ -58,7 +57,7 @@ export class AuthService {
           SmsSdkAppId: appId,
           SignName: signName,
           TemplateId: type === 'sign_in' ? signInTemplateId : signUpTemplateId,
-          TemplateParamSet: [user.smsCode],
+          TemplateParamSet: [code, smsExpirationMinutes.toString()],
           PhoneNumberSet: [phone],
         })
       default:
@@ -66,7 +65,7 @@ export class AuthService {
     }
   }
 
-  async saveSmsCodeForUser(phone: string): Promise<User> {
+  async generateSmsCodeForUser(phone: string): Promise<string> {
     let user = await this.prisma.user.findUnique({
       where: {
         phone,
@@ -77,75 +76,83 @@ export class AuthService {
       user = await this.prisma.user.create({
         data: {
           phone,
-          name: '',
         },
       })
     }
 
-    const chance = new Chance()
+    const code = new Chance().string({
+      length: 4,
+      pool: '0123456789',
+    })
 
-    return this.prisma.user.update({
-      where: {
-        id: user.id,
-      },
+    const expiresAt = dayjs().add(smsExpirationMinutes, 'minute').toDate()
+    await this.prisma.verificationRequest.create({
       data: {
-        smsCode: chance.string({
-          length: 4,
-          pool: '0123456789',
-        }),
+        token: code,
+        identifier: phone,
+        expiresAt,
       },
     })
+
+    return code
   }
 
   async signUp({ verificationCode, phone, name }: SignupInput): Promise<Token> {
+    await this.findVerificationRequest(phone, verificationCode)
+    const { id } = await this.revokeVerificationRequest(phone)
+    await this.prisma.user.update({
+      data: {
+        name,
+      },
+      where: {
+        id,
+      },
+    })
+
+    return this.generateTokens({ userId: id })
+  }
+
+  async login(phone: string, verificationCode: string): Promise<Token> {
+    await this.findVerificationRequest(phone, verificationCode)
+    const { id } = await this.revokeVerificationRequest(phone)
+
+    return this.generateTokens({
+      userId: id,
+    })
+  }
+
+  async findVerificationRequest(
+    phone: string,
+    code: string
+  ): Promise<VerificationRequest> {
+    const request = await this.prisma.verificationRequest.findFirst({
+      where: {
+        token: code,
+        identifier: phone,
+        expiresAt: { gt: dayjs().toDate() },
+      },
+    })
+
+    if (!request) {
+      throw new BadRequestException('验证码错误')
+    }
+
+    return request
+  }
+
+  async revokeVerificationRequest(phone: string): Promise<User> {
     const user = await this.prisma.user.findUnique({
       where: {
         phone,
       },
     })
-
-    if (user.smsCode !== verificationCode) {
-      throw new BadRequestException('验证码错误')
-    }
-
-    await this.prisma.user.update({
+    await this.prisma.verificationRequest.deleteMany({
       where: {
-        id: user.id,
-      },
-      data: {
-        name,
-        smsCode: null,
+        identifier: phone,
       },
     })
 
-    return this.generateTokens({ userId: user.id })
-  }
-
-  async login(phone: string, verificationCode: string): Promise<Token> {
-    const user = await this.prisma.user.findUnique({ where: { phone } })
-
-    if (!user) {
-      throw new NotFoundException(`不存在该手机号: ${phone} 用户`)
-    }
-
-    const codeValid = user.smsCode === verificationCode
-
-    if (!codeValid) {
-      throw new BadRequestException('验证码错误')
-    }
-
-    await this.prisma.user.update({
-      where: {
-        id: user.id,
-      },
-      data: {
-        smsCode: null,
-      },
-    })
-
-    return this.generateTokens({
-      userId: user.id,
-    })
+    return user
   }
 
   validateUser(userId: string): Promise<User> {
@@ -165,14 +172,18 @@ export class AuthService {
   }
 
   private generateAccessToken(payload: { userId: string }): string {
-    return this.jwtService.sign(payload)
+    const { expiresIn } = this.configService.get<SecurityConfig>('security')
+
+    return this.jwtService.sign(payload, {
+      expiresIn,
+    })
   }
 
   private generateRefreshToken(payload: { userId: string }): string {
-    const securityConfig = this.configService.get<SecurityConfig>('security')
+    const { refreshIn } = this.configService.get<SecurityConfig>('security')
     return this.jwtService.sign(payload, {
       secret: this.configService.get('JWT_REFRESH_SECRET'),
-      expiresIn: securityConfig.refreshIn,
+      expiresIn: refreshIn,
     })
   }
 

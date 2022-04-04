@@ -75,6 +75,7 @@ importers:
       class-transformer: 0.5.1
       class-validator: 0.13.2
       config: workspace:*
+      dayjs: ^1.11.0
       graphql: ^15.6.0
       graphql-scalars: ^1.14.1
       graphql-subscriptions: 1.2.1
@@ -112,6 +113,7 @@ importers:
       bcrypt: 5.0.1
       class-transformer: 0.5.1
       class-validator: 0.13.2
+      dayjs: 1.11.0
       graphql: 15.8.0
       graphql-scalars: 1.17.0_graphql@15.8.0
       graphql-subscriptions: 1.2.1_graphql@15.8.0
@@ -4384,6 +4386,10 @@ packages:
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
     dev: true
+
+  /dayjs/1.11.0:
+    resolution: {integrity: sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

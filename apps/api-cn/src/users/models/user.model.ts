@@ -7,7 +7,7 @@ import { HideField, ObjectType } from '@nestjs/graphql'
 export class User extends BaseModel {
   email?: string
   name?: string
-  phone: string
+  phone?: string
   teamLabel?: string
   pageComments: PageComment[]
 

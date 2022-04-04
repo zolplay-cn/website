@@ -12,15 +12,16 @@ It includes the following packages/apps:
 
 ### Apps and Packages
 
+- `ap-cn`: API backend layer for Zolplay in China only.
 - `web`: Website for international audiences.
 - `web-cn`: Website for hosting in China only.
 - `config`: `eslint`, `prettier` and other configurations.
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo.
 - `ui`: a shared React component library for all our web applications.
 
-### Tools
-
 This turborepo is built by these amazing tools:
+
+### Frontend Tools
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
@@ -32,6 +33,14 @@ This turborepo is built by these amazing tools:
 - [Framer Motion](https://framer.com/motion/) for composing animations
 - [Liveblocks](https://liveblocks.io/) for real-time presense
 - [Zustand](https://github.com/pmndrs/zustand) for React state management
+- [Apollo](https://www.apollographql.com/) for GraphQL client
+
+### Backend Tools
+
+- [Nest.js](https://nestjs.com/) for building the API structure
+- [Prisma](https://www.prisma.io/) for managing the database
+- [GraphQL](https://graphql.org/) for building the API schema
+- [JSON Web Tokens](https://jwt.io/) for authentication
 
 ## Setup
 

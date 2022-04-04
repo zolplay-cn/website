@@ -7,3 +7,6 @@ coverage/
 
 prisma/migrations/dev/
 .env
+
+ecosystem.config.js
+deploy.sh

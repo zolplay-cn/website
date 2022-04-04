@@ -13,5 +13,6 @@ module.exports = {
     'dist',
     'node_modules',
     'src/schema.graphql',
+    'ecosystem.config.js',
   ],
 }

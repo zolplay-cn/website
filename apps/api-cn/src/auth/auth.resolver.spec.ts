@@ -1,7 +1,5 @@
 import { PrismaService } from 'nestjs-prisma'
 
-import { PasswordService } from '~/auth/password.service'
-
 import { AuthResolver } from './auth.resolver'
 import { AuthService } from './auth.service'
 
@@ -18,7 +16,6 @@ describe('AuthResolver', () => {
         AuthResolver,
         AuthService,
         PrismaService,
-        PasswordService,
         { provide: JwtService, useValue: {} },
         {
           provide: ConfigService,
