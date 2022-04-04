@@ -27,23 +27,23 @@ deploy-site:
       - apps/web-cn/**/*
       - packages/ui/**/*
       - .gitlab-ci.yml
-# deploy-api: # This job runs in the deploy-api stage.
-#   stage: deploy
-#   before_script:
-#     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
-#     - eval $(ssh-agent -s)
-#     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-#     - mkdir -p ~/.ssh
-#     - chmod 700 ~/.ssh
-#     - ssh-keyscan $VM_IPADDRESS >> ~/.ssh/known_hosts
-#     - chmod 644 ~/.ssh/known_hosts
-#   script:
-#     - echo "部署API中..."
-#     - ssh $SSH_USER@$VM_IPADDRESS "cd $SSH_SITE_DIRECTORY && git pull && sh deploy-api.sh"
-#     - echo "API已成功部署。"
-#   only:
-#     refs:
-#       - main
-#     changes:
-#       - apps/api-cn/**/*
-#       - .gitlab-ci.yml
+deploy-api: # This job runs in the deploy-api stage.
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $VM_IPADDRESS >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "部署API中..."
+    - ssh $SSH_USER@$VM_IPADDRESS "cd $SSH_SITE_DIRECTORY && git pull && sh deploy-api.sh"
+    - echo "API已成功部署。"
+  only:
+    refs:
+      - main
+    changes:
+      - apps/api-cn/**/*
+      - .gitlab-ci.yml
