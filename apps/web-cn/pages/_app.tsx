@@ -2,10 +2,12 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import { useEffect } from 'react'
+import { Toaster } from 'react-hot-toast'
 import { roundArrow } from 'tippy.js'
 
 import '~/styles/globals.css'
 import '~/styles/tippy.css'
+import '~/styles/toaster.css'
 
 import { useApollo } from '~/lib/apollo'
 import { useLayout } from '~/lib/routes'
@@ -14,6 +16,8 @@ import { makeUrl } from '~/lib/utils'
 import Footer from '~/components/Footer'
 import LiveCursors from '~/components/live/LiveCursors'
 import NavBar from '~/components/NavBar'
+
+import { Provider, useCreateStore } from '~/store/app.store'
 
 import { ApolloProvider } from '@apollo/client'
 import { tippy } from '@tippyjs/react'
@@ -35,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { route } = useRouter()
   const Layout = useLayout(route)
   const apolloClient = useApollo(pageProps)
+  const store = useCreateStore(pageProps.initialZustandState ?? {})
 
   useEffect(() => {
     console.log(
@@ -85,16 +90,46 @@ function MyApp({ Component, pageProps }: AppProps) {
         ]}
       />
 
+      <Toaster
+        position="bottom-center"
+        reverseOrder={false}
+        toastOptions={{
+          className: 'toaster',
+          success: {
+            iconTheme: {
+              primary: 'var(--toast-icon-success-primary)',
+              secondary: 'var(--toast-icon-success-secondary)',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: 'var(--toast-icon-error-primary)',
+              secondary: 'var(--toast-icon-error-secondary)',
+            },
+          },
+          loading: {
+            iconTheme: {
+              primary: 'var(--toast-icon-loading-primary)',
+              secondary: 'var(--toast-icon-loading-secondary)',
+            },
+          },
+        }}
+        containerClassName="toaster-container"
+        gutter={12}
+      />
+
       <ApolloProvider client={apolloClient}>
-        <NavBar />
+        <Provider createStore={store}>
+          <NavBar />
 
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
 
-        <Footer />
+          <Footer />
 
-        <LiveCursors />
+          <LiveCursors />
+        </Provider>
       </ApolloProvider>
     </>
   )

@@ -9,6 +9,8 @@ Table User {
   email String [unique]
   name String
   phone String [unique]
+  profile Profile
+  teamProfile TeamProfile
   accounts Account [not null]
   pageComments PageComment [not null]
 }
@@ -40,6 +42,24 @@ Table VerificationRequest {
   updatedAt DateTime [not null]
 }
 
+Table Profile {
+  id String [pk]
+  avatar String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [unique, not null]
+  user User [not null]
+}
+
+Table TeamProfile {
+  id String [pk]
+  label String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [unique, not null]
+  user User [not null]
+}
+
 Table PageComment {
   id String [pk]
   createdAt DateTime [default: `now()`, not null]
@@ -55,6 +75,10 @@ Table PageComment {
 }
 
 Ref: Account.userId > User.id [delete: Cascade]
+
+Ref: Profile.userId - User.id [delete: Cascade]
+
+Ref: TeamProfile.userId - User.id [delete: Cascade]
 
 Ref: PageComment.userId > User.id
 

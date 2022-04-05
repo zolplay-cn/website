@@ -6,7 +6,7 @@ import { Field, InputType } from '@nestjs/graphql'
 export class SmsInput {
   @Field()
   @IsNotEmpty()
-  @Matches(/^\+86(13[0-9]|14[57]|15[012356789]|17[0678]|18[0-9])[0-9]{8}$/gm, {
+  @Matches(/^\+86(13[0-9]|14[57]|15[012356789]|17[0678]|18[0-9])[0-9]{8}$/, {
     message: '手机号码格式不正确',
   })
   phone: string

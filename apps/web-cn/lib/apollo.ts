@@ -1,6 +1,6 @@
-import cookie from 'cookie'
 import merge from 'deepmerge'
 import type { IncomingMessage } from 'http'
+import cookie from 'js-cookie'
 import isEqual from 'lodash/isEqual'
 import type { GetServerSidePropsContext } from 'next'
 import { useMemo } from 'react'
@@ -14,14 +14,10 @@ interface PageProps {
 }
 
 export const APOLLO_STATE_PROPERTY_NAME = '__APOLLO_STATE__'
-export const COOKIES_TOKEN_NAME = 'jwt'
+export const COOKIES_TOKEN_NAME = '__auth_token__'
 
 const getToken = (req?: IncomingMessage) => {
-  const parsedCookie = cookie.parse(
-    req ? req.headers.cookie ?? '' : document.cookie
-  )
-
-  return parsedCookie[COOKIES_TOKEN_NAME]
+  return cookie.get(COOKIES_TOKEN_NAME)
 }
 
 let apolloClient: ApolloClient<NormalizedCacheObject> = null

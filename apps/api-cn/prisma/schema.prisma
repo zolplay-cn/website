@@ -1,12 +1,10 @@
 datasource db {
-  provider             = "mysql"
-  url                  = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
+  provider = "prisma-client-js"
 }
 
 generator dbml {
@@ -20,6 +18,8 @@ model User {
   email        String?       @unique
   name         String?
   phone        String?       @unique
+  profile      Profile?
+  teamProfile  TeamProfile?
   accounts     Account[]
   pageComments PageComment[]
 
@@ -51,9 +51,31 @@ model VerificationRequest {
   createdAt  DateTime @default(now()) @map(name: "created_at")
   updatedAt  DateTime @updatedAt @map(name: "updated_at")
 
-  @@index([identifier, token])
 
+  @@index([identifier, token])
   @@map(name: "verification_requests")
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  avatar    String?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  userId    String   @map(name: "user_id")@unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map(name: "profiles")
+}
+
+model TeamProfile {
+  id        String   @id @default(cuid())
+  label     String
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  userId    String   @map(name: "user_id")@unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map(name: "team_profiles")
 }
 
 model PageComment {

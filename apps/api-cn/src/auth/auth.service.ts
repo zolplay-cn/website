@@ -66,14 +66,14 @@ export class AuthService {
   }
 
   async generateSmsCodeForUser(phone: string): Promise<string> {
-    let user = await this.prisma.user.findUnique({
+    const user = await this.prisma.user.findUnique({
       where: {
         phone,
       },
     })
 
     if (!user) {
-      user = await this.prisma.user.create({
+      await this.prisma.user.create({
         data: {
           phone,
         },
@@ -86,35 +86,61 @@ export class AuthService {
     })
 
     const expiresAt = dayjs().add(smsExpirationMinutes, 'minute').toDate()
-    await this.prisma.verificationRequest.create({
-      data: {
-        token: code,
+    const existingRequest = await this.prisma.verificationRequest.findFirst({
+      where: {
         identifier: phone,
-        expiresAt,
       },
     })
+    if (existingRequest) {
+      await this.prisma.verificationRequest.update({
+        where: {
+          id: existingRequest.id,
+        },
+        data: {
+          token: code,
+          expiresAt,
+        },
+      })
+    } else {
+      await this.prisma.verificationRequest.create({
+        data: {
+          token: code,
+          identifier: phone,
+          expiresAt,
+        },
+      })
+    }
 
     return code
   }
 
   async signUp({ verificationCode, phone, name }: SignupInput): Promise<Token> {
     await this.findVerificationRequest(phone, verificationCode)
-    const { id } = await this.revokeVerificationRequest(phone)
+    const user = await this.revokeVerificationRequest(phone)
+
+    if (user.name) {
+      throw new BadRequestException('用户已存在')
+    }
+
     await this.prisma.user.update({
       data: {
         name,
       },
       where: {
-        id,
+        id: user.id,
       },
     })
 
-    return this.generateTokens({ userId: id })
+    return this.generateTokens({ userId: user.id })
   }
 
   async login(phone: string, verificationCode: string): Promise<Token> {
     await this.findVerificationRequest(phone, verificationCode)
-    const { id } = await this.revokeVerificationRequest(phone)
+    const { id, name } = await this.revokeVerificationRequest(phone)
+
+    if (!name) {
+      throw new BadRequestException('手机号不存在')
+    }
 
     return this.generateTokens({
       userId: id,

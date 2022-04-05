@@ -12,14 +12,14 @@ async function main() {
     data: {
       phone: '13012345678',
       name: 'Cali',
-      password: '$2b$10$EpRnTzVlqHNP0.fUbXUwSOyuiXe/QLSUG6xNekdHgTGmrpHEfIoxm', // secret42
+      email: 'cali@zolplay.cn',
     },
   })
   const user2 = await prisma.user.create({
     data: {
       phone: '13112345678',
-      name: 'Bart',
-      password: '$2b$10$EpRnTzVlqHNP0.fUbXUwSOyuiXe/QLSUG6xNekdHgTGmrpHEfIoxm', // secret42
+      name: 'Timx',
+      email: 'timx@zolplay.cn',
     },
   })
 

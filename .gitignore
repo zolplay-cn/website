@@ -38,3 +38,5 @@ deploy-api.sh
 ecosystem-api.config.js
 
 *.code-workspace
+
+apps/web-cn/.graphqlconfig

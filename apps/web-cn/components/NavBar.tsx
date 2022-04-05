@@ -4,24 +4,26 @@ import {
   SVGMotionProps,
   Transition,
 } from 'framer-motion'
-import { useAtomValue } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { atomWithReset, useResetAtom, useUpdateAtom } from 'jotai/utils'
-import { take } from 'lodash'
 import { useRouter } from 'next/router'
 import React, { FC, useEffect, useMemo, useState } from 'react'
-import { IoChatbubble } from 'react-icons/io5'
 import { Avatar, clsxm } from 'ui'
 import type { UIComponent } from 'ui/@types/core'
 
+import { useAuth } from '~/hooks/useAuth'
+
+import GuestOnly from '~/components/auth/GuestOnly'
+import MemberOnly from '~/components/auth/MemberOnly'
+import AuthModal, { isAuthModalOpenAtom } from '~/components/modals/AuthModal'
 import { NeonLogo, NeonTextLogo } from '~/components/NeonLogos'
 import SiteLink from '~/components/SiteLink'
 
-import { useLiveblocksStore } from '~/store/liveblocks.store'
-
 import { navigation } from '~/config/navigation'
 
+import LiveAvatars from './live/LiveAvatars'
+
 import { LoginIcon } from '@heroicons/react/outline'
-import { UserGroupIcon } from '@heroicons/react/solid'
 import Tippy from '@tippyjs/react'
 
 type MenuButtonProps = SVGMotionProps<SVGElement> & {
@@ -121,78 +123,6 @@ const MenuButton: FC<MenuButtonProps> = ({
   )
 }
 
-const maxOtherUsersCount = 4
-
-const LiveAvatars: UIComponent<{ id: string }> = ({ id, className }) => {
-  const others = useLiveblocksStore((state) => state.liveblocks.others)
-  const totalUsers = useMemo(() => others.length, [others])
-
-  return (
-    <>
-      <AnimatePresence>
-        {totalUsers >= 1 && (
-          <motion.div
-            initial={{ opacity: 0, x: 12 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 12 }}
-            transition={{ type: 'spring' }}
-            className={clsxm('relative z-0 flex h-10 items-center', className)}
-          >
-            <Tippy
-              content={
-                <span className="tippy-block flex-col text-sm">
-                  <span className="mb-1 flex items-center space-x-1.5 text-slate-200">
-                    <UserGroupIcon className="h-3.5 w-3.5" />
-                    <span>
-                      {totalUsers > 1 ? `其他${totalUsers}人` : '另一个人'}
-                      也在浏览此页面
-                    </span>
-                  </span>
-                  <span className="flex items-center space-x-1.5 font-medium text-slate-400">
-                    <IoChatbubble className="h-3.5 w-3.5" />
-                    <span>按 / 键可开启实时消息</span>
-                  </span>
-                </span>
-              }
-              interactive={false}
-            >
-              <ul className="flex items-center -space-x-1">
-                {take(others, maxOtherUsersCount).map(({ connectionId }) => (
-                  <motion.li
-                    layoutId={`${id}_${connectionId}`}
-                    className="relative z-20 h-7 w-7 lg:h-6 lg:w-6"
-                    key={connectionId}
-                  >
-                    <Avatar
-                      name={`${id}_${connectionId}`}
-                      className="z-30 inline-block h-full w-full rounded-full ring-2 ring-dark"
-                    />
-                  </motion.li>
-                ))}
-
-                {totalUsers > maxOtherUsersCount && (
-                  <motion.li
-                    className="h-7 w-7 lg:h-6 lg:w-6"
-                    key="more-users"
-                    layoutId="more"
-                  >
-                    <span className="relative z-40 inline-flex h-full w-full items-center justify-center rounded-full bg-neon-500 text-center text-xs font-bold text-slate-800 ring-2 ring-dark">
-                      +
-                      {totalUsers - maxOtherUsersCount > 9
-                        ? '9'
-                        : totalUsers - maxOtherUsersCount}
-                    </span>
-                  </motion.li>
-                )}
-              </ul>
-            </Tippy>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  )
-}
-
 const transparentMaxThresholdAtom = atomWithReset(Infinity)
 export function useNavBarTransparentThreshold(transparentMaxThreshold: number) {
   const setValue = useUpdateAtom(transparentMaxThresholdAtom)
@@ -233,6 +163,9 @@ const NavBar: UIComponent = () => {
     }
   }, [threshold])
 
+  const { profile } = useAuth()
+  const [isAuthModalOpen, setIsAuthModalOpen] = useAtom(isAuthModalOpenAtom)
+
   return (
     <>
       <nav
@@ -240,6 +173,7 @@ const NavBar: UIComponent = () => {
           'fixed top-0 z-[1000] flex h-20 w-full items-center antialiased transition-all duration-300 md:sticky',
           isOverThreshold &&
             !isOpen &&
+            !isAuthModalOpen &&
             'bg-dark/90 saturate-150 backdrop-blur-xl'
         )}
       >
@@ -334,20 +268,42 @@ const NavBar: UIComponent = () => {
               })}
             </motion.ul>
 
-            <motion.div className="ml-6">
-              <motion.button
-                initial={{ scale: 1 }}
-                whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: 'spring', delay: 0, duration: 0.5 }}
-                className="relative flex items-center rounded-lg bg-sky-500/20 px-3 py-1.5 text-sm font-semibold text-slate-50/90 shadow-lg shadow-sky-400/10"
-              >
-                <LoginIcon className="mr-1.5 h-4" />
-                <span>登陆</span>
-                <span className="absolute -right-2 -top-2 scale-75 text-xs text-white/40">
-                  即将上线
-                </span>
-              </motion.button>
+            <motion.div
+              className="ml-6"
+              initial={{ opacity: 0, y: -15 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring', delay: 0.09 }}
+            >
+              <GuestOnly>
+                <motion.button
+                  initial={{ scale: 1 }}
+                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', delay: 0, duration: 0.5 }}
+                  className="relative flex items-center rounded-lg bg-sky-500/20 px-3 py-1.5 text-sm font-semibold text-slate-50/90 shadow-lg shadow-sky-400/10"
+                  onClick={() => setIsAuthModalOpen(!isAuthModalOpen)}
+                >
+                  <LoginIcon className="mr-1.5 h-4" />
+                  <span>{isAuthModalOpen ? '关闭' : '登陆'}</span>
+                </motion.button>
+              </GuestOnly>
+
+              <MemberOnly>
+                {profile && (
+                  <div className="flex items-center space-x-2">
+                    <div className="h-7 w-7">
+                      <Avatar
+                        name={profile.id}
+                        className="h-full w-full rounded-full"
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-neon-500">
+                      {profile.name ?? '匿名用户'}
+                    </span>
+                  </div>
+                )}
+              </MemberOnly>
             </motion.div>
           </section>
 
@@ -418,6 +374,38 @@ const NavBar: UIComponent = () => {
                 ))}
               </div>
 
+              <div className="flex h-12 w-full items-end justify-center">
+                <GuestOnly>
+                  <motion.button
+                    initial={{ scale: 1 }}
+                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', delay: 0, duration: 0.5 }}
+                    className="relative flex items-center rounded-lg bg-sky-500/20 px-5 py-2 text-sm font-semibold text-slate-50/90 shadow-lg shadow-sky-400/10"
+                    onClick={() => setIsAuthModalOpen(!isAuthModalOpen)}
+                  >
+                    <LoginIcon className="mr-1.5 h-4" />
+                    <span>登陆</span>
+                  </motion.button>
+                </GuestOnly>
+
+                <MemberOnly>
+                  {profile && (
+                    <div className="flex items-center space-x-2">
+                      <div className="h-7 w-7">
+                        <Avatar
+                          name={`${profile.id}_mobile`}
+                          className="h-full w-full rounded-full"
+                        />
+                      </div>
+                      <span className="text-sm font-medium text-neon-500">
+                        {profile.name ?? '匿名用户'}
+                      </span>
+                    </div>
+                  )}
+                </MemberOnly>
+              </div>
+
               <div className="flex h-20 items-center justify-center pt-2">
                 {navigation.social.map((item) => {
                   const el = (
@@ -444,6 +432,10 @@ const NavBar: UIComponent = () => {
           </motion.section>
         )}
       </AnimatePresence>
+
+      <GuestOnly>
+        <AuthModal />
+      </GuestOnly>
     </>
   )
 }
