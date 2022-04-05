@@ -5,7 +5,7 @@ import createContext from 'zustand/context'
 
 import { COOKIES_TOKEN_NAME } from '~/lib/apollo'
 
-let store: UseBoundStore<AppState>
+let store: UseBoundStore<StoreState>
 
 type AppState = {
   auth: {
@@ -28,9 +28,7 @@ const initialState: AppState = {
 }
 type StoreState = AppState & { actions: AppActions }
 
-const zustandContext = createContext<StoreState>()
-export const Provider = zustandContext.Provider
-export const useStore = zustandContext.useStore
+export const { Provider, useStore } = createContext<StoreState>()
 
 export const initializeStore = (preloadedState: Partial<AppState> = {}) => {
   const state = initialState

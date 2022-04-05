@@ -1,5 +1,4 @@
 import merge from 'deepmerge'
-import type { IncomingMessage } from 'http'
 import cookie from 'js-cookie'
 import isEqual from 'lodash/isEqual'
 import type { GetServerSidePropsContext } from 'next'
@@ -16,12 +15,13 @@ interface PageProps {
 export const APOLLO_STATE_PROPERTY_NAME = '__APOLLO_STATE__'
 export const COOKIES_TOKEN_NAME = '__auth_token__'
 
-const getToken = (req?: IncomingMessage) => {
+const getToken = () => {
   return cookie.get(COOKIES_TOKEN_NAME)
 }
 
 let apolloClient: ApolloClient<NormalizedCacheObject> = null
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const createApolloClient = (ctx?: GetServerSidePropsContext) => {
   const httpLink = new HttpLink({
     uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
@@ -30,7 +30,7 @@ const createApolloClient = (ctx?: GetServerSidePropsContext) => {
 
   const authLink = setContext((_, { headers }) => {
     // Get the authentication token from cookies
-    const token = getToken(ctx?.req)
+    const token = getToken()
 
     return {
       headers: {
