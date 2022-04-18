@@ -13,7 +13,10 @@ export const navigation: SiteNavigation = {
     {
       name: 'Careers',
       href: '/careers',
-      badge: () => getOpenPositions().length.toString(),
+      badge: () =>
+        getOpenPositions().length === 0
+          ? null
+          : getOpenPositions().length.toString(),
     },
   ],
   social: [

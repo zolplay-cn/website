@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Logo } from 'ui'
 
+import { getOpenPositions } from '~/lib/data'
+
 export default function HomePageInChina() {
+  const isHiring = useMemo(() => getOpenPositions().length > 0, [])
+
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-between">
       <NextSeo title="欢迎光临佐玩" />
@@ -97,29 +101,31 @@ export default function HomePageInChina() {
           </motion.span>
         </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ type: 'spring', delay: 0.62 }}
-          className="mt-4 flex w-full items-center justify-center"
-        >
-          <Link href="/careers" passHref>
-            <motion.a
-              initial={{ scale: 0.85 }}
-              animate={{ scale: 1 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: 'spring' }}
-              className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
-            >
-              <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
-                <span className="text-sm font-bold text-zinc-200">
-                  我们招人啦！
-                </span>
-              </div>
-            </motion.a>
-          </Link>
-        </motion.div>
+        {isHiring && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ type: 'spring', delay: 0.62 }}
+            className="mt-4 flex w-full items-center justify-center"
+          >
+            <Link href="/careers" passHref>
+              <motion.a
+                initial={{ scale: 0.85 }}
+                animate={{ scale: 1 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: 'spring' }}
+                className="mt-10 inline-block rounded-2xl bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 p-1"
+              >
+                <div className="rounded-xl border border-zinc-100/10 bg-dark/80 px-14 py-3">
+                  <span className="text-sm font-bold text-zinc-200">
+                    我们招人啦！
+                  </span>
+                </div>
+              </motion.a>
+            </Link>
+          </motion.div>
+        )}
       </section>
     </div>
   )

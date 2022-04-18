@@ -16,7 +16,7 @@ import { CurrencyYenIcon, LibraryIcon } from '@heroicons/react/solid'
 
 export const jobs: Job[] = [
   {
-    status: 'open',
+    status: 'closed',
     icon: IoLogoChrome,
     slug: 'frontend-engineer',
     title: '前端攻城狮',

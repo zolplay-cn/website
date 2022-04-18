@@ -20,7 +20,10 @@ export const navigation: SiteNavigation = {
     {
       name: '岗位招聘',
       href: '/careers',
-      badge: () => getOpenPositions().length.toString(),
+      badge: () =>
+        getOpenPositions().length === 0
+          ? null
+          : getOpenPositions().length.toString(),
     },
   ],
   social: [
