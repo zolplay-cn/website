@@ -110,7 +110,7 @@ const JobFlyer: UIComponent<Job> = ({
           )}
           <div className="relative mb-4 flex h-14 w-14 items-center justify-center">
             <Avatar name={slug} className="absolute inset-0 z-10" />
-            <Icon className="z-20 h-8 w-8 text-slate-100 mix-blend-difference" />
+            <Icon className="z-20 h-8 w-8 text-white" />
           </div>
           <strong
             className={clsxm(

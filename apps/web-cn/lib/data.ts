@@ -2,19 +2,28 @@ import { BiRestaurant } from 'react-icons/bi'
 import { IoLogoChrome, IoLogoGameControllerB } from 'react-icons/io'
 import { MdArchitecture, MdEmojiFoodBeverage } from 'react-icons/md'
 import { RiPencilRuler2Fill } from 'react-icons/ri'
-import {
-  CalendarMultipleIcon,
-  CatIcon,
-  KeyboardIcon,
-  SeatReclineIcon,
-} from 'ui'
+import { CalendarMultipleIcon, KeyboardIcon, SeatReclineIcon } from 'ui'
 
 import { EmploymentBenefit, Job } from '~/@types/careers'
 
 import { PlusCircleIcon } from '@heroicons/react/outline'
-import { CurrencyYenIcon, LibraryIcon } from '@heroicons/react/solid'
+import {
+  CurrencyYenIcon,
+  DeviceMobileIcon,
+  LibraryIcon,
+} from '@heroicons/react/solid'
 
 export const jobs: Job[] = [
+  {
+    status: 'open',
+    icon: DeviceMobileIcon,
+    slug: 'mobile-app-engineer',
+    title: '移动客户端攻城狮',
+    description: '负责开发iOS与Android应用，SwiftUI/Jetpack Compose优先',
+    minYearsExperience: 3,
+    minDegree: '大专',
+    canBeRemote: false,
+  },
   {
     status: 'closed',
     icon: IoLogoChrome,
@@ -91,16 +100,12 @@ export const coreBenefits: EmploymentBenefit[] = [
 ]
 export const miscBenefits: EmploymentBenefit[] = [
   {
-    icon: CatIcon,
-    title: '办公室撸猫',
-  },
-  {
     icon: BiRestaurant,
-    title: '节日聚会、团队聚餐',
+    title: '节日聚会、平时团队聚餐',
   },
   {
     icon: MdEmojiFoodBeverage,
-    title: '饮料、零食供应',
+    title: '大量饮料、零食供应',
   },
   {
     icon: PlusCircleIcon,
