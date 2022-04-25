@@ -17,9 +17,9 @@ export const jobs: Job[] = [
   {
     status: 'open',
     icon: DeviceMobileIcon,
-    slug: 'mobile-app-engineer',
-    title: '移动客户端攻城狮',
-    description: '负责开发iOS与Android应用，SwiftUI/Jetpack Compose优先',
+    slug: 'ios-engineer',
+    title: 'iOS开发攻城狮',
+    description: '负责开发iOS应用，编写高质量的Swift代码，SwiftUI优先',
     minYearsExperience: 3,
     minDegree: '大专',
     canBeRemote: false,
