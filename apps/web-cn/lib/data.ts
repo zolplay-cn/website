@@ -16,11 +16,21 @@ import {
 export const jobs: Job[] = [
   {
     status: 'open',
+    icon: IoLogoChrome,
+    slug: 'senior-frontend-engineer',
+    title: '高级前端工程师',
+    description: '负责引领打造Web前端高质量项目 React.js、TypeScript优先',
+    minYearsExperience: 5,
+    minDegree: '大专',
+    canBeRemote: false,
+  },
+  {
+    status: 'open',
     icon: DeviceMobileIcon,
     slug: 'ios-engineer',
-    title: 'iOS开发攻城狮',
+    title: 'iOS开发工程师',
     description: '负责开发iOS应用，编写高质量的Swift代码，SwiftUI优先',
-    minYearsExperience: 3,
+    minYearsExperience: 5,
     minDegree: '大专',
     canBeRemote: false,
   },
