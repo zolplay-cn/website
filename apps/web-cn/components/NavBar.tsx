@@ -285,7 +285,7 @@ const NavBar: UIComponent = () => {
                   onClick={() => setIsAuthModalOpen(!isAuthModalOpen)}
                 >
                   <LoginIcon className="mr-1.5 h-4" />
-                  <span>{isAuthModalOpen ? '关闭' : '登陆'}</span>
+                  <span>{isAuthModalOpen ? '关闭' : '登录'}</span>
                 </motion.button>
               </GuestOnly>
 
@@ -385,7 +385,7 @@ const NavBar: UIComponent = () => {
                     onClick={() => setIsAuthModalOpen(!isAuthModalOpen)}
                   >
                     <LoginIcon className="mr-1.5 h-4" />
-                    <span>登陆</span>
+                    <span>登录</span>
                   </motion.button>
                 </GuestOnly>
 

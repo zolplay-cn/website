@@ -457,7 +457,7 @@ export default function AuthModal() {
                             exit={{ opacity: 0, y: 10, scale: 1.05 }}
                             className="absolute inset-0"
                           >
-                            登陆你的账号
+                            登录你的帐号
                           </motion.span>
                         ) : (
                           <motion.span
@@ -467,7 +467,7 @@ export default function AuthModal() {
                             exit={{ opacity: 0, y: 10, scale: 1.05 }}
                             className="absolute inset-0"
                           >
-                            注册一个新账号
+                            注册一个新帐号
                           </motion.span>
                         )}
                       </AnimatePresence>
@@ -476,7 +476,7 @@ export default function AuthModal() {
 
                   <AuthTabs
                     tabs={[
-                      { label: '登陆', value: 'sign_in' },
+                      { label: '登录', value: 'sign_in' },
                       { label: '注册', value: 'sign_up' },
                     ]}
                     selected={authMode}
@@ -661,7 +661,7 @@ export default function AuthModal() {
                       onClick={submit}
                     >
                       {!signingIn && !signingUp && '提交'}
-                      {signingIn && <span>正在登陆...</span>}
+                      {signingIn && <span>正在登录...</span>}
                       {signingUp && <span>正在注册...</span>}
                     </button>
                   </motion.div>
