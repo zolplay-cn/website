@@ -1,0 +1,15 @@
+:root,
+.light {
+  --bg: theme('colors.slate.50');
+  --text: hsl(0, 100%, 0%);
+}
+
+.dark {
+  --bg: hsl(0, 100%, 0%);
+  --text: hsl(0, 100%, 100%);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}

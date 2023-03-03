@@ -28,15 +28,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # turbo
 .turbo
 
-deploy.sh
-ecosystem.config.js
-deploy-api.sh
-ecosystem-api.config.js
-
 *.code-workspace
-
-apps/web-cn/.graphqlconfig
+tsconfig.tsbuildinfo

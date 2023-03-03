@@ -1,60 +1,68 @@
 {
-  "name": "zolplay-website",
-  "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "dev:cn": "turbo run dev --parallel --scope=\"api-cn\" --scope=\"web-cn\"",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "build": "next build",
+    "dev": "next dev --port 3333",
+    "format": "npx prettier --write . --ignore-path .gitignore",
+    "lint": "next lint -- --ignore-path .gitignore",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.16",
+    "@portabletext/react": "^2.0.2",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.5.1",
+    "@tanstack/react-query": "^4.19.1",
+    "@vercel/og": "^0.2.0",
+    "@zolplay/react": "^0.5.1",
+    "@zolplay/utils": "^1.3.4",
+    "date-fns": "^2.29.3",
+    "framer-motion": "^10.0.1",
+    "intl-segmenter-polyfill": "^0.4.4",
+    "js-yaml": "^4.1.0",
+    "next": "^13.2.3",
+    "next-intl": "^2.11.0-beta.16",
+    "next-sanity": "^4.1.5",
+    "next-themes": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "sanity": "^3.5.1",
+    "server-only": "^0.0.1",
+    "styled-components": "^5.3.6",
+    "suspend-react": "^0.0.8"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.0",
-    "@tailwindcss/typography": "^0.5.2",
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "autoprefixer": "^10.4.4",
-    "esbuild": "^0.14.27",
-    "esbuild-jest": "^0.5.0",
-    "husky": "^7.0.4",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.5.1",
-    "lint-staged": "^12.3.7",
-    "postcss": "^8.4.12",
-    "prisma": "^3.11.1",
-    "prettier": "^2.5.1",
-    "prettier-plugin-tailwindcss": "^0.1.8",
-    "remark-preset-prettier": "^1.0.0",
-    "tailwindcss": "^3.0.23",
-    "turbo": "latest"
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/js-yaml": "^4.0.5",
+    "@types/react": "^18.0.28",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.35.0",
+    "eslint-config-next": "^13.2.3",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "prettier-plugin-tailwindcss": "^0.2.4",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.5"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=16"
   },
-  "packageManager": "pnpm@6.32.3",
-  "lint-staged": {
-    "apps/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write ."
-    ],
-    "packages/ui/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write ."
-    ],
-    "*.{json,mdx}": [
-      "prettier --write ."
-    ]
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "csstype",
+        "@sanity/*"
+      ]
+    }
   }
 }
