@@ -18,7 +18,6 @@
     "@sanity/document-internationalization": "^1.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.5.1",
-    "@tanstack/react-query": "^4.19.1",
     "@vercel/og": "^0.2.0",
     "@zolplay/react": "^0.5.1",
     "@zolplay/utils": "^1.3.4",

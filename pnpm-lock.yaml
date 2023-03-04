@@ -6,7 +6,6 @@ specifiers:
   '@sanity/image-url': ^1.0.2
   '@sanity/vision': ^3.5.1
   '@tailwindcss/typography': ^0.5.9
-  '@tanstack/react-query': ^4.19.1
   '@types/js-yaml': ^4.0.5
   '@types/react': ^18.0.28
   '@vercel/og': ^0.2.0
@@ -46,7 +45,6 @@ dependencies:
   '@sanity/document-internationalization': 1.1.0_wlec3vd3krcjdoyoxssttiqcum
   '@sanity/image-url': 1.0.2
   '@sanity/vision': 3.5.1_twebgoqjkqellgizumyhahsaxe
-  '@tanstack/react-query': 4.24.10_biqbaboplfbrettd7655fr4n2y
   '@vercel/og': 0.2.0
   '@zolplay/react': 0.5.1_vhdwc2rjw6iqybfupxkdvuf4ea
   '@zolplay/utils': 1.3.4
@@ -1974,28 +1972,6 @@ packages:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.2.7_postcss@8.4.21
     dev: true
-
-  /@tanstack/query-core/4.24.10:
-    resolution: {integrity: sha512-2QywqXEAGBIUoTdgn1lAB4/C8QEqwXHj2jrCLeYTk2xVGtLiPEUD8jcMoeB2noclbiW2mMt4+Fq7fZStuz3wAQ==}
-    dev: false
-
-  /@tanstack/react-query/4.24.10_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-FY1DixytOcNNCydPQXLxuKEV7VSST32CAuJ55BjhDNqASnMLZn+6c30yQBMrODjmWMNwzfjMZnq0Vw7C62Fwow==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    dependencies:
-      '@tanstack/query-core': 4.24.10
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      use-sync-external-store: 1.2.0_react@18.2.0
-    dev: false
 
   /@tanstack/react-virtual/3.0.0-beta.29_react@18.2.0:
     resolution: {integrity: sha512-Vwjh/h9J4W6qtlQ7nPmhT6bXueS4mDMXJxJM2lRU6KPGwlWezKp/3NI4ZLAgDqZIxDOkeXq9iERsNxyB7MKHNg==}

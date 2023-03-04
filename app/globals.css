@@ -13,3 +13,15 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+
+* {
+  @apply antialiased;
+}
+
+:root {
+  --font-sans: var(--font-sans-en);
+}
+
+:root, [lange=zh-CN] {
+  --font-sans: var(--font-sans-en), var(--font-sans-cn);
+}
