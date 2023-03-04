@@ -5,6 +5,9 @@ import { Manrope, Noto_Sans_SC } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { useLocale } from 'next-intl'
 
+import { Background } from '~/app/Background'
+import { Rulers } from '~/app/Rulers'
+import { Sidebar } from '~/app/Sidebar'
 import { ThemeProvider } from '~/app/ThemeProvider'
 
 const fontSansEn = Manrope({
@@ -40,7 +43,7 @@ export default function RootLayout({
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`font-sans ${fontSansEn.variable} ${fontSansZhCN.variable} bg-stone-50 text-stone-800 dark:bg-stone-800 dark:text-stone-200`}
+      className={`font-sans ${fontSansEn.variable} ${fontSansZhCN.variable} bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300`}
     >
       <body>
         <ThemeProvider
@@ -49,8 +52,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mx-4 mb-48 mt-12 flex min-h-screen max-w-4xl flex-col md:mt-32 md:flex-row lg:mx-auto lg:mt-48">
-            {children}
+          <Background />
+          <main className="relative mx-4 flex min-h-screen max-w-4xl flex-col pt-12 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
+            <Rulers />
+            <Sidebar />
+            <section className="relative z-20 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-9 pb-24 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a]">
+              <article className="prose dark:prose-invert">{children}</article>
+            </section>
           </main>
         </ThemeProvider>
       </body>

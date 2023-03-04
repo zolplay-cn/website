@@ -9,3 +9,33 @@
 :root, [lange=zh-CN] {
   --font-sans: var(--font-sans-en), var(--font-sans-cn);
 }
+
+::selection {
+  background: theme('colors.stone.700');
+  color: theme('colors.stone.50');
+}
+
+.dark ::selection {
+  background: theme('colors.stone.300');
+  color: theme('colors.stone.900');
+}
+
+.mask-t {
+  background: linear-gradient(to top, transparent, #fefefe);
+  -webkit-mask-image: linear-gradient(to bottom, #fefefe 24%, transparent);
+}
+
+.dark .mask-t {
+  background: linear-gradient(to top, transparent, #1a1a1a);
+  -webkit-mask-image: linear-gradient(to bottom, #1a1a1a 24%, transparent);
+}
+
+.mask-b {
+  background: linear-gradient(to bottom, transparent, #fefefe);
+  -webkit-mask-image: linear-gradient(to top, #fefefe 24%, transparent);
+}
+
+.dark .mask-b {
+  background: linear-gradient(to bottom, transparent, #1a1a1a);
+  -webkit-mask-image: linear-gradient(to top, #1a1a1a 24%, transparent);
+}
