@@ -1,3 +1,23 @@
 {
-  "under_construction": "佐玩官网正在建设中，稍后晚些会回来～"
+  "under_construction": "佐玩官网正在建设中，稍后晚些会回来～",
+  "NavMenu": {
+    "Home": "佐玩主页",
+    "About": "关于佐玩",
+    "Careers": "岗位招聘",
+    "Services": "服务提供",
+    "Portfolio": "项目展示",
+    "Contact": "联系我们"
+  },
+  "Themes": {
+    "Placeholder": "选择颜色主题",
+    "Light": "浅色",
+    "Dark": "深色",
+    "System": "跟随系统"
+  },
+  "Root": {
+    "Metadata": {
+      "Title": "佐玩",
+      "TitleTemplate": "%s | 佐玩"
+    }
+  }
 }

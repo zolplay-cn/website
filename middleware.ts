@@ -32,5 +32,5 @@ export const config = {
   // Skip all paths that aren't pages that you'd like to internationalize.
   // If you use the `public` folder, make sure your static assets are ignored
   // (e.g. by moving them to a shared folder that is referenced here).
-  matcher: ['/((?!api|_next|favicon.ico|assets|studio).*)'],
+  matcher: ['/((?!api|_next|_vercel|favicon.ico|assets|studio).*)'],
 }

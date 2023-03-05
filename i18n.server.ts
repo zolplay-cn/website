@@ -1,7 +1,5 @@
-import { getRequestConfig } from 'next-intl/server'
-
-export default getRequestConfig(async ({ locale }) => {
+export async function getMessages({ locale }: RootParams) {
   const { default: messages } = await import(`~/messages/${locale}.json`)
 
-  return { messages }
-})
+  return messages as IntlMessages
+}

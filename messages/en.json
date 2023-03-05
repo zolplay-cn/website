@@ -1,3 +1,23 @@
 {
-  "under_construction": "Zolplay website is under construction. Please check back later."
+  "under_construction": "Zolplay website is under construction. Please check back later.",
+  "NavMenu": {
+    "Home": "Home",
+    "About": "About",
+    "Careers": "Careers",
+    "Services": "Services",
+    "Portfolio": "Portfolio",
+    "Contact": "Contact"
+  },
+  "Themes": {
+    "Placeholder": "Select a theme",
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System"
+  },
+  "Root": {
+    "Metadata": {
+      "Title": "Zolplay",
+      "TitleTemplate": "%s | Zolplay"
+    }
+  }
 }
