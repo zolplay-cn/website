@@ -1,7 +1,7 @@
 {
   "under_construction": "佐玩官网正在建设中，稍后晚些会回来～",
   "NavMenu": {
-    "Home": "佐玩主页",
+    "Home": "主页",
     "About": "关于佐玩",
     "Careers": "岗位招聘",
     "Services": "服务提供",
@@ -17,7 +17,15 @@
   "Root": {
     "Metadata": {
       "Title": "佐玩",
-      "TitleTemplate": "%s | 佐玩"
+      "TitleTemplate": "%s | 佐玩",
+      "Description": "Zolplay - the superheroes of software development! Our talented team of developers and designers work tirelessly to create web and mobile applications that'll knock your socks off!",
+      "Keywords": "佐玩,Zolplay,软件开发,Web应用程序,移动应用程序,定制软件解决方案,高质量产品,热情的开发人员,熟练的设计师,项目管理,数字体验,创新解决方案,软件工艺,软件超级英雄,数字转型,定制软件开发"
     }
+  },
+  "Home": {
+    "Heading": "欢迎光临佐玩",
+    "Paragraph1": "<gradient>佐玩</gradient> 可以说是软件开发公司中的<red>钢铁侠</red>，我们借助超能力为各种规模的企业打造独一无二的次世代 Web 和移动端平台应用。我们的资深工程师、设计师和项目产品经理就像<b>复仇者联盟</b> \uD83E\uDDB8 一样，共同合作，将您的想法变成现实，并交付高品质的产品，能让连<green>绿巨人</green>都笑出声。",
+    "Paragraph2": "无论您是需要量身定制的软件解决方案，还是只是想为现有的应用程序进行改进与重新设计，我们都是您在数字领域中的得力伙伴。立即<contact-us-link>联系我们</contact-us-link>，了解我们如何能帮助您的企业在数字时代中赢得全面胜利！",
+    "Caption": "办公室午餐时间一起看「老友记」"
   }
 }

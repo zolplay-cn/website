@@ -17,7 +17,15 @@
   "Root": {
     "Metadata": {
       "Title": "Zolplay",
-      "TitleTemplate": "%s | Zolplay"
+      "TitleTemplate": "%s | Zolplay",
+      "Description": "Zolplay - the superheroes of software development! Our talented team of developers and designers work tirelessly to create web and mobile applications that'll knock your socks off!",
+      "Keywords": "Zolplay,Software development,Web applications,Mobile applications,Custom software solutions,High-quality products,Passionate developers,Skilled designers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence,Software superhero,Digital transformation,Custom software development"
     }
+  },
+  "Home": {
+    "Heading": "We are Zolplay",
+    "Paragraph1": "At <gradient>Zolplay</gradient>, we're like the <red>Tony Starks</red> of software development, using our superpowers to create next-gen web and mobile applications for businesses of all sizes. Our team of skilled developers, designers, and project managers are like <b>the Avengers</b> \uD83E\uDDB8, working together to bring your ideas to life and deliver high-quality products that will even make <green>the Hulk</green> smile.",
+    "Paragraph2": "Whether you need a custom software solution or just want to give your existing app a digital makeover, we're your go-to partner for success. So don't be a Bruce Banner, <contact-us-link>contact us</contact-us-link> today to learn how we can help your business Hulk-smash the competition in the digital era!",
+    "Caption": "Watching Friends in our office during lunch break"
   }
 }

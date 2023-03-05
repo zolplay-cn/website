@@ -19,6 +19,7 @@ const Trigger = React.forwardRef<
     ref={ref}
     className={clsxm(
       'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent py-1 px-2 text-sm placeholder:text-stone-600 focus:outline-none focus:ring focus:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus:ring-stone-700',
+      'tracking-tight',
       className
     )}
     {...props}
@@ -73,6 +74,7 @@ const Item = React.forwardRef<
     ref={ref}
     className={clsxm(
       'relative flex cursor-default select-none items-center rounded-lg py-1.5 pr-2 pl-8 text-sm font-medium outline-none transition-colors focus:bg-stone-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-stone-800',
+      'tracking-tight',
       className
     )}
     {...props}

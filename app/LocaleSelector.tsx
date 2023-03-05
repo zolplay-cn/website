@@ -12,11 +12,13 @@ const languages = [
     label: 'English',
     value: 'en',
     icon: () => <span>🇺🇸</span>,
+    url: 'https://zolplay.com',
   },
   {
     label: '简体中文',
     value: 'zh-CN',
     icon: () => <span>🇨🇳</span>,
+    url: 'https://zolplay.cn',
   },
 ]
 export function LocaleSelector() {
@@ -29,9 +31,7 @@ export function LocaleSelector() {
       if (process.env.NODE_ENV === 'development') {
         router.push(`/${locale}${pathname}`)
       } else {
-        router.push(
-          locale === 'zh-CN' ? 'https://zolplay.cn' : 'https://zolplay.com'
-        )
+        router.push(languages.find((lang) => lang.value === locale)?.url || '/')
       }
     },
     [router, pathname]

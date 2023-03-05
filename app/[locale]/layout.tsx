@@ -45,6 +45,48 @@ export async function generateMetadata({
       default: messages.Root.Metadata.Title,
       template: messages.Root.Metadata.TitleTemplate,
     },
+    description: messages.Root.Metadata.Description,
+    keywords: messages.Root.Metadata.Keywords,
+    icons: {
+      icon: '/assets/favicon-32x32.png',
+      shortcut: '/assets/favicon.ico',
+      apple: '/assets/apple-touch-icon.png',
+    },
+    manifest: '/assets/site.webmanifest',
+    openGraph: {
+      title: {
+        default: messages.Root.Metadata.Title,
+        template: messages.Root.Metadata.TitleTemplate,
+      },
+      description: messages.Root.Metadata.Description,
+      siteName: messages.Root.Metadata.Title,
+      locale: params.locale,
+      type: 'website',
+      // TODO: Add og image
+      // images: [
+      //   {
+      //     url: '/og.jpg',
+      //     width: 1920,
+      //     height: 1080,
+      //   },
+      // ],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    twitter: {
+      site: '@zolplay',
+      creator: '@thecalicastle',
+      card: 'summary_large_image',
+    },
   }
 }
 
@@ -80,8 +122,8 @@ export default async function RootLayout({
             <main className="relative mx-4 flex min-h-screen max-w-4xl flex-col pt-12 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
               <Rulers />
               <Sidebar />
-              <section className="relative z-20 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-9 pb-24 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a]">
-                <article className="prose dark:prose-invert">
+              <section className="frosted-noise relative z-20 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-9 pb-24 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a]">
+                <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-p:leading-loose prose-img:rounded-xl prose-img:shadow-lg">
                   {children}
                 </article>
               </section>

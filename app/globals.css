@@ -39,3 +39,18 @@
   background: linear-gradient(to bottom, transparent, #1a1a1a);
   -webkit-mask-image: linear-gradient(to top, #1a1a1a 24%, transparent);
 }
+
+.frosted-noise::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/noise.png);
+  background-repeat: repeat;
+  background-size: 182px;
+  opacity: .04;
+  pointer-events: none;
+  user-select: none;
+}

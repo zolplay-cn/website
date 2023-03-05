@@ -5,8 +5,11 @@ import { z } from 'zod'
 import { squadSchema } from '~/schemas/documents/squad'
 
 export const Job = z.object({
+  _type: z.literal('job'),
+  open: z.boolean(),
   title: z.string(),
-  location: z.string(),
+  remote: z.boolean(),
+  employmentType: z.enum(['fullTime', 'partTime', 'contract', 'internship']),
   squad: z.object({ _type: z.enum(['reference']), _ref: z.string() }),
   excerpt: z.string(),
   description: z.array(z.object({ _type: z.enum(['block']) })),
@@ -20,6 +23,11 @@ export const jobSchema = defineType({
   i18n: true,
   icon: BsPersonWorkspace,
   fields: [
+    defineField({
+      name: 'open',
+      title: 'Open',
+      type: 'boolean',
+    }),
     defineField({
       name: 'title',
       title: 'Title',
