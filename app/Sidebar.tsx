@@ -32,17 +32,45 @@ export function Sidebar({ className }: { className?: string }) {
           aria-label={t('Title')}
           className="group relative z-50 mb-3 ml-3 inline-flex focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-stone-200 dark:focus:ring-stone-700 dark:focus:ring-offset-stone-800 md:mb-6"
         >
-          <Logo className="w-7 md:w-10" />
+          <motion.span
+            initial={{ opacity: 0, x: 8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+            }}
+          >
+            <Logo className="w-7 md:w-10" />
+          </motion.span>
         </Link>
 
         <NavMenu />
 
-        <Separator />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            delay: 0.2,
+          }}
+        >
+          <Separator />
+        </motion.div>
 
-        <div className="flex md:flex-col">
+        <motion.div
+          className="flex h-12 md:h-24 md:flex-col"
+          initial={{ opacity: 0, scale: 0.98, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            type: 'spring',
+            stiffness: 300,
+            damping: 30,
+            delay: 0.1,
+          }}
+        >
           <ThemeSelector />
           <LocaleSelector />
-        </div>
+        </motion.div>
       </div>
     </aside>
   )
@@ -71,7 +99,7 @@ function NavMenu() {
       className="relative z-50 -ml-4 md:ml-0"
       orientation="vertical"
     >
-      <NavigationMenu.List className="m-0 flex scroll-pr-6 list-none items-center overflow-scroll px-4 py-1.5 md:scroll-p-0 md:flex-col md:items-start md:px-0 md:py-0">
+      <NavigationMenu.List className="m-0 flex scroll-pr-6 list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:scroll-p-0 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0">
         {links.map(({ href, label, icon: Icon }) => (
           <MenuLink key={label} href={href} label={t(label as any)}>
             <Icon className="h-5 w-5 stroke-current" />
@@ -96,7 +124,7 @@ const MenuLink = React.forwardRef<
           href={href}
           className={clsxm(
             'relative inline-flex select-none p-2 font-bold leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
-            'focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-stone-200 dark:focus:ring-stone-700 dark:focus:ring-offset-stone-800',
+            'rounded-lg focus:outline-stone-300 dark:focus:outline-stone-700',
             'data-[active]:text-stone-900 dark:data-[active]:text-stone-50',
             className
           )}

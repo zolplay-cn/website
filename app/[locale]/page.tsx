@@ -15,14 +15,9 @@ export default function Home() {
     <>
       <h1>👋&nbsp;{t('Heading')}</h1>
       <p>{t.rich('Paragraph1', DefaultRichTextComponents)}</p>
-      <Image src={Poster} alt="Zolplay Poster" width={800} height={600} />
+      <Image src={Poster} alt="Zolplay Poster" placeholder="blur" />
       <p>{t.rich('Paragraph2', DefaultRichTextComponents)}</p>
-      <Image
-        src={OfficeShot}
-        alt="Zolplay Office Shot"
-        width={800}
-        height={600}
-      />
+      <Image src={OfficeShot} alt="Zolplay Office Shot" placeholder="blur" />
       <p className="-mt-4 text-center text-sm text-stone-400 dark:text-stone-500">
         {t('Caption')}
       </p>
