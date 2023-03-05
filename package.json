@@ -32,6 +32,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-is": "^18.2.0",
+    "react-wrap-balancer": "^0.4.0",
     "sanity": "^3.5.1",
     "server-only": "^0.0.1",
     "styled-components": "^5.3.6",
