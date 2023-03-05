@@ -2,15 +2,16 @@ import { BsPersonWorkspace } from 'react-icons/bs'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
 
-import { squadSchema } from '~/schemas/documents/squad'
+import { Squad, squadSchema } from '~/schemas/documents/squad'
 
 export const Job = z.object({
   _type: z.literal('job'),
+  _id: z.string(),
   open: z.boolean(),
   title: z.string(),
   remote: z.boolean(),
   employmentType: z.enum(['fullTime', 'partTime', 'contract', 'internship']),
-  squad: z.object({ _type: z.enum(['reference']), _ref: z.string() }),
+  squad: Squad,
   excerpt: z.string(),
   description: z.array(z.object({ _type: z.enum(['block']) })),
 })

@@ -2,6 +2,7 @@ import { Link } from 'next-intl'
 import { TbArrowDownLeft } from 'react-icons/tb'
 
 export const DefaultRichTextComponents = {
+  br: () => <br />,
   b: (text) => <strong>{text}</strong>,
   red: (text) => (
     <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text font-bold tracking-tight text-transparent dark:from-red-200 dark:to-red-400">
