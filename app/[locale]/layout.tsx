@@ -119,11 +119,11 @@ export default async function RootLayout({
         >
           <NextIntlClientProvider locale={params.locale} messages={messages}>
             <Background />
-            <main className="relative mx-4 flex min-h-screen max-w-4xl flex-col pt-12 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
+            <main className="relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
               <Rulers />
               <Sidebar />
-              <section className="frosted-noise relative z-20 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-9 pb-24 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a]">
-                <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-p:leading-loose prose-img:rounded-xl prose-img:shadow-lg">
+              <section className="frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-24 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 lg:p-9">
+                <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-img:rounded-xl prose-img:shadow-lg lg:prose-h1:text-4xl">
                   {children}
                 </article>
               </section>

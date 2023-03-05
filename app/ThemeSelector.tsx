@@ -37,7 +37,7 @@ export function ThemeSelector() {
 
   return (
     <Select.Root value={theme} defaultValue="system" onValueChange={setTheme}>
-      <Select.Trigger className="flex w-40 justify-start space-x-1 border-none font-bold text-stone-400 transition-colors hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-200">
+      <Select.Trigger className="flex w-fit justify-start space-x-1 border-none font-bold text-stone-400 transition-colors hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-200 md:w-40">
         <Select.Value placeholder={t('Placeholder')} />
       </Select.Trigger>
       <Select.Content>

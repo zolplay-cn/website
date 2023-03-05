@@ -24,32 +24,34 @@ export function Sidebar({ className }: { className?: string }) {
 
   return (
     <aside
-      className={clsxm(
-        '-mx-4 md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
-        className
-      )}
+      className={clsxm('md:mx-0 md:w-44 md:flex-shrink-0 md:px-0', className)}
     >
-      <div className="pr-4 lg:sticky lg:top-12">
+      <div className="md:pr-4 lg:sticky lg:top-12">
         <Link
           href="/"
           aria-label={t('Title')}
-          className="group mb-6 ml-3 inline-flex focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-stone-200 dark:focus:ring-stone-700 dark:focus:ring-offset-stone-800"
+          className="group relative z-50 mb-3 ml-3 inline-flex focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-stone-200 dark:focus:ring-stone-700 dark:focus:ring-offset-stone-800 md:mb-6"
         >
-          <Logo className="w-10" />
+          <Logo className="w-7 md:w-10" />
         </Link>
+
         <NavMenu />
 
         <Separator />
 
-        <ThemeSelector />
-        <LocaleSelector />
+        <div className="flex md:flex-col">
+          <ThemeSelector />
+          <LocaleSelector />
+        </div>
       </div>
     </aside>
   )
 }
 
 function Separator() {
-  return <div className="mx-2 my-2 h-px bg-stone-200 dark:bg-stone-700" />
+  return (
+    <div className="pointer-events-none mx-2 my-2 hidden h-px bg-stone-200 dark:bg-stone-700 md:block" />
+  )
 }
 
 const links = [
@@ -65,8 +67,11 @@ function NavMenu() {
   const t = useTranslations('NavMenu')
 
   return (
-    <NavigationMenu.Root className="relative z-50" orientation="vertical">
-      <NavigationMenu.List className="m-0 flex list-none flex-col">
+    <NavigationMenu.Root
+      className="relative z-50 -ml-4 md:ml-0"
+      orientation="vertical"
+    >
+      <NavigationMenu.List className="m-0 flex scroll-pr-6 list-none items-center overflow-scroll px-4 py-1.5 md:scroll-p-0 md:flex-col md:items-start md:px-0 md:py-0">
         {links.map(({ href, label, icon: Icon }) => (
           <MenuLink key={label} href={href} label={t(label as any)}>
             <Icon className="h-5 w-5 stroke-current" />
@@ -100,11 +105,11 @@ const MenuLink = React.forwardRef<
         >
           {isActive && (
             <motion.span
-              className="absolute inset-0 rounded-r-xl rounded-l-sm border border-stone-200 bg-gradient-to-r from-white to-stone-100 dark:border-stone-700 dark:from-stone-900 dark:to-stone-800"
+              className="absolute inset-0 rounded-xl border border-stone-200 bg-gradient-to-r from-white to-stone-100 dark:border-stone-700 dark:from-stone-900 dark:to-stone-800 md:rounded-l-sm md:rounded-r-xl"
               layoutId="active-menu"
             />
           )}
-          <span className="relative z-40 flex items-center space-x-1 pr-1 text-sm tracking-tight">
+          <span className="relative z-40 flex items-center space-x-1 text-sm tracking-tight md:pr-1">
             {children}
           </span>
         </Link>

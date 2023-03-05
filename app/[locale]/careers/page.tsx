@@ -1,10 +1,21 @@
+import type { Metadata } from 'next'
+
+import { getMessages } from '~/i18n.server'
+
+import { Careers } from './Careers'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: RootParams
+}): Promise<Metadata> {
+  const messages = await getMessages(params)
+
+  return {
+    title: messages.Careers.Title,
+  }
+}
+
 export default function CareersPage() {
-  return (
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae minus
-      perferendis tenetur. Atque consequuntur dolorem enim facilis fuga iure
-      nesciunt, odio sapiente temporibus velit. Adipisci in maiores natus
-      quisquam voluptas.
-    </p>
-  )
+  return <Careers />
 }
