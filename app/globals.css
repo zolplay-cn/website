@@ -1,5 +1,6 @@
 * {
   @apply antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 :root {

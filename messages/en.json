@@ -45,5 +45,8 @@
       "Yes": "Remote",
       "No": "On-site"
     }
+  },
+  "Copyright": {
+    "Text": "© {year} - Zolplay, Inc."
   }
 }
