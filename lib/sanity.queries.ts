@@ -18,6 +18,17 @@ function makeLocaleParams(locale: string) {
 }
 
 /**
+ * Make localized id params for Sanity queries.
+ * @param id
+ * @param locale
+ */
+function makeLocalizedIdParams({ id, locale }: { id: string; locale: string }) {
+  return {
+    id: locale === i18n.defaultLocale ? id : `${id}__i18n_${locale}`,
+  }
+}
+
+/**
  * Make locale filter for Sanity queries.
  * @param locale
  */
@@ -52,16 +63,12 @@ export async function getJobs(locale: string) {
   )
 }
 
-export const jobIdsQuery = (filter?: string) =>
-  groq`*[_type == "job" && open == true${filter ? ` && ${filter}` : ''}]._id`
-export async function getJobIds(locale: string) {
-  return sanity!.fetch<string[]>(
-    jobIdsQuery(makeLocaleFilter(locale)),
-    makeLocaleParams(locale)
-  )
+export const jobIdsQuery = groq`*[_type == "job" && open == true && !defined(__i18n_lang)]._id`
+export async function getJobIds() {
+  return sanity!.fetch<string[]>(jobIdsQuery)
 }
 
 export const jobQuery = groq`*[_type == "job" && _id == $id][0]`
-export async function getJob(id: string) {
-  return sanity!.fetch<Job>(jobQuery, { id })
+export async function getJob({ id, locale }: { id: string; locale: string }) {
+  return sanity!.fetch<Job>(jobQuery, makeLocalizedIdParams({ id, locale }))
 }

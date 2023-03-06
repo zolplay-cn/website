@@ -12,6 +12,7 @@ import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
 import { squadSchema } from '~/schemas/documents/squad'
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { localeStringSchema } from '~/schemas/objects/localeString'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Zolplay Website'
@@ -22,7 +23,13 @@ export default defineConfig({
   dataset,
   title,
   schema: {
-    types: [localeStringSchema, memberSchema, squadSchema, jobSchema],
+    types: [
+      localeStringSchema,
+      blockContentSchema,
+      memberSchema,
+      squadSchema,
+      jobSchema,
+    ],
   },
   plugins: [
     documentI18n({

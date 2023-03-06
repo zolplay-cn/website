@@ -18,7 +18,7 @@ const Trigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={clsxm(
-      'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent py-1 px-2 text-sm placeholder:text-stone-600 focus:outline-none focus:ring focus:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus:ring-stone-700',
+      'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent py-1 px-2 text-sm placeholder:text-stone-600 focus:outline-none focus-visible:ring focus-visible:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus-visible:ring-stone-700',
       'tracking-tight',
       className
     )}

@@ -3,17 +3,19 @@ import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
 
 import { Squad, squadSchema } from '~/schemas/documents/squad'
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 
 export const Job = z.object({
   _type: z.literal('job'),
   _id: z.string(),
+  __i18n_base: z.object({ _ref: z.string() }).optional(),
   open: z.boolean(),
   title: z.string(),
   remote: z.boolean(),
   employmentType: z.enum(['fullTime', 'partTime', 'contract', 'internship']),
   squad: Squad,
   excerpt: z.string(),
-  description: z.array(z.object({ _type: z.enum(['block']) })),
+  description: z.array(z.any()),
 })
 export type Job = z.infer<typeof Job>
 
@@ -69,15 +71,7 @@ export const jobSchema = defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-        {
-          type: 'image',
-        },
-      ],
+      type: blockContentSchema.name,
     }),
   ],
   preview: {

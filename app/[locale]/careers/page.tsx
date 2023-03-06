@@ -14,6 +14,11 @@ export async function generateMetadata({
 
   return {
     title: messages.Careers.Title,
+    description: messages.Careers.Description,
+    openGraph: {
+      title: messages.Careers.Title,
+      description: messages.Careers.Description,
+    },
   }
 }
 

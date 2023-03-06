@@ -1,12 +1,13 @@
 {
-  "under_construction": "Zolplay website is under construction. Please check back later.",
+  "under_construction": "🚧 This page is currently under construction. Please check back later.",
   "NavMenu": {
     "Home": "Home",
     "About": "About",
     "Careers": "Careers",
     "Services": "Services",
     "Portfolio": "Portfolio",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "Gallery": "Gallery"
   },
   "Themes": {
     "Placeholder": "Select a theme",
@@ -30,10 +31,11 @@
   },
   "Careers": {
     "Title": "Join us",
+    "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",
     "Heading": "Join us and help save the world with your <gradient>superhuman software skills</gradient>, together.",
     "Intro": "Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need your help to make it happen. If you're a believer in the power of crafting <red>enchanting software experiences</red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b>",
     "Openings": {
-      "Squad": "{squad} squad positions"
+      "Squad": "{squad} squad - open positions"
     },
     "EmploymentType": {
       "fullTime": "Full-time",
@@ -44,6 +46,50 @@
     "Remote": {
       "Yes": "Remote",
       "No": "On-site"
+    },
+    "Back": "Back to careers",
+    "Details": {
+      "Intro": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!"
+    },
+    "Benefits": {
+      "Title": "Benefits:",
+      "Content": [
+        "Async first workflow: zero meetings and asynchronous collaborations offers flexible working hours and increased productivity.",
+        "100% remote friendly: work from anywhere in the world, pants might be overrated.",
+        "Competitive compensation: we offer end of year bonuses and stock options.",
+        "Healthcare: housing, commute and other reimbursements included.",
+        "Growth: we host internal workshops and create opportunities for career advancement and professional development.",
+        "Fun: game nights, afternoon snacks, team outings, and other fun activities.",
+        "Equipment: we provide you with the best-in-class software and hardware tools you need to do your best work."
+      ]
+    },
+    "OurStacks": {
+      "Title": "Our stacks:",
+      "Content": [
+        "React.js: is it a library or a framework? We don't know, but we love it.",
+        "Next.js: in Vercel we trust.",
+        "TypeScript: it's JavaScript on steroids.",
+        "Tailwind CSS: once you go Tailwind, you never go vanilla.",
+        "Laravel: backend APIs for web artisans.",
+        "PostgreSQL: the database of choice for the modern web.",
+        "Git: version control for the win.",
+        "Docker: scalable containerization.",
+        "Electron: cross-platform desktop apps.",
+        "Swift: native iOS apps.",
+        "Kotlin: native Android apps."
+      ]
+    },
+    "OurTools": {
+      "Title": "Our tools:",
+      "Content": [
+        "Slack: we use it for everything, from team communication to sharing the latest tech news, or chatting with our ChatGPT bot.",
+        "Google Workspace: we use Google Docs, Sheets, Slides, Drive, Mail and Calendar for collaboration.",
+        "GitHub: top-notch code repositories and CI/CD pipelines.",
+        "Linear: best project management and task tracking platform.",
+        "Vercel: the best deployment platform for web apps.",
+        "Figma: the best design tool for all things UI/UX.",
+        "1Password: the best password manager for teams."
+      ]
     }
   },
   "Copyright": {

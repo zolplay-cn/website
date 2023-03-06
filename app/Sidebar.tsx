@@ -12,12 +12,23 @@ import {
   TbBriefcase,
   TbCarouselHorizontal,
   TbMailbox,
+  TbPhoto,
   TbPlanet,
 } from 'react-icons/tb'
 
 import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
 import { Logo, LogoHelmet } from '~/components/Logo'
+
+const links = [
+  { href: '/', label: 'Home', icon: TbPlanet },
+  { href: '/about', label: 'About', icon: LogoHelmet },
+  { href: '/careers', label: 'Careers', icon: TbBriefcase },
+  { href: '/portfolio', label: 'Portfolio', icon: TbCarouselHorizontal },
+  { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
+  { href: '/contact', label: 'Contact', icon: TbMailbox },
+  { href: '/gallery', label: 'Gallery', icon: TbPhoto },
+]
 
 export function Sidebar({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
@@ -30,7 +41,7 @@ export function Sidebar({ className }: { className?: string }) {
         <Link
           href="/"
           aria-label={t('Title')}
-          className="group relative z-50 mb-3 ml-3 inline-flex focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-stone-200 dark:focus:ring-stone-700 dark:focus:ring-offset-stone-800 md:mb-6"
+          className="group relative z-50 mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6"
         >
           <motion.span
             initial={{ opacity: 0, x: 8 }}
@@ -82,15 +93,6 @@ function Separator() {
   )
 }
 
-const links = [
-  { href: '/', label: 'Home', icon: TbPlanet },
-  { href: '/about', label: 'About', icon: LogoHelmet },
-  { href: '/careers', label: 'Careers', icon: TbBriefcase },
-  { href: '/portfolio', label: 'Portfolio', icon: TbCarouselHorizontal },
-  { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
-  { href: '/contact', label: 'Contact', icon: TbMailbox },
-]
-
 function NavMenu() {
   const t = useTranslations('NavMenu')
 
@@ -124,7 +126,7 @@ const MenuLink = React.forwardRef<
           href={href}
           className={clsxm(
             'relative inline-flex select-none p-2 font-bold leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
-            'rounded-lg focus:outline-stone-300 dark:focus:outline-stone-700',
+            'rounded-lg focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
             'data-[active]:text-stone-900 dark:data-[active]:text-stone-50',
             className
           )}
