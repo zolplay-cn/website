@@ -112,7 +112,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={`font-sans ${fontSansEn.variable} ${fontSansZhCN.variable}`}
     >
-      <body>
+      <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

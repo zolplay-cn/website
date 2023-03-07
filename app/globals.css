@@ -11,14 +11,6 @@
   --font-sans: var(--font-sans-en), var(--font-sans-cn);
 }
 
-html, body {
-  @apply bg-stone-50 text-stone-800;
-}
-
-html.dark, .dark body {
-  @apply bg-stone-900 text-stone-300;
-}
-
 ::selection {
   background: theme('colors.stone.700');
   color: theme('colors.stone.50');
