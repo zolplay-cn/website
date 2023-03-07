@@ -115,7 +115,7 @@ export function Background() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <Grids grid={10} />
+        {/*<Grids grid={10} />*/}
       </motion.span>
 
       <motion.span
