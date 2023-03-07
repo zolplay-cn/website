@@ -49,7 +49,7 @@
     },
     "Back": "Back to careers",
     "Details": {
-      "Intro": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!"
+      "Preface": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!"
     },
     "Benefits": {
       "Title": "Benefits:",
@@ -70,7 +70,8 @@
         "Next.js: in Vercel we trust.",
         "TypeScript: it's JavaScript on steroids.",
         "Tailwind CSS: once you go Tailwind, you never go vanilla.",
-        "Laravel: backend APIs for web artisans.",
+        "Framer Motion: smooth animations and micro-interactions.",
+        "Laravel: back-end framework for web artisans.",
         "PostgreSQL: the database of choice for the modern web.",
         "Git: version control for the win.",
         "Docker: scalable containerization.",

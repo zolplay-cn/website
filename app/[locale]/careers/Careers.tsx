@@ -114,7 +114,7 @@ export function JobDetails({ job }: { job: Job }) {
     <>
       <Link
         href="/careers"
-        className="mb-2 flex items-center text-sm text-stone-500 no-underline transition-transform hover:-translate-x-px hover:underline dark:text-stone-400"
+        className="mb-2 inline-flex items-center text-sm text-stone-500 no-underline transition-transform hover:-translate-x-px hover:underline focus:outline-none focus-visible:ring focus-visible:ring-stone-500 focus-visible:ring-opacity-50 dark:text-stone-400"
       >
         <TbArrowBadgeLeft className="mr-1 flex h-4 w-4" />
         {t('Back')}
@@ -130,9 +130,9 @@ export function JobDetails({ job }: { job: Job }) {
         </span>
       </p>
 
-      <p>
-        <Balancer>
-          {t.rich('Details.Intro', DefaultRichTextComponents)}
+      <p className="tracking-tight">
+        <Balancer className="rounded-2xl rounded-tl-sm bg-stone-500/5 p-3 dark:bg-stone-400/5">
+          {t.rich('Details.Preface', DefaultRichTextComponents)}
         </Balancer>
       </p>
 
