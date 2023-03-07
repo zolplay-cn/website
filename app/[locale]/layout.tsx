@@ -15,6 +15,7 @@ import { ThemeProvider } from '~/app/ThemeProvider'
 import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
 import { getMessages } from '~/i18n.server'
+import { getOpenGraphImage } from '~/lib/helper'
 
 const fontSansEn = Manrope({
   weight: ['400', '500', '700'],
@@ -68,14 +69,7 @@ export async function generateMetadata({
       siteName: messages.Root.Metadata.Title,
       locale: params.locale,
       type: 'website',
-      // TODO: Add og image
-      // images: [
-      //   {
-      //     url: '/og.jpg',
-      //     width: 1920,
-      //     height: 1080,
-      //   },
-      // ],
+      images: [getOpenGraphImage(messages.Root.Metadata.Title, params.locale)],
     },
     robots: {
       index: true,

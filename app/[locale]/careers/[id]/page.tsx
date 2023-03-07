@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { JobDetails } from '~/app/[locale]/careers/Careers'
+import { getOpenGraphImage } from '~/lib/helper'
 import { getJob, getJobIds } from '~/lib/sanity.queries'
 
 export async function generateStaticParams() {
@@ -35,6 +36,7 @@ export async function generateMetadata({
     openGraph: {
       title: job.title,
       description: job.excerpt,
+      images: [getOpenGraphImage(job.title, params.locale)],
     },
   }
 }

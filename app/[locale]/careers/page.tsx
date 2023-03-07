@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { getMessages } from '~/i18n.server'
+import { getOpenGraphImage } from '~/lib/helper'
 import { getJobs } from '~/lib/sanity.queries'
 
 import { Careers } from './Careers'
@@ -18,6 +19,7 @@ export async function generateMetadata({
     openGraph: {
       title: messages.Careers.Title,
       description: messages.Careers.Description,
+      images: [getOpenGraphImage(messages.Careers.Title, params.locale)],
     },
   }
 }
