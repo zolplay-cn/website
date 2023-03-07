@@ -18,7 +18,7 @@ const languages = [
     label: '简体中文',
     value: 'zh-CN',
     icon: () => <span>🇨🇳</span>,
-    url: 'https://zolplay.cn',
+    url: 'https://cn.zolplay.com',
   },
 ]
 export function LocaleSelector() {
