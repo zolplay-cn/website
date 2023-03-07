@@ -29,7 +29,7 @@ export default async function handler(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: `url(http://localhost:3333/assets/og-bg-${locale}.jpg)`,
+          backgroundImage: `url(https://zolplay.com/assets/og-bg-${locale}.jpg)`,
         }}
       >
         <div
