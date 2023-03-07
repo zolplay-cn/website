@@ -40,7 +40,7 @@ export function ThemeSelector() {
       <Select.Trigger className="flex w-fit justify-start space-x-1 border-none font-bold text-stone-400 transition-colors hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-200 md:w-40">
         <Select.Value placeholder={t('Placeholder')} />
       </Select.Trigger>
-      <Select.Content>
+      <Select.Content position="popper">
         {themes.map(({ label, value, icon: Icon }) => (
           <Select.Item key={value} value={value}>
             <span className="inline-flex select-none items-center space-x-2 font-bold">

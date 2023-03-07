@@ -41,7 +41,7 @@ export function Sidebar({ className }: { className?: string }) {
         <Link
           href="/"
           aria-label={t('Title')}
-          className="group relative z-50 mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6"
+          className="group relative mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6"
         >
           <motion.span
             initial={{ opacity: 0, x: 8 }}
@@ -69,7 +69,7 @@ export function Sidebar({ className }: { className?: string }) {
         </motion.div>
 
         <motion.div
-          className="flex h-12 md:h-24 md:flex-col"
+          className="relative z-50 flex h-12 md:h-24 md:flex-col"
           initial={{ opacity: 0, scale: 0.98, y: 8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{
