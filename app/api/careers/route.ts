@@ -62,5 +62,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.error()
   }
 }
-
-export const runtime = 'experimental-edge'
