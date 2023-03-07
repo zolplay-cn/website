@@ -38,7 +38,7 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm('md:mx-0 md:w-44 md:flex-shrink-0 md:px-0', className)}
     >
-      <div className="md:pr-4 lg:sticky lg:top-12">
+      <div className="md:sticky md:top-12 md:pr-4">
         <Link
           href="/"
           aria-label={t('Title')}

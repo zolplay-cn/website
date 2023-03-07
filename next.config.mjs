@@ -5,7 +5,8 @@ const config = {
   },
   images: {
     remotePatterns: [
-      { hostname: 'cdn.sanity.io' }
+      { hostname: 'cdn.sanity.io' },
+      { hostname: 'upcdn.io' },
     ]
   },
   typescript: {

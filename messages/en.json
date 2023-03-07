@@ -20,7 +20,7 @@
     "Metadata": {
       "Title": "Zolplay",
       "TitleTemplate": "%s | Zolplay",
-      "Description": "Zolplay - the superheroes of software development! Our superpowers are creating next-gen web and mobile applications for businesses of all sizes。",
+      "Description": "Zolplay - the superheroes of software development! Our superpowers are creating next-gen applications or platforms for businesses of all sizes.",
       "Keywords": "Zolplay,Software development,Web applications,Mobile applications,Custom software solutions,High-quality products,Passionate developers,Skilled designers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence,Software superhero,Digital transformation,Custom software development"
     }
   },
@@ -48,9 +48,42 @@
       "Yes": "Remote",
       "No": "On-site"
     },
+    "SeeAllCTA": "Open positions",
     "Back": "Back to careers",
+    "ApplyCTA": {
+      "Idle": "Apply",
+      "Loading": "Applying...",
+      "Success": "Thank you for the application, we will reach out to you soon!",
+      "Error": "Error while sending application, try again later."
+    },
     "Details": {
-      "Preface": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!"
+      "Preface": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!",
+      "Application": {
+        "Title": "Apply now",
+        "Tips": "You can also apply by sending us an email via <email>cv@zolplay.com</email>",
+        "About": {
+          "Label": "About you",
+          "Placeholder": "✍\uFE0F Tell us a bit about yourself."
+        },
+        "Resume": {
+          "Add": "Add Resume",
+          "Change": "Change Resume",
+          "FileLimit": "Resume should be PDF files and under 50MB"
+        },
+        "Personal": "Personal information",
+        "FullName": {
+          "Label": "Full name",
+          "Placeholder": "e.g. Tony Stark"
+        },
+        "PreferredName": {
+          "Label": "Preferred name",
+          "Placeholder": "(Leave blank if same as full name)"
+        },
+        "Email": {
+          "Label": "Email address",
+          "Placeholder": "e.g. tony@avengers.com"
+        }
+      }
     },
     "Benefits": {
       "Title": "Benefits:",

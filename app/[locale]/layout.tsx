@@ -12,6 +12,7 @@ import { Footer } from '~/app/Footer'
 import { Rulers } from '~/app/Rulers'
 import { Sidebar } from '~/app/Sidebar'
 import { ThemeProvider } from '~/app/ThemeProvider'
+import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
 import { getMessages } from '~/i18n.server'
 
@@ -132,6 +133,8 @@ export default async function RootLayout({
               </section>
             </main>
           </NextIntlClientProvider>
+
+          <Toasts />
         </ThemeProvider>
 
         <AnalyticsWrapper />

@@ -63,3 +63,35 @@
   pointer-events: none;
   user-select: none;
 }
+
+/* Toast */
+[data-sonner-toast], [data-sonner-toast] [data-close-button] {
+  @apply font-sans;
+  background-color: theme('colors.stone.100') !important;
+  color: theme('colors.stone.800') !important;
+  border-color: theme('colors.stone.200') !important;
+}
+
+.dark [data-sonner-toast], .dark [data-sonner-toast] [data-close-button] {
+  background-color: theme('colors.stone.800') !important;
+  color: theme('colors.stone.300') !important;
+  border-color: theme('colors.stone.700') !important;
+}
+
+/* Uploader */
+.uploader__modal {
+  @apply font-sans;
+  @apply bg-stone-50 text-stone-800;
+}
+.uploader .btn--primary {
+  @apply bg-stone-800 text-stone-50 font-semibold;
+}
+.dark .uploader__modal {
+  @apply bg-stone-900 text-stone-200;
+}
+.dark .uploader__submitted-file__container {
+  @apply bg-stone-800;
+}
+.dark .uploader .btn--primary {
+  @apply bg-stone-100 text-stone-900;
+}
