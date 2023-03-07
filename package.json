@@ -59,6 +59,10 @@
     "peerDependencyRules": {
       "ignoreMissing": [
         "csstype",
+        "lodash",
+        "react-router",
+        "react-router-dom",
+        "rxjs",
         "@sanity/*"
       ]
     }

@@ -130,7 +130,7 @@ export function JobDetails({ job }: { job: Job }) {
         </span>
       </p>
 
-      <p className="tracking-tight">
+      <p className="text-sm tracking-tight">
         <Balancer className="rounded-2xl rounded-tl-sm bg-stone-500/5 p-3 dark:bg-stone-400/5">
           {t.rich('Details.Preface', DefaultRichTextComponents)}
         </Balancer>

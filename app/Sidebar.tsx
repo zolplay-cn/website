@@ -19,6 +19,7 @@ import {
 import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
 import { Logo, LogoHelmet } from '~/components/Logo'
+import { Clock } from '~/components/ui/Clock'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
@@ -81,6 +82,7 @@ export function Sidebar({ className }: { className?: string }) {
         >
           <ThemeSelector />
           <LocaleSelector />
+          <Clock />
         </motion.div>
       </div>
     </aside>

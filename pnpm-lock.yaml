@@ -1694,6 +1694,15 @@ packages:
       rxjs: ^6.0.0
       sanity: ^3.0.0
       styled-components: ^5.0.0
+    peerDependenciesMeta:
+      lodash:
+        optional: true
+      react-router:
+        optional: true
+      react-router-dom:
+        optional: true
+      rxjs:
+        optional: true
     dependencies:
       '@cprecioso/country-flag-emoji': 1.0.0
       '@sanity/color': 2.2.3
@@ -1861,6 +1870,9 @@ packages:
       react: ^16.9 || ^17 || ^18
       rxjs: '>=6.5.3 || ^7.0.0'
       styled-components: ^5.2
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
     dependencies:
       '@sanity/block-tools': 3.5.1
       '@sanity/schema': 3.5.1
@@ -5416,6 +5428,9 @@ packages:
     resolution: {integrity: sha512-Fb7qVUHqr8jl32NyJffTiqf76NObRvmzaSPgGtaAGH+Wfh45tiGWjrvUsNgEuCa86SUzGZZpoSN0hpGtldoSDg==}
     peerDependencies:
       rxjs: ^6.5 || 7
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
     dependencies:
       rxjs: 7.8.0
     dev: false
@@ -6049,6 +6064,9 @@ packages:
     peerDependencies:
       react: ^16.8 || ^17 || ^18
       rxjs: ^6.5 || ^7
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
     dependencies:
       observable-callback: 1.0.2_rxjs@7.8.0
       react: 18.2.0
@@ -6261,6 +6279,9 @@ packages:
     resolution: {integrity: sha512-OmXhrTsEqcIT4PX1TSf+iRsah3sjMEQ27z7aXCc96xwiKr18RWhvtxUyGnvKMBwF8AavwLXELAMKA8ImgKXeoA==}
     peerDependencies:
       rxjs: ^6.0.0 || ^7.0.0
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
     dependencies:
       memoize-resolver: 1.0.0
       rxjs: 7.8.0
@@ -6270,6 +6291,9 @@ packages:
     resolution: {integrity: sha512-gK7nsKyPFsbjDeJ0NYTcZYGW5TbTFjT3iACa28Pwp3fIf9wT/JUR8vdlKYCjUOZKXYnXEk8eRZ4zcQyEURosIA==}
     peerDependencies:
       rxjs: 7.x
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
     dependencies:
       rxjs: 7.8.0
     dev: false
