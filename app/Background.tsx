@@ -109,6 +109,7 @@ function Grids({
 export function Background() {
   return (
     <>
+      <div className="fixed inset-0 -z-[1] bg-stone-50 dark:bg-stone-900" />
       <motion.span
         className="pointer-events-none fixed inset-0 h-full w-full"
         initial={{ opacity: 0 }}
