@@ -5,9 +5,6 @@ export const config = {
   runtime: 'edge',
 }
 
-const cnFont = fetch(
-  new URL('../../public/assets/fonts/NotoSansSC-Black.otf', import.meta.url)
-).then((res) => res.arrayBuffer())
 const enFont = fetch(
   new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
@@ -18,11 +15,8 @@ export default async function handler(req: NextRequest) {
   const locale = searchParams.get('locale') ?? 'zh-CN'
   let fontData: ArrayBuffer
   switch (locale) {
-    case 'en':
-      fontData = await enFont
-      break
     default:
-      fontData = await cnFont
+      fontData = await enFont
   }
 
   return new ImageResponse(
@@ -39,6 +33,7 @@ export default async function handler(req: NextRequest) {
         }}
       >
         <div
+          lang={locale}
           style={{
             marginLeft: 50,
             marginRight: 50,
