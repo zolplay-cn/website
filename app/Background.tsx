@@ -58,9 +58,10 @@ function Grids({
 }) {
   return (
     <svg
-      className="pointer-events-none h-full w-full touch-none select-none"
+      className="pointer-events-none h-full w-full touch-none select-none bg-transparent"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
+      fill="transparent"
     >
       <defs>
         {GRID_STEPS.map(({ min, mid, size }, i) => {
@@ -79,13 +80,15 @@ function Grids({
               width={s}
               height={s}
               patternUnits="userSpaceOnUse"
+              fill="transparent"
+              className="bg-transparent"
             >
               <circle
                 cx={gxo}
                 cy={gyo}
                 r={2}
                 opacity={opacity}
-                className="fill-stone-300 dark:fill-stone-700"
+                className="bg-transparent fill-stone-300 dark:fill-stone-700"
               />
             </pattern>
           )
