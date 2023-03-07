@@ -18,7 +18,7 @@ body {
 body::before {
   content: '';
   @apply fixed block inset-0 bg-stone-50;
-  z-index: 99999;
+  z-index: 0;
 }
 
 .dark body::before {
