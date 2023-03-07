@@ -118,15 +118,15 @@ export function Background() {
         <Grids grid={10} />
       </motion.span>
 
-      {/*<motion.span*/}
-      {/*  className="pointer-events-none fixed top-0 block h-[600px] w-full select-none bg-[radial-gradient(103.72%_46.58%_at_50%_0%,rgba(12,12,12,0.03)_0%,rgba(12,12,12,0)_100%)] dark:bg-[radial-gradient(103.72%_46.58%_at_50%_0%,rgba(255,255,255,0.013)_0%,rgba(255,255,255,0)_100%)]"*/}
-      {/*  initial={{ opacity: 0, y: -50 }}*/}
-      {/*  animate={{ opacity: 1, y: 0 }}*/}
-      {/*  transition={{ duration: 1, type: 'spring' }}*/}
-      {/*/>*/}
+      <motion.span
+        className="pointer-events-none fixed top-0 block h-[600px] w-full select-none bg-[radial-gradient(103.72%_46.58%_at_50%_0%,rgba(12,12,12,0.03)_0%,rgba(12,12,12,0)_100%)] dark:bg-[radial-gradient(103.72%_46.58%_at_50%_0%,rgba(255,255,255,0.013)_0%,rgba(255,255,255,0)_100%)]"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, type: 'spring' }}
+      />
 
-      {/*<div className="mask-t pointer-events-none fixed inset-x-0 top-0 z-30 h-[88px] w-full select-none backdrop-blur-[1px]" />*/}
-      {/*<div className="mask-b pointer-events-none fixed inset-x-0 bottom-0 z-30 h-[80px] w-full select-none backdrop-blur-[1px]" />*/}
+      <div className="mask-t pointer-events-none fixed inset-x-0 top-0 z-30 h-[88px] w-full select-none backdrop-blur-[1px]" />
+      <div className="mask-b pointer-events-none fixed inset-x-0 bottom-0 z-30 h-[80px] w-full select-none backdrop-blur-[1px]" />
     </>
   )
 }

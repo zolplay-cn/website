@@ -11,11 +11,11 @@
   --font-sans: var(--font-sans-en), var(--font-sans-cn);
 }
 
-html {
+html, body {
   @apply bg-stone-50 text-stone-800;
 }
 
-html.dark {
+html.dark, .dark body {
   @apply bg-stone-900 text-stone-300;
 }
 
