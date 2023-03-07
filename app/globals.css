@@ -11,6 +11,10 @@
   --font-sans: var(--font-sans-en), var(--font-sans-cn);
 }
 
+body {
+  overscroll-behavior-x: none;
+}
+
 ::selection {
   background: theme('colors.stone.700');
   color: theme('colors.stone.50');
