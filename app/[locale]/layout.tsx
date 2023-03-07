@@ -47,10 +47,10 @@ export async function generateMetadata({
       default: messages.Root.Metadata.Title,
       template: messages.Root.Metadata.TitleTemplate,
     },
-    themeColor: [
-      { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
-      { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
-    ],
+    // themeColor: [
+    //   { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
+    //   { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
+    // ],
     description: messages.Root.Metadata.Description,
     keywords: messages.Root.Metadata.Keywords,
     icons: {

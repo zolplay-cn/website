@@ -15,6 +15,16 @@ body {
   overscroll-behavior: none;
 }
 
+body::before {
+  content: '';
+  @apply fixed block inset-0 bg-stone-50;
+  z-index: 99999;
+}
+
+.dark body::before {
+  @apply bg-stone-900;
+}
+
 ::selection {
   background: theme('colors.stone.700');
   color: theme('colors.stone.50');
