@@ -8,11 +8,9 @@ import { Link, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
 import React from 'react'
 import {
-  TbAugmentedReality2,
   TbBriefcase,
   TbCarouselHorizontal,
   TbMailbox,
-  TbPhoto,
   TbPlanet,
 } from 'react-icons/tb'
 
@@ -25,10 +23,10 @@ const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
   { href: '/about', label: 'About', icon: LogoHelmet },
   { href: '/careers', label: 'Careers', icon: TbBriefcase },
-  { href: '/portfolio', label: 'Portfolio', icon: TbCarouselHorizontal },
-  { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
+  { href: '/portfolios', label: 'Portfolios', icon: TbCarouselHorizontal },
+  // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/contact', label: 'Contact', icon: TbMailbox },
-  { href: '/gallery', label: 'Gallery', icon: TbPhoto },
+  // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
 ]
 
 export function Sidebar({ className }: { className?: string }) {

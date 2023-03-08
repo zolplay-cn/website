@@ -100,7 +100,7 @@ export function Careers({ jobs }: { jobs: Job[] }) {
               {jobs.map((job) => (
                 <li
                   key={job._id}
-                  className="border-b border-stone-200 pb-4 dark:border-stone-700"
+                  className="border-b border-stone-200/70 pb-4 dark:border-stone-700/70"
                 >
                   <Link
                     href={makeJobLink(job)}
