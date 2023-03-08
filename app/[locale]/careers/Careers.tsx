@@ -25,6 +25,7 @@ import { Uploader, type UploadWidgetResult } from 'uploader'
 import { z } from 'zod'
 
 import { Benefits } from '~/components/Benefits'
+import { OurTools } from '~/components/OurTools'
 import { Button, ButtonLink } from '~/components/ui/Button'
 import { Hr } from '~/components/ui/Hr'
 import { DefaultRichTextComponents, RichText } from '~/components/ui/RichText'
@@ -87,6 +88,7 @@ export function Careers({ jobs }: { jobs: Job[] }) {
       <Image src={FeaturedImage} alt={t('Title')} placeholder="blur" />
 
       <Benefits />
+      <OurTools />
 
       <div id="positions">
         {Object.entries(squads).map(([squad, jobs]) => (

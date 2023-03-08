@@ -34,7 +34,7 @@
     "Title": "Join us",
     "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",
     "Heading": "Join us and help save the world with your <gradient>superhuman software skills</gradient>, together.",
-    "Intro": "Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need your help to make it happen. If you're a believer in the power of crafting <red>enchanting software experiences</red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b>",
+    "Intro": "Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need <b>your</b> help to make it happen. If you're a believer in the power of crafting <red>enchanting software experiences</red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b> \uD83E\uDE84",
     "Openings": {
       "Squad": "{squad} squad - open positions"
     },
@@ -122,8 +122,7 @@
         "GitHub: top-notch code repositories and CI/CD pipelines.",
         "Linear: best project management and task tracking platform.",
         "Vercel: the best deployment platform for web apps.",
-        "Figma: the best design tool for all things UI/UX.",
-        "1Password: the best password manager for teams."
+        "Figma: the best design tool for all things UI/UX."
       ]
     }
   },

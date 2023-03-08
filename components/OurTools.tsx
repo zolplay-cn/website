@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl'
 import { CgLinear } from 'react-icons/cg'
-import { Si1Password } from 'react-icons/si'
 import {
   TbBrandFigma,
   TbBrandGithub,
@@ -18,7 +17,6 @@ const icons = [
   CgLinear,
   TbBrandVercel,
   TbBrandFigma,
-  Si1Password,
 ]
 
 export function OurTools() {

@@ -91,7 +91,7 @@ export function Sidebar({ className }: { className?: string }) {
 
 function Separator() {
   return (
-    <div className="pointer-events-none mx-2 my-2 hidden h-px bg-stone-200 dark:bg-stone-700 md:block" />
+    <div className="pointer-events-none mx-2 my-2 hidden h-px bg-stone-200/70 dark:bg-stone-700/50 md:block" />
   )
 }
 
