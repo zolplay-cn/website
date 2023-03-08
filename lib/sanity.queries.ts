@@ -3,6 +3,7 @@ import { groq } from 'next-sanity'
 import { i18n } from '~/i18n'
 import { sanity } from '~/lib/sanity.client'
 import type { Job } from '~/schemas/documents/job'
+import { Portfolio } from '~/schemas/documents/portfolio'
 import type { Squad } from '~/schemas/documents/squad'
 
 const localeMapper = {
@@ -71,4 +72,29 @@ export async function getJobIds() {
 export const jobQuery = groq`*[_type == "job" && _id == $id][0]`
 export async function getJob({ id, locale }: { id: string; locale: string }) {
   return sanity!.fetch<Job>(jobQuery, makeLocalizedIdParams({ id, locale }))
+}
+
+export const portfolioIdsQuery = groq`*[_type == "portfolio" && !defined(__i18n_lang)].slug`
+export async function getPortfolioSlugs() {
+  return sanity!.fetch<string[]>(portfolioIdsQuery)
+}
+
+export const portfoliosQuery = (filter?: string) =>
+  groq`*[_type == "portfolio" ${filter ? `&& ${filter}` : ''}] {
+  ...,
+  image {
+    _ref,
+    asset->{
+      path,
+      url,
+      "palette": metadata.palette.vibrant,
+      "lqip": metadata.lqip
+    }
+  }
+}`
+export async function getPortfolios(locale: string) {
+  return sanity!.fetch<Portfolio[]>(
+    portfoliosQuery(makeLocaleFilter(locale)),
+    makeLocaleParams(locale)
+  )
 }

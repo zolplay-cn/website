@@ -19,7 +19,7 @@
   "Root": {
     "Metadata": {
       "Title": "Zolplay",
-      "TitleTemplate": "%s | Zolplay",
+      "TitleTemplate": "%s / Zolplay",
       "Description": "Zolplay - the superheroes of software development! Our superpowers are creating next-gen applications or platforms for businesses of all sizes.",
       "Keywords": "Zolplay,Software development,Web applications,Mobile applications,Custom software solutions,High-quality products,Passionate developers,Skilled designers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence,Software superhero,Digital transformation,Custom software development"
     }
@@ -57,6 +57,7 @@
       "Error": "Error while sending application, try again later."
     },
     "Details": {
+      "Subtitle": "Careers",
       "Preface": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!",
       "Application": {
         "Title": "Apply now",
@@ -124,6 +125,14 @@
         "Vercel: the best deployment platform for web apps.",
         "Figma: the best design tool for all things UI/UX."
       ]
+    }
+  },
+  "Portfolios": {
+    "Title": "Our projects",
+    "Description": "We are a team of passionate developers who love to create amazing software products. Here are some of our recent projects.",
+    "Card": {
+      "LearnMoreCTA": "Learn more",
+      "VisitCTA": "Visit website"
     }
   },
   "Copyright": {

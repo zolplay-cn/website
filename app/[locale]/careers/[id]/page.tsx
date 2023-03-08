@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { JobDetails } from '~/app/[locale]/careers/Careers'
+import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getJob, getJobIds } from '~/lib/sanity.queries'
 
@@ -29,14 +30,17 @@ export async function generateMetadata({
   params: PageParams
 }): Promise<Metadata> {
   const job = await fetchJob(params)
+  const messages = await getMessages(params)
+  const title = job.title
+  const subtitle = messages.Careers.Details.Subtitle
 
   return {
-    title: job.title,
+    title,
     description: job.excerpt,
     openGraph: {
-      title: job.title,
+      title,
       description: job.excerpt,
-      images: [getOpenGraphImage(job.title, params.locale)],
+      images: [getOpenGraphImage(title, params.locale, subtitle)],
     },
   }
 }

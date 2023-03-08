@@ -45,6 +45,16 @@ body {
   -webkit-mask-image: linear-gradient(to top, #1a1a1a 24%, transparent);
 }
 
+.mask-l {
+  background: linear-gradient(to left, transparent, var(--mask-color));
+  -webkit-mask-image: linear-gradient(to right, var(--mask-color) 24%, transparent);
+}
+
+.mask-r {
+  background: linear-gradient(to right, transparent, var(--mask-color));
+  -webkit-mask-image: linear-gradient(to left, var(--mask-color) 24%, transparent);
+}
+
 .frosted-noise::before {
   content: '';
   position: absolute;

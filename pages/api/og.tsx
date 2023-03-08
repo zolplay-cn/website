@@ -12,6 +12,7 @@ const enFont = fetch(
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const title = searchParams.get('title') ?? ''
+  const subtitle = searchParams.get('subtitle') ?? ''
   const locale = searchParams.get('locale') ?? 'zh-CN'
   let fontData: ArrayBuffer
   switch (locale) {
@@ -22,7 +23,9 @@ export default async function handler(req: NextRequest) {
   return new ImageResponse(
     (
       <div
+        lang={locale}
         style={{
+          position: 'relative',
           height: '100%',
           width: '100%',
           display: 'flex',
@@ -32,8 +35,24 @@ export default async function handler(req: NextRequest) {
           backgroundImage: `url(https://zolplay.com/assets/og-bg-${locale}.jpg)`,
         }}
       >
+        {subtitle && (
+          <div
+            style={{
+              position: 'absolute',
+              top: 58,
+              left: 140,
+              fontFamily: 'Zolplay',
+              fontSize: 30,
+              letterSpacing: '-0.02em',
+              textTransform: 'uppercase',
+              color: '#111111',
+              opacity: 0.4,
+            }}
+          >
+            {`/ ${subtitle}`}
+          </div>
+        )}
         <div
-          lang={locale}
           style={{
             marginLeft: 50,
             marginRight: 50,

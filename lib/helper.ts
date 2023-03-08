@@ -1,7 +1,14 @@
-export function getOpenGraphImage(title: string, locale: string) {
+export function getOpenGraphImage(
+  title: string,
+  locale: string,
+  subtitle?: string
+) {
   const url = new URL(process.env.NEXT_PUBLIC_OG_URL ?? '')
   url.searchParams.set('title', title)
   url.searchParams.set('locale', locale)
+  if (subtitle) {
+    url.searchParams.set('subtitle', subtitle)
+  }
 
   return {
     url: url.toString(),

@@ -11,6 +11,7 @@ import { deskTool } from 'sanity/desk'
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
+import { portfolioSchema } from '~/schemas/documents/portfolio'
 import { squadSchema } from '~/schemas/documents/squad'
 import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { localeStringSchema } from '~/schemas/objects/localeString'
@@ -29,6 +30,7 @@ export default defineConfig({
       memberSchema,
       squadSchema,
       jobSchema,
+      portfolioSchema,
     ],
   },
   plugins: [
