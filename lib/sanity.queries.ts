@@ -100,3 +100,34 @@ export async function getPortfolios(locale: string) {
     makeLocaleParams(locale)
   )
 }
+
+export const portfolioQuery = (
+  filter?: string
+) => groq`*[_type == "portfolio" && slug == $slug ${
+  filter ? `&& ${filter}` : ''
+}][0] {
+  ...,
+  image {
+    _ref,
+    asset->{
+      path,
+      url,
+      "lqip": metadata.lqip
+    }
+  }
+}`
+export async function getPortfolio({
+  slug,
+  locale,
+}: {
+  slug: string
+  locale: string
+}) {
+  return sanity!.fetch<Portfolio | undefined>(
+    portfolioQuery(makeLocaleFilter(locale)),
+    {
+      ...makeLocaleParams(locale),
+      slug,
+    }
+  )
+}
