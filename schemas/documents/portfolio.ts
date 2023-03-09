@@ -23,6 +23,7 @@ export const Portfolio = z.object({
       lqip: z.string(),
     }),
   }),
+  palette: PaletteSwatch.optional(),
   description: z.string(),
   timeframe: z.string(),
   website: z.string(),
@@ -64,6 +65,25 @@ export const portfolioSchema = defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'palette',
+      title: 'Palette',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'background',
+          title: 'Background',
+          type: 'string',
+          validation: (Rule) => Rule.regex(/^#/, { name: 'hex' }),
+        }),
+        defineField({
+          name: 'foreground',
+          title: 'Foreground',
+          type: 'string',
+          validation: (Rule) => Rule.regex(/^#/, { name: 'hex' }),
+        }),
+      ],
     }),
     defineField({
       name: 'description',

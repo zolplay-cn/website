@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Link as LocaleLink, useTranslations } from 'next-intl'
+import React from 'react'
 import { TbArrowBadgeRight, TbArrowUpRight } from 'react-icons/tb'
 import Balancer from 'react-wrap-balancer'
 
@@ -15,14 +16,17 @@ function makePortfolioLink(portfolio: Portfolio) {
 
 export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
   const t = useTranslations('Portfolios.Card')
+  const palette = React.useMemo(() => {
+    return portfolio.palette ?? portfolio.image.asset.palette
+  }, [portfolio.palette, portfolio.image.asset.palette])
 
   return (
     <div
-      className="w-full rounded-xl shadow-xl ring-4 ring-black/5 dark:ring-white/10"
+      className="w-full rounded-xl shadow-xl ring-2 ring-black/5 dark:ring-white/5"
       style={{
-        background: portfolio.image.asset.palette.background,
-        color: portfolio.image.asset.palette.foreground,
-        '--mask-color': portfolio.image.asset.palette.background,
+        background: palette.background,
+        color: palette.foreground,
+        '--mask-color': palette.background,
       }}
     >
       <div className="relative flex">
@@ -43,7 +47,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
           <h2
             className="not-prose mt-4 text-lg md:text-xl lg:text-2xl"
             style={{
-              color: portfolio.image.asset.palette.foreground,
+              color: palette.foreground,
             }}
           >
             <LocaleLink
@@ -56,7 +60,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
           <p
             className="pr-5 text-sm !leading-relaxed opacity-70 md:pr-0 lg:text-sm"
             style={{
-              color: portfolio.image.asset.palette.foreground,
+              color: palette.foreground,
             }}
           >
             {portfolio.description}
@@ -65,7 +69,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
           <div
             className="mb-6 flex items-center gap-5 pt-2 text-sm lg:mb-7 lg:pt-4"
             style={{
-              color: portfolio.image.asset.palette.foreground,
+              color: palette.foreground,
             }}
           >
             <LocaleLink
