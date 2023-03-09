@@ -10,12 +10,12 @@ export function Portfolios({ children }) {
 
   return (
     <>
-      <h1>{t('Title')}</h1>
-      <p>{t.rich('Description', DefaultRichTextComponents)}</p>
+      <h1>{t.rich('Heading', DefaultRichTextComponents)}</h1>
+      <p>{t.rich('Intro', DefaultRichTextComponents)}</p>
 
-      <Hr />
+      <Hr className="my-12" />
 
-      {children}
+      <section className="flex flex-col gap-8">{children}</section>
     </>
   )
 }

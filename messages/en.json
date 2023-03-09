@@ -128,8 +128,10 @@
     }
   },
   "Portfolios": {
-    "Title": "Our projects",
-    "Description": "We are a team of passionate developers who love to create amazing software products. Here are some of our recent projects.",
+    "Title": "Projects showroom",
+    "Heading": "Projects showroom: witness our <gradient>exceptional software delight</gradient> in action",
+    "Description": "Explore our portfolios and see for yourself the exceptional software projects we've had the pleasure of working on. Discover how we can help you bring your digital vision to reality and exceed your expectations.",
+    "Intro": "Welcome to our portfolios, where we showcase some of the <gradient>next-generation software projects</gradient> we've had the pleasure of working on. Our team of skilled developers and designers have tackled a wide range of challenges and brought our clients' ideas to life. We're proud of the work we've done and are excited to share it with you.<br></br><br></br>At our core, we believe that exceptional software should <b>not only function flawlessly</b>, but also <green>delight users with its design and ease of use</green>. That's why each project we take on is more than just code to us - it's an opportunity to create something that truly <red>makes a difference</red>. We work closely with our clients to understand their needs and goals, and then use our expertise to craft software experiences that exceed their expectations. Our portfolio is a testament to our commitment to excellence and we look forward to continuing to create amazing software for years to come.",
     "Card": {
       "LearnMoreCTA": "Learn more",
       "VisitCTA": "Visit website"

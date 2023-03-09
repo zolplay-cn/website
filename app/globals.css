@@ -47,12 +47,12 @@ body {
 
 .mask-l {
   background: linear-gradient(to left, transparent, var(--mask-color));
-  -webkit-mask-image: linear-gradient(to right, var(--mask-color) 24%, transparent);
+  -webkit-mask-image: linear-gradient(to right, var(--mask-color) 26%, transparent);
 }
 
 .mask-r {
   background: linear-gradient(to right, transparent, var(--mask-color));
-  -webkit-mask-image: linear-gradient(to left, var(--mask-color) 24%, transparent);
+  -webkit-mask-image: linear-gradient(to left, var(--mask-color) 26%, transparent);
 }
 
 .frosted-noise::before {

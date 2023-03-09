@@ -80,7 +80,9 @@ export async function getPortfolioSlugs() {
 }
 
 export const portfoliosQuery = (filter?: string) =>
-  groq`*[_type == "portfolio" ${filter ? `&& ${filter}` : ''}] {
+  groq`*[_type == "portfolio" ${
+    filter ? `&& ${filter}` : ''
+  }] | order(order asc, _updatedAt desc) {
   ...,
   image {
     _ref,

@@ -16,28 +16,28 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
     <div
       className="w-full rounded-xl shadow-xl ring-4 ring-black/5 dark:ring-white/10"
       style={{
-        backgroundColor: portfolio.image.asset.palette.background,
+        background: portfolio.image.asset.palette.background,
         color: portfolio.image.asset.palette.foreground,
         '--mask-color': portfolio.image.asset.palette.background,
       }}
     >
-      <div className="relative flex h-96">
-        <div className="relative z-20 h-full max-w-[22rem] pl-7">
-          <div className="flex items-center space-x-5">
+      <div className="relative flex h-72 md:h-80 lg:h-96">
+        <div className="relative z-20 h-full max-w-full pl-5 md:max-w-[16rem] md:pl-7 lg:max-w-[22rem]">
+          <div className="flex items-center space-x-3 lg:space-x-5">
             <Image
-              className="mb-6 h-12 w-12"
+              className="h-7 w-7 !rounded-lg md:mb-4 md:h-9 md:w-9 lg:mb-6 lg:h-12 lg:w-12 lg:!rounded-xl"
               src={urlForImage(portfolio.logo).size(200, 200).url()}
               alt="Logo"
               width={200}
               height={200}
             />
 
-            <span className="mt-2 text-sm font-bold opacity-60">
+            <span className="text-sm font-bold opacity-60 md:mt-3 lg:mt-2">
               {portfolio.timeframe}
             </span>
           </div>
           <h2
-            className="mt-0 leading-normal"
+            className="mt-0 text-lg md:text-xl lg:text-2xl"
             style={{
               color: portfolio.image.asset.palette.foreground,
             }}
@@ -45,7 +45,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
             <Balancer>{portfolio.title}</Balancer>
           </h2>
           <p
-            className="h-[92px] text-sm !leading-relaxed opacity-70"
+            className="pr-5 text-xs !leading-relaxed opacity-70 md:pr-0 lg:text-sm"
             style={{
               color: portfolio.image.asset.palette.foreground,
             }}
@@ -54,7 +54,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
           </p>
 
           <div
-            className="flex items-center gap-5 pt-2 text-sm"
+            className="flex items-center gap-5 pt-2 text-sm lg:pt-4"
             style={{
               color: portfolio.image.asset.palette.foreground,
             }}
@@ -78,9 +78,9 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
             )}
           </div>
         </div>
-        <div className="absolute right-0 aspect-square h-96 overflow-hidden rounded-r-xl">
+        <div className="absolute right-0 h-72 w-72 overflow-hidden rounded-r-xl md:h-80 md:w-80 lg:h-96 lg:w-96">
           <Image
-            className="not-prose m-0 rounded-none p-0"
+            className="not-prose m-0 h-full w-full rounded-none p-0"
             src={
               urlForImage(portfolio.image)
                 .width(650)
@@ -94,7 +94,8 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
             placeholder="blur"
             blurDataURL={portfolio.image.asset.lqip}
           />
-          <div className="mask-l absolute inset-y-0 left-0 z-10 w-[200px] select-none backdrop-blur-[1px]"></div>
+          <div className="mask-l frosted-noise pointer-events-none absolute inset-y-0 left-0 z-10 w-full select-none md:w-[200px]" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full select-none backdrop-blur-md md:w-[100px] md:backdrop-blur-[1px]" />
         </div>
       </div>
     </div>

@@ -26,6 +26,7 @@ export const Portfolio = z.object({
   description: z.string(),
   timeframe: z.string(),
   website: z.string(),
+  order: z.number(),
   content: z.any(),
 })
 export type Portfolio = z.infer<typeof Portfolio>
@@ -80,6 +81,14 @@ export const portfolioSchema = defineType({
       name: 'website',
       title: 'Website',
       type: 'url',
+      description: 'The website for this project.',
+    }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      description: 'The order in which this portfolio should appear.',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'content',
