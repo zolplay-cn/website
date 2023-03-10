@@ -44,7 +44,7 @@ export function OurMembers({ members }: { members: Member[] }) {
       </svg>
 
       <section
-        className="grid grid-cols-2 gap-5 md:grid-cols-3"
+        className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5"
         onMouseEnter={() => setFocusing(true)}
         onMouseLeave={() => setFocusing(false)}
       >
@@ -107,7 +107,7 @@ function MemberCard({ member }: { member: Member }) {
   return (
     <div
       className={clsxm([
-        'not-prose group flex flex-col justify-between rounded-2xl p-4',
+        'not-prose group flex flex-col justify-between rounded-2xl p-2.5 md:p-4',
         'border border-stone-100 bg-white text-[var(--accent)] dark:border-stone-800 dark:bg-stone-900',
         '[--accent:var(--mb-accent)] dark:[--accent:var(--mb-accent-dark)]',
         'transform-gpu transition-all duration-500 ease-in-out',
