@@ -15,11 +15,11 @@ export function PortfolioPage({ portfolio }: { portfolio: Portfolio }) {
   return (
     <>
       <Image
-        className="mt-0"
-        src={urlForImage(portfolio.logo).size(60, 60).url()}
+        className="mt-0 h-14 w-14"
+        src={urlForImage(portfolio.logo).size(200, 200).url()}
         alt="Logo"
-        width={60}
-        height={60}
+        width={200}
+        height={200}
       />
       <h1>{portfolio.title}</h1>
       {portfolio.website && (

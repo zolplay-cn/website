@@ -31,7 +31,9 @@ export function LocaleSelector() {
       if (process.env.NODE_ENV === 'development') {
         router.push(`/${locale}${pathname}`)
       } else {
-        router.push(languages.find((lang) => lang.value === locale)?.url || '/')
+        const domain =
+          languages.find((lang) => lang.value === locale)?.url || ''
+        router.push(`${domain}/${pathname}`)
       }
     },
     [router, pathname]

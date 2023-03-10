@@ -10,6 +10,8 @@ import {
   TbBrandVercel,
 } from 'react-icons/tb'
 
+import { ZpBrandArc } from '~/components/icons/ZpBrandArc'
+
 const icons = [
   TbBrandSlack,
   TbBrandGoogleDrive,
@@ -17,6 +19,7 @@ const icons = [
   CgLinear,
   TbBrandVercel,
   TbBrandFigma,
+  ZpBrandArc,
 ]
 
 export function OurTools() {

@@ -1,6 +1,8 @@
 import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 
+import { i18n } from '~/i18n'
+
 export const config = {
   runtime: 'edge',
 }
@@ -55,9 +57,9 @@ export default async function handler(req: NextRequest) {
         <div
           style={{
             marginLeft: 50,
-            marginRight: 50,
+            paddingRight: locale === i18n.defaultLocale ? 220 : 200,
             display: 'flex',
-            fontSize: 80,
+            fontSize: 78,
             fontFamily: 'Zolplay',
             letterSpacing: '-0.065em',
             fontStyle: 'normal',
