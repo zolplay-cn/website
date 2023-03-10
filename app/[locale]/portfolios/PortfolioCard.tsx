@@ -108,7 +108,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
             blurDataURL={portfolio.image.asset.lqip}
           />
           <div className="mask-l frosted-noise pointer-events-none absolute inset-y-0 left-0 z-10 w-full select-none md:w-[200px]" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full select-none backdrop-blur-md md:w-[100px] md:backdrop-blur-[1px]" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full select-none backdrop-blur-md md:hidden" />
         </div>
       </div>
     </div>

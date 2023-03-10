@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 import { blockContentSchema } from '~/schemas/objects/blockContent'
 
-const PaletteSwatch = z.object({
+export const PaletteSwatch = z.object({
   background: z.string(),
   foreground: z.string(),
 })

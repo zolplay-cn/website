@@ -25,6 +25,7 @@
     "date-fns": "^2.29.3",
     "framer-motion": "^10.0.1",
     "intl-segmenter-polyfill": "^0.4.4",
+    "jotai": "^2.0.3",
     "js-yaml": "^4.1.0",
     "next": "^13.2.3",
     "next-intl": "^2.11.0-beta.16",

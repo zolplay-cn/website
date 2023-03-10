@@ -2,21 +2,36 @@ import { FaUserAstronaut } from 'react-icons/fa'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
 
+import { PaletteSwatch } from '~/schemas/documents/portfolio'
 import { localeStringSchema } from '~/schemas/objects/localeString'
 
 const Member = z.object({
   _id: z.string(),
   name: z.string(),
-  slug: z.object({
-    current: z.string(),
-  }),
+  slug: z.string(),
   role: z.string(),
   portrait: z.object({
     _type: z.literal('image'),
-    asset: z.object({ _type: z.enum(['reference']), _ref: z.string() }),
+    asset: z.object({
+      _ref: z.string(),
+      _type: z.literal('reference'),
+    }),
+    lqip: z.string(),
+    palette: z.object({
+      darkMuted: PaletteSwatch,
+      darkVibrant: PaletteSwatch,
+      lightMuted: PaletteSwatch,
+      lightVibrant: PaletteSwatch,
+    }),
+    dimensions: z.object({
+      aspectRatio: z.number(),
+      height: z.number(),
+      width: z.number(),
+    }),
   }),
   social: z.array(
     z.object({
+      _key: z.string(),
       platform: z.enum([
         'twitter',
         'linkedin',
@@ -28,9 +43,10 @@ const Member = z.object({
         'xiaohongshu',
         'website',
       ]),
-      url: z.string(),
+      url: z.string().url(),
     })
   ),
+  joinedDate: z.string(),
 })
 export type Member = z.infer<typeof Member>
 
@@ -103,6 +119,11 @@ export const memberSchema = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: 'joinedDate',
+      title: 'Joined Date',
+      type: 'date',
     }),
   ],
   preview: {

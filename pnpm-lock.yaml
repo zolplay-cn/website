@@ -26,6 +26,7 @@ specifiers:
   eslint-plugin-unused-imports: ^2.0.0
   framer-motion: ^10.0.1
   intl-segmenter-polyfill: ^0.4.4
+  jotai: ^2.0.3
   js-yaml: ^4.1.0
   next: ^13.2.3
   next-intl: ^2.11.0-beta.16
@@ -67,6 +68,7 @@ dependencies:
   date-fns: 2.29.3
   framer-motion: 10.0.1_biqbaboplfbrettd7655fr4n2y
   intl-segmenter-polyfill: 0.4.4
+  jotai: 2.0.3_react@18.2.0
   js-yaml: 4.1.0
   next: 13.2.3_biqbaboplfbrettd7655fr4n2y
   next-intl: 2.11.0-beta.16_next@13.2.3+react@18.2.0
@@ -4890,6 +4892,18 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+
+  /jotai/2.0.3_react@18.2.0:
+    resolution: {integrity: sha512-MMjhSPAL3RoeZD9WbObufRT2quThEAEknHHridf2ma8Ml7ZVQmUiHk0ssdbR3F0h3kcwhYqSGJ59OjhPge7RRg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /js-sdsl/4.3.0:
     resolution: {integrity: sha512-mifzlm2+5nZ+lEcLJMoBK0/IH/bDg8XnJfd/Wq6IP+xoCjLZsTOnV2QpxlVbX9bMnkl5PdEjNtBJ9Cj1NjifhQ==}

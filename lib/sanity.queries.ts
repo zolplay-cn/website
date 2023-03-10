@@ -3,6 +3,7 @@ import { groq } from 'next-sanity'
 import { i18n } from '~/i18n'
 import { sanity } from '~/lib/sanity.client'
 import type { Job } from '~/schemas/documents/job'
+import type { Member } from '~/schemas/documents/member'
 import { Portfolio } from '~/schemas/documents/portfolio'
 import type { Squad } from '~/schemas/documents/squad'
 
@@ -130,4 +131,19 @@ export async function getPortfolio({
       slug,
     }
   )
+}
+
+export const membersQuery = groq`*[_type == "member"] | order(name asc, _updatedAt desc) {
+  ...,
+  "slug": slug.current,
+  "role": role[$locale],
+  portrait {
+    ...,
+    "lqip": asset->metadata.lqip,
+    "dimensions": asset->metadata.dimensions,
+    "palette": asset->metadata.palette { darkMuted, darkVibrant, lightMuted, lightVibrant }
+  }
+}`
+export async function getMembers(locale: string) {
+  return sanity!.fetch<Member[]>(membersQuery, makeLocaleParams(locale))
 }
