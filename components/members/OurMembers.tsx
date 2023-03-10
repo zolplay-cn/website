@@ -154,7 +154,7 @@ function MemberCard({ member }: { member: Member }) {
         </ul>
       )}
 
-      <footer className="flex w-full items-center justify-between">
+      <footer className="mt-2 flex w-full items-center justify-between">
         <time className="select-none rounded-lg border border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-50 dark:border-stone-600/50">
           {joined}
         </time>
