@@ -63,7 +63,9 @@ async function queryStaleRoutes(
 async function queryStaleJobRoutes(client: SanityClient, id: string) {
   return [
     ...i18n.locales.map((locale) => `/${locale}/careers`),
-    ...i18n.locales.map((locale) => `/${locale}/careers/${id}`),
+    ...i18n.locales.map(
+      (locale) => `/${locale}/careers/${id.replace('__i18n_en', '')}`
+    ),
   ]
 }
 
