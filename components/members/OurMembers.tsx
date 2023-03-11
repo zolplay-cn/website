@@ -108,7 +108,7 @@ function MemberCard({ member }: { member: Member }) {
         '[--accent:var(--mb-accent)] dark:[--accent:var(--mb-accent-dark)]',
         '[transform-style:preserve-3d]',
         {
-          'md:opacity-70 md:blur-[1px]':
+          'md:opacity-80 md:blur-[1px]':
             focusingMember !== null && focusingMember !== member.slug,
           'blur-none': focusingMember === member.slug,
         },
@@ -118,8 +118,7 @@ function MemberCard({ member }: { member: Member }) {
         '--mb-accent-dark': member.portrait.palette.lightVibrant.background,
       }}
       perspective={400}
-      scale={1.02}
-      gyroscope
+      scale={1.05}
       glareEnable={false}
       tiltMaxAngleX={10}
       tiltMaxAngleY={10}
