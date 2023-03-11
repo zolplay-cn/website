@@ -30,6 +30,18 @@
     "Paragraph2": "Whether you need a <b>custom software solution</b> or just want to give your existing app a <b>digital makeover</b>, we're your go-to partner for success. <contact-us-link>Contact us</contact-us-link> today to learn how we can help your business <green>Hulk-smash</green> 🥊 the competition in the digital era!",
     "Caption": "Watching Friends in our office during lunch break"
   },
+  "About": {
+    "Title": "Who we are",
+    "Description": "Welcome to Zolplay, a software development company that strives to make a difference in the world. Our mission is to create innovative solutions that enhance people's lives and transform the way we live and work.",
+    "Heading": "We strive to make a difference in the world.",
+    "Intro": "Welcome to Zolplay, founded in 2021, a software development company that strives to make a difference in the world. Our mission is to create innovative solutions \uD83E\uDD84 that enhance people's lives and transform the way we live and work.<br></br><br></br>At Zolplay, we believe that technology has the power to bring positive change to the world. We are a team of passionate individuals who are committed to making a difference through our work. We work tirelessly to create products and services that <b>solve complex problems, simplify processes, and make people's lives easier</b>.<br></br><br></br>Our core values are <green>integrity, creativity, and collaboration</green>. We believe in doing the right thing, even when no one is watching. We encourage creativity and innovation in everything we do, and we collaborate closely with our clients to ensure that we deliver the best possible results.",
+    "Founder": {
+      "Title": "About our founder",
+      "Description": "<b>Cali Castle</b>, the founder of Zolplay. He's a talented developer, designer, creator, and maker who's passionate about building innovative products that improve people's lives. With notable clients like <b>Starbucks</b>, <b>Microsoft</b>, and <b>Niantic</b>, Cali is a detail-oriented problem-solver, setting him apart in the industry. Beyond his work, Cali is also a detail enthusiast and a previous 🪩 DJ and 🎤 rapper. Cali leads Zolplay with a commitment to creating a workplace <red>where creativity and innovation thrive</red>, encouraging the team to build products with a positive impact on the world.<br></br><br></br>🐣 <gradient>That is why Zolplay was born.</gradient>"
+    },
+    "TeamMembersIntro": "We are proud to have a diverse team of professionals from different backgrounds and skill sets. Our team members bring a wealth of experience and expertise to the table, and we value the unique perspectives and ideas they bring.<br></br><br></br>At Zolplay, we are always looking for new challenges and opportunities to make a difference. Whether you are a client, a partner, or a team member, we welcome you to join us on this journey to create a better world through technology.",
+    "MeetOurTeam": "Meet the crew"
+  },
   "Careers": {
     "Title": "Join us",
     "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",

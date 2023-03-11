@@ -77,9 +77,7 @@ export function Careers({ jobs }: { jobs: Job[] }) {
 
   return (
     <>
-      <h1>
-        <Balancer>{t.rich('Heading', DefaultRichTextComponents)}</Balancer>
-      </h1>
+      <h1>{t.rich('Heading', DefaultRichTextComponents)}</h1>
       <p>{t.rich('Intro', DefaultRichTextComponents)}</p>
 
       <ButtonLink href="#positions">

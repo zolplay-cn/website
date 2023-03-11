@@ -5,7 +5,7 @@ import { clsxm } from '@zolplay/utils'
 import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useIntl } from 'next-intl'
+import { useIntl, useTranslations } from 'next-intl'
 import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import {
@@ -28,6 +28,7 @@ const focusingMembersAtom = atom(false)
 
 export function OurMembers({ members }: { members: Member[] }) {
   const setFocusing = useSetAtom(focusingMembersAtom)
+  const t = useTranslations('About')
 
   return (
     <>
@@ -43,6 +44,7 @@ export function OurMembers({ members }: { members: Member[] }) {
         </defs>
       </svg>
 
+      <h2>{t('MeetOurTeam')}</h2>
       <section
         className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5"
         onMouseEnter={() => setFocusing(true)}
