@@ -4,6 +4,7 @@ import { Link } from 'next-intl'
 import { TbArrowDownLeft, TbArrowUpRight } from 'react-icons/tb'
 
 import { Benefits } from '~/components/Benefits'
+import { ImageBlock } from '~/components/ImageBlock'
 import { OurStacks } from '~/components/OurStacks'
 import { OurTools } from '~/components/OurTools'
 
@@ -73,6 +74,7 @@ const DefaultBlocks = Object.freeze({
   benefits: Benefits,
   ourStacks: OurStacks,
   ourTools: OurTools,
+  image: ImageBlock,
 })
 
 export function RichText({ value }: { value: any[] }) {

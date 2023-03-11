@@ -115,6 +115,13 @@ export const portfolioQuery = (
       url,
       "lqip": metadata.lqip
     }
+  },
+  content[] {
+    ...,
+    _type == "image" => {
+      "lqip": asset->metadata.lqip,
+      "dimensions": asset->metadata.dimensions
+    }
   }
 }`
 export async function getPortfolio({

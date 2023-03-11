@@ -1,11 +1,12 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 import { TbArrowUpRight } from 'react-icons/tb'
 
+import { ButtonLink } from '~/components/ui/Button'
+import { RichText } from '~/components/ui/RichText'
 import { urlForImage } from '~/lib/sanity.image'
 import type { Portfolio } from '~/schemas/documents/portfolio'
 
@@ -23,15 +24,13 @@ export function PortfolioPage({ portfolio }: { portfolio: Portfolio }) {
       />
       <h1>{portfolio.title}</h1>
       {portfolio.website && (
-        <Link
-          href={portfolio.website}
-          target="_blank"
-          className="flex items-center font-bold text-current no-underline hover:underline"
-        >
+        <ButtonLink href={portfolio.website} target="_blank">
           <span>{t('Card.VisitCTA')}</span>
           <TbArrowUpRight className="h-4 w-4" />
-        </Link>
+        </ButtonLink>
       )}
+
+      <RichText value={portfolio.content} />
     </>
   )
 }

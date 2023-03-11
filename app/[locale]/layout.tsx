@@ -2,7 +2,7 @@ import 'tailwindcss/tailwind.css'
 import '~/app/globals.css'
 
 import type { Metadata } from 'next'
-import { Manrope, Noto_Sans_SC } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 
@@ -22,13 +22,6 @@ const fontSansEn = Manrope({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-sans-en',
-  fallback: ['ui-sans-serif'],
-})
-const fontSansZhCN = Noto_Sans_SC({
-  weight: ['400', '700'],
-  display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-sans-cn',
   fallback: ['ui-sans-serif'],
 })
 
@@ -108,7 +101,7 @@ export default async function RootLayout({
     <html
       lang={params.locale}
       suppressHydrationWarning
-      className={`font-sans ${fontSansEn.variable} ${fontSansZhCN.variable}`}
+      className={`font-sans ${fontSansEn.variable}`}
     >
       <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
         <ThemeProvider

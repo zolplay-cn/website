@@ -7,10 +7,6 @@
   --font-sans: var(--font-sans-en);
 }
 
-:root, [lange=zh-CN] {
-  --font-sans: var(--font-sans-en), var(--font-sans-cn);
-}
-
 body {
   overscroll-behavior: none;
 }
