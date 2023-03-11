@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { createClient, groq, type SanityClient } from 'next-sanity'
 import { type ParseBody, parseBody } from 'next-sanity/webhook'
 
-import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
 import { portfolioSchema } from '~/schemas/documents/portfolio'
@@ -50,7 +49,7 @@ async function queryStaleRoutes(
 
   switch (body._type) {
     case memberSchema.name:
-      return i18n.locales.map((locale) => `/${locale}/about`)
+      return ['about']
     case jobSchema.name:
       return await queryStaleJobRoutes(client, body._id)
     case portfolioSchema.name:
@@ -61,12 +60,7 @@ async function queryStaleRoutes(
 }
 
 async function queryStaleJobRoutes(client: SanityClient, id: string) {
-  return [
-    ...i18n.locales.map((locale) => `/${locale}/careers`),
-    ...i18n.locales.map(
-      (locale) => `/${locale}/careers/${id.replace('__i18n_en', '')}`
-    ),
-  ]
+  return ['/careers', `/careers/${id.replace('__i18n_en', '')}`]
 }
 
 async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
@@ -75,8 +69,5 @@ async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
     { id }
   )
 
-  return [
-    ...i18n.locales.map((locale) => `/${locale}/portfolios`),
-    ...i18n.locales.map((locale) => `/${locale}/portfolios/${slug}`),
-  ]
+  return ['portfolios', `/portfolios/${slug}`]
 }
