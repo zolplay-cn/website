@@ -100,6 +100,14 @@ function MemberCard({ member }: { member: Member }) {
     setFocusingMember(null)
   }, [setFocusingMember])
 
+  const [tiltEnabled, setTiltEnabled] = React.useState(true)
+  // only enable tilt on non-mobile devices
+  React.useEffect(() => {
+    if (window.innerWidth < 768) {
+      setTiltEnabled(false)
+    }
+  }, [])
+
   return (
     <Tilt
       className={clsxm([
@@ -117,6 +125,7 @@ function MemberCard({ member }: { member: Member }) {
         '--mb-accent': member.portrait.palette.darkVibrant.background,
         '--mb-accent-dark': member.portrait.palette.lightVibrant.background,
       }}
+      tiltEnable={tiltEnabled}
       perspective={400}
       scale={1.05}
       glareEnable={false}
