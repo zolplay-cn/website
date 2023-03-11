@@ -31,7 +31,9 @@ import { Hr } from '~/components/ui/Hr'
 import { DefaultRichTextComponents, RichText } from '~/components/ui/RichText'
 import type { Job } from '~/schemas/documents/job'
 
-import FeaturedImage from './careers-workshop.jpg'
+import WorkshopImage from './careers-workshop.jpg'
+import FunImage from './fun.jpg'
+import NoMeetingsImage from './no-meetings.png'
 
 function makeJobLink(job: Job) {
   return `/careers/${job.__i18n_base?._ref ?? job._id}`
@@ -85,7 +87,16 @@ export function Careers({ jobs }: { jobs: Job[] }) {
         <TbArrowRight />
       </ButtonLink>
 
-      <Image src={FeaturedImage} alt={t('Title')} placeholder="blur" />
+      <section className="">
+        <Image src={WorkshopImage} alt={t('Title')} placeholder="blur" />
+        <p>{t.rich('Grow', DefaultRichTextComponents)}</p>
+
+        <Image src={FunImage} alt={t('Title')} placeholder="blur" />
+        <p>{t.rich('Fun', DefaultRichTextComponents)}</p>
+
+        <Image src={NoMeetingsImage} alt={t('Title')} placeholder="blur" />
+        <p>{t.rich('Async', DefaultRichTextComponents)}</p>
+      </section>
 
       <Benefits />
       <OurTools />
@@ -109,7 +120,7 @@ export function Careers({ jobs }: { jobs: Job[] }) {
                     <span className="inline-flex w-full flex-col items-center space-y-1">
                       <span className="flex w-full items-center space-x-1">
                         <TbIdBadge className="h-5 w-5" />
-                        <span className="font-bold text-stone-800 group-hover:underline dark:text-stone-100">
+                        <span className="font-bold tracking-tighter text-stone-800 group-hover:underline dark:text-stone-100">
                           {job.title}
                         </span>
                         <TbArrowBadgeRight className="flex h-5 w-5" />
