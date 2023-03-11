@@ -12,6 +12,7 @@ import { BsGithub, BsTwitter, BsYoutube } from 'react-icons/bs'
 import {
   TbBriefcase,
   TbCarouselHorizontal,
+  TbMail,
   TbMailbox,
   TbPlanet,
 } from 'react-icons/tb'
@@ -45,6 +46,11 @@ const social = [
     name: 'YouTube',
     url: 'https://youtube.com/@zolplay',
     icon: BsYoutube,
+  },
+  {
+    name: 'Email',
+    url: 'mailto:contact@zolplay.com',
+    icon: TbMail,
   },
 ]
 
@@ -84,14 +90,12 @@ export function Sidebar({ className }: { className?: string }) {
               target="_blank"
               rel="noopener noreferrer"
               className={clsxm(
-                'text-stone-400 transition-colors dark:text-stone-500',
+                'text-stone-400 transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
                 {
                   'hover:text-[#1D9BF0] dark:hover:text-[#1D9BF0]':
                     item.name === 'Twitter',
                   'hover:text-[#FF0000] dark:hover:text-[#FF0000]':
                     item.name === 'YouTube',
-                  'hover:text-stone-800 dark:hover:text-stone-100':
-                    item.name === 'GitHub',
                 }
               )}
             >
