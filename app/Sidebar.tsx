@@ -4,9 +4,11 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { ComponentProps } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
 import { motion } from 'framer-motion'
+import NextLink from 'next/link'
 import { Link, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
 import React from 'react'
+import { BsGithub, BsTwitter, BsYoutube } from 'react-icons/bs'
 import {
   TbBriefcase,
   TbCarouselHorizontal,
@@ -27,6 +29,23 @@ const links = [
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/contact', label: 'Contact', icon: TbMailbox },
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
+]
+const social = [
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/zolplay',
+    icon: BsTwitter,
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/zolplay-cn',
+    icon: BsGithub,
+  },
+  {
+    name: 'YouTube',
+    url: 'https://youtube.com/@zolplay',
+    icon: BsYoutube,
+  },
 ]
 
 export function Sidebar({ className }: { className?: string }) {
@@ -56,6 +75,30 @@ export function Sidebar({ className }: { className?: string }) {
         </Link>
 
         <NavMenu />
+
+        <section className="flex w-full items-center gap-3 py-2 pl-2">
+          {social.map((item) => (
+            <NextLink
+              href={item.url}
+              key={item.name}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={clsxm(
+                'text-stone-400 transition-colors dark:text-stone-500',
+                {
+                  'hover:text-[#1D9BF0] dark:hover:text-[#1D9BF0]':
+                    item.name === 'Twitter',
+                  'hover:text-[#FF0000] dark:hover:text-[#FF0000]':
+                    item.name === 'YouTube',
+                  'hover:text-stone-800 dark:hover:text-stone-100':
+                    item.name === 'GitHub',
+                }
+              )}
+            >
+              <item.icon className="h-4 w-4" />
+            </NextLink>
+          ))}
+        </section>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.98, y: 8 }}
