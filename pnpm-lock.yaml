@@ -41,6 +41,7 @@ specifiers:
   react-hook-form: ^7.43.5
   react-icons: ^4.8.0
   react-is: ^18.2.0
+  react-parallax-tilt: ^1.7.112
   react-uploader: ^3.10.0
   react-wrap-balancer: ^0.4.0
   sanity: ^3.6.0
@@ -79,6 +80,7 @@ dependencies:
   react-hook-form: 7.43.5_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
   react-is: 18.2.0
+  react-parallax-tilt: 1.7.112_biqbaboplfbrettd7655fr4n2y
   react-uploader: 3.10.0_react@18.2.0
   react-wrap-balancer: 0.4.0_react@18.2.0
   sanity: 3.6.0_bvuafbny56uns7i3iq7gj2j2ru
@@ -6100,6 +6102,16 @@ packages:
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
+  /react-parallax-tilt/1.7.112_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-W8WhEpEjn09CwDj3opOg0sRyRsR4B6C6xONhsBgOXKFgtA8LKN7NgcwAOq14gKJaLHKRxiO418pC8P4VTIq2/w==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-property/2.0.0:

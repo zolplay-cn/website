@@ -2,7 +2,7 @@
 
 import type { Component } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
-import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { atom, useAtom } from 'jotai'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useIntl, useTranslations } from 'next-intl'
@@ -16,6 +16,7 @@ import {
   TbBrandTwitter,
   TbBrandYoutube,
 } from 'react-icons/tb'
+import Tilt from 'react-parallax-tilt'
 import Balancer from 'react-wrap-balancer'
 
 import { ZpBrandReadCV } from '~/components/icons/ZpBrandReadCV'
@@ -24,10 +25,8 @@ import { urlForImage } from '~/lib/sanity.image'
 import type { Member } from '~/schemas/documents/member'
 
 const focusingMemberSlugAtom = atom<string | null>(null)
-const focusingMembersAtom = atom(false)
 
 export function OurMembers({ members }: { members: Member[] }) {
-  const setFocusing = useSetAtom(focusingMembersAtom)
   const t = useTranslations('About')
 
   return (
@@ -45,11 +44,7 @@ export function OurMembers({ members }: { members: Member[] }) {
       </svg>
 
       <h2>{t('MeetOurTeam')}</h2>
-      <section
-        className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5"
-        onMouseEnter={() => setFocusing(true)}
-        onMouseLeave={() => setFocusing(false)}
-      >
+      <section className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5">
         {members.map((member) => (
           <MemberCard key={member._id} member={member} />
         ))}
@@ -98,7 +93,6 @@ function MemberCard({ member }: { member: Member }) {
     [formatDateTime, member.joinedDate]
   )
   const [focusingMember, setFocusingMember] = useAtom(focusingMemberSlugAtom)
-  const focusingMembers = useAtomValue(focusingMembersAtom)
   const onMouseEnter = React.useCallback(() => {
     setFocusingMember(member.slug)
   }, [member.slug, setFocusingMember])
@@ -107,15 +101,15 @@ function MemberCard({ member }: { member: Member }) {
   }, [setFocusingMember])
 
   return (
-    <div
+    <Tilt
       className={clsxm([
         'not-prose group flex flex-col justify-between rounded-2xl p-2.5 md:p-4',
         'border border-stone-100 bg-white text-[var(--accent)] dark:border-stone-800 dark:bg-stone-900',
         '[--accent:var(--mb-accent)] dark:[--accent:var(--mb-accent-dark)]',
-        'transform-gpu transition-all duration-500 ease-in-out',
+        '[transform-style:preserve-3d]',
         {
-          'md:opacity-70 md:blur-[2px]':
-            focusingMembers && focusingMember !== member.slug,
+          'md:opacity-70 md:blur-[1px]':
+            focusingMember !== null && focusingMember !== member.slug,
           'blur-none': focusingMember === member.slug,
         },
       ])}
@@ -123,8 +117,14 @@ function MemberCard({ member }: { member: Member }) {
         '--mb-accent': member.portrait.palette.darkVibrant.background,
         '--mb-accent-dark': member.portrait.palette.lightVibrant.background,
       }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      perspective={400}
+      scale={1.02}
+      gyroscope
+      glareEnable={false}
+      tiltMaxAngleX={10}
+      tiltMaxAngleY={10}
+      onEnter={onMouseEnter}
+      onLeave={onMouseLeave}
     >
       <header className="mb-4 flex flex-col items-center">
         <Image
@@ -157,12 +157,12 @@ function MemberCard({ member }: { member: Member }) {
       )}
 
       <footer className="mt-2 flex w-full items-center justify-between">
-        <time className="select-none rounded-lg border border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-50 dark:border-stone-600/50">
+        <time className="select-none rounded-lg border border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-50 [transform:translateZ(60px)] dark:border-stone-600/50">
           {joined}
         </time>
 
         <LogoHelmet className="h-5 w-5 opacity-60" />
       </footer>
-    </div>
+    </Tilt>
   )
 }

@@ -36,6 +36,7 @@
     "react-hook-form": "^7.43.5",
     "react-icons": "^4.8.0",
     "react-is": "^18.2.0",
+    "react-parallax-tilt": "^1.7.112",
     "react-uploader": "^3.10.0",
     "react-wrap-balancer": "^0.4.0",
     "sanity": "^3.6.0",
