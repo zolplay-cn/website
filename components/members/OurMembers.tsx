@@ -103,7 +103,7 @@ function MemberCard({ member }: { member: Member }) {
   const [tiltEnabled, setTiltEnabled] = React.useState(true)
   // only enable tilt on non-mobile devices
   React.useEffect(() => {
-    if (window.innerWidth < 768) {
+    if (/Mobi|Android|iPhone|iPad/i.test(window.navigator.userAgent)) {
       setTiltEnabled(false)
     }
   }, [])
