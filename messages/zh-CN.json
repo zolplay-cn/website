@@ -155,6 +155,32 @@
       "Subtitle": "作品展示"
     }
   },
+  "Contact": {
+    "Title": "联系我们",
+    "Heading": "联系我们：<gradient>期待与您的合作</gradient>",
+    "Description": "我们始终在寻找与志同道合的人合作的新机会。无论您是有一个项目想要讨论，或者只是想打个招呼，我们都随时欢迎 👏。",
+    "Tips": "您也可以通过发送邮件到 <email>contact@zolplay.cn</email> 来跟我们联系。",
+    "Form": {
+      "Message": {
+        "Label": "留个言吧",
+        "Placeholder": "跟我们聊聊您的需求，或打个招呼也行～ \uD83D\uDC4B"
+      },
+      "FullName": {
+        "Label": "名字/称呼",
+        "Placeholder": "比如. 王嘉尔"
+      },
+      "Email": {
+        "Label": "邮箱",
+        "Placeholder": "比如. jackson@wang.com"
+      },
+      "Submit": {
+        "Idle": "发送",
+        "Sending": "发送中...",
+        "Success": "信息已发送，我们会尽快与您联系！",
+        "Error": "发送失败，请稍后再试。"
+      }
+    }
+  },
   "Copyright": {
     "Text": "© {year} - 深圳市佐玩信息技术有限公司"
   }

@@ -156,6 +156,32 @@
       "Subtitle": "Portfolio"
     }
   },
+  "Contact": {
+    "Title": "Contact us",
+    "Heading": "Contact us: <gradient>let's build something amazing together</gradient>.",
+    "Description": "We're always looking for new opportunities to collaborate with like-minded people. If you have a project you'd like to discuss, or just want to say hi, we'd love to hear from you \uD83D\uDC4F.",
+    "Tips": "You can also get in touch by sending us an email via <email>contact@zolplay.com</email>",
+    "Form": {
+      "Message": {
+        "Label": "Leave a message",
+        "Placeholder": "Let us know what you need or just say hi \uD83D\uDC4B"
+      },
+      "FullName": {
+        "Label": "Full name",
+        "Placeholder": "e.g. Tony Stark"
+      },
+      "Email": {
+        "Label": "Email address",
+        "Placeholder": "e.g. tony@avengers.com"
+      },
+      "Submit": {
+        "Idle": "Send",
+        "Sending": "Sending...",
+        "Success": "Message sent, we'll get back to you soon!",
+        "Error": "Something went wrong, please try again later."
+      }
+    }
+  },
   "Copyright": {
     "Text": "© {year} - Zolplay, Inc."
   }
