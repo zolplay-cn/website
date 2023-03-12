@@ -3,11 +3,16 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { createClient, groq, type SanityClient } from 'next-sanity'
 import { type ParseBody, parseBody } from 'next-sanity/webhook'
 
+import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
 import { portfolioSchema } from '~/schemas/documents/portfolio'
 
 export { config } from 'next-sanity/webhook'
+
+function getAllLocaleRoutes(route: string) {
+  return i18n.locales.map((locale) => `/${locale}${route}`)
+}
 
 export default async function revalidate(
   req: NextApiRequest,
@@ -49,7 +54,7 @@ async function queryStaleRoutes(
 
   switch (body._type) {
     case memberSchema.name:
-      return ['about']
+      return getAllLocaleRoutes('/about')
     case jobSchema.name:
       return await queryStaleJobRoutes(client, body._id)
     case portfolioSchema.name:
@@ -60,7 +65,10 @@ async function queryStaleRoutes(
 }
 
 async function queryStaleJobRoutes(client: SanityClient, id: string) {
-  return ['/careers', `/careers/${id.replace('__i18n_en', '')}`]
+  return [
+    ...getAllLocaleRoutes('/careers'),
+    ...getAllLocaleRoutes(`/careers/${id.replace('__i18n_en', '')}`),
+  ]
 }
 
 async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
@@ -69,5 +77,8 @@ async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
     { id }
   )
 
-  return ['portfolios', `/portfolios/${slug}`]
+  return [
+    ...getAllLocaleRoutes('/portfolios'),
+    ...getAllLocaleRoutes(`/portfolios/${slug}`),
+  ]
 }
