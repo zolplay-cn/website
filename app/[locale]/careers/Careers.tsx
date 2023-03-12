@@ -191,7 +191,7 @@ export function JobDetails({ job }: { job: Job }) {
   )
 }
 
-const applicationSchema = z.object({
+export const applicationSchema = z.object({
   about: z.string(),
   fullName: z.string().min(2),
   preferredName: z.string().optional(),
