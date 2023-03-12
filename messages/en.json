@@ -164,7 +164,7 @@
     "Form": {
       "Message": {
         "Label": "Leave a message",
-        "Placeholder": "Let us know what you need or just say hi \uD83D\uDC4B"
+        "Placeholder": "Let us know what your needs are or just say hi \uD83D\uDC4B"
       },
       "FullName": {
         "Label": "Full name",
