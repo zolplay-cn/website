@@ -5,7 +5,7 @@ import { clsxm } from '@zolplay/utils'
 import { atom, useAtom } from 'jotai'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useIntl, useTranslations } from 'next-intl'
+import { useFormatter, useTranslations } from 'next-intl'
 import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import {
@@ -83,7 +83,7 @@ function SocialLink({ social }: { social: Unarray<Member['social']> }) {
 }
 
 function MemberCard({ member }: { member: Member }) {
-  const { formatDateTime } = useIntl()
+  const { dateTime: formatDateTime } = useFormatter()
   const joined = React.useMemo(
     () =>
       formatDateTime(new Date(member.joinedDate), {

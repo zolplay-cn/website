@@ -1,13 +1,13 @@
 'use client'
 
-import { useIntl, useTranslations } from 'next-intl'
+import { useFormatter, useTranslations } from 'next-intl'
 import React from 'react'
 
 export function Clock() {
   const t = useTranslations()
   const [time, setTime] = React.useState(new Date())
   const [mounted, setMounted] = React.useState(false)
-  const { formatDateTime } = useIntl()
+  const { dateTime: formatDateTime } = useFormatter()
 
   React.useEffect(() => {
     setMounted(true)

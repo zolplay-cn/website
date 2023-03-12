@@ -26,10 +26,6 @@ export default createIntlMiddleware({
       defaultLocale: 'zh-CN',
     },
   ],
-
-  // Sets the `Link` response header to notify search engines about
-  // links to the content in other languages (defaults to `true`).
-  alternateLinks: true,
 })
 
 export const config = {
