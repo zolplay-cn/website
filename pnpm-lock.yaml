@@ -30,7 +30,7 @@ specifiers:
   jotai: ^2.0.3
   js-yaml: ^4.1.0
   next: ^13.2.4
-  next-intl: 2.12.0-beta.2
+  next-intl: 2.12.0-beta.3
   next-sanity: ^4.1.5
   next-themes: ^0.2.1
   postcss: ^8.4.21
@@ -74,7 +74,7 @@ dependencies:
   jotai: 2.0.3_react@18.2.0
   js-yaml: 4.1.0
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
-  next-intl: 2.12.0-beta.2_next@13.2.4+react@18.2.0
+  next-intl: 2.12.0-beta.3_next@13.2.4+react@18.2.0
   next-sanity: 4.1.5_uqdokifqfvenwjsvggdayoi4xa
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
   react: 18.2.0
@@ -5442,8 +5442,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl/2.12.0-beta.2_next@13.2.4+react@18.2.0:
-    resolution: {integrity: sha512-jFBmF5NQW9Hk7W/gP0LcvRFL5AGMXh9kvjlG2WfqTTANgSr9Sdt9UEhbDOonK+AsDJGK+5XjitQFFyqgbiKmQA==}
+  /next-intl/2.12.0-beta.3_next@13.2.4+react@18.2.0:
+    resolution: {integrity: sha512-OH91SrXZ/4hunG7hKo+lnVTKKYHQ24sDZeMyVDgx9K+cGXpLStJWsenHGuxEExh0rAvawKhnAmLN/bkSZu58/w==}
     engines: {node: '>=10'}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0

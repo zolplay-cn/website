@@ -28,7 +28,7 @@ import { Benefits } from '~/components/Benefits'
 import { OurTools } from '~/components/OurTools'
 import { Button, ButtonLink } from '~/components/ui/Button'
 import { Hr } from '~/components/ui/Hr'
-import { DefaultRichTextComponents, RichText } from '~/components/ui/RichText'
+import { RichText } from '~/components/ui/RichText'
 import type { Job } from '~/schemas/documents/job'
 
 import WorkshopImage from './careers-workshop.jpg'
@@ -77,8 +77,8 @@ export function Careers({ jobs }: { jobs: Job[] }) {
 
   return (
     <>
-      <h1>{t.rich('Heading', DefaultRichTextComponents)}</h1>
-      <p>{t.rich('Intro', DefaultRichTextComponents)}</p>
+      <h1>{t.rich('Heading')}</h1>
+      <p>{t.rich('Intro')}</p>
 
       <ButtonLink href="#positions">
         {t('SeeAllCTA')}&nbsp;
@@ -87,13 +87,13 @@ export function Careers({ jobs }: { jobs: Job[] }) {
 
       <section className="">
         <Image src={WorkshopImage} alt={t('Title')} placeholder="blur" />
-        <p>{t.rich('Grow', DefaultRichTextComponents)}</p>
+        <p>{t.rich('Grow')}</p>
 
         <Image src={FunImage} alt={t('Title')} placeholder="blur" />
-        <p>{t.rich('Fun', DefaultRichTextComponents)}</p>
+        <p>{t.rich('Fun')}</p>
 
         <Image src={NoMeetingsImage} alt={t('Title')} placeholder="blur" />
-        <p>{t.rich('Async', DefaultRichTextComponents)}</p>
+        <p>{t.rich('Async')}</p>
       </section>
 
       <Benefits />
@@ -176,7 +176,7 @@ export function JobDetails({ job }: { job: Job }) {
 
       <p className="text-sm tracking-tight">
         <Balancer className="rounded-2xl rounded-tl-sm bg-stone-500/5 p-3 dark:bg-stone-400/5">
-          {t.rich('Details.Preface', DefaultRichTextComponents)}
+          {t.rich('Details.Preface')}
         </Balancer>
       </p>
 

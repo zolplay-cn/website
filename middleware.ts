@@ -8,24 +8,27 @@ export default createIntlMiddleware({
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   defaultLocale: i18n.defaultLocale,
 
-  domains: [
-    {
-      domain: 'zolplay.com',
-      defaultLocale: 'en',
-    },
-    {
-      domain: 'cn.zolplay.com',
-      defaultLocale: 'zh-CN',
-    },
-    {
-      domain: 'zolplay.cn',
-      defaultLocale: 'zh-CN',
-    },
-    {
-      domain: 'localhost',
-      defaultLocale: 'zh-CN',
-    },
-  ],
+  routing: {
+    type: 'domain',
+    domains: [
+      {
+        domain: 'zolplay.com',
+        locale: 'en',
+      },
+      {
+        domain: 'cn.zolplay.com',
+        locale: 'zh-CN',
+      },
+      {
+        domain: 'zolplay.cn',
+        locale: 'zh-CN',
+      },
+      {
+        domain: 'localhost',
+        locale: 'zh-CN',
+      },
+    ],
+  },
 })
 
 export const config = {

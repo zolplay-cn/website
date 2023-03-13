@@ -4,11 +4,11 @@ import '~/app/globals.css'
 import type { Metadata } from 'next'
 import { Manrope } from 'next/font/google'
 import { notFound } from 'next/navigation'
-import { NextIntlClientProvider } from 'next-intl'
 
 import { AnalyticsWrapper } from '~/app/Analytics'
 import { Background } from '~/app/Background'
 import { Footer } from '~/app/Footer'
+import IntlProvider from '~/app/IntlProvider'
 import { Rulers } from '~/app/Rulers'
 import { Sidebar } from '~/app/Sidebar'
 import { ThemeProvider } from '~/app/ThemeProvider'
@@ -110,7 +110,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider locale={params.locale} messages={messages}>
+          <IntlProvider locale={params.locale} messages={messages}>
             <Background />
             <main className="relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
               <Rulers />
@@ -123,7 +123,7 @@ export default async function RootLayout({
                 <Footer />
               </section>
             </main>
-          </NextIntlClientProvider>
+          </IntlProvider>
 
           <Toasts />
         </ThemeProvider>
