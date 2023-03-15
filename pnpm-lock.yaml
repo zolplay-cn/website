@@ -12,6 +12,7 @@ specifiers:
   '@tailwindcss/line-clamp': ^0.4.2
   '@tailwindcss/typography': ^0.5.9
   '@types/js-yaml': ^4.0.5
+  '@types/node': ^18.15.3
   '@types/react': ^18.0.28
   '@vercel/analytics': ^0.1.11
   '@vercel/og': ^0.2.0
@@ -30,7 +31,7 @@ specifiers:
   jotai: ^2.0.3
   js-yaml: ^4.1.0
   next: ^13.2.4
-  next-intl: 2.12.0-beta.3
+  next-intl: 2.12.0-beta.5
   next-sanity: ^4.1.5
   next-themes: ^0.2.1
   postcss: ^8.4.21
@@ -47,7 +48,7 @@ specifiers:
   react-wrap-balancer: ^0.4.0
   sanity: ^3.6.0
   server-only: ^0.0.1
-  sonner: ^0.1.6
+  sonner: ^0.2.0
   styled-components: ^5.3.8
   suspend-react: ^0.0.8
   tailwindcss: ^3.2.7
@@ -74,7 +75,7 @@ dependencies:
   jotai: 2.0.3_react@18.2.0
   js-yaml: 4.1.0
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
-  next-intl: 2.12.0-beta.3_next@13.2.4+react@18.2.0
+  next-intl: 2.12.0-beta.5_next@13.2.4+react@18.2.0
   next-sanity: 4.1.5_uqdokifqfvenwjsvggdayoi4xa
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
   react: 18.2.0
@@ -85,9 +86,9 @@ dependencies:
   react-parallax-tilt: 1.7.114_biqbaboplfbrettd7655fr4n2y
   react-uploader: 3.10.0_react@18.2.0
   react-wrap-balancer: 0.4.0_react@18.2.0
-  sanity: 3.6.0_bvuafbny56uns7i3iq7gj2j2ru
+  sanity: 3.6.0_7j6wdhlgsvgcogrfyvdh7hrbxi
   server-only: 0.0.1
-  sonner: 0.1.6_react@18.2.0
+  sonner: 0.2.0_biqbaboplfbrettd7655fr4n2y
   styled-components: 5.3.8_7i5myeigehqah43i5u7wbekgba
   suspend-react: 0.0.8_react@18.2.0
   zod: 3.21.4
@@ -97,6 +98,7 @@ devDependencies:
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.7
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
   '@types/js-yaml': 4.0.5
+  '@types/node': 18.15.3
   '@types/react': 18.0.28
   autoprefixer: 10.4.14_postcss@8.4.21
   eslint: 8.36.0
@@ -1760,7 +1762,7 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-fast-compare: 3.2.0
       react-twemoji: 0.5.0_react@18.2.0
-      sanity: 3.6.0_bvuafbny56uns7i3iq7gj2j2ru
+      sanity: 3.6.0_7j6wdhlgsvgcogrfyvdh7hrbxi
       styled-components: 5.3.8_7i5myeigehqah43i5u7wbekgba
       twemoji: 14.0.2
     transitivePeerDependencies:
@@ -2161,7 +2163,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.15.0
+      '@types/node': 18.15.3
     dev: false
 
   /@types/hast/2.3.4:
@@ -2193,9 +2195,8 @@ packages:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
     dev: false
 
-  /@types/node/18.15.0:
-    resolution: {integrity: sha512-z6nr0TTEOBGkzLGmbypWOGnpSpSIBorEhC4L+4HeQ2iezKCi4f77kyslRwvHeNitymGQ+oFyIWGP96l/DPSV9w==}
-    dev: false
+  /@types/node/18.15.3:
+    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -2443,7 +2444,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.21.0
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.15.3
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -5442,8 +5443,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl/2.12.0-beta.3_next@13.2.4+react@18.2.0:
-    resolution: {integrity: sha512-OH91SrXZ/4hunG7hKo+lnVTKKYHQ24sDZeMyVDgx9K+cGXpLStJWsenHGuxEExh0rAvawKhnAmLN/bkSZu58/w==}
+  /next-intl/2.12.0-beta.5_next@13.2.4+react@18.2.0:
+    resolution: {integrity: sha512-L5C0hSMiofxUTypG8tIt3l4CZXJYMAfGKdVDmPex7XqgrB7HLnclSukzWJcZKdT4xDFf/DGlU8xVk2GPzJ5SGg==}
     engines: {node: '>=10'}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
@@ -5482,7 +5483,7 @@ packages:
       groq: 3.6.0
       next: 13.2.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
-      sanity: 3.6.0_bvuafbny56uns7i3iq7gj2j2ru
+      sanity: 3.6.0_7j6wdhlgsvgcogrfyvdh7hrbxi
       styled-components: 5.3.8_7i5myeigehqah43i5u7wbekgba
     transitivePeerDependencies:
       - supports-color
@@ -6608,7 +6609,7 @@ packages:
       diff-match-patch: 1.0.5
     dev: false
 
-  /sanity/3.6.0_bvuafbny56uns7i3iq7gj2j2ru:
+  /sanity/3.6.0_7j6wdhlgsvgcogrfyvdh7hrbxi:
     resolution: {integrity: sha512-MZh5lE0OF3G5UIkPlAWM/akpEE8Ep6+/ymqQS23LcPmzchHZf+K8apcYt0pjucAWv6FW9JKdj+GzhY4DQpaYJw==}
     engines: {node: '>=14.18.0'}
     hasBin: true
@@ -6720,7 +6721,7 @@ packages:
       tar-fs: 2.1.1
       use-device-pixel-ratio: 1.1.2_react@18.2.0
       use-hot-module-reload: 1.0.2_react@18.2.0
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.15.3
       yargs: 17.7.1
     transitivePeerDependencies:
       - '@types/node'
@@ -6856,12 +6857,14 @@ packages:
       tiny-warning: 1.0.3
     dev: false
 
-  /sonner/0.1.6_react@18.2.0:
-    resolution: {integrity: sha512-nLoVOKCcSusA7VY/nlrttZmOdNbPrE3v8C+t3Ac6z/bW6G0ReabXqhPLqjIc1mFcI7twwzpKb5thzF+qak29Kw==}
+  /sonner/0.2.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-wxOkuIRoyF7nsXbz7JcpexGtSw58C9XZik6kVtKNxKpEEnfFsGyR08HQMabqEzAd0a8ARNuDH06UnEit4tvO+w==}
     peerDependencies:
       react: ^18.0.0
+      react-dom: ^18.0.0
     dependencies:
       react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /sort-object-keys/1.1.3:
@@ -7578,7 +7581,7 @@ packages:
     resolution: {integrity: sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==}
     dev: false
 
-  /vite/4.1.4:
+  /vite/4.1.4_@types+node@18.15.3:
     resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -7603,6 +7606,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.15.3
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
