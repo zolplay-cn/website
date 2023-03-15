@@ -19,6 +19,15 @@ export const Job = z.object({
 })
 export type Job = z.infer<typeof Job>
 
+export const applicationSchema = z.object({
+  about: z.string(),
+  fullName: z.string().min(2),
+  preferredName: z.string().optional(),
+  email: z.string().email(),
+  resume: z.string().url(),
+})
+export type JobApplicationFields = z.infer<typeof applicationSchema>
+
 export const jobSchema = defineType({
   name: 'job',
   title: 'Job',

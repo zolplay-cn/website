@@ -22,14 +22,14 @@ import Balancer from 'react-wrap-balancer'
 import { toast } from 'sonner'
 // @ts-ignore
 import { Uploader, type UploadWidgetResult } from 'uploader'
-import { z } from 'zod'
 
 import { Benefits } from '~/components/Benefits'
 import { OurTools } from '~/components/OurTools'
 import { Button, ButtonLink } from '~/components/ui/Button'
 import { Hr } from '~/components/ui/Hr'
 import { RichText } from '~/components/ui/RichText'
-import type { Job } from '~/schemas/documents/job'
+import type { Job, JobApplicationFields } from '~/schemas/documents/job'
+import { applicationSchema } from '~/schemas/documents/job'
 
 import WorkshopImage from './careers-workshop.jpg'
 import FunImage from './fun.jpg'
@@ -191,14 +191,6 @@ export function JobDetails({ job }: { job: Job }) {
   )
 }
 
-export const applicationSchema = z.object({
-  about: z.string(),
-  fullName: z.string().min(2),
-  preferredName: z.string().optional(),
-  email: z.string().email(),
-  resume: z.string().url(),
-})
-export type JobApplicationFields = z.infer<typeof applicationSchema>
 const label = cva(['block text-sm font-medium leading-6'])
 const textInput = cva([
   'block w-full rounded-md border-0 bg-transparent py-1.5 shadow-sm ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6 ',
