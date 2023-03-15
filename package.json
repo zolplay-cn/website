@@ -45,6 +45,7 @@
     "sonner": "^0.2.0",
     "styled-components": "^5.3.8",
     "suspend-react": "^0.0.8",
+    "uploader": "^3.9.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {

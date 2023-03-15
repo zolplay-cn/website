@@ -20,7 +20,6 @@ import {
 import { UploadButton } from 'react-uploader'
 import Balancer from 'react-wrap-balancer'
 import { toast } from 'sonner'
-// @ts-ignore
 import { Uploader, type UploadWidgetResult } from 'uploader'
 
 import { Benefits } from '~/components/Benefits'
@@ -201,7 +200,9 @@ const formError = cva([
   'text-xs',
   'font-semibold',
 ])
-const uploader = Uploader({ apiKey: process.env.NEXT_PUBLIC_UPLOAD_API_KEY })
+const uploader = Uploader({
+  apiKey: process.env.NEXT_PUBLIC_UPLOAD_API_KEY ?? '',
+})
 
 function JobApplicationForm({ link }: { link: string }) {
   const locale = useLocale()
