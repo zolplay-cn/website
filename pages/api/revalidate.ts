@@ -56,15 +56,15 @@ async function queryStaleRoutes(
     case memberSchema.name:
       return getAllLocaleRoutes('/about')
     case jobSchema.name:
-      return await queryStaleJobRoutes(client, body._id)
+      return queryStaleJobRoutes(client, body._id)
     case portfolioSchema.name:
-      return await queryStalePortfolioRoutes(client, body._id)
+      return queryStalePortfolioRoutes(client, body._id)
     default:
       throw new TypeError(`Unknown type: ${body._type}`)
   }
 }
 
-async function queryStaleJobRoutes(client: SanityClient, id: string) {
+function queryStaleJobRoutes(client: SanityClient, id: string) {
   return [
     ...getAllLocaleRoutes('/careers'),
     ...getAllLocaleRoutes(`/careers/${id.replace('__i18n_en', '')}`),
