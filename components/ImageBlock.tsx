@@ -8,7 +8,7 @@ export function ImageBlock({ value }: { value: any }) {
       <Image
         src={urlForImage(value).url()}
         alt=""
-        className="mx-auto max-h-[50vh] overflow-hidden rounded-2xl"
+        className="mx-auto max-h-[50vh] w-auto overflow-hidden rounded-2xl"
         width={value.dimensions.width}
         height={value.dimensions.height}
         placeholder="blur"

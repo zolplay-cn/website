@@ -76,7 +76,7 @@ function queryStaleJobRoutes(client: SanityClient, id: string) {
 
 async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
   const slug = await client.fetch(
-    groq`*[_type == "portfolio" && _id == $id].slug[0]`,
+    groq`*[_type == "portfolio" && _id == $id].slug`,
     { id }
   )
 
@@ -87,10 +87,9 @@ async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
 }
 
 async function queryStalePageRoutes(client: SanityClient, id: string) {
-  const slug = await client.fetch(
-    groq`*[_type == "page" && _id == $id].slug[0]`,
-    { id }
-  )
+  const slug = await client.fetch(groq`*[_type == "page" && _id == $id].slug`, {
+    id,
+  })
 
-  return [...getAllLocaleRoutes(`/${slug}`)]
+  return getAllLocaleRoutes(`/${slug}`)
 }
