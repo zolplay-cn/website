@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { getOpenGraphImage } from '~/lib/helper'
 import { urlForImage } from '~/lib/sanity.image'
-import { getPage } from '~/lib/sanity.queries'
+import { getPage, getPageSlugs } from '~/lib/sanity.queries'
 
 import { CustomPage } from './CustomPage'
 
@@ -11,6 +11,11 @@ type PageProps = { params: RootParams & { slug: string[] } }
 
 function getSlug(params: PageProps['params']) {
   return params.slug.join('/')
+}
+
+export async function generateStaticParams() {
+  const slugs = await getPageSlugs()
+  return slugs.map((slug) => ({ slug: slug.split('/') }))
 }
 
 async function fetchPage(params: PageProps['params']) {
