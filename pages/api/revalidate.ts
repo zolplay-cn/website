@@ -49,7 +49,9 @@ export default async function revalidate(
 async function queryStaleRoutes(
   body: Pick<ParseBody['body'], '_type' | '_id'>
 ) {
+  // uncomment to use sanityClient if needed
   // const client = createClient({ projectId, dataset, apiVersion, useCdn: false })
+
   switch (body._type) {
     case memberSchema.name:
       return getAllLocaleRoutes('/about')
@@ -72,10 +74,6 @@ function queryStaleJobRoutes(id: string) {
 }
 
 async function queryStalePortfolioRoutes(portfolio: Portfolio) {
-  // const slug = await client.fetch(
-  //   groq`*[_type == "portfolio" && _id == $id].slug`,
-  //   { id }
-  // )
   return [
     ...getAllLocaleRoutes('/portfolios'),
     ...getAllLocaleRoutes(`/portfolios/${portfolio.slug}`),
@@ -83,8 +81,5 @@ async function queryStalePortfolioRoutes(portfolio: Portfolio) {
 }
 
 async function queryStalePageRoutes(page: Page) {
-  // const slug = await client.fetch(groq`*[_type == "page" && _id == $id].slug`, {
-  //   id,
-  // })
   return getAllLocaleRoutes(`/${page.slug}`)
 }
