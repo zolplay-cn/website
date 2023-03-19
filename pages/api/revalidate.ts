@@ -1,13 +1,11 @@
-import { apiVersion, dataset, projectId } from 'lib/sanity.api'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { createClient, groq, type SanityClient } from 'next-sanity'
 import { type ParseBody, parseBody } from 'next-sanity/webhook'
 
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
-import { pageSchema } from '~/schemas/documents/page'
-import { portfolioSchema } from '~/schemas/documents/portfolio'
+import { type Page, pageSchema } from '~/schemas/documents/page'
+import { type Portfolio, portfolioSchema } from '~/schemas/documents/portfolio'
 
 export { config } from 'next-sanity/webhook'
 
@@ -49,47 +47,44 @@ export default async function revalidate(
 }
 
 async function queryStaleRoutes(
-  body: Pick<ParseBody['body'], '_type' | '_id' | 'date' | 'slug'>
+  body: Pick<ParseBody['body'], '_type' | '_id'>
 ) {
-  const client = createClient({ projectId, dataset, apiVersion, useCdn: false })
-
+  // const client = createClient({ projectId, dataset, apiVersion, useCdn: false })
   switch (body._type) {
     case memberSchema.name:
       return getAllLocaleRoutes('/about')
     case jobSchema.name:
-      return queryStaleJobRoutes(client, body._id)
+      return queryStaleJobRoutes(body._id)
     case portfolioSchema.name:
-      return queryStalePortfolioRoutes(client, body._id)
+      return queryStalePortfolioRoutes(body as unknown as Portfolio)
     case pageSchema.name:
-      return queryStalePageRoutes(client, body._id)
+      return queryStalePageRoutes(body as unknown as Page)
     default:
       throw new TypeError(`Unknown type: ${body._type}`)
   }
 }
 
-function queryStaleJobRoutes(client: SanityClient, id: string) {
+function queryStaleJobRoutes(id: string) {
   return [
     ...getAllLocaleRoutes('/careers'),
     ...getAllLocaleRoutes(`/careers/${id.replace('__i18n_en', '')}`),
   ]
 }
 
-async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
-  const slug = await client.fetch(
-    groq`*[_type == "portfolio" && _id == $id].slug`,
-    { id }
-  )
-
+async function queryStalePortfolioRoutes(portfolio: Portfolio) {
+  // const slug = await client.fetch(
+  //   groq`*[_type == "portfolio" && _id == $id].slug`,
+  //   { id }
+  // )
   return [
     ...getAllLocaleRoutes('/portfolios'),
-    ...getAllLocaleRoutes(`/portfolios/${slug}`),
+    ...getAllLocaleRoutes(`/portfolios/${portfolio.slug}`),
   ]
 }
 
-async function queryStalePageRoutes(client: SanityClient, id: string) {
-  const slug = await client.fetch(groq`*[_type == "page" && _id == $id].slug`, {
-    id,
-  })
-
-  return getAllLocaleRoutes(`/${slug}`)
+async function queryStalePageRoutes(page: Page) {
+  // const slug = await client.fetch(groq`*[_type == "page" && _id == $id].slug`, {
+  //   id,
+  // })
+  return getAllLocaleRoutes(`/${page.slug}`)
 }
