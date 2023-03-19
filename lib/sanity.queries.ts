@@ -4,7 +4,8 @@ import { i18n } from '~/i18n'
 import { sanity } from '~/lib/sanity.client'
 import type { Job } from '~/schemas/documents/job'
 import type { Member } from '~/schemas/documents/member'
-import { Portfolio } from '~/schemas/documents/portfolio'
+import type { Page } from '~/schemas/documents/page'
+import type { Portfolio } from '~/schemas/documents/portfolio'
 import type { Squad } from '~/schemas/documents/squad'
 
 const localeMapper = {
@@ -153,4 +154,36 @@ export const membersQuery = groq`*[_type == "member"] | order(name asc, _updated
 }`
 export async function getMembers(locale: string) {
   return sanity!.fetch<Member[]>(membersQuery, makeLocaleParams(locale))
+}
+
+export const pageSlugsQuery = groq`*[_type == "page" && !defined(__i18n_lang)].slug`
+export async function getPageSlugs() {
+  return sanity!.fetch<string[]>(pageSlugsQuery)
+}
+
+const pageQuery = (
+  filter?: string
+) => groq`*[_type == "page" && slug == $slug ${
+  filter ? `&& ${filter}` : ''
+}][0] {
+  ...,
+  content[] {
+    ...,
+    _type == "image" => {
+      "lqip": asset->metadata.lqip,
+      "dimensions": asset->metadata.dimensions
+    },
+  }
+}`
+export async function getPage({
+  slug,
+  locale,
+}: {
+  slug: string
+  locale: string
+}) {
+  return sanity!.fetch<Page>(pageQuery(makeLocaleFilter(locale)), {
+    ...makeLocaleParams(locale),
+    slug,
+  })
 }

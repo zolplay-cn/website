@@ -16,6 +16,11 @@
     "Dark": "深色",
     "System": "跟随系统"
   },
+  "Languages": {
+    "Placeholder": "选择语言",
+    "en": "English",
+    "zh-CN": "简体中文"
+  },
   "Root": {
     "Metadata": {
       "Title": "佐玩",

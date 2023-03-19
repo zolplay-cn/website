@@ -16,6 +16,11 @@
     "Dark": "Dark",
     "System": "System"
   },
+  "Languages": {
+    "Placeholder": "Select a language",
+    "en": "English",
+    "zh-CN": "简体中文"
+  },
   "Root": {
     "Metadata": {
       "Title": "Zolplay",

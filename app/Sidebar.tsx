@@ -87,6 +87,7 @@ export function Sidebar({ className }: { className?: string }) {
             <NextLink
               href={item.url}
               key={item.name}
+              aria-label={item.name}
               target="_blank"
               rel="noopener noreferrer"
               className={clsxm(

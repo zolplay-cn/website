@@ -6,6 +6,7 @@ import { type ParseBody, parseBody } from 'next-sanity/webhook'
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
+import { pageSchema } from '~/schemas/documents/page'
 import { portfolioSchema } from '~/schemas/documents/portfolio'
 
 export { config } from 'next-sanity/webhook'
@@ -59,6 +60,8 @@ async function queryStaleRoutes(
       return queryStaleJobRoutes(client, body._id)
     case portfolioSchema.name:
       return queryStalePortfolioRoutes(client, body._id)
+    case pageSchema.name:
+      return queryStalePageRoutes(client, body._id)
     default:
       throw new TypeError(`Unknown type: ${body._type}`)
   }
@@ -81,4 +84,8 @@ async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
     ...getAllLocaleRoutes('/portfolios'),
     ...getAllLocaleRoutes(`/portfolios/${slug}`),
   ]
+}
+
+function queryStalePageRoutes(client: SanityClient, id: string) {
+  return [...getAllLocaleRoutes(`/${id.replace('__i18n_en', '')}`)]
 }
