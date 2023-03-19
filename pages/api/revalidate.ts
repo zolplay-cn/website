@@ -86,6 +86,11 @@ async function queryStalePortfolioRoutes(client: SanityClient, id: string) {
   ]
 }
 
-function queryStalePageRoutes(client: SanityClient, id: string) {
-  return [...getAllLocaleRoutes(`/${id.replace('__i18n_en', '')}`)]
+async function queryStalePageRoutes(client: SanityClient, id: string) {
+  const slug = await client.fetch(
+    groq`*[_type == "page" && _id == $id].slug[0]`,
+    { id }
+  )
+
+  return [...getAllLocaleRoutes(`/${slug}`)]
 }
