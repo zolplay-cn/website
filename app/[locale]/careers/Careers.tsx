@@ -32,7 +32,6 @@ import { applicationSchema } from '~/schemas/documents/job'
 
 import WorkshopImage from './careers-workshop.jpg'
 import FunImage from './fun.jpg'
-import NoMeetingsImage from './no-meetings.png'
 
 function makeJobLink(job: Job) {
   return `/careers/${job.__i18n_base?._ref ?? job._id}`
@@ -90,8 +89,6 @@ export function Careers({ jobs }: { jobs: Job[] }) {
 
         <Image src={FunImage} alt={t('Title')} placeholder="blur" />
         <p>{t.rich('Fun')}</p>
-
-        <Image src={NoMeetingsImage} alt={t('Title')} placeholder="blur" />
         <p>{t.rich('Async')}</p>
       </section>
 
@@ -99,6 +96,11 @@ export function Careers({ jobs }: { jobs: Job[] }) {
       <OurTools />
 
       <div id="positions">
+        {Object.keys(squads).length === 0 && (
+          <p className="font-semibold text-stone-600 dark:text-stone-400">
+            {t('Openings.Empty')}
+          </p>
+        )}
         {Object.entries(squads).map(([squad, jobs]) => (
           <section key={squad} className="my-4">
             <h4 className="text-stone-500 dark:text-stone-400">
