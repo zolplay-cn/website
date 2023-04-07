@@ -170,10 +170,12 @@ export function JobDetails({ job }: { job: Job }) {
         </span>
       </p>
 
-      <ButtonLink href="#apply">
-        {t('ApplyCTA.Idle')}&nbsp;
-        <TbArrowBadgeDown />
-      </ButtonLink>
+      {job.open && (
+        <ButtonLink href="#apply">
+          {t('ApplyCTA.Idle')}&nbsp;
+          <TbArrowBadgeDown />
+        </ButtonLink>
+      )}
 
       <p className="text-sm tracking-tight">
         <Balancer className="rounded-2xl rounded-tl-sm bg-stone-500/5 p-3 dark:bg-stone-400/5">
@@ -187,7 +189,7 @@ export function JobDetails({ job }: { job: Job }) {
 
       <Hr />
 
-      <JobApplicationForm link={makeJobLink(job)} />
+      {job.open && <JobApplicationForm link={makeJobLink(job)} />}
     </>
   )
 }
