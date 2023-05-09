@@ -18,7 +18,7 @@ const Trigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={clsxm(
-      'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent py-1 px-2 text-sm placeholder:text-stone-600 focus:outline-none focus-visible:ring focus-visible:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus-visible:ring-stone-700',
+      'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent px-2 py-1 text-sm placeholder:text-stone-600 focus:outline-none focus-visible:ring focus-visible:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus-visible:ring-stone-700',
       'tracking-tight',
       className
     )}
@@ -58,7 +58,7 @@ const Label = React.forwardRef<
   <SelectPrimitive.Label
     ref={ref}
     className={clsxm(
-      'py-1.5 pr-2 pl-8 text-sm font-semibold text-stone-800 dark:text-stone-200',
+      'py-1.5 pl-8 pr-2 text-sm font-semibold text-stone-800 dark:text-stone-200',
       className
     )}
     {...props}
@@ -73,7 +73,7 @@ const Item = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={clsxm(
-      'relative z-50 flex cursor-default select-none items-center rounded-lg py-1.5 pr-2 pl-8 text-sm font-medium outline-none transition-colors focus:bg-stone-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-stone-800',
+      'relative z-50 flex cursor-default select-none items-center rounded-lg py-1.5 pl-8 pr-2 text-sm font-medium outline-none transition-colors focus:bg-stone-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-stone-800',
       'tracking-tight',
       className
     )}

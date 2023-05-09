@@ -287,7 +287,7 @@ function JobApplicationForm({ link }: { link: string }) {
               </p>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
               <div className="sm:col-span-6">
                 <label htmlFor="about" className={label()}>
                   {t('Details.Application.About.Label')}
@@ -400,7 +400,7 @@ function JobApplicationForm({ link }: { link: string }) {
                 {t('Details.Application.Personal')}
               </h3>
             </div>
-            <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="full-name" className={label()}>
                   {t('Details.Application.FullName.Label')}

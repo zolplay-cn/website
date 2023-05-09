@@ -91,7 +91,7 @@ export function PortfolioCard({ portfolio }: { portfolio: Portfolio }) {
             )}
           </div>
         </div>
-        <div className="not-prose absolute right-0 left-0 h-full overflow-hidden rounded-xl md:left-[unset] md:aspect-square">
+        <div className="not-prose absolute left-0 right-0 h-full overflow-hidden rounded-xl md:left-[unset] md:aspect-square">
           <Image
             className="pointer-events-none m-0 mx-auto h-full w-auto select-none rounded-none p-0"
             src={
