@@ -12,18 +12,22 @@ export default createIntlMiddleware({
     {
       domain: 'zolplay.com',
       defaultLocale: 'en',
+      locales: ['en'],
     },
     {
       domain: 'cn.zolplay.com',
       defaultLocale: 'zh-CN',
+      locales: ['zh-CN'],
     },
     {
       domain: 'zolplay.cn',
       defaultLocale: 'zh-CN',
+      locales: ['zh-CN'],
     },
     {
       domain: 'localhost',
       defaultLocale: 'zh-CN',
+      locales: ['zh-CN', 'en'],
     },
   ],
 })
