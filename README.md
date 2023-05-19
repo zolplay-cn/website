@@ -33,7 +33,7 @@ Go to https://www.sanity.io/get-started/create-project and create a project, lik
 You can then go into the project and get sanity's two environment variables and add them to `.env`
 ![alt text](./sanity.png)
 
-Finally run these commands to run the project:
+Finally, run these commands to start the project:
 
 ```bash
 pnpm i
