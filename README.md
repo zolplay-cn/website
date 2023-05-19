@@ -26,7 +26,7 @@ NEXT_PUBLIC_OG_URL=http://localhost:3000/api/og
 
 ### Set up sanity environment
 
-Go to https://www.sanity.io/get-started/create-project and create a project, like this:
+Go to https://www.sanity.io/get-started/create-project and create a project, for example:
 
 ![Screenshot of a page for creating a Sanity project](./.github/sanity-guide-01.png)
 
