@@ -24,7 +24,7 @@ copy `.env.example` -> `.env`
 NEXT_PUBLIC_OG_URL=http://localhost:3000/api/og
 ```
 
-### Set up sanity environment
+### Set up Sanity environment variables
 
 Go to https://www.sanity.io/get-started/create-project and create a project, for example:
 
