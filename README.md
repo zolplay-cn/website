@@ -30,7 +30,8 @@ Go to https://www.sanity.io/get-started/create-project and create a project, for
 
 ![Screenshot of a page for creating a Sanity project](./.github/sanity-guide-01.png)
 
-You can then go into the project and get sanity's two environment variables and add them to `.env`
+You can then visit the project details page and get Sanity's project ID and dataset name and add them to the `.env` file.
+
 ![Annotated screenshot of how to find Sanity's project ID and dataset](./.github/sanity-guide-02.png)
 
 Finally, run these commands to start the project:
