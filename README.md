@@ -21,7 +21,7 @@ This repo contains the code for the official website of Zolplay.
 copy `.env.example` -> `.env`
 
 ```env
-NEXT_PUBLIC_OG_URL=https://YOUR-DOMAIN.com/api/og
+NEXT_PUBLIC_OG_URL=http://localhost:3000/api/og
 ```
 
 ### Set up sanity environment
