@@ -28,7 +28,7 @@ NEXT_PUBLIC_OG_URL=http://localhost:3000/api/og
 
 Go to https://www.sanity.io/get-started/create-project and create a project, like this:
 
-![alt text](./create-project.png)
+![Screenshot of a page for creating a Sanity project](./.github/sanity-guide-01.png)
 
 You can then go into the project and get sanity's two environment variables and add them to `.env`
 ![alt text](./sanity.png)
