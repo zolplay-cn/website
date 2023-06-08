@@ -11,12 +11,12 @@ const languages = [
   {
     value: 'en',
     icon: () => <span>🇺🇸</span>,
-    url: 'https://zolplay.com',
+    url: '/',
   },
   {
     value: 'zh-CN',
     icon: () => <span>🇨🇳</span>,
-    url: 'https://cn.zolplay.com',
+    url: '/zh-CN',
   },
 ]
 export function LocaleSelector() {
@@ -26,13 +26,7 @@ export function LocaleSelector() {
   const pathname = usePathname()
   const onChange = React.useCallback(
     (locale: string) => {
-      if (process.env.NODE_ENV === 'development') {
-        router.push(`/${locale}${pathname}`)
-      } else {
-        const domain =
-          languages.find((lang) => lang.value === locale)?.url || ''
-        router.push(`${domain}/${pathname}`)
-      }
+      router.push(`${locale}${pathname}`)
     },
     [router, pathname]
   )

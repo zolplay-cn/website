@@ -6,30 +6,7 @@ export default createIntlMiddleware({
   // A list of all locales that are supported
   locales: i18n.locales,
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-  defaultLocale: i18n.defaultLocale,
-
-  domains: [
-    {
-      domain: 'zolplay.com',
-      defaultLocale: 'en',
-      locales: ['en'],
-    },
-    {
-      domain: 'cn.zolplay.com',
-      defaultLocale: 'zh-CN',
-      locales: ['zh-CN'],
-    },
-    {
-      domain: 'zolplay.cn',
-      defaultLocale: 'zh-CN',
-      locales: ['zh-CN'],
-    },
-    {
-      domain: 'localhost',
-      defaultLocale: 'zh-CN',
-      locales: ['zh-CN', 'en'],
-    },
-  ],
+  defaultLocale: 'en',
 })
 
 export const config = {
