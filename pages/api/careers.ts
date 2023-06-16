@@ -1,11 +1,10 @@
-import { google } from 'googleapis'
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { z } from 'zod'
-
 import {
   applicationSchema,
   type JobApplicationFields,
 } from '~/schemas/documents/job'
+import { google } from 'googleapis'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { z } from 'zod'
 
 const WebhookURL = process.env.CAREERS_WEBHOOK_URL ?? ''
 const Spreadsheets = process.env.CAREERS_SPREADSHEETS ?? '{}'

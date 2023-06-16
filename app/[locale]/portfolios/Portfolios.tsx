@@ -1,9 +1,8 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-
 import { Hr } from '~/components/ui/Hr'
 import { DefaultRichTextComponents } from '~/components/ui/RichText'
+import { useTranslations } from 'next-intl'
 
 export function Portfolios({ children }) {
   const t = useTranslations('Portfolios')

@@ -5,7 +5,6 @@ import { Toaster } from 'sonner'
 
 export function Toasts() {
   const { resolvedTheme } = useTheme()
-
   return (
     <Toaster theme={resolvedTheme === 'light' ? 'light' : 'dark'} closeButton />
   )

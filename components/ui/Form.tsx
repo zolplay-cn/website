@@ -1,10 +1,9 @@
 import type { ComponentProps } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
+import { Button } from '~/components/ui/Button'
 import { cva } from 'class-variance-authority'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
-
-import { Button } from '~/components/ui/Button'
 
 type FormRootProps = ComponentProps & {
   submitting?: boolean

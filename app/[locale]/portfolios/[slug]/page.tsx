@@ -1,10 +1,9 @@
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-
 import { PortfolioPage } from '~/app/[locale]/portfolios/[slug]/PortfolioPage'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getPortfolio, getPortfolioSlugs } from '~/lib/sanity.queries'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   const slugs = await getPortfolioSlugs()

@@ -1,9 +1,8 @@
+import { Squad, squadSchema } from '~/schemas/documents/squad'
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { BsPersonWorkspace } from 'react-icons/bs'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
-
-import { Squad, squadSchema } from '~/schemas/documents/squad'
-import { blockContentSchema } from '~/schemas/objects/blockContent'
 
 export const Job = z.object({
   _type: z.literal('job'),

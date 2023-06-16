@@ -1,9 +1,7 @@
-import type { Metadata } from 'next'
-
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getJobs } from '~/lib/sanity.queries'
-
+import type { Metadata } from 'next'
 import { Careers } from './Careers'
 
 export async function generateMetadata({

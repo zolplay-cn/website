@@ -1,5 +1,4 @@
 import 'server-only'
-
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import { createClient } from 'next-sanity'
 

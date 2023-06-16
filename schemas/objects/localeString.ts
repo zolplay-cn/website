@@ -1,6 +1,5 @@
-import { defineType } from 'sanity'
-
 import { i18n } from '~/i18n'
+import { defineType } from 'sanity'
 
 export const localeStringSchema = defineType({
   title: 'Localized string',

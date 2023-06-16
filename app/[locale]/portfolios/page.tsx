@@ -1,10 +1,9 @@
-import { Metadata } from 'next'
-
 import { PortfolioCard } from '~/app/[locale]/portfolios/PortfolioCard'
 import { Portfolios } from '~/app/[locale]/portfolios/Portfolios'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getPortfolios } from '~/lib/sanity.queries'
+import type { Metadata } from 'next'
 
 export async function generateMetadata({
   params,

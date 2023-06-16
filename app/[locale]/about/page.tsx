@@ -1,10 +1,9 @@
-import type { Metadata } from 'next'
-
 import { About } from '~/app/[locale]/about/About'
 import { OurMembers } from '~/components/members/OurMembers'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getMembers } from '~/lib/sanity.queries'
+import type { Metadata } from 'next'
 
 export async function generateMetadata({
   params,
