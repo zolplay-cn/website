@@ -163,7 +163,7 @@ function NavMenu() {
 const MenuLink = React.forwardRef<
   HTMLAnchorElement,
   ComponentProps<{ href: string; label?: string }>
->(({ className, children, href, label, ...props }, forwardedRef) => {
+>(({ className, children, href, label }, forwardedRef) => {
   const pathname = usePathname()
   const isActive = href === pathname
   return (
