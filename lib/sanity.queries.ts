@@ -1,5 +1,3 @@
-import { groq } from 'next-sanity'
-
 import { i18n } from '~/i18n'
 import { sanity } from '~/lib/sanity.client'
 import type { Job } from '~/schemas/documents/job'
@@ -7,6 +5,7 @@ import type { Member } from '~/schemas/documents/member'
 import type { Page } from '~/schemas/documents/page'
 import type { Portfolio } from '~/schemas/documents/portfolio'
 import type { Squad } from '~/schemas/documents/squad'
+import { groq } from 'next-sanity'
 
 const localeMapper = {
   'zh-CN': 'zh_CN',

@@ -1,6 +1,5 @@
-import createIntlMiddleware from 'next-intl/middleware'
-
 import { i18n } from '~/i18n'
+import createIntlMiddleware from 'next-intl/middleware'
 
 export default createIntlMiddleware({
   // A list of all locales that are supported

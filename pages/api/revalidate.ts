@@ -1,11 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { type ParseBody, parseBody } from 'next-sanity/webhook'
-
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
-import { type Page, pageSchema } from '~/schemas/documents/page'
-import { type Portfolio, portfolioSchema } from '~/schemas/documents/portfolio'
+import { pageSchema, type Page } from '~/schemas/documents/page'
+import { portfolioSchema, type Portfolio } from '~/schemas/documents/portfolio'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { parseBody, type ParseBody } from 'next-sanity/webhook'
 
 export { config } from 'next-sanity/webhook'
 

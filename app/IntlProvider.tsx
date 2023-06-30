@@ -1,10 +1,9 @@
 'use client'
 
-import { AbstractIntlMessages } from 'next-intl'
+import { DefaultRichTextComponents } from '~/components/ui/RichText'
+import type { AbstractIntlMessages } from 'next-intl'
 import { NextIntlClientProvider } from 'next-intl/client'
 import React from 'react'
-
-import { DefaultRichTextComponents } from '~/components/ui/RichText'
 
 type Props = {
   messages: AbstractIntlMessages

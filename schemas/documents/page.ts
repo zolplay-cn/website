@@ -1,8 +1,7 @@
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { TbFileText } from 'react-icons/tb'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
-
-import { blockContentSchema } from '~/schemas/objects/blockContent'
 
 export const Page = z.object({
   _id: z.string(),

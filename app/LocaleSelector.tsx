@@ -1,11 +1,10 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { Select } from '~/components/ui/Select'
 import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
+import { useRouter } from 'next/navigation'
 import React from 'react'
-
-import { Select } from '~/components/ui/Select'
 
 const languages = [
   {

@@ -1,11 +1,10 @@
 'use client'
 
 import { clsxm } from '@zolplay/utils'
-import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
-import { TbArrowUpRight } from 'react-icons/tb'
-
 import { i18n } from '~/i18n'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { TbArrowUpRight } from 'react-icons/tb'
 
 export function Footer() {
   const locale = useLocale()

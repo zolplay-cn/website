@@ -1,11 +1,10 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import React from 'react'
-
 import { JobDetails } from '~/app/[locale]/careers/Careers'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getJob, getJobIds } from '~/lib/sanity.queries'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import React from 'react'
 
 export async function generateStaticParams() {
   const ids = await getJobIds()

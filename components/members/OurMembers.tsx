@@ -2,10 +2,14 @@
 
 import type { Component } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
+import { ZpBrandReadCV } from '~/components/icons/ZpBrandReadCV'
+import { LogoHelmet } from '~/components/Logo'
+import { urlForImage } from '~/lib/sanity.image'
+import type { Member } from '~/schemas/documents/member'
 import { atom, useAtom } from 'jotai'
+import { useFormatter, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useFormatter, useTranslations } from 'next-intl'
 import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import {
@@ -18,11 +22,6 @@ import {
 } from 'react-icons/tb'
 import Tilt from 'react-parallax-tilt'
 import Balancer from 'react-wrap-balancer'
-
-import { ZpBrandReadCV } from '~/components/icons/ZpBrandReadCV'
-import { LogoHelmet } from '~/components/Logo'
-import { urlForImage } from '~/lib/sanity.image'
-import type { Member } from '~/schemas/documents/member'
 
 const focusingMemberSlugAtom = atom<string | null>(null)
 

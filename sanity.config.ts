@@ -3,11 +3,6 @@ import {
   getFilteredDocumentTypeListItems,
 } from '@sanity/document-internationalization'
 import { visionTool } from '@sanity/vision'
-import { apiVersion, dataset, previewSecretId, projectId } from 'lib/sanity.api'
-import { previewDocumentNode } from 'plugins/previewPane'
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
-
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
@@ -16,6 +11,10 @@ import { portfolioSchema } from '~/schemas/documents/portfolio'
 import { squadSchema } from '~/schemas/documents/squad'
 import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { localeStringSchema } from '~/schemas/objects/localeString'
+import { apiVersion, dataset, previewSecretId, projectId } from 'lib/sanity.api'
+import { previewDocumentNode } from 'plugins/previewPane'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Zolplay Website'
 

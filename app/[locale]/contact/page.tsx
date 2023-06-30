@@ -1,8 +1,7 @@
-import type { Metadata } from 'next'
-
 import { Contact } from '~/app/[locale]/contact/Contact'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
+import type { Metadata } from 'next'
 
 export async function generateMetadata({
   params,
