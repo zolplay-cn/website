@@ -6,6 +6,7 @@ import {
   TbBrandFigma,
   TbBrandGithub,
   TbBrandGoogleDrive,
+  TbBrandNotion,
   TbBrandSlack,
   TbBrandVercel,
 } from 'react-icons/tb'
@@ -19,6 +20,7 @@ const icons = [
   CgLinear,
   TbBrandVercel,
   TbBrandFigma,
+  TbBrandNotion,
   ZpBrandArc,
 ]
 
