@@ -272,11 +272,7 @@ function JobApplicationForm({ link }: { link: string }) {
                     <span className="inline-flex items-center space-x-0.5 text-stone-600 dark:text-stone-300 md:ml-1">
                       <TbMail className="h-4 w-4" />
                       <a
-                        href={
-                          locale === 'en'
-                            ? 'mailto:cv@zolplay.com'
-                            : 'mailto:cv@zolplay.cn'
-                        }
+                        href="mailto:cv@zolplay.com"
                         className="text-stone-600 no-underline hover:underline dark:text-stone-300"
                       >
                         {text}
@@ -287,7 +283,7 @@ function JobApplicationForm({ link }: { link: string }) {
               </p>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
               <div className="sm:col-span-6">
                 <label htmlFor="about" className={label()}>
                   {t('Details.Application.About.Label')}
@@ -400,7 +396,7 @@ function JobApplicationForm({ link }: { link: string }) {
                 {t('Details.Application.Personal')}
               </h3>
             </div>
-            <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="full-name" className={label()}>
                   {t('Details.Application.FullName.Label')}
