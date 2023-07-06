@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server'
-
 import type { ContactFormSchema } from '~/app/[locale]/contact/Contact'
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 
 const WebhookURL = process.env.CONTACT_WEBHOOK_URL ?? ''
 

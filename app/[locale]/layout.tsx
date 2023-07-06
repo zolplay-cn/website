@@ -1,10 +1,5 @@
 import 'tailwindcss/tailwind.css'
 import '~/app/globals.css'
-
-import type { Metadata } from 'next'
-import { Manrope } from 'next/font/google'
-import { notFound } from 'next/navigation'
-
 import { AnalyticsWrapper } from '~/app/Analytics'
 import { Background } from '~/app/Background'
 import { Footer } from '~/app/Footer'
@@ -16,6 +11,9 @@ import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
+import type { Metadata } from 'next'
+import { Manrope } from 'next/font/google'
+import { notFound } from 'next/navigation'
 
 const fontSansEn = Manrope({
   weight: ['400', '500', '700'],

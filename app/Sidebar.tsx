@@ -1,12 +1,16 @@
 'use client'
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
-import { ComponentProps } from '@zolplay/react'
+import type { ComponentProps } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
+import { LocaleSelector } from '~/app/LocaleSelector'
+import { ThemeSelector } from '~/app/ThemeSelector'
+import { Logo, LogoHelmet } from '~/components/Logo'
+import { Clock } from '~/components/ui/Clock'
 import { motion } from 'framer-motion'
-import NextLink from 'next/link'
 import { Link, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
+import NextLink from 'next/link'
 import React from 'react'
 import { BsGithub, BsTwitter, BsYoutube } from 'react-icons/bs'
 import {
@@ -16,11 +20,6 @@ import {
   TbMailbox,
   TbPlanet,
 } from 'react-icons/tb'
-
-import { LocaleSelector } from '~/app/LocaleSelector'
-import { ThemeSelector } from '~/app/ThemeSelector'
-import { Logo, LogoHelmet } from '~/components/Logo'
-import { Clock } from '~/components/ui/Clock'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
@@ -164,7 +163,7 @@ function NavMenu() {
 const MenuLink = React.forwardRef<
   HTMLAnchorElement,
   ComponentProps<{ href: string; label?: string }>
->(({ className, children, href, label, ...props }, forwardedRef) => {
+>(({ className, children, href, label }, forwardedRef) => {
   const pathname = usePathname()
   const isActive = href === pathname
   return (

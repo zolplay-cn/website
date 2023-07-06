@@ -1,14 +1,13 @@
 'use client'
 
+import { urlForImage } from '~/lib/sanity.image'
+import type { Portfolio } from '~/schemas/documents/portfolio'
+import { Link as LocaleLink, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Link as LocaleLink, useTranslations } from 'next-intl'
 import React from 'react'
 import { TbArrowBadgeRight, TbArrowUpRight } from 'react-icons/tb'
 import Balancer from 'react-wrap-balancer'
-
-import { urlForImage } from '~/lib/sanity.image'
-import type { Portfolio } from '~/schemas/documents/portfolio'
 
 function makePortfolioLink(portfolio: Portfolio) {
   return `/portfolios/${portfolio.slug}`

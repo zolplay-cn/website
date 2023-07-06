@@ -1,10 +1,8 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-
 import { getOpenGraphImage } from '~/lib/helper'
 import { urlForImage } from '~/lib/sanity.image'
 import { getPage, getPageSlugs } from '~/lib/sanity.queries'
-
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { CustomPage } from './CustomPage'
 
 type PageProps = { params: RootParams & { slug: string[] } }

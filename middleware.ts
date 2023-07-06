@@ -1,34 +1,11 @@
-import createIntlMiddleware from 'next-intl/middleware'
-
 import { i18n } from '~/i18n'
+import createIntlMiddleware from 'next-intl/middleware'
 
 export default createIntlMiddleware({
   // A list of all locales that are supported
   locales: i18n.locales,
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-  defaultLocale: i18n.defaultLocale,
-
-  routing: {
-    type: 'domain',
-    domains: [
-      {
-        domain: 'zolplay.com',
-        locale: 'en',
-      },
-      {
-        domain: 'cn.zolplay.com',
-        locale: 'zh-CN',
-      },
-      {
-        domain: 'zolplay.cn',
-        locale: 'zh-CN',
-      },
-      {
-        domain: 'localhost',
-        locale: 'zh-CN',
-      },
-    ],
-  },
+  defaultLocale: 'en',
 })
 
 export const config = {

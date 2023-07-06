@@ -4,7 +4,7 @@
 // It's part of the Studio's “Structure Builder API” and is documented here:
 // https://www.sanity.io/docs/structure-builder-reference
 
-import { DefaultDocumentNodeResolver } from 'sanity/desk'
+import type { DefaultDocumentNodeResolver } from 'sanity/desk'
 
 export const previewDocumentNode = ({
   apiVersion,

@@ -1,8 +1,7 @@
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { TbCarouselHorizontal } from 'react-icons/tb'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
-
-import { blockContentSchema } from '~/schemas/objects/blockContent'
 
 export const PaletteSwatch = z.object({
   background: z.string(),

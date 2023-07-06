@@ -1,9 +1,8 @@
+import { PaletteSwatch } from '~/schemas/documents/portfolio'
+import { localeStringSchema } from '~/schemas/objects/localeString'
 import { FaUserAstronaut } from 'react-icons/fa'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
-
-import { PaletteSwatch } from '~/schemas/documents/portfolio'
-import { localeStringSchema } from '~/schemas/objects/localeString'
 
 const Member = z.object({
   _id: z.string(),

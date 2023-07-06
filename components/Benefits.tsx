@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import {
+  TbAccessible,
   TbArmchair2,
   TbArrowBigUpLine,
   TbCash,
@@ -19,6 +20,7 @@ const icons = [
   TbArrowBigUpLine,
   TbDeviceGamepad,
   TbTools,
+  TbAccessible,
 ]
 
 export function Benefits() {

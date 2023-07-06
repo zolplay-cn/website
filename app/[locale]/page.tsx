@@ -1,8 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-
+import Image from 'next/image'
 import OfficeShot from './zolplay-office-couch-shot.jpg'
 import Poster from './zolplay-poster.png'
 

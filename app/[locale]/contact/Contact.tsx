@@ -1,14 +1,13 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Form } from '~/components/ui/Form'
 import { useLocale, useTranslations } from 'next-intl'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { TbMail } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
-
-import { Form } from '~/components/ui/Form'
 
 const contactFormSchema = z.object({
   message: z.string().min(2),

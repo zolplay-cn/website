@@ -1,9 +1,6 @@
+const zolplay = require('@zolplay/prettier-config')
+
 module.exports = {
-  singleQuote: true,
-  trailingComma: 'es5',
-  semi: false,
-  plugins: [
-    require('prettier-plugin-tailwindcss'),
-    require('prettier-plugin-packagejson'),
-  ],
+  ...zolplay,
+  plugins: [...zolplay.plugins, require('prettier-plugin-packagejson')],
 }

@@ -1,12 +1,11 @@
 import { PortableText } from '@portabletext/react'
 import type { PortableTextMarkComponentProps } from '@portabletext/react/src/types'
-import { Link } from 'next-intl'
-import { TbArrowDownLeft, TbArrowUpRight } from 'react-icons/tb'
-
 import { Benefits } from '~/components/Benefits'
 import { ImageBlock } from '~/components/ImageBlock'
 import { OurStacks } from '~/components/OurStacks'
 import { OurTools } from '~/components/OurTools'
+import { Link } from 'next-intl'
+import { TbArrowDownLeft, TbArrowUpRight } from 'react-icons/tb'
 
 export const DefaultRichTextComponents = {
   br: () => <br />,
