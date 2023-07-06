@@ -1,13 +1,9 @@
 'use client'
 
 import { clsxm } from '@zolplay/utils'
-import { i18n } from '~/i18n'
-import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { TbArrowUpRight } from 'react-icons/tb'
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
-  const locale = useLocale()
   const t = useTranslations('Copyright')
 
   return (
@@ -23,24 +19,6 @@ export function Footer() {
           year: new Date().getFullYear(),
         })}
       </p>
-      {locale === i18n.defaultLocale && <ICPLicense />}
     </footer>
-  )
-}
-
-function ICPLicense() {
-  return (
-    <p className="text-sm text-stone-500">
-      <Link
-        href="https://beian.miit.gov.cn/#/Integrated/index"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-xs tracking-wide hover:underline"
-        title="Fuckin' ICP"
-      >
-        粤ICP备2021175747号-1
-        <TbArrowUpRight className="ml-0.5 inline-block h-3 w-3" />
-      </Link>
-    </p>
   )
 }

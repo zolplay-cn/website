@@ -61,11 +61,7 @@ export function Contact() {
                   <span className="inline-flex items-center space-x-0.5 text-stone-600 dark:text-stone-300 md:mx-1">
                     <TbMail className="h-4 w-4" />
                     <a
-                      href={
-                        locale === 'en'
-                          ? 'mailto:contact@zolplay.com'
-                          : 'mailto:contact@zolplay.cn'
-                      }
+                      href="mailto:contact@zolplay.com"
                       className="text-stone-600 no-underline hover:underline dark:text-stone-300"
                     >
                       {text}

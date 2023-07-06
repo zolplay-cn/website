@@ -5,7 +5,7 @@
 This repo contains the code for the official website of Zolplay.
 
 - [English (zolplay.com)](https://zolplay.com)
-- [简体中文 (zolplay.cn)](https://zolplay.cn)
+- [简体中文 (zolplay.com/zh-CN)](https://zolplay.com/zh-CN)
 
 ## Tech Stack
 

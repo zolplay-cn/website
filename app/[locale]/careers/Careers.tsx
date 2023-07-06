@@ -270,11 +270,7 @@ function JobApplicationForm({ link }: { link: string }) {
                     <span className="inline-flex items-center space-x-0.5 text-stone-600 dark:text-stone-300 md:ml-1">
                       <TbMail className="h-4 w-4" />
                       <a
-                        href={
-                          locale === 'en'
-                            ? 'mailto:cv@zolplay.com'
-                            : 'mailto:cv@zolplay.cn'
-                        }
+                        href="mailto:cv@zolplay.com"
                         className="text-stone-600 no-underline hover:underline dark:text-stone-300"
                       >
                         {text}
