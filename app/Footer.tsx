@@ -1,7 +1,6 @@
 'use client'
 
 import { clsxm } from '@zolplay/utils'
-
 import { useTranslations } from 'next-intl'
 
 export function Footer() {
