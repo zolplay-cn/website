@@ -11,7 +11,7 @@ import type { Job, JobApplicationFields } from '~/schemas/documents/job'
 import { applicationSchema } from '~/schemas/documents/job'
 import { cva } from 'class-variance-authority'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link, useLocale, useTranslations } from 'next-intl'
+import { Link, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -207,7 +207,6 @@ const uploader = Uploader({
 })
 
 function JobApplicationForm({ link }: { link: string }) {
-  const locale = useLocale()
   const t = useTranslations('Careers')
   const {
     register,
