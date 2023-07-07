@@ -60,7 +60,7 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm('md:mx-0 md:w-44 md:flex-shrink-0 md:px-0', className)}
     >
-      <div className="md:sticky md:top-12 md:pr-4">
+      <motion.div className="md:sticky md:top-12 md:pr-4" layout layoutRoot>
         <Link
           href="/"
           aria-label={t('Title')}
@@ -129,7 +129,7 @@ export function Sidebar({ className }: { className?: string }) {
           <LocaleSelector />
           <Clock />
         </motion.div>
-      </div>
+      </motion.div>
     </aside>
   )
 }
