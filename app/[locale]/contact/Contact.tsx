@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '~/components/ui/Form'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { TbMail } from 'react-icons/tb'
@@ -17,7 +17,6 @@ const contactFormSchema = z.object({
 export type ContactFormSchema = z.infer<typeof contactFormSchema>
 export function Contact() {
   const t = useTranslations('Contact')
-  const locale = useLocale()
   const {
     register,
     handleSubmit,
