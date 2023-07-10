@@ -173,7 +173,7 @@ const MenuLink = React.forwardRef<
           href={href}
           onClick={() => {
             // @see https://github.com/framer/motion/issues/2006#issuecomment-1477824846
-            window.scroll(0, 0);
+            window.scroll(0, 0)
           }}
           className={clsxm(
             'relative inline-flex select-none p-2 font-bold leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
