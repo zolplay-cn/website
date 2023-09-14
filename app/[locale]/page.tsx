@@ -13,7 +13,6 @@ export default function Home() {
       <h1>👋&nbsp;{t('Heading')}</h1>
       <p>{t.rich('Paragraph1')}</p>
       <Image src={Poster} alt="Zolplay Poster" placeholder="blur" />
-      <p>{t.rich('Paragraph2')}</p>
       <Image src={OfficeShot} alt="Zolplay Office Shot" placeholder="blur" />
       <p className="-mt-4 text-center text-sm text-stone-400 dark:text-stone-500">
         {t('Caption')}
