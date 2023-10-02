@@ -22,6 +22,7 @@ import {
 } from 'react-icons/tb'
 import Tilt from 'react-parallax-tilt'
 import Balancer from 'react-wrap-balancer'
+import { BrandXIcon } from '~/components/icons/BrandXIcon'
 
 const focusingMemberSlugAtom = atom<string | null>(null)
 
@@ -55,7 +56,7 @@ export function OurMembers({ members }: { members: Member[] }) {
 type Unarray<T> = T extends Array<infer U> ? U : T
 const SocialIconMap: Record<Unarray<Member['social']>['platform'], Component> =
   {
-    twitter: TbBrandTwitter,
+    twitter: BrandXIcon,
     youtube: TbBrandYoutube,
     github: TbBrandGithub,
     linkedin: TbBrandLinkedin,
