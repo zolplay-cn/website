@@ -2,6 +2,7 @@
 
 import type { Component } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
+import { BrandXIcon } from '~/components/icons/BrandXIcon'
 import { ZpBrandReadCV } from '~/components/icons/ZpBrandReadCV'
 import { LogoHelmet } from '~/components/Logo'
 import { urlForImage } from '~/lib/sanity.image'
@@ -17,12 +18,10 @@ import {
   TbBrandGithub,
   TbBrandInstagram,
   TbBrandLinkedin,
-  TbBrandTwitter,
   TbBrandYoutube,
 } from 'react-icons/tb'
 import Tilt from 'react-parallax-tilt'
 import Balancer from 'react-wrap-balancer'
-import { BrandXIcon } from '~/components/icons/BrandXIcon'
 
 const focusingMemberSlugAtom = atom<string | null>(null)
 
