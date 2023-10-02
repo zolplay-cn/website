@@ -2,6 +2,7 @@
 
 import type { Component } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
+import { BrandXIcon } from '~/components/icons/BrandXIcon'
 import { ZpBrandReadCV } from '~/components/icons/ZpBrandReadCV'
 import { LogoHelmet } from '~/components/Logo'
 import { urlForImage } from '~/lib/sanity.image'
@@ -17,7 +18,6 @@ import {
   TbBrandGithub,
   TbBrandInstagram,
   TbBrandLinkedin,
-  TbBrandTwitter,
   TbBrandYoutube,
 } from 'react-icons/tb'
 import Tilt from 'react-parallax-tilt'
@@ -55,7 +55,7 @@ export function OurMembers({ members }: { members: Member[] }) {
 type Unarray<T> = T extends Array<infer U> ? U : T
 const SocialIconMap: Record<Unarray<Member['social']>['platform'], Component> =
   {
-    twitter: TbBrandTwitter,
+    twitter: BrandXIcon,
     youtube: TbBrandYoutube,
     github: TbBrandGithub,
     linkedin: TbBrandLinkedin,
@@ -75,7 +75,7 @@ function SocialLink({ social }: { social: Unarray<Member['social']> }) {
         target="_blank"
         className="transition-transform duration-200 hover:-rotate-6 hover:scale-105"
       >
-        <Icon className="h-5 w-5" />
+        <Icon className={social.platform === 'twitter' ? 'h-4' : 'h-5 w-5'} />
       </Link>
     </li>
   )
