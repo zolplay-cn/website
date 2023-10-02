@@ -5,6 +5,7 @@ import type { ComponentProps } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
 import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
+import { BrandXIcon } from '~/components/icons/BrandXIcon'
 import { Logo, LogoHelmet } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { motion } from 'framer-motion'
@@ -20,7 +21,6 @@ import {
   TbMailbox,
   TbPlanet,
 } from 'react-icons/tb'
-import { BrandXIcon } from '~/components/icons/BrandXIcon'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
