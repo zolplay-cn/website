@@ -75,7 +75,7 @@ function SocialLink({ social }: { social: Unarray<Member['social']> }) {
         target="_blank"
         className="transition-transform duration-200 hover:-rotate-6 hover:scale-105"
       >
-        <Icon className="h-5 w-5" />
+        <Icon className={social.platform === 'twitter' ? 'h-4' : 'h-5 w-5'} />
       </Link>
     </li>
   )
