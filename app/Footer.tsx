@@ -19,6 +19,10 @@ export function Footer() {
           year: new Date().getFullYear(),
         })}
       </p>
+
+      <p className="text-sm dark:text-stone-400">
+        <a href="https://beian.miit.gov.cn/">粤ICP备2023102271号</a>
+      </p>
     </footer>
   )
 }
