@@ -1,11 +1,11 @@
-# Zolplay Official Website
+# Aidbo Studio Official Website
 
 ## Introduction
 
 This repo contains the code for the official website of Zolplay.
 
-- [English (zolplay.com)](https://zolplay.com)
-- [简体中文 (zolplay.com/zh-CN)](https://zolplay.com/zh-CN)
+- [English (aidbo.fun)](https://aidbo.fun)
+- [简体中文 (aidbo.fun/zh-CN)](https://aidbo.fun/zh-CN)
 
 ## Tech Stack
 
