@@ -11,5 +11,11 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "githubPullRequests.ignoredPullRequestBranches": ["dev"]
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "dev"
+  ],
+  "i18n-ally.localesPaths": [
+    "messages"
+  ],
+  "i18n-ally.keystyle": "nested"
 }

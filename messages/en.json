@@ -26,18 +26,18 @@
       "Title": "Aidbo Studio",
       "TitleTemplate": "%s / Aidbo Studio",
       "Description": "Aidbo Studio: Where Innovation Meets Imagination. Crafting Fun, Engineering Play.",
-      "Keywords": "Aidbo,Aidbo Studio,Software development,Web applications,Mobile applications,High-quality products,Passionate developers,Skilled designers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence,Software superhero"
+      "Keywords": "Aidbo,Aidbo Studio,Software development,Web applications,Mobile applications,High-quality products,Passionate developers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence"
     }
   },
   "Home": {
     "Heading": "We are Aidbo Studio",
-    "Paragraph1": "At <gradient>Aidbo Studio</gradient>, we're like the <red>Tony Starks</red> of software development, using our superpowers to create next-gen web and mobile applications. Our team of skilled developers, designers, and project managers are like <b>the Avengers</b> \uD83E\uDDB8, working together to bring ideas to life and deliver high-quality products that will <green>knock your socks off</green>."
+    "Paragraph1": "<gradient>Aidbo Studio</gradient> is a <red>passionate</red> ❤️ software research and development studio, we currently focus on WeChat mini program development, providing customized mini program development business. We turn ideas into reality for our customers and try to make high-quality products <green>that make them successful</green>."
   },
   "About": {
     "Title": "Who we are",
-    "Description": "Welcome to Zolplay, a software development company that strives to make software fun again. Our mission is to create innovative solutions that enhance people's lives and transform the way we live and work.",
-    "Heading": "Where Innovation Meets Imagination. Crafting Fun, Engineering Play.",
-    "Intro": "Welcome to Zolplay, founded in 2021, a software development company that strives to make a difference in the world. Our mission is to create innovative solutions \uD83E\uDD84 that enhance people's lives and transform the way we live and work.<br></br><br></br>At Zolplay, we believe that technology has the power to bring positive change to the world. We are a team of passionate individuals who are committed to making a difference through our work. We work tirelessly to create products and services that <b>solve complex problems, simplify processes, and make people's lives easier</b>.<br></br><br></br>\uD83D\uDC23 <gradient>That is why Zolplay was born.</gradient><br></br><br></br>Our core values are <green>integrity, creativity, and collaboration</green>. We believe in doing the right thing, even when no one is watching. We encourage creativity and innovation in everything we do, and we collaborate closely with our clients to ensure that we deliver the best possible results.",
+    "Description": "Welcome to Aidbo Studio, a software R&D studio dedicated to improving the world around us with software.",
+    "Heading": "Where Innovation Meets Imagination.",
+    "Intro": "Welcome to Aidbo Studio, a software studio founded in 2023 dedicated to improving the world around us with software. Our mission is to create successful solutions for our customers that 🦄 improve people's quality of life and transform the way we live and work. <br></br><br></br>We believe in the power of technology to bring positive change to the world. We constantly strive to create products and services that solve complex problems, streamline processes, and make people's lives easier. <br></br><br></br>Our core values are <green>sharing, creativity and humility</green>. We believe in doing the right thing, encourage bursts of innovation and creativity in all fronts, and work closely with our clients to ensure we deliver the best results.",
     "Founder": {
       "Title": "About our founder",
       "Description": "<b>Cali Castle</b>, the founder of Zolplay. He's a talented developer, designer, and maker who's passionate about building innovative products that improve people's lives. With notable clients like <b>Starbucks</b>, <b>Microsoft</b>, and <b>Niantic</b>, Cali is a detail-oriented problem-solver, setting him apart in the industry. Beyond his work, Cali is also a creator by heart and a previous 🪩 DJ and 🎤 rapper. Cali leads Zolplay with a commitment to creating a workplace <red>where creativity and innovation thrive</red>, encouraging the team to build products with a positive impact on the world."
@@ -49,13 +49,13 @@
     "Title": "Join us",
     "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",
     "Heading": "Join us and help save the world with your <gradient>superhuman software skills</gradient>, together.",
-    "Intro": "Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need <b>your</b> help to make it happen. If you're a believer in the power of crafting <red>enchanting software experiences</red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b> \uD83E\uDE84",
+    "Intro": "Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need <b>your</b> help to make it happen. If you're a believer in the power of crafting <red>enchanting software experiences</red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b> 🪄",
     "Grow": "At Zolplay, we have faith in the potential for individuals to <gradient>develop and expand their skills</gradient>. We aspire to foster an environment where team members can learn from one another and create the most promising prospect.",
     "Fun": "We recognize the importance of <green>balancing work and life</green>, and we believe that a happy and motivated team is <b>one that enjoys what they do</b>, and sometimes that means having fun along the way. Whether it’s a team outing or a celebration event, we believe in creating an environment where our team members can enjoy their work and have fun at the same time.",
     "Async": "We value efficiency and collaboration, and we believe that <red>meetings can often be a waste of time</red>. Instead, we prefer to work <b>independently</b>, communicate <b>asynchronously</b> and collaborate <b>transparently</b>. Additionally, we hold weekly demonstrations to showcase our accomplishments and exchange feedback.",
     "Openings": {
       "Squad": "{squad} squad - open positions",
-      "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings \uD83D\uDE4C"
+      "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings 🙌"
     },
     "EmploymentType": {
       "fullTime": "Full-time",
@@ -83,7 +83,7 @@
         "Tips": "You can also apply by sending us an email via <email>cv@zolplay.com</email>",
         "About": {
           "Label": "About you",
-          "Placeholder": "✍\uFE0F Tell us a bit about yourself."
+          "Placeholder": "✍️ Tell us a bit about yourself."
         },
         "Resume": {
           "Add": "Add Resume",
@@ -165,12 +165,12 @@
   "Contact": {
     "Title": "Contact us",
     "Heading": "Contact us: <gradient>let's bring the fun back to software development</gradient>.",
-    "Description": "We're always looking for new opportunities to collaborate with like-minded people. If you want to say hi, we'd love to hear from you \uD83D\uDC4F.",
-    "Tips": "You can also get in touch by sending us an email via <email>contact@zolplay.com</email>",
+    "Description": "We're always looking for new opportunities to collaborate with like-minded people. If you want to say hi, we'd love to hear from you 👏.",
+    "Tips": "You can also get in touch by sending us an email via <email>contact@aidbo.fun</email>",
     "Form": {
       "Message": {
         "Label": "Leave a message",
-        "Placeholder": "Let us know what your needs are or just say hi \uD83D\uDC4B"
+        "Placeholder": "Let us know what your needs are or just say hi 👋"
       },
       "FullName": {
         "Label": "Full name",
