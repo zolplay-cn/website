@@ -13,7 +13,7 @@ import { Link, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
 import NextLink from 'next/link'
 import React from 'react'
-import { BsGithub, BsYoutube } from 'react-icons/bs'
+import { BsGithub, BsWechat, BsYoutube } from 'react-icons/bs'
 import {
   TbCarouselHorizontal,
   TbMail,
@@ -31,6 +31,11 @@ const links = [
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
 ]
 const social = [
+  {
+    name: 'WeChat',
+    url: 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzk0MDQ5ODUyMQ==&scene=124#wechat_redirect',
+    icon: BsWechat,
+  },
   {
     name: 'Twitter',
     url: 'https://twitter.com/AidboStudio',
