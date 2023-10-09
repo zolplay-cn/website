@@ -74,8 +74,8 @@ export async function generateMetadata({
       },
     },
     twitter: {
-      site: '@zolplay',
-      creator: '@thecalicastle',
+      site: '@AidboStudio',
+      creator: '@zhengbangbo',
       card: 'summary_large_image',
     },
   }
