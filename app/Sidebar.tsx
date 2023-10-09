@@ -13,7 +13,8 @@ import { Link, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
 import NextLink from 'next/link'
 import React from 'react'
-import { BsGithub, BsWechat, BsYoutube } from 'react-icons/bs'
+import { BsGithub, BsWechat } from 'react-icons/bs'
+import { SiBilibili } from 'react-icons/si'
 import {
   TbCarouselHorizontal,
   TbMail,
@@ -47,9 +48,9 @@ const social = [
     icon: BsGithub,
   },
   {
-    name: 'YouTube',
-    url: 'https://www.youtube.com/@AidboStudio',
-    icon: BsYoutube,
+    name: 'Bilibili',
+    url: 'https://space.bilibili.com/10767968',
+    icon: SiBilibili,
   },
   {
     name: 'Email',
