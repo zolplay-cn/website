@@ -11,6 +11,7 @@ import { atom, useAtom } from 'jotai'
 import { useFormatter, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePostHog } from 'posthog-js/react'
 import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import {
@@ -65,11 +66,17 @@ const SocialIconMap: Record<Unarray<Member['social']>['platform'], Component> =
     xiaohongshu: CgWebsite,
     website: CgWebsite,
   }
-function SocialLink({ social }: { social: Unarray<Member['social']> }) {
+function SocialLink({
+  social,
+  onClick,
+}: {
+  social: Unarray<Member['social']>
+  onClick?: () => void
+}) {
   const Icon = SocialIconMap[social.platform]
 
   return (
-    <li className="flex items-center">
+    <li className="flex items-center" onClick={onClick}>
       <Link
         href={social.url}
         target="_blank"
@@ -82,6 +89,8 @@ function SocialLink({ social }: { social: Unarray<Member['social']> }) {
 }
 
 function MemberCard({ member }: { member: Member }) {
+  const posthog = usePostHog()
+
   const { dateTime: formatDateTime } = useFormatter()
   const joined = React.useMemo(
     () =>
@@ -158,7 +167,16 @@ function MemberCard({ member }: { member: Member }) {
       {member.social && member.social.length > 0 && (
         <ul className="mb-3 flex w-full items-center justify-center gap-1.5">
           {member.social.map((social) => (
-            <SocialLink social={social} key={social._key} />
+            <SocialLink
+              social={social}
+              key={social._key}
+              onClick={() => {
+                posthog?.capture('click_social', {
+                  name: member.name,
+                  platform: social.platform,
+                })
+              }}
+            />
           ))}
         </ul>
       )}
