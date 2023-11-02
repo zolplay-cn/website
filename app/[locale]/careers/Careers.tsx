@@ -13,6 +13,7 @@ import { cva } from 'class-variance-authority'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { usePostHog } from 'posthog-js/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
@@ -36,6 +37,7 @@ function makeJobLink(job: Job) {
 }
 
 export function Careers({ jobs }: { jobs: Job[] }) {
+  const posthog = usePostHog()
   const t = useTranslations('Careers')
 
   // extract mapper with squad.slug as keys and squad.title as values
@@ -76,7 +78,12 @@ export function Careers({ jobs }: { jobs: Job[] }) {
       <h1>{t.rich('Heading')}</h1>
       <p>{t.rich('Intro')}</p>
 
-      <ButtonLink href="#positions">
+      <ButtonLink
+        href="#positions"
+        onClick={() => {
+          posthog?.capture('click_see_all_cta')
+        }}
+      >
         {t('SeeAllCTA')}&nbsp;
         <TbArrowRight />
       </ButtonLink>

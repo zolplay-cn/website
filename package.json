@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@8.10.2",
   "scripts": {
     "build": "next build",
     "dev": "next dev --port 3333",
@@ -32,6 +33,7 @@
     "next-intl": "2.14.0-beta.4",
     "next-sanity": "^4.3.2",
     "next-themes": "^0.2.1",
+    "posthog-js": "^1.87.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
