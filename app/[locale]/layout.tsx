@@ -3,15 +3,14 @@ import { Manrope } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import 'tailwindcss/tailwind.css'
-import { AnalyticsWrapper } from '~/app/Analytics'
 import { Background } from '~/app/Background'
 import { Footer } from '~/app/Footer'
+import '~/app/globals.css'
 import IntlProvider from '~/app/IntlProvider'
 import { Rulers } from '~/app/Rulers'
 import { Sidebar } from '~/app/Sidebar'
 import { ThemeProvider } from '~/app/ThemeProvider'
 import { Toasts } from '~/app/Toasts'
-import '~/app/globals.css'
 import { i18n } from '~/i18n'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
@@ -135,8 +134,6 @@ export default async function RootLayout({
 
             <Toasts />
           </ThemeProvider>
-
-          <AnalyticsWrapper />
         </body>
       </PostHogProvider>
     </html>
