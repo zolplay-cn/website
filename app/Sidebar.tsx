@@ -6,6 +6,7 @@ import { clsxm } from '@zolplay/utils'
 import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
 import { BrandXIcon } from '~/components/icons/BrandXIcon'
+import { ShopIcon } from '~/components/icons/ShopIcon'
 import { Logo, LogoHelmet } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { motion } from 'framer-motion'
@@ -29,6 +30,7 @@ const links = [
   { href: '/portfolios', label: 'Portfolios', icon: TbCarouselHorizontal },
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/contact', label: 'Contact', icon: TbMailbox },
+  { href: 'https://shop.zolplay.cn', label: 'Shop', icon: ShopIcon },
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
 ]
 const social = [
