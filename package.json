@@ -22,6 +22,7 @@
     "@zolplay/utils": "^1.3.4",
     "class-variance-authority": "^0.4.0",
     "date-fns": "^2.30.0",
+    "foxact": "^0.2.33",
     "framer-motion": "^10.12.9",
     "googleapis": "^112.0.0",
     "intl-segmenter-polyfill": "^0.4.4",
