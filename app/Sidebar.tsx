@@ -74,7 +74,7 @@ export function Sidebar({ className }: { className?: string }) {
           className="group relative mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6"
         >
           {isUWU ? (
-            <Image className="w-9 md:w-16" src={UwU} alt="zolplay logo uwu" />
+            <Image className="w-10 md:w-20" src={UwU} alt="zolplay logo uwu" />
           ) : (
             <motion.span
               initial={{ opacity: 0, x: 8 }}
