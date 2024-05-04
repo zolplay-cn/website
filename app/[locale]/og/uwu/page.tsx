@@ -1,6 +1,5 @@
 import { getMessages } from '~/i18n.server'
 import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 
 export async function generateMetadata({
   params,
@@ -57,5 +56,6 @@ export async function generateMetadata({
 }
 
 export default function UWUPage() {
-  redirect('/')
+  // redirect('/')
+  return <div>uwu</div>
 }

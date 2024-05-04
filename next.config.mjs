@@ -13,9 +13,9 @@ const config = {
   },
   rewrites: async () => {
     return {
-      beforeFiles: [
+      afterFiles: [
         {
-          source: '/',
+          source: '/og/', // not working
           has: [
             {
               type: 'query',
