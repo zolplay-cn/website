@@ -9,9 +9,11 @@ import { BrandXIcon } from '~/components/icons/BrandXIcon'
 import { ShopIcon } from '~/components/icons/ShopIcon'
 import { Logo, LogoHelmet } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
+import { useUWU } from '~/hooks/useUWU'
 import { motion } from 'framer-motion'
 import { Link, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
+import Image from 'next/image'
 import NextLink from 'next/link'
 import React from 'react'
 import { BsGithub, BsYoutube } from 'react-icons/bs'
@@ -22,6 +24,7 @@ import {
   TbMailbox,
   TbPlanet,
 } from 'react-icons/tb'
+import UwU from './[locale]/zolplay-logo-uwu.png'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
@@ -58,6 +61,7 @@ const social = [
 
 export function Sidebar({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
+  const isUWU = useUWU()
 
   return (
     <aside
@@ -69,17 +73,21 @@ export function Sidebar({ className }: { className?: string }) {
           aria-label={t('Title')}
           className="group relative mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6"
         >
-          <motion.span
-            initial={{ opacity: 0, x: 8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 300,
-              damping: 30,
-            }}
-          >
-            <Logo className="w-7 md:w-10" />
-          </motion.span>
+          {isUWU ? (
+            <Image className="w-20" src={UwU} alt="zolplay logo uwu" />
+          ) : (
+            <motion.span
+              initial={{ opacity: 0, x: 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+              }}
+            >
+              <Logo className="w-7 md:w-10" />
+            </motion.span>
+          )}
         </Link>
 
         <NavMenu />

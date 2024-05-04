@@ -18,6 +18,7 @@ import {
   PostHogPageview,
   PHProvider as PostHogProvider,
 } from '../PostHogProvider'
+import { UWUHandler } from '../UWUHandler'
 
 const fontSansEn = Manrope({
   weight: ['400', '500', '700'],
@@ -108,7 +109,7 @@ export default async function RootLayout({
       <Suspense>
         <PostHogPageview />
       </Suspense>
-
+      <UWUHandler />
       <PostHogProvider>
         <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
           <ThemeProvider
