@@ -18,7 +18,6 @@ import {
   PostHogPageview,
   PHProvider as PostHogProvider,
 } from '../PostHogProvider'
-import { UWUHandler } from '../UWUHandler'
 
 const fontSansEn = Manrope({
   weight: ['400', '500', '700'],
@@ -106,10 +105,17 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={`font-sans ${fontSansEn.variable}`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `${uwu.toString()};uwu()`,
+          }}
+        />
+      </head>
       <Suspense>
         <PostHogPageview />
       </Suspense>
-      <UWUHandler />
+
       <PostHogProvider>
         <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
           <ThemeProvider
@@ -139,4 +145,15 @@ export default async function RootLayout({
       </PostHogProvider>
     </html>
   )
+}
+
+function uwu() {
+  const query = new URLSearchParams(location.search)
+  if (query?.has('uwu')) {
+    if (query.get('uwu') === '0' || query.get('uwu') === 'false') {
+      localStorage.removeItem('uwu')
+    } else {
+      localStorage.setItem('uwu', '1')
+    }
+  }
 }
