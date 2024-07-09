@@ -2,6 +2,7 @@
 
 import { clsxm } from '@zolplay/utils'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 export function Footer() {
   const t = useTranslations('Copyright')
@@ -18,6 +19,9 @@ export function Footer() {
         {t('Text', {
           year: new Date().getFullYear(),
         })}
+      </p>
+      <p className="mb-1 mt-4 text-sm dark:text-stone-400">
+        <Link href="https://beian.miit.gov.cn/">粤ICP备2023111065号-2</Link>
       </p>
     </footer>
   )
