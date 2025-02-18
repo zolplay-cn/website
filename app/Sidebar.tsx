@@ -6,6 +6,7 @@ import { clsxm } from '@zolplay/utils'
 import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
 import { BrandXIcon } from '~/components/icons/BrandXIcon'
+import { XiaohongshuIcon } from '~/components/icons/XiaohongshuIcon'
 import { LogoHelmet } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { useUWU } from '~/hooks/useUWU'
@@ -39,6 +40,11 @@ const social = [
     name: 'Twitter',
     url: 'https://x.com/zolplay',
     icon: BrandXIcon,
+  },
+  {
+    name: 'Xiaohongshu',
+    url: 'https://www.xiaohongshu.com/user/profile/650008220000000004026eab',
+    icon: XiaohongshuIcon,
   },
   {
     name: 'GitHub',
