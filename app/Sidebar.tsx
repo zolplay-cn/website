@@ -6,8 +6,8 @@ import { clsxm } from '@zolplay/utils'
 import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
 import { BrandXIcon } from '~/components/icons/BrandXIcon'
-import { ShopIcon } from '~/components/icons/ShopIcon'
-import { Logo, LogoHelmet } from '~/components/Logo'
+import { XiaohongshuIcon } from '~/components/icons/XiaohongshuIcon'
+import { LogoHelmet } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { useUWU } from '~/hooks/useUWU'
 import { motion } from 'framer-motion'
@@ -33,14 +33,18 @@ const links = [
   { href: '/portfolios', label: 'Portfolios', icon: TbCarouselHorizontal },
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/contact', label: 'Contact', icon: TbMailbox },
-  { href: 'https://zolplay.taobao.com/', label: 'Shop', icon: ShopIcon },
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
 ]
 const social = [
   {
     name: 'Twitter',
-    url: 'https://twitter.com/zolplay',
+    url: 'https://x.com/zolplay',
     icon: BrandXIcon,
+  },
+  {
+    name: 'Xiaohongshu',
+    url: 'https://www.xiaohongshu.com/user/profile/650008220000000004026eab',
+    icon: XiaohongshuIcon,
   },
   {
     name: 'GitHub',
@@ -85,7 +89,7 @@ export function Sidebar({ className }: { className?: string }) {
                 damping: 30,
               }}
             >
-              <Logo className="w-7 md:w-10" />
+              <LogoHelmet className="w-7 md:w-10" />
             </motion.span>
           )}
         </Link>
