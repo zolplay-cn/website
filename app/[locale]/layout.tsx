@@ -50,8 +50,8 @@ export async function generateMetadata({
     description: messages.Root.Metadata.Description,
     keywords: messages.Root.Metadata.Keywords,
     icons: {
-      icon: '/assets/favicon.ico',
-      shortcut: '/assets/favicon.ico',
+      icon: '/assets/favicon-v2.ico',
+      shortcut: '/assets/favicon-v2.ico',
       apple: '/assets/apple-touch-icon.png',
     },
     manifest: '/assets/site.webmanifest',
