@@ -4,7 +4,7 @@ import type { Component } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
 import { BrandXIcon } from '~/components/icons/BrandXIcon'
 import { ZpBrandReadCV } from '~/components/icons/ZpBrandReadCV'
-import { LogoHelmet } from '~/components/Logo'
+import { LogoHelmetOutline } from '~/components/Logo'
 import { urlForImage } from '~/lib/sanity.image'
 import type { Member } from '~/schemas/documents/member'
 import { atom, useAtom } from 'jotai'
@@ -55,17 +55,17 @@ export function OurMembers({ members }: { members: Member[] }) {
 
 type Unarray<T> = T extends Array<infer U> ? U : T
 const SocialIconMap: Record<Unarray<Member['social']>['platform'], Component> =
-  {
-    twitter: BrandXIcon,
-    youtube: TbBrandYoutube,
-    github: TbBrandGithub,
-    linkedin: TbBrandLinkedin,
-    dribbble: TbBrandDribbble,
-    instagram: TbBrandInstagram,
-    readcv: ZpBrandReadCV,
-    xiaohongshu: CgWebsite,
-    website: CgWebsite,
-  }
+{
+  twitter: BrandXIcon,
+  youtube: TbBrandYoutube,
+  github: TbBrandGithub,
+  linkedin: TbBrandLinkedin,
+  dribbble: TbBrandDribbble,
+  instagram: TbBrandInstagram,
+  readcv: ZpBrandReadCV,
+  xiaohongshu: CgWebsite,
+  website: CgWebsite,
+}
 function SocialLink({
   social,
   onClick,
@@ -186,7 +186,7 @@ function MemberCard({ member }: { member: Member }) {
           {joined}
         </time>
 
-        <LogoHelmet className="h-5 w-5 opacity-60" />
+        <LogoHelmetOutline className="h-5 w-5 opacity-60" />
       </footer>
     </Tilt>
   )

@@ -7,7 +7,7 @@ import { LocaleSelector } from '~/app/LocaleSelector'
 import { ThemeSelector } from '~/app/ThemeSelector'
 import { BrandXIcon } from '~/components/icons/BrandXIcon'
 import { XiaohongshuIcon } from '~/components/icons/XiaohongshuIcon'
-import { LogoHelmet } from '~/components/Logo'
+import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { useUWU } from '~/hooks/useUWU'
 import { motion } from 'framer-motion'
@@ -28,7 +28,7 @@ import UwU from './[locale]/zolplay-logo-uwu.png'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
-  { href: '/about', label: 'About', icon: LogoHelmet },
+  { href: '/about', label: 'About', icon: LogoHelmetOutline },
   { href: '/careers', label: 'Careers', icon: TbBriefcase },
   { href: '/portfolios', label: 'Portfolios', icon: TbCarouselHorizontal },
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
@@ -89,7 +89,7 @@ export function Sidebar({ className }: { className?: string }) {
                 damping: 30,
               }}
             >
-              <LogoHelmet className="w-7 md:w-10" />
+              <LogoHelmetFilled className="w-7 md:w-10" />
             </motion.span>
           )}
         </Link>
