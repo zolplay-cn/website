@@ -55,17 +55,17 @@ export function OurMembers({ members }: { members: Member[] }) {
 
 type Unarray<T> = T extends Array<infer U> ? U : T
 const SocialIconMap: Record<Unarray<Member['social']>['platform'], Component> =
-{
-  twitter: BrandXIcon,
-  youtube: TbBrandYoutube,
-  github: TbBrandGithub,
-  linkedin: TbBrandLinkedin,
-  dribbble: TbBrandDribbble,
-  instagram: TbBrandInstagram,
-  readcv: ZpBrandReadCV,
-  xiaohongshu: CgWebsite,
-  website: CgWebsite,
-}
+  {
+    twitter: BrandXIcon,
+    youtube: TbBrandYoutube,
+    github: TbBrandGithub,
+    linkedin: TbBrandLinkedin,
+    dribbble: TbBrandDribbble,
+    instagram: TbBrandInstagram,
+    readcv: ZpBrandReadCV,
+    xiaohongshu: CgWebsite,
+    website: CgWebsite,
+  }
 function SocialLink({
   social,
   onClick,
