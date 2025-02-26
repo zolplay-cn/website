@@ -60,10 +60,11 @@
       "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings \uD83D\uDE4C"
     },
     "EmploymentType": {
-      "fullTime": "Full-time",
-      "partTime": "Part-time",
-      "contract": "Contract",
-      "internship": "Internship"
+      "FullTime": "Full-time",
+      "PartTime": "Part-time",
+      "Contract": "Contract",
+      "Intern": "Internship",
+      "Temporary": "Temporary"
     },
     "Remote": {
       "Yes": "Remote",
@@ -92,7 +93,8 @@
           "Change": "Change Resume",
           "FileLimit": "Resume should be PDF files and under 50MB"
         },
-        "Personal": "Personal information",
+        "Contact": "Contact Details",
+        "Links": "Links",
         "FullName": {
           "Label": "Full name",
           "Placeholder": "e.g. Tony Stark"
@@ -102,8 +104,45 @@
           "Placeholder": "(Leave blank if same as full name)"
         },
         "Email": {
-          "Label": "Email address",
+          "Label": "Email",
           "Placeholder": "e.g. tony@avengers.com"
+        },
+        "PhoneNumber": {
+          "Label": "Phone number",
+          "Placeholder": "1-415-555-1234..."
+        },
+        "Location": {
+          "Label": "Location",
+          "Placeholder": "Start typing..."
+        },
+        "OtherInfo": {
+          "Label": "Other information",
+          "Tips": "Let us know what makes you want to apply and join our team?",
+          "Placeholder": "Type here..."
+        },
+        "GitHub": {
+          "Label": "GitHub",
+          "Tips": "Link to your GitHub profile, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "Website": {
+          "Label": "Portfolio or Website",
+          "Tips": "Link to your portfolio or personal website, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "Twitter": {
+          "Label": "X  (twitter)",
+          "Tips": "Link to your X (twitter) profile, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "LinkedIn": {
+          "Label": "LinkedIn",
+          "Tips": "Link to your LinkedIn profile, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "Success": {
+          "Title": "Success",
+          "Description": "Thank you: your application was successfully submitted. We appreciate your patience as your application is under review."
         }
       }
     },
