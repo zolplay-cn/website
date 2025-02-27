@@ -188,6 +188,24 @@
         "Notion: 用于文档和知识库的一站式工具。",
         "Arc: 我们都爱的「互联网电脑」浏览器。"
       ]
+    },
+    "Zod": {
+      "Name": {
+        "Required": "请输入全名"
+      },
+      "Email": {
+        "Required": "请输入电子邮箱地址",
+        "Invalid": "请输入正确的邮箱格式"
+      },
+      "Phone": {
+        "Required": "请输入电话号码"
+      },
+      "Location": {
+        "Required": "请输入地点"
+      },
+      "Resume": {
+        "Required": "请上传简历"
+      }
     }
   },
   "Portfolios": {

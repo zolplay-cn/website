@@ -189,6 +189,24 @@
         "Notion: the all-in-one workspace for notes, wikis, and databases.",
         "Arc: the internet computer browser we all love."
       ]
+    },
+    "Zod": {
+      "Name": {
+        "Required": "Name is required"
+      },
+      "Email": {
+        "Required": "Email is required",
+        "Invalid": "Invalid email"
+      },
+      "Phone": {
+        "Required": "Phone is required"
+      },
+      "Location": {
+        "Required": "Location is required"
+      },
+      "Resume": {
+        "Required": "Resume is required"
+      }
     }
   },
   "Portfolios": {

@@ -6,7 +6,7 @@ import { Benefits } from '~/components/Benefits'
 import { OurTools } from '~/components/OurTools'
 import { Button, ButtonLink } from '~/components/ui/Button'
 import { Hr } from '~/components/ui/Hr'
-import { applicationSchema } from '~/schemas/documents/career'
+import { useApplicationSchema } from '~/schemas/documents/career'
 import type { JobApplicationFields } from '~/schemas/documents/career'
 import { cva } from 'class-variance-authority'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -171,6 +171,7 @@ const formError = cva([
 function JobApplicationForm() {
   const t = useTranslations('Careers')
   const pathname = usePathname()
+  const applicationSchema = useApplicationSchema()
 
   const {
     register,
