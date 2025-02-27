@@ -190,7 +190,7 @@ function JobApplicationForm() {
 
   const onSubmit = React.useCallback(
     async (data) => {
-      const jobPostingId = pathname?.split('/')[2]
+      const jobPostingId = pathname?.split('/').slice(-1)[0]
       if (!jobPostingId) return
 
       const formData = new FormData()
