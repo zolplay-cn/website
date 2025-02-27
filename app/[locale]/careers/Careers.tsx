@@ -47,7 +47,7 @@ export function Careers({ jobs }: { jobs: any[] }) {
         <TbArrowRight />
       </ButtonLink>
 
-      <section className="">
+      <section>
         <Image src={WorkshopImage} alt={t('Title')} placeholder="blur" />
         <p>{t.rich('Grow')}</p>
 
@@ -66,13 +66,17 @@ export function Careers({ jobs }: { jobs: any[] }) {
           </p>
         ) : (
           <div>
-            <h4 className="text-stone-500 dark:text-stone-400">
+            <h2>{t('OpenPositions')}</h2>
+            <h4 className="-mb-4 text-lg text-stone-500 dark:text-stone-400">
               {t('Openings.Squad', { squad: 'Neuship' })}
             </h4>
-            {jobs.map((job) => (
-              <section key={job.id} className="my-2">
-                <ul className="list-none space-y-2 py-1 pl-0 md:pl-2">
-                  <li className="border-b border-stone-200/70 pb-4 dark:border-stone-700/70">
+            <section className="my-2">
+              <ul className="list-none space-y-4 py-1 pl-0 md:pl-2">
+                {jobs.map((job) => (
+                  <li
+                    key={job.id}
+                    className="border-b border-stone-200/70 pb-4 dark:border-stone-700/70"
+                  >
                     <Link
                       href={`/careers/${job.id}`}
                       className="group flex w-full no-underline"
@@ -83,10 +87,7 @@ export function Careers({ jobs }: { jobs: any[] }) {
                           <span className="font-bold tracking-tighter text-stone-800 group-hover:underline dark:text-stone-100">
                             {job.title}
                           </span>
-                          <TbArrowBadgeRight className="flex h-5 w-5" />
-                        </span>
-                        <span className="w-full text-sm tracking-tight text-stone-400 dark:text-stone-500">
-                          {job.excerpt}
+                          <TbArrowBadgeRight className="flex h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </span>
                         <span className="w-full space-x-1">
                           <span className="inline-flex items-center rounded bg-green-100 px-1 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-800 dark:text-green-100">
@@ -104,9 +105,9 @@ export function Careers({ jobs }: { jobs: any[] }) {
                       </span>
                     </Link>
                   </li>
-                </ul>
-              </section>
-            ))}
+                ))}
+              </ul>
+            </section>
           </div>
         )}
       </div>
@@ -144,9 +145,10 @@ export function JobDetails({ job }: { job: any }) {
         </ButtonLink>
       )}
 
-      <section>
-        <div dangerouslySetInnerHTML={{ __html: job.descriptionHtml }} />
-      </section>
+      <div
+        className="prose mt-5 dark:prose-invert prose-p:my-0 prose-p:leading-[1.8] prose-ol:my-0 prose-ul:my-0 [&>p]:my-4"
+        dangerouslySetInnerHTML={{ __html: job.descriptionHtml }}
+      />
 
       <Hr />
 

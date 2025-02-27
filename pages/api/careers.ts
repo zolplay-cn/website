@@ -32,7 +32,6 @@ const requestAshby = (formData: any) => {
             console.log(err, 'requestAshby error')
             resolve(null)
           } else {
-            console.log(res.body, 'requestAshby res.body')
             resolve(JSON.parse(res.body))
           }
         }

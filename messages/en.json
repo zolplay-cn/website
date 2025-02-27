@@ -55,8 +55,9 @@
     "Grow": "At Zolplay, we have faith in the potential for individuals to <gradient>develop and expand their skills</gradient>. We aspire to foster an environment where team members can learn from one another and create the most promising prospect.",
     "Fun": "We recognize the importance of <green>balancing work and life</green>, and we believe that a happy and motivated team is <b>one that enjoys what they do</b>, and sometimes that means having fun along the way. Whether it’s a team outing or a celebration event, we believe in creating an environment where our team members can enjoy their work and have fun at the same time.",
     "Async": "We value efficiency and collaboration, and we believe that <red>meetings can often be a waste of time</red>. Instead, we prefer to work <b>independently</b>, communicate <b>asynchronously</b> and collaborate <b>transparently</b>. Additionally, we hold weekly demonstrations to showcase our accomplishments and exchange feedback.",
+    "OpenPositions": "Open positions:",
     "Openings": {
-      "Squad": "{squad} squad - open positions",
+      "Squad": "{squad} squad",
       "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings \uD83D\uDE4C"
     },
     "EmploymentType": {
