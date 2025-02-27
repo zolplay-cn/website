@@ -54,15 +54,17 @@
     "Grow": "在佐玩，我们相信每个人都具有<gradient>发展自己技能潜能和拓宽更高认知空间</gradient>的机会。我们希望创造一个最有前途前景的工作环境，让大家在这环境中互相学习成长。",
     "Fun": "<green>良好的工作习性和生活作息的平衡</green>是必不可少的，我们相信团队成员只有在享受工作、感受到<b>快乐和积极主动</b>的前提条件下，才能更好的提高自身乃至团队的工作效率，让项目迸发出更不一样的精彩火花。所以团队的每一次外出聚会、或是节日庆祝，我们都努力去与大家共同创造出一个温馨舒适、享受工作和生活的环境。",
     "Async": "佐玩非常重效率和团队间的协作关系。在我们看来<red>「开会」往往是浪费时间、适得其反</red>的，我们更热爱<b>独立工作</b>、<b>异步沟通</b>和<b>透明的协作方式</b>。同时，我们每周都会对工作内容进行演示，以展示我们的工作成果并交流反馈意见。",
+    "OpenPositions": "开放职位：",
     "Openings": {
-      "Squad": "{squad}团队 - 开放职位",
+      "Squad": "{squad}团队",
       "Empty": "目前没有开放职位，关注我们的社交动态，第一时间了解新职位 🙌"
     },
     "EmploymentType": {
-      "fullTime": "全职",
-      "partTime": "兼职",
-      "contract": "合同",
-      "internship": "实习"
+      "FullTime": "全职",
+      "PartTime": "兼职",
+      "Contract": "合同",
+      "Intern": "实习",
+      "Temporary": "临时"
     },
     "Remote": {
       "Yes": "远程办公",
@@ -91,7 +93,8 @@
           "Change": "更换简历",
           "FileLimit": "简历为 PDF 文件，大小不能超过 50MB"
         },
-        "Personal": "个人信息",
+        "Contact": "联系方式",
+        "Links": "链接",
         "FullName": {
           "Label": "全名",
           "Placeholder": "比如. 王嘉尔"
@@ -103,6 +106,43 @@
         "Email": {
           "Label": "电子邮箱地址",
           "Placeholder": "比如. jackson@wang.com"
+        },
+        "PhoneNumber": {
+          "Label": "电话号码",
+          "Placeholder": "1-415-555-1234..."
+        },
+        "Location": {
+          "Label": "地点",
+          "Placeholder": "开始输入..."
+        },
+        "OtherInfo": {
+          "Label": "其他信息",
+          "Tips": "请告诉我们是什么让您想申请并加入我们的团队？",
+          "Placeholder": "在这里输入..."
+        },
+        "GitHub": {
+          "Label": "GitHub",
+          "Tips": "输入你的 GitHub 链接(如果适用)",
+          "Placeholder": "在这里输入..."
+        },
+        "Website": {
+          "Label": "作品集或个人网站",
+          "Tips": "输入你的作品集或个人网站链接(如果适用)",
+          "Placeholder": "在这里输入..."
+        },
+        "Twitter": {
+          "Label": "X  (twitter)",
+          "Tips": "输入你的 X (twitter) 链接(如果适用)",
+          "Placeholder": "在这里输入..."
+        },
+        "LinkedIn": {
+          "Label": "LinkedIn",
+          "Tips": "输入你的 LinkedIn 链接(如果适用)",
+          "Placeholder": "在这里输入..."
+        },
+        "Success": {
+          "Title": "提交成功",
+          "Description": "感谢你的投递，我们将尽快和你联系～"
         }
       }
     },
@@ -148,6 +188,24 @@
         "Notion: 用于文档和知识库的一站式工具。",
         "Arc: 我们都爱的「互联网电脑」浏览器。"
       ]
+    },
+    "Zod": {
+      "Name": {
+        "Required": "请输入全名"
+      },
+      "Email": {
+        "Required": "请输入电子邮箱地址",
+        "Invalid": "请输入正确的邮箱格式"
+      },
+      "Phone": {
+        "Required": "请输入电话号码"
+      },
+      "Location": {
+        "Required": "请输入地点"
+      },
+      "Resume": {
+        "Required": "请上传简历"
+      }
     }
   },
   "Portfolios": {

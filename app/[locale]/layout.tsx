@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Manrope } from 'next/font/google'
+import { DM_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import 'tailwindcss/tailwind.css'
@@ -19,7 +19,7 @@ import {
   PHProvider as PostHogProvider,
 } from '../PostHogProvider'
 
-const fontSansEn = Manrope({
+const fontSansEn = DM_Sans({
   weight: ['400', '500', '700'],
   display: 'swap',
   subsets: ['latin'],

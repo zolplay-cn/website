@@ -1,7 +1,8 @@
 import { JobDetails } from '~/app/[locale]/careers/Careers'
 import { getMessages } from '~/i18n.server'
+import { getJob } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
-import { getJob, getJobIds } from '~/lib/sanity.queries'
+import { getJobIds } from '~/lib/sanity.queries'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -14,8 +15,8 @@ export async function generateStaticParams() {
 type PageParams = RootParams & { id: string }
 
 async function fetchJob(params: PageParams) {
-  const { id, locale } = params
-  const job = await getJob({ id, locale })
+  const job = await getJob(params.id)
+
   return job
 }
 
@@ -36,10 +37,10 @@ export async function generateMetadata({
 
   return {
     title,
-    description: job.excerpt,
+    description: job.descriptionSocial,
     openGraph: {
       title,
-      description: job.excerpt,
+      description: job.descriptionSocial,
       images: [getOpenGraphImage(title, params.locale, subtitle)],
     },
   }
