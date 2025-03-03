@@ -55,15 +55,17 @@
     "Grow": "At Zolplay, we have faith in the potential for individuals to <gradient>develop and expand their skills</gradient>. We aspire to foster an environment where team members can learn from one another and create the most promising prospect.",
     "Fun": "We recognize the importance of <green>balancing work and life</green>, and we believe that a happy and motivated team is <b>one that enjoys what they do</b>, and sometimes that means having fun along the way. Whether it’s a team outing or a celebration event, we believe in creating an environment where our team members can enjoy their work and have fun at the same time.",
     "Async": "We value efficiency and collaboration, and we believe that <red>meetings can often be a waste of time</red>. Instead, we prefer to work <b>independently</b>, communicate <b>asynchronously</b> and collaborate <b>transparently</b>. Additionally, we hold weekly demonstrations to showcase our accomplishments and exchange feedback.",
+    "OpenPositions": "Open positions:",
     "Openings": {
-      "Squad": "{squad} squad - open positions",
+      "Squad": "{squad} squad",
       "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings \uD83D\uDE4C"
     },
     "EmploymentType": {
-      "fullTime": "Full-time",
-      "partTime": "Part-time",
-      "contract": "Contract",
-      "internship": "Internship"
+      "FullTime": "Full-time",
+      "PartTime": "Part-time",
+      "Contract": "Contract",
+      "Intern": "Internship",
+      "Temporary": "Temporary"
     },
     "Remote": {
       "Yes": "Remote",
@@ -92,7 +94,8 @@
           "Change": "Change Resume",
           "FileLimit": "Resume should be PDF files and under 50MB"
         },
-        "Personal": "Personal information",
+        "Contact": "Contact Details",
+        "Links": "Links",
         "FullName": {
           "Label": "Full name",
           "Placeholder": "e.g. Tony Stark"
@@ -102,8 +105,45 @@
           "Placeholder": "(Leave blank if same as full name)"
         },
         "Email": {
-          "Label": "Email address",
+          "Label": "Email",
           "Placeholder": "e.g. tony@avengers.com"
+        },
+        "PhoneNumber": {
+          "Label": "Phone number",
+          "Placeholder": "1-415-555-1234..."
+        },
+        "Location": {
+          "Label": "Location",
+          "Placeholder": "Start typing..."
+        },
+        "OtherInfo": {
+          "Label": "Other information",
+          "Tips": "Let us know what makes you want to apply and join our team?",
+          "Placeholder": "Type here..."
+        },
+        "GitHub": {
+          "Label": "GitHub",
+          "Tips": "Link to your GitHub profile, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "Website": {
+          "Label": "Portfolio or Website",
+          "Tips": "Link to your portfolio or personal website, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "Twitter": {
+          "Label": "X  (twitter)",
+          "Tips": "Link to your X (twitter) profile, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "LinkedIn": {
+          "Label": "LinkedIn",
+          "Tips": "Link to your LinkedIn profile, if applicable",
+          "Placeholder": "Type here..."
+        },
+        "Success": {
+          "Title": "Success",
+          "Description": "Thank you: your application was successfully submitted. We appreciate your patience as your application is under review."
         }
       }
     },
@@ -149,6 +189,24 @@
         "Notion: the all-in-one workspace for notes, wikis, and databases.",
         "Arc: the internet computer browser we all love."
       ]
+    },
+    "Zod": {
+      "Name": {
+        "Required": "Name is required"
+      },
+      "Email": {
+        "Required": "Email is required",
+        "Invalid": "Invalid email"
+      },
+      "Phone": {
+        "Required": "Phone is required"
+      },
+      "Location": {
+        "Required": "Location is required"
+      },
+      "Resume": {
+        "Required": "Resume is required"
+      }
     }
   },
   "Portfolios": {
