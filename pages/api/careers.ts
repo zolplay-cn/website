@@ -1,57 +1,47 @@
-import {
-  applicationSchema,
-  type JobApplicationFields,
-} from '~/schemas/documents/job'
-import { google } from 'googleapis'
+import { Buffer } from 'node:buffer'
+import fs from 'node:fs'
+import formidable from 'formidable'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { z } from 'zod'
+import request from 'request'
 
-const WebhookURL = process.env.CAREERS_WEBHOOK_URL ?? ''
-const Spreadsheets = process.env.CAREERS_SPREADSHEETS ?? '{}'
-
-async function insertDataIntoGSheets(data: JobApplicationFields, link: string) {
-  try {
-    const spreadsheets = JSON.parse(Spreadsheets.replaceAll('\\', ''))
-    const careerId = link.split('/').pop()
-    if (!careerId) {
-      return
-    }
-    const spreadsheetId = spreadsheets[careerId]
-    const target = ['https://www.googleapis.com/auth/spreadsheets']
-    const jwt = new google.auth.JWT(
-      process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-      undefined,
-      (process.env.GOOGLE_SHEETS_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-      target
-    )
-
-    const sheets = google.sheets({ version: 'v4', auth: jwt })
-
-    return sheets.spreadsheets.values.append({
-      spreadsheetId,
-      range: 'From Website',
-      valueInputOption: 'USER_ENTERED',
-      requestBody: {
-        values: [
-          [
-            data.fullName,
-            data.preferredName,
-            data.email,
-            data.resume,
-            data.about,
-          ],
-        ],
-      },
-    })
-  } catch (err) {
-    console.log(err)
-  }
+export const config = {
+  api: {
+    bodyParser: false,
+  },
 }
 
-const schema = z.object({
-  data: applicationSchema,
-  pageLink: z.string(),
-})
+const AshbySubmitURL = 'https://api.ashbyhq.com/applicationForm.submit'
+
+const requestAshby = (formData: any) => {
+  return new Promise((resolve) => {
+    try {
+      request(
+        {
+          method: 'POST',
+          url: AshbySubmitURL,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            authorization: `Basic ${Buffer.from(
+              `${process.env.ASHBY_API_KEY!}:`
+            ).toString('base64')}`,
+          },
+          formData,
+        },
+        (err, res) => {
+          if (err) {
+            console.log(err, 'requestAshby error')
+            resolve(null)
+          } else {
+            resolve(JSON.parse(res.body))
+          }
+        }
+      )
+    } catch (error) {
+      resolve(null)
+    }
+  })
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -59,59 +49,58 @@ export default async function handler(
   if (req.method !== 'POST') return res.status(405).end()
 
   try {
-    const { data, pageLink } = schema.parse(JSON.parse(req.body))
-    const mainText = `${
-      data.preferredName
-        ? `${data.fullName} (${data.preferredName})`
-        : data.fullName
-    } ${data.email} sent an application for ${pageLink}`
+    const form = formidable({ multiples: true })
+    const [fields, files] = await form.parse(req)
 
-    const blocks = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: `*${
-            data.preferredName
-              ? `${data.fullName} (${data.preferredName})`
-              : data.fullName
-          }* ${data.email} sent an application for ${pageLink}`,
-        },
-      },
-      {
-        type: 'divider',
-      },
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: data.about,
-        },
-      },
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: `<${data.resume}|Resume>`,
-        },
-      },
-    ]
+    if (!fields || !files) return res.status(500).json({ status: 'error' })
 
-    await Promise.all([
-      insertDataIntoGSheets(data, pageLink),
-      fetch(WebhookURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: mainText, blocks }),
-      }),
-    ])
+    const fieldSubmissions: { path: string; value: any }[] = []
 
-    return res.json({ status: 'success' })
-  } catch (e) {
-    console.error(e)
+    Object.keys(fields).forEach((key) => {
+      if (key !== 'jobPostingId') {
+        if (!fields[key]) return
+
+        fieldSubmissions.push({
+          path: key,
+          value:
+            key === '_systemfield_location'
+              ? fields[key]?.[0]
+                ? JSON.parse(fields[key]?.[0] as string)
+                : null
+              : fields[key]?.[0],
+        })
+      }
+    })
+
+    const resumeKey = Object.keys(files)[0]
+    const file = files[resumeKey]?.[0]
+    const jobPostingId = fields.jobPostingId?.[0]
+
+    if (!file || !jobPostingId) return res.status(500).json({ status: 'error' })
+
+    const formData = {
+      applicationForm: JSON.stringify({ fieldSubmissions }),
+      jobPostingId: fields.jobPostingId?.[0],
+      [resumeKey]: {
+        value: fs.createReadStream(file.filepath),
+        options: { filename: file.originalFilename, contentType: null },
+      },
+    }
+
+    const ashbyResponse = await requestAshby(formData)
+
+    if (!ashbyResponse) return res.status(500).json({ status: 'error' })
+
+    if ((ashbyResponse as any).success) {
+      return res.json({ status: 'success' })
+    } else {
+      return res.status(500).json({
+        status: 'error',
+        message: (ashbyResponse as any)?.errors,
+      })
+    }
+  } catch (error) {
+    console.log(error, 'error')
+    return res.status(500).json({ status: 'error' })
   }
-
-  return res.status(500).json({ status: 'error' })
 }
