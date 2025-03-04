@@ -15,8 +15,6 @@ export function Careers({ jobs }: { jobs: any[] }) {
   const posthog = usePostHog()
   const t = useTranslations('Careers')
 
-  console.log(jobs, 'jobs')
-
   return (
     <>
       <h1>{t.rich('Heading')}</h1>
