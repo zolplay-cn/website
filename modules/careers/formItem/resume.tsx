@@ -54,7 +54,7 @@ export function Resume<T extends Record<string, any>>({
                 onChange={(e) => {
                   const file = e.target.files?.[0]
                   if (!file) return
-                  if (file.size > 0 * 1024 * 1024) {
+                  if (file.size > 50 * 1024 * 1024) {
                     toast.error('Resume should be PDF files and under 50MB')
                     return
                   }
