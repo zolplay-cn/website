@@ -12,6 +12,7 @@ export const getJobs = async () => {
         ).toString('base64')}`,
       },
       body: JSON.stringify({ listedOnly: true }),
+      cache: 'no-cache',
     }).then((res) => res.json())
 
     if (!res.success) return []

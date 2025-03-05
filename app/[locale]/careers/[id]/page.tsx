@@ -1,8 +1,8 @@
-import { JobDetails } from '~/app/[locale]/careers/Careers'
 import { getMessages } from '~/i18n.server'
 import { getJob } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getJobIds } from '~/lib/sanity.queries'
+import { Job } from '~/modules/careers/job'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -53,5 +53,5 @@ export default async function JobPage({ params }: { params: PageParams }) {
     redirect('/careers')
   }
 
-  return <JobDetails job={job} />
+  return <Job job={job} />
 }

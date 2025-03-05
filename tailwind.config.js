@@ -10,6 +10,7 @@ module.exports = {
     './components/**/*.tsx',
     './pages/**/*.tsx',
     './plugins/**/*.tsx',
+    './modules/**/*.tsx',
   ],
   theme: {
     container: {
