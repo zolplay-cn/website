@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useUWU } from '~/hooks/useUWU'
-import { DefaultRichTextComponents } from '~/i18n/RichText'
+import { DefaultRichTextComponents } from '~/modules/i18n/RichText'
 import UwU from './zolplay-logo-uwu.png'
 import OfficeShot from './zolplay-office-couch-shot.jpg'
 import Poster from './zolplay-poster.png'

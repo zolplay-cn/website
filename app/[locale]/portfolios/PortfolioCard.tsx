@@ -7,7 +7,7 @@ import Link from 'next/link'
 import React from 'react'
 import { TbArrowBadgeRight, TbArrowUpRight } from 'react-icons/tb'
 import Balancer from 'react-wrap-balancer'
-import { LocaleLink } from '~/i18n/navigation'
+import { LocaleLink } from '~/modules/i18n/navigation'
 import { urlForImage } from '~/lib/sanity.image'
 
 function makePortfolioLink(portfolio: Portfolio) {

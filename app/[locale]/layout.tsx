@@ -12,7 +12,7 @@ import { Sidebar } from '~/app/Sidebar'
 
 import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
-import { routing } from '~/i18n/routing'
+import { routing } from '~/modules/i18n/routing'
 import { getOpenGraphImage } from '~/lib/helper'
 import { PostHogPageview, PHProvider as PostHogProvider } from '../PostHogProvider'
 import 'tailwindcss/tailwind.css'

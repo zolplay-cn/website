@@ -18,7 +18,7 @@ import { XiaohongshuIcon } from '~/components/icons/XiaohongshuIcon'
 import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { useUWU } from '~/hooks/useUWU'
-import { Link, usePathname } from '~/i18n/navigation'
+import { Link, usePathname } from '~/modules/i18n/navigation'
 import UwU from './[locale]/zolplay-logo-uwu.png'
 
 const links = [

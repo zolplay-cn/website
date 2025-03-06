@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import React from 'react'
 import Balancer from 'react-wrap-balancer'
-import { DefaultRichTextComponents } from '~/i18n/RichText'
+import { DefaultRichTextComponents } from '~/modules/i18n/RichText'
 
 export function About() {
   const t = useTranslations('About')
