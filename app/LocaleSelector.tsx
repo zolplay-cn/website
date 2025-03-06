@@ -26,7 +26,7 @@ export function LocaleSelector() {
   const pathname = usePathname()
   const onChange = React.useCallback(
     (locale: string) => {
-      router.push(`${locale}${pathname}`)
+      router.push(`/${locale}${pathname}`)
     },
     [router, pathname],
   )

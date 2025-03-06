@@ -14,7 +14,8 @@ const contactFormSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
 })
-export type ContactFormSchema = z.infer<typeof contactFormSchema>
+type ContactFormSchema = z.infer<typeof contactFormSchema>
+
 export function ContactForm() {
   const t = useTranslations('Contact')
   const {
