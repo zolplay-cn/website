@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { Contact } from '~/app/[locale]/contact/Contact'
 import { getOpenGraphImage } from '~/lib/helper'

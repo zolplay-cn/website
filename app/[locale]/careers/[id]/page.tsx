@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { redirect } from 'next/navigation'
 import React from 'react'

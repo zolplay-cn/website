@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { PortfolioPage } from '~/app/[locale]/portfolios/[slug]/PortfolioPage'

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { About } from '~/app/[locale]/about/About'
 import { OurMembers } from '~/components/members/OurMembers'

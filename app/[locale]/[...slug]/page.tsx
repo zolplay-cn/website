@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { notFound } from 'next/navigation'
 import { getOpenGraphImage } from '~/lib/helper'
 import { urlForImage } from '~/lib/sanity.image'

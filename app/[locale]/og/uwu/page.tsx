@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
-import { getMessages } from '~/i18n.server'
 
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   const { locale } = await params

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { PortfolioCard } from '~/app/[locale]/portfolios/PortfolioCard'
 import { Portfolios } from '~/app/[locale]/portfolios/Portfolios'

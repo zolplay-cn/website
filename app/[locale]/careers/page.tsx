@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { getJobs } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
