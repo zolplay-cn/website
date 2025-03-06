@@ -43,13 +43,6 @@
     "MeetOurTeam": "Meet the crew"
   },
   "Careers": {
-    "Title": "Join us",
-    "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",
-    "Heading": "Join us and help save the world with your <gradient>superhuman software skills</gradient>, together.",
-    "Intro": "Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need <b>your</b> help to make it happen. If you're a believer in the power of crafting <red>enchanting software experiences</red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b> \uD83E\uDE84",
-    "Grow": "At Zolplay, we have faith in the potential for individuals to <gradient>develop and expand their skills</gradient>. We aspire to foster an environment where team members can learn from one another and create the most promising prospect.",
-    "Fun": "We recognize the importance of <green>balancing work and life</green>, and we believe that a happy and motivated team is <b>one that enjoys what they do</b>, and sometimes that means having fun along the way. Whether it’s a team outing or a celebration event, we believe in creating an environment where our team members can enjoy their work and have fun at the same time.",
-    "Async": "We value efficiency and collaboration, and we believe that <red>meetings can often be a waste of time</red>. Instead, we prefer to work <b>independently</b>, communicate <b>asynchronously</b> and collaborate <b>transparently</b>. Additionally, we hold weekly demonstrations to showcase our accomplishments and exchange feedback.",
     "OpenPositions": "Open positions:",
     "Openings": {
       "Squad": "{squad} squad",

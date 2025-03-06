@@ -1,11 +1,11 @@
 import type { PortableTextMarkComponentProps } from '@portabletext/react/src/types'
 import { PortableText } from '@portabletext/react'
-import { Link } from 'next-intl'
+
 import { TbArrowDownLeft, TbArrowUpRight } from 'react-icons/tb'
 import { Benefits } from '~/components/Benefits'
-import { ImageBlock } from '~/components/ImageBlock'
 import { OurStacks } from '~/components/OurStacks'
 import { OurTools } from '~/components/OurTools'
+import { Link } from '~/modules/i18n/navigation'
 
 export const DefaultRichTextComponents = {
   br: () => <br />,
@@ -69,7 +69,7 @@ const DefaultBlocks = Object.freeze({
   benefits: Benefits,
   ourStacks: OurStacks,
   ourTools: OurTools,
-  image: ImageBlock,
+  // image: ImageBlock,
 })
 
 export function RichText({ value }: { value: any[] }) {
