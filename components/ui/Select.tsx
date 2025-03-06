@@ -11,12 +11,12 @@ const Group = SelectPrimitive.Group
 
 const Value = SelectPrimitive.Value
 
-const Trigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+const Trigger = ({
+  className,
+  children,
+  ...props
+}: SelectPrimitive.SelectTriggerProps) => (
   <SelectPrimitive.Trigger
-    ref={ref}
     className={clsxm(
       'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent px-2 py-1 text-sm placeholder:text-stone-600 focus:outline-none focus-visible:ring focus-visible:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus-visible:ring-stone-700',
       'tracking-tight',
@@ -27,18 +27,17 @@ const Trigger = React.forwardRef<
     {children}
     <BiChevronDown className="h-4 w-4 opacity-50" />
   </SelectPrimitive.Trigger>
-))
-Trigger.displayName = SelectPrimitive.Trigger.displayName
+)
 
-const Content = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+const Content = ({
+  className,
+  children,
+  ...props
+}: SelectPrimitive.SelectContentProps) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
-      ref={ref}
       className={clsxm(
-        'animate-in fade-in-80 relative z-50 z-50 min-w-[8rem] overflow-hidden rounded-xl border border-stone-100 bg-white text-stone-700 shadow-xl dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300',
+        'animate-in fade-in-80 relative z-50 min-w-[8rem] overflow-hidden rounded-xl border border-stone-100 bg-white text-stone-700 shadow-xl dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300',
         className
       )}
       {...props}
@@ -48,30 +47,24 @@ const Content = React.forwardRef<
       </SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
-))
-Content.displayName = SelectPrimitive.Content.displayName
+)
 
-const Label = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
->(({ className, ...props }, ref) => (
+const Label = ({ className, ...props }: SelectPrimitive.SelectLabelProps) => (
   <SelectPrimitive.Label
-    ref={ref}
     className={clsxm(
       'py-1.5 pl-8 pr-2 text-sm font-semibold text-stone-800 dark:text-stone-200',
       className
     )}
     {...props}
   />
-))
-Label.displayName = SelectPrimitive.Label.displayName
+)
 
-const Item = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ className, children, ...props }, ref) => (
+const Item = ({
+  className,
+  children,
+  ...props
+}: SelectPrimitive.SelectItemProps) => (
   <SelectPrimitive.Item
-    ref={ref}
     className={clsxm(
       'relative z-50 flex cursor-default select-none items-center rounded-lg py-1.5 pl-8 pr-2 text-sm font-medium outline-none transition-colors focus:bg-stone-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-stone-800',
       'tracking-tight',
@@ -84,26 +77,22 @@ const Item = React.forwardRef<
         <BiCheck className="h-4 w-4" />
       </SelectPrimitive.ItemIndicator>
     </span>
-
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
-))
-Item.displayName = SelectPrimitive.Item.displayName
+)
 
-const Separator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
->(({ className, ...props }, ref) => (
+const Separator = ({
+  className,
+  ...props
+}: SelectPrimitive.SelectSeparatorProps) => (
   <SelectPrimitive.Separator
-    ref={ref}
     className={clsxm(
       '-mx-1 my-1 h-px bg-stone-100 dark:bg-stone-700',
       className
     )}
     {...props}
   />
-))
-Separator.displayName = SelectPrimitive.Separator.displayName
+)
 
 export const Select = Object.freeze({
   Root,
