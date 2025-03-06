@@ -4,8 +4,8 @@ import type { ComponentProps } from '@zolplay/react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { clsxm } from '@zolplay/utils'
 import { motion } from 'framer-motion'
-import { Link, useTranslations } from 'next-intl'
-import { usePathname } from 'next-intl/client'
+import { useTranslations } from 'next-intl'
+
 import Image from 'next/image'
 import NextLink from 'next/link'
 import React from 'react'
@@ -18,6 +18,7 @@ import { XiaohongshuIcon } from '~/components/icons/XiaohongshuIcon'
 import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { useUWU } from '~/hooks/useUWU'
+import { Link, usePathname } from '~/i18n/navigation'
 import UwU from './[locale]/zolplay-logo-uwu.png'
 
 const links = [

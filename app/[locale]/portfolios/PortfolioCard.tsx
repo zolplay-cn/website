@@ -1,12 +1,13 @@
 'use client'
 
-import type { portfolio } from '~/schemas/documents/portfolio'
-import { Link as LocaleLink, useTranslations } from 'next-intl'
+import type { Portfolio } from '~/schemas/documents/portfolio'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { TbArrowBadgeRight, TbArrowUpRight } from 'react-icons/tb'
 import Balancer from 'react-wrap-balancer'
+import { LocaleLink } from '~/i18n/navigation'
 import { urlForImage } from '~/lib/sanity.image'
 
 function makePortfolioLink(portfolio: Portfolio) {

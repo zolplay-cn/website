@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { PortfolioPage } from '~/app/[locale]/portfolios/[slug]/PortfolioPage'
-import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getPortfolio, getPortfolioSlugs } from '~/lib/sanity.queries'
 
@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
-type PageParams = RootParams & { slug: string }
+type PageParams = Awaited<RootParams> & { slug: string }
 async function fetchPortfolio(params: PageParams) {
   const portfolio = await getPortfolio({
     slug: params.slug,
@@ -25,7 +25,8 @@ async function fetchPortfolio(params: PageParams) {
 
 export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const portfolio = await fetchPortfolio(params)
-  const messages = await getMessages(params)
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return {
     title: portfolio.title,
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     openGraph: {
       title: portfolio.title,
       description: portfolio.description,
-      images: [getOpenGraphImage(portfolio.title, params.locale, messages.Portfolios.Details.Subtitle)],
+      images: [getOpenGraphImage(portfolio.title, locale, t('Portfolios.Details.Subtitle'))],
     },
   }
 }

@@ -1,12 +1,8 @@
 import createIntlMiddleware from 'next-intl/middleware'
-import { i18n } from '~/i18n'
 
-export default createIntlMiddleware({
-  // A list of all locales that are supported
-  locales: i18n.locales,
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-  defaultLocale: 'en',
-})
+import { routing } from './i18n/routing'
+
+export default createIntlMiddleware(routing)
 
 export const config = {
   // Skip all paths that aren't pages that you'd like to internationalize.

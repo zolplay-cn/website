@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { getMessages } from '~/i18n.server'
 import { getJob } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getJobIds } from '~/lib/sanity.queries'
@@ -27,9 +27,10 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     return {}
   }
 
-  const messages = await getMessages(params)
+  const { locale } = await params
+  const t = await getTranslations({ locale })
   const title = job.title
-  const subtitle = messages.Careers.Details.Subtitle
+  const subtitle = t('Careers.Details.Subtitle')
 
   return {
     title,
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     openGraph: {
       title,
       description: job.descriptionSocial,
-      images: [getOpenGraphImage(title, params.locale, subtitle)],
+      images: [getOpenGraphImage(title, locale, subtitle)],
     },
   }
 }

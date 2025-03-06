@@ -1,16 +1,18 @@
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import { DM_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import { Background } from '~/app/Background'
 import { Footer } from '~/app/Footer'
-import IntlProvider from '~/app/IntlProvider'
 import { Rulers } from '~/app/Rulers'
 import { Sidebar } from '~/app/Sidebar'
+
 import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
-import { getMessages } from '~/i18n.server'
+import { routing } from '~/i18n/routing'
 import { getOpenGraphImage } from '~/lib/helper'
 import { PostHogPageview, PHProvider as PostHogProvider } from '../PostHogProvider'
 import 'tailwindcss/tailwind.css'
@@ -29,19 +31,20 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
-  const messages = await getMessages(params)
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return {
     title: {
-      default: messages.Root.Metadata.Title,
-      template: messages.Root.Metadata.TitleTemplate,
+      default: t('Root.Metadata.Title'),
+      template: t('Root.Metadata.TitleTemplate'),
     },
     themeColor: [
       { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
       { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
     ],
-    description: messages.Root.Metadata.Description,
-    keywords: messages.Root.Metadata.Keywords,
+    description: t('Root.Metadata.Description'),
+    keywords: t('Root.Metadata.Keywords'),
     icons: {
       icon: '/assets/favicon-v2.ico',
       shortcut: '/assets/favicon-v2.ico',
@@ -50,14 +53,14 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
     manifest: '/assets/site.webmanifest',
     openGraph: {
       title: {
-        default: messages.Root.Metadata.Title,
-        template: messages.Root.Metadata.TitleTemplate,
+        default: t('Root.Metadata.Title'),
+        template: t('Root.Metadata.TitleTemplate'),
       },
-      description: messages.Root.Metadata.Description,
-      siteName: messages.Root.Metadata.Title,
-      locale: params.locale,
+      description: t('Root.Metadata.Description'),
+      siteName: t('Root.Metadata.Title'),
+      locale,
       type: 'website',
-      images: [getOpenGraphImage(messages.Root.Metadata.Title, params.locale)],
+      images: [getOpenGraphImage(t('Root.Metadata.Title'), locale)],
     },
     robots: {
       index: true,
@@ -79,17 +82,21 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
 }
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: RootParams }) {
-  let messages
-  try {
-    messages = await getMessages(params)
-  } catch (error) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params
+  if (!routing.locales.includes(locale as any)) {
     notFound()
   }
 
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages()
+
   return (
-    <html lang={params.locale} suppressHydrationWarning className={`font-sans ${fontSansEn.variable}`}>
+    <html lang={locale} suppressHydrationWarning className={`font-sans ${fontSansEn.variable}`}>
       <head>
         <script
+          // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
           dangerouslySetInnerHTML={{
             __html: `${uwu.toString()};uwu()`,
           }}
@@ -102,7 +109,7 @@ export default async function RootLayout({ children, params }: { children: React
       <PostHogProvider>
         <body className='bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300'>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-            <IntlProvider locale={params.locale} messages={messages}>
+            <NextIntlClientProvider messages={messages}>
               <Background />
               <main className='relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                 <Rulers />
@@ -115,7 +122,7 @@ export default async function RootLayout({ children, params }: { children: React
                   <Footer />
                 </section>
               </main>
-            </IntlProvider>
+            </NextIntlClientProvider>
 
             <Toasts />
           </ThemeProvider>

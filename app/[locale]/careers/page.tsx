@@ -1,19 +1,20 @@
 import type { Metadata } from 'next'
-import { getMessages } from '~/i18n.server'
+import { getTranslations } from 'next-intl/server'
 import { getJobs } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
 import { Careers } from './Careers'
 
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
-  const messages = await getMessages(params)
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return {
-    title: messages.Careers.Title,
-    description: messages.Careers.Description,
+    title: t('Careers.Title'),
+    description: t('Careers.Description'),
     openGraph: {
-      title: messages.Careers.Title,
-      description: messages.Careers.Description,
-      images: [getOpenGraphImage(messages.Careers.Title, params.locale)],
+      title: t('Careers.Title'),
+      description: t('Careers.Description'),
+      images: [getOpenGraphImage(t('Careers.Title'), locale)],
     },
   }
 }

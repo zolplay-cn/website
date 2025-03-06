@@ -34,5 +34,13 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.autoImportFileExcludePatterns": ["typescript"],
 
-  "tailwindCSS.experimental.classRegex": [["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]]
+  "tailwindCSS.experimental.classRegex": [["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]],
+
+  "i18n-ally.localesPaths": [
+    "./messages"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "cSpell.words": [
+    "Zolplay"
+  ]
 }

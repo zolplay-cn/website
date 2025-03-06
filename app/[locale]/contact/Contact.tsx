@@ -8,6 +8,7 @@ import { TbMail } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
 import { Form } from '~/components/ui/Form'
+import { DefaultRichTextComponents } from '~/i18n/RichText'
 
 const contactFormSchema = z.object({
   message: z.string().min(2),
@@ -47,7 +48,7 @@ export function Contact() {
 
   return (
     <>
-      <h1>{t.rich('Heading')}</h1>
+      <h1>{t.rich('Heading', DefaultRichTextComponents)}</h1>
 
       <p>{t('Description')}</p>
 

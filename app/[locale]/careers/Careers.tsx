@@ -1,6 +1,6 @@
 'use client'
 
-import { Link, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 import React from 'react'
@@ -8,6 +8,8 @@ import { TbArrowBadgeRight, TbArrowRight, TbIdBadge } from 'react-icons/tb'
 import { Benefits } from '~/components/Benefits'
 import { OurTools } from '~/components/OurTools'
 import { ButtonLink } from '~/components/ui/Button'
+import { Link } from '~/i18n/navigation'
+import { DefaultRichTextComponents } from '~/i18n/RichText'
 import WorkshopImage from './careers-workshop.jpg'
 import FunImage from './fun.jpg'
 
@@ -17,8 +19,8 @@ export function Careers({ jobs }: { jobs: any[] }) {
 
   return (
     <>
-      <h1>{t.rich('Heading')}</h1>
-      <p>{t.rich('Intro')}</p>
+      <h1>{t.rich('Heading', DefaultRichTextComponents)}</h1>
+      <p>{t.rich('Intro', DefaultRichTextComponents)}</p>
 
       <ButtonLink
         href='#positions'
@@ -32,11 +34,11 @@ export function Careers({ jobs }: { jobs: any[] }) {
 
       <section>
         <Image src={WorkshopImage} alt={t('Title')} placeholder='blur' />
-        <p>{t.rich('Grow')}</p>
+        <p>{t.rich('Grow', DefaultRichTextComponents)}</p>
 
         <Image src={FunImage} alt={t('Title')} placeholder='blur' />
-        <p>{t.rich('Fun')}</p>
-        <p>{t.rich('Async')}</p>
+        <p>{t.rich('Fun', DefaultRichTextComponents)}</p>
+        <p>{t.rich('Async', DefaultRichTextComponents)}</p>
       </section>
 
       <Benefits />

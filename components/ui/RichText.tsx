@@ -36,7 +36,7 @@ export const DefaultRichTextComponents = {
   ),
 }
 
-const DefaultMarks = Object.freeze({
+export const DefaultMarks = Object.freeze({
   red: ({ text }) => (
     <span className='bg-gradient-to-r from-red-400 to-red-600 bg-clip-text font-bold tracking-tight text-transparent dark:from-red-200 dark:to-red-400'>
       {text}

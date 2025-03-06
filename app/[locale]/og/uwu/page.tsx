@@ -1,20 +1,22 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { getMessages } from '~/i18n.server'
 
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
-  const messages = await getMessages(params)
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return {
     title: {
-      default: messages.Root.Metadata.Title,
-      template: messages.Root.Metadata.TitleTemplate,
+      default: t('Root.Metadata.Title'),
+      template: t('Root.Metadata.TitleTemplate'),
     },
     themeColor: [
       { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
       { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
     ],
-    description: messages.Root.Metadata.Description,
-    keywords: messages.Root.Metadata.Keywords,
+    description: t('Root.Metadata.Description'),
+    keywords: t('Root.Metadata.Keywords'),
     icons: {
       icon: '/assets/favicon-32x32.png',
       shortcut: '/assets/favicon.ico',
@@ -23,12 +25,12 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
     manifest: '/assets/site.webmanifest',
     openGraph: {
       title: {
-        default: messages.Root.Metadata.Title,
-        template: messages.Root.Metadata.TitleTemplate,
+        default: t('Root.Metadata.Title'),
+        template: t('Root.Metadata.TitleTemplate'),
       },
-      description: messages.Root.Metadata.Description,
-      siteName: messages.Root.Metadata.Title,
-      locale: params.locale,
+      description: t('Root.Metadata.Description'),
+      siteName: t('Root.Metadata.Title'),
+      locale,
       type: 'website',
       images: ['https://assets.moimoi.app/zolplay-logo-uwu.png'],
     },
