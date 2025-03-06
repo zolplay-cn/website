@@ -1,8 +1,9 @@
-import {
-  documentI18n,
-  getFilteredDocumentTypeListItems,
-} from '@sanity/document-internationalization'
+import { documentI18n, getFilteredDocumentTypeListItems } from '@sanity/document-internationalization'
 import { visionTool } from '@sanity/vision'
+import { apiVersion, dataset, previewSecretId, projectId } from 'lib/sanity.api'
+import { previewDocumentNode } from 'plugins/previewPane'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
@@ -11,11 +12,8 @@ import { portfolioSchema } from '~/schemas/documents/portfolio'
 import { squadSchema } from '~/schemas/documents/squad'
 import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { localeStringSchema } from '~/schemas/objects/localeString'
-import { apiVersion, dataset, previewSecretId, projectId } from 'lib/sanity.api'
-import { previewDocumentNode } from 'plugins/previewPane'
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
 
+// eslint-disable-next-line node/prefer-global/process
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Zolplay Website'
 
 export default defineConfig({
@@ -24,15 +22,7 @@ export default defineConfig({
   dataset,
   title,
   schema: {
-    types: [
-      localeStringSchema,
-      blockContentSchema,
-      memberSchema,
-      squadSchema,
-      jobSchema,
-      portfolioSchema,
-      pageSchema,
-    ],
+    types: [localeStringSchema, blockContentSchema, memberSchema, squadSchema, jobSchema, portfolioSchema, pageSchema],
   },
   plugins: [
     documentI18n({
@@ -50,7 +40,7 @@ export default defineConfig({
           },
         }).map((item) => {
           // pluralize the title
-          item.title = item.title + 's'
+          item.title = `${item.title}s`
           return item
         })
 
@@ -58,7 +48,7 @@ export default defineConfig({
           .title('Content')
           .items([...items])
       },
-      // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
+      // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton

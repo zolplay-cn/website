@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from 'framer-motion'
 import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
+import { AnimatePresence, motion } from 'framer-motion'
 import { formError, label, textInput } from '../job'
 
 export function LongText<T extends Record<string, any>>({
@@ -20,19 +20,17 @@ export function LongText<T extends Record<string, any>>({
       <label htmlFor={path as string} className={label()}>
         {title}
       </label>
-      <div className="mb-[10px] mt-1 text-[13px] leading-4 text-stone-500">
-        {subtitle}
-      </div>
+      <div className='mb-[10px] mt-1 text-[13px] leading-4 text-stone-500'>{subtitle}</div>
       <div>
         <textarea
           id={path as string}
           autoComplete={path}
           className={textInput()}
-          placeholder="Type here..."
+          placeholder='Type here...'
           rows={4}
           {...register(path)}
         />
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode='wait'>
           {errors[path] && (
             <motion.span
               className={formError()}

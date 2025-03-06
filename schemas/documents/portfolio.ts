@@ -1,14 +1,14 @@
-import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { TbCarouselHorizontal } from 'react-icons/tb'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 
 export const PaletteSwatch = z.object({
   background: z.string(),
   foreground: z.string(),
 })
 
-export const Portfolio = z.object({
+export const portfolio = z.object({
   _id: z.string(),
   title: z.string(),
   slug: z.string(),
@@ -29,7 +29,7 @@ export const Portfolio = z.object({
   order: z.number(),
   content: z.any(),
 })
-export type Portfolio = z.infer<typeof Portfolio>
+export type Portfolio = z.infer<typeof portfolio>
 
 export const portfolioSchema = defineType({
   name: 'portfolio',

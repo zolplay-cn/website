@@ -1,7 +1,7 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { Buffer } from 'node:buffer'
 import fs from 'node:fs'
 import formidable from 'formidable'
-import type { NextApiRequest, NextApiResponse } from 'next'
 import request from 'request'
 
 export const config = {
@@ -12,7 +12,7 @@ export const config = {
 
 const AshbySubmitURL = 'https://api.ashbyhq.com/applicationForm.submit'
 
-const requestAshby = (formData: any) => {
+function requestAshby(formData: any) {
   return new Promise((resolve) => {
     try {
       request(
@@ -21,9 +21,8 @@ const requestAshby = (formData: any) => {
           url: AshbySubmitURL,
           headers: {
             'Content-Type': 'multipart/form-data',
-            authorization: `Basic ${Buffer.from(
-              `${process.env.ASHBY_API_KEY!}:`
-            ).toString('base64')}`,
+            // eslint-disable-next-line node/prefer-global/process
+            authorization: `Basic ${Buffer.from(`${process.env.ASHBY_API_KEY!}:`).toString('base64')}`,
           },
           formData,
         },
@@ -34,7 +33,7 @@ const requestAshby = (formData: any) => {
           } else {
             resolve(JSON.parse(res.body))
           }
-        }
+        },
       )
     } catch (error) {
       resolve(null)
@@ -42,10 +41,7 @@ const requestAshby = (formData: any) => {
   })
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') return res.status(405).end()
 
   try {

@@ -1,9 +1,9 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { PortfolioPage } from '~/app/[locale]/portfolios/[slug]/PortfolioPage'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getPortfolio, getPortfolioSlugs } from '~/lib/sanity.queries'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   const slugs = await getPortfolioSlugs()
@@ -23,11 +23,7 @@ async function fetchPortfolio(params: PageParams) {
   return portfolio
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: PageParams
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const portfolio = await fetchPortfolio(params)
   const messages = await getMessages(params)
 
@@ -37,13 +33,7 @@ export async function generateMetadata({
     openGraph: {
       title: portfolio.title,
       description: portfolio.description,
-      images: [
-        getOpenGraphImage(
-          portfolio.title,
-          params.locale,
-          messages.Portfolios.Details.Subtitle
-        ),
-      ],
+      images: [getOpenGraphImage(portfolio.title, params.locale, messages.Portfolios.Details.Subtitle)],
     },
   }
 }

@@ -1,14 +1,10 @@
+import type { Metadata } from 'next'
 import { getMessages } from '~/i18n.server'
 import { getJobs } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
-import type { Metadata } from 'next'
 import { Careers } from './Careers'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: RootParams
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   const messages = await getMessages(params)
 
   return {

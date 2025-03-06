@@ -10,13 +10,13 @@ const Highlight = styled.span`
 `
 const HighlightDecorator = (props) => <Highlight>{props.children}</Highlight>
 const RedIcon = () => <span style={{ color: 'red' }}>R</span>
-const RedDecorator = (props) => (
-  <span style={{ color: 'red' }}>{props.children}</span>
-)
+function RedDecorator(props) {
+  return <span style={{ color: 'red' }}>{props.children}</span>
+}
 const GreenIcon = () => <span style={{ color: 'green' }}>G</span>
-const GreenDecorator = (props) => (
-  <span style={{ color: 'green' }}>{props.children}</span>
-)
+function GreenDecorator(props) {
+  return <span style={{ color: 'green' }}>{props.children}</span>
+}
 
 export const blockContentSchema = defineType({
   name: 'blockContent',

@@ -1,11 +1,13 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { getOpenGraphImage } from '~/lib/helper'
 import { urlForImage } from '~/lib/sanity.image'
 import { getPage, getPageSlugs } from '~/lib/sanity.queries'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import { CustomPage } from './CustomPage'
 
-type PageProps = { params: RootParams & { slug: string[] } }
+interface PageProps {
+  params: RootParams & { slug: string[] }
+}
 
 function getSlug(params: PageProps['params']) {
   return params.slug.join('/')
@@ -37,11 +39,7 @@ export async function generateMetadata({ params }: PageProps) {
       images: page.ogImage
         ? [
             {
-              url: urlForImage(page.ogImage)
-                .size(1200, 630)
-                .fit('fillmax')
-                .auto('format')
-                .url(),
+              url: urlForImage(page.ogImage).size(1200, 630).fit('fillmax').auto('format').url(),
               width: 1200,
               height: 630,
             },

@@ -1,11 +1,11 @@
+import type { Job } from '~/schemas/documents/job'
+import type { member } from '~/schemas/documents/member'
+import type { page } from '~/schemas/documents/page'
+import type { portfolio } from '~/schemas/documents/portfolio'
+import type { squad } from '~/schemas/documents/squad'
+import { groq } from 'next-sanity'
 import { i18n } from '~/i18n'
 import { sanity } from '~/lib/sanity.client'
-import type { Job } from '~/schemas/documents/job'
-import type { Member } from '~/schemas/documents/member'
-import type { Page } from '~/schemas/documents/page'
-import type { Portfolio } from '~/schemas/documents/portfolio'
-import type { Squad } from '~/schemas/documents/squad'
-import { groq } from 'next-sanity'
 
 const localeMapper = {
   'zh-CN': 'zh_CN',
@@ -50,19 +50,17 @@ export async function getSquads(locale: string) {
   return sanity!.fetch<Squad[]>(squadsQuery, makeLocaleParams(locale))
 }
 
-export const jobsQuery = (filter?: string) =>
-  groq`*[_type == "job" && open == true ${filter ? `&& ${filter}` : ''}] {
+export function jobsQuery(filter?: string) {
+  return groq`*[_type == "job" && open == true ${filter ? `&& ${filter}` : ''}] {
   ...,
   "squad": squad->{
     ...,
     "title": title[$locale],
   }
 }`
+}
 export async function getJobs(locale: string) {
-  return sanity!.fetch<Job[]>(
-    jobsQuery(makeLocaleFilter(locale)),
-    makeLocaleParams(locale)
-  )
+  return sanity!.fetch<Job[]>(jobsQuery(makeLocaleFilter(locale)), makeLocaleParams(locale))
 }
 
 export const jobIdsQuery = groq`*[_type == "job" && open == true && !defined(__i18n_lang)]._id`
@@ -80,10 +78,8 @@ export async function getPortfolioSlugs() {
   return sanity!.fetch<string[]>(portfolioIdsQuery)
 }
 
-export const portfoliosQuery = (filter?: string) =>
-  groq`*[_type == "portfolio" ${
-    filter ? `&& ${filter}` : ''
-  }] | order(order asc, _updatedAt desc) {
+export function portfoliosQuery(filter?: string) {
+  return groq`*[_type == "portfolio" ${filter ? `&& ${filter}` : ''}] | order(order asc, _updatedAt desc) {
   ...,
   image {
     _ref,
@@ -95,18 +91,13 @@ export const portfoliosQuery = (filter?: string) =>
     }
   }
 }`
+}
 export async function getPortfolios(locale: string) {
-  return sanity!.fetch<Portfolio[]>(
-    portfoliosQuery(makeLocaleFilter(locale)),
-    makeLocaleParams(locale)
-  )
+  return sanity!.fetch<Portfolio[]>(portfoliosQuery(makeLocaleFilter(locale)), makeLocaleParams(locale))
 }
 
-export const portfolioQuery = (
-  filter?: string
-) => groq`*[_type == "portfolio" && slug == $slug ${
-  filter ? `&& ${filter}` : ''
-}][0] {
+export function portfolioQuery(filter?: string) {
+  return groq`*[_type == "portfolio" && slug == $slug ${filter ? `&& ${filter}` : ''}][0] {
   ...,
   image {
     _ref,
@@ -124,20 +115,12 @@ export const portfolioQuery = (
     }
   }
 }`
-export async function getPortfolio({
-  slug,
-  locale,
-}: {
-  slug: string
-  locale: string
-}) {
-  return sanity!.fetch<Portfolio | undefined>(
-    portfolioQuery(makeLocaleFilter(locale)),
-    {
-      ...makeLocaleParams(locale),
-      slug,
-    }
-  )
+}
+export async function getPortfolio({ slug, locale }: { slug: string; locale: string }) {
+  return sanity!.fetch<Portfolio | undefined>(portfolioQuery(makeLocaleFilter(locale)), {
+    ...makeLocaleParams(locale),
+    slug,
+  })
 }
 
 export const membersQuery = groq`*[_type == "member"] | order(name asc, _updatedAt desc) {
@@ -160,11 +143,8 @@ export async function getPageSlugs() {
   return sanity!.fetch<string[]>(pageSlugsQuery)
 }
 
-const pageQuery = (
-  filter?: string
-) => groq`*[_type == "page" && slug == $slug ${
-  filter ? `&& ${filter}` : ''
-}][0] {
+function pageQuery(filter?: string) {
+  return groq`*[_type == "page" && slug == $slug ${filter ? `&& ${filter}` : ''}][0] {
   ...,
   content[] {
     ...,
@@ -174,13 +154,8 @@ const pageQuery = (
     },
   }
 }`
-export async function getPage({
-  slug,
-  locale,
-}: {
-  slug: string
-  locale: string
-}) {
+}
+export async function getPage({ slug, locale }: { slug: string; locale: string }) {
   return sanity!.fetch<Page>(pageQuery(makeLocaleFilter(locale)), {
     ...makeLocaleParams(locale),
     slug,

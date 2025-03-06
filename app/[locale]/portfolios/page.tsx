@@ -1,15 +1,11 @@
+import type { Metadata } from 'next'
 import { PortfolioCard } from '~/app/[locale]/portfolios/PortfolioCard'
 import { Portfolios } from '~/app/[locale]/portfolios/Portfolios'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getPortfolios } from '~/lib/sanity.queries'
-import type { Metadata } from 'next'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: RootParams
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   const messages = await getMessages(params)
 
   return {
@@ -23,11 +19,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function PortfolioPage({
-  params,
-}: {
-  params: RootParams
-}) {
+export default async function PortfolioPage({ params }: { params: RootParams }) {
   const portfolios = await getPortfolios(params.locale)
 
   return (

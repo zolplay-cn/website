@@ -1,10 +1,13 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+import type { ParseBody } from 'next-sanity/webhook'
+import type { page } from '~/schemas/documents/page'
+import type { portfolio } from '~/schemas/documents/portfolio'
+import { parseBody } from 'next-sanity/webhook'
 import { i18n } from '~/i18n'
 import { jobSchema } from '~/schemas/documents/job'
 import { memberSchema } from '~/schemas/documents/member'
-import { pageSchema, type Page } from '~/schemas/documents/page'
-import { portfolioSchema, type Portfolio } from '~/schemas/documents/portfolio'
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { parseBody, type ParseBody } from 'next-sanity/webhook'
+import { pageSchema } from '~/schemas/documents/page'
+import { portfolioSchema } from '~/schemas/documents/portfolio'
 
 export { config } from 'next-sanity/webhook'
 
@@ -12,15 +15,9 @@ function getAllLocaleRoutes(route: string) {
   return i18n.locales.map((locale) => `/${locale}${route}`)
 }
 
-export default async function revalidate(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function revalidate(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { body, isValidSignature } = await parseBody(
-      req,
-      process.env.REVALIDATE_SECRET
-    )
+    const { body, isValidSignature } = await parseBody(req, process.env.REVALIDATE_SECRET)
     if (isValidSignature === false) {
       const message = 'Invalid signature'
       console.log(message)
@@ -45,9 +42,7 @@ export default async function revalidate(
   }
 }
 
-async function queryStaleRoutes(
-  body: Pick<ParseBody['body'], '_type' | '_id'>
-) {
+async function queryStaleRoutes(body: Pick<ParseBody['body'], '_type' | '_id'>) {
   // uncomment to use sanityClient if needed
   // const client = createClient({ projectId, dataset, apiVersion, useCdn: false })
 
@@ -66,17 +61,11 @@ async function queryStaleRoutes(
 }
 
 function queryStaleJobRoutes(id: string) {
-  return [
-    ...getAllLocaleRoutes('/careers'),
-    ...getAllLocaleRoutes(`/careers/${id.replace('__i18n_en', '')}`),
-  ]
+  return [...getAllLocaleRoutes('/careers'), ...getAllLocaleRoutes(`/careers/${id.replace('__i18n_en', '')}`)]
 }
 
 async function queryStalePortfolioRoutes(portfolio: Portfolio) {
-  return [
-    ...getAllLocaleRoutes('/portfolios'),
-    ...getAllLocaleRoutes(`/portfolios/${portfolio.slug}`),
-  ]
+  return [...getAllLocaleRoutes('/portfolios'), ...getAllLocaleRoutes(`/portfolios/${portfolio.slug}`)]
 }
 
 async function queryStalePageRoutes(page: Page) {

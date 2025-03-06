@@ -1,5 +1,5 @@
 import { useLocalStorage } from 'foxact/use-local-storage'
 
-export const useUWU = () => {
+export function useUWU() {
   return useLocalStorage('uwu', false)[0]
 }

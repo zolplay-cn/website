@@ -1,8 +1,8 @@
+import type { HTMLInputTypeAttribute } from 'react'
+import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
 import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'framer-motion'
-import type { HTMLInputTypeAttribute } from 'react'
 import React from 'react'
-import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
 import { formError, label, textInput } from '../job'
 
 export function Input<T extends Record<string, any>>({
@@ -30,16 +30,13 @@ export function Input<T extends Record<string, any>>({
         htmlFor={path as string}
         className={clsxm(
           label(),
-          isRequired &&
-            'after:font-semibold after:text-red-500 after:content-["*"] after:dark:text-red-400'
+          isRequired && 'after:font-semibold after:text-red-500 after:content-["*"] after:dark:text-red-400',
         )}
       >
         {title}
       </label>
-      <div className="mb-[10px] mt-1 text-[13px] leading-4 text-stone-500">
-        {subtitle}
-      </div>
-      <div className="mt-2">
+      <div className='mb-[10px] mt-1 text-[13px] leading-4 text-stone-500'>{subtitle}</div>
+      <div className='mt-2'>
         <input
           type={type}
           autoComplete={path}
@@ -48,7 +45,7 @@ export function Input<T extends Record<string, any>>({
           className={textInput()}
           {...register(path)}
         />
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode='wait'>
           {errors[path] && (
             <motion.span
               className={formError()}

@@ -1,9 +1,9 @@
 import type { ComponentProps } from '@zolplay/react'
 import { clsxm } from '@zolplay/utils'
-import { Button } from '~/components/ui/Button'
 import { cva } from 'class-variance-authority'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
+import { Button } from '~/components/ui/Button'
 
 type FormRootProps = ComponentProps & {
   submitting?: boolean
@@ -14,7 +14,7 @@ function Root({ className, children, submitting, ...rest }: FormRootProps) {
       className={clsxm(
         'space-y-8 divide-y divide-stone-200 transition-opacity dark:divide-stone-700/60',
         submitting && 'pointer-events-none opacity-50',
-        className
+        className,
       )}
       {...rest}
     >
@@ -26,14 +26,7 @@ Root.displayName = 'Form.Root'
 
 function Container({ children, className }: ComponentProps) {
   return (
-    <div
-      className={clsxm(
-        'space-y-8 divide-y divide-stone-200 dark:divide-stone-700/60',
-        className
-      )}
-    >
-      {children}
-    </div>
+    <div className={clsxm('space-y-8 divide-y divide-stone-200 dark:divide-stone-700/60', className)}>{children}</div>
   )
 }
 Container.displayName = 'Form.Container'
@@ -46,12 +39,10 @@ function Section({ children, className, title }: FormSectionProps) {
     <section className={className}>
       {title && (
         <div>
-          <h3 className="text-base font-semibold leading-6">{title}</h3>
+          <h3 className='text-base font-semibold leading-6'>{title}</h3>
         </div>
       )}
-      <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
-        {children}
-      </div>
+      <div className='mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6'>{children}</div>
     </section>
   )
 }
@@ -65,14 +56,9 @@ type FormFieldGroupProps = ComponentProps & {
   size?: 'sm' | 'md' | 'lg'
   name?: string
 }
-function FieldGroup({
-  children,
-  className,
-  size = 'md',
-  name,
-}: FormFieldGroupProps) {
+function FieldGroup({ children, className, size = 'md', name }: FormFieldGroupProps) {
   return (
-    <FieldGroupContext.Provider value={{ name }}>
+    <FieldGroupContext value={{ name }}>
       <div
         className={clsxm(
           'space-y-2',
@@ -81,12 +67,12 @@ function FieldGroup({
             'sm:col-span-3': size === 'md',
             'sm:col-span-6': size === 'lg',
           },
-          className
+          className,
         )}
       >
         {children}
       </div>
-    </FieldGroupContext.Provider>
+    </FieldGroupContext>
   )
 }
 FieldGroup.displayName = 'Form.FieldGroup'
@@ -97,13 +83,7 @@ type FormLabelProps = {
 } & React.LabelHTMLAttributes<HTMLLabelElement>
 function Label({ className, htmlFor, ...rest }: FormLabelProps) {
   const { name } = React.useContext(FieldGroupContext)
-  return (
-    <label
-      className={clsxm(label(), className)}
-      htmlFor={name ?? htmlFor}
-      {...rest}
-    />
-  )
+  return <label className={clsxm(label(), className)} htmlFor={name ?? htmlFor} {...rest} />
 }
 Label.displayName = 'Form.Label'
 
@@ -114,61 +94,65 @@ type FormInputProps = {
   className?: string
   label?: string
 } & React.InputHTMLAttributes<HTMLInputElement>
-const Input = React.forwardRef<HTMLInputElement, FormInputProps>(
-  ({ className, id, name, type, ...rest }, ref) => {
-    const { name: defaultName } = React.useContext(FieldGroupContext)
-    return (
-      <input
-        ref={ref}
-        className={clsxm(input(), className)}
-        id={id ?? defaultName ?? name}
-        name={defaultName ?? name}
-        type={type ?? 'text'}
-        autoCorrect="off"
-        autoComplete="off"
-        spellCheck={false}
-        {...rest}
-      />
-    )
-  }
-)
+function Input({
+  ref,
+  className,
+  id,
+  name,
+  type,
+  ...rest
+}: FormInputProps & { ref?: React.RefObject<HTMLInputElement | null> }) {
+  const { name: defaultName } = React.useContext(FieldGroupContext)
+  return (
+    <input
+      ref={ref}
+      className={clsxm(input(), className)}
+      id={id ?? defaultName ?? name}
+      name={defaultName ?? name}
+      type={type ?? 'text'}
+      autoCorrect='off'
+      autoComplete='off'
+      spellCheck={false}
+      {...rest}
+    />
+  )
+}
 Input.displayName = 'Form.Input'
 
 type FormTextAreaProps = {
   className?: string
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>
-const TextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
-  ({ className, id, name, ...rest }, ref) => {
-    const { name: defaultName } = React.useContext(FieldGroupContext)
-    return (
-      <textarea
-        ref={ref}
-        className={clsxm(input(), className)}
-        id={id ?? defaultName ?? name}
-        name={defaultName ?? name}
-        autoCorrect="off"
-        autoComplete="off"
-        spellCheck={false}
-        {...rest}
-      />
-    )
-  }
-)
+function TextArea({
+  ref,
+  className,
+  id,
+  name,
+  ...rest
+}: FormTextAreaProps & { ref?: React.RefObject<HTMLTextAreaElement | null> }) {
+  const { name: defaultName } = React.useContext(FieldGroupContext)
+  return (
+    <textarea
+      ref={ref}
+      className={clsxm(input(), className)}
+      id={id ?? defaultName ?? name}
+      name={defaultName ?? name}
+      autoCorrect='off'
+      autoComplete='off'
+      spellCheck={false}
+      {...rest}
+    />
+  )
+}
 TextArea.displayName = 'Form.TextArea'
 
-type FormErrorProps = {
+interface FormErrorProps {
   message?: string
   className?: string
 }
-const formError = cva([
-  'text-red-600',
-  'dark:text-red-400',
-  'text-xs',
-  'font-semibold',
-])
+const formError = cva(['text-red-600', 'dark:text-red-400', 'text-xs', 'font-semibold'])
 function Error({ className, message }: FormErrorProps) {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode='wait'>
       {message !== undefined && message.trim() !== '' && (
         <motion.span
           className={clsxm(formError(), className)}
@@ -185,15 +169,13 @@ function Error({ className, message }: FormErrorProps) {
 Error.displayName = 'Form.Error'
 
 function Footer({ children, className }: ComponentProps) {
-  return (
-    <div className={clsxm('flex justify-end pt-6', className)}>{children}</div>
-  )
+  return <div className={clsxm('flex justify-end pt-6', className)}>{children}</div>
 }
 Footer.displayName = 'Form.Footer'
 
 function SubmitButton({ children, className }: ComponentProps) {
   return (
-    <Button type="submit" className={className}>
+    <Button type='submit' className={className}>
       {children}
     </Button>
   )

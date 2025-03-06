@@ -1,10 +1,10 @@
 'use client'
 
-import { Select } from '~/components/ui/Select'
 import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { Select } from '~/components/ui/Select'
 
 const languages = [
   {
@@ -27,7 +27,7 @@ export function LocaleSelector() {
     (locale: string) => {
       router.push(`${locale}${pathname}`)
     },
-    [router, pathname]
+    [router, pathname],
   )
 
   React.useEffect(() => setMounted(true), [])
@@ -41,15 +41,15 @@ export function LocaleSelector() {
   return (
     <Select.Root value={locale} onValueChange={onChange}>
       <Select.Trigger
-        className="flex w-fit justify-start space-x-1 border-none font-bold text-stone-400 transition-colors hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-200 md:w-40"
+        className='flex w-fit justify-start space-x-1 border-none font-bold text-stone-400 transition-colors hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-200 md:w-40'
         aria-label={t('Placeholder')}
       >
         <Select.Value placeholder={t('Placeholder')} />
       </Select.Trigger>
-      <Select.Content className="relative z-50" position="popper">
+      <Select.Content className='relative z-50' position='popper'>
         {languages.map(({ value, icon: Icon }) => (
           <Select.Item key={value} value={value}>
-            <span className="inline-flex select-none items-center space-x-2 font-bold">
+            <span className='inline-flex select-none items-center space-x-2 font-bold'>
               <Icon />
               <span>{t(value as any)}</span>
             </span>

@@ -1,9 +1,9 @@
-import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { TbFileText } from 'react-icons/tb'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 
-export const Page = z.object({
+export const page = z.object({
   _id: z.string(),
   title: z.string(),
   slug: z.string(),
@@ -11,7 +11,7 @@ export const Page = z.object({
   ogImage: z.any().optional(),
   content: z.any().optional(),
 })
-export type Page = z.infer<typeof Page>
+export type Page = z.infer<typeof page>
 
 export const pageSchema = defineType({
   name: 'page',

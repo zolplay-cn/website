@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@10.5.2",
   "scripts": {
     "build": "next build",
     "dev": "next dev --port 3333 --turbo",
@@ -53,6 +54,9 @@
     "zod-form-data": "^2.0.5"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.5.1",
+    "@eslint-react/eslint-plugin": "^1.30.2",
+    "@next/eslint-plugin-next": "^15.2.1",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@types/formidable": "^3.4.5",
@@ -60,19 +64,17 @@
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
     "@types/request": "^2.48.12",
-    "@zolplay/eslint-config": "^1.0.5",
-    "@zolplay/prettier-config": "^1.0.5",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.40.0",
-    "eslint-define-config": "^1.20.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
     "postcss": "^8.4.23",
-    "prettier": "^2.8.8",
-    "prettier-plugin-packagejson": "^2.4.3",
+    "prettier": "^3.5.3",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@10.5.2",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [

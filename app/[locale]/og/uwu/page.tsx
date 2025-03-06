@@ -1,11 +1,7 @@
-import { getMessages } from '~/i18n.server'
 import type { Metadata } from 'next'
+import { getMessages } from '~/i18n.server'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: RootParams
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   const messages = await getMessages(params)
 
   return {

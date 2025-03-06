@@ -1,6 +1,6 @@
+import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
 import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'framer-motion'
-import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
 import { formError, label, textInput } from '../job'
 
 export function Email<T extends Record<string, any>>({
@@ -22,22 +22,21 @@ export function Email<T extends Record<string, any>>({
         htmlFor={path as string}
         className={clsxm(
           label(),
-          isRequired &&
-            'after:font-semibold after:text-red-500 after:content-["*"] after:dark:text-red-400'
+          isRequired && 'after:font-semibold after:text-red-500 after:content-["*"] after:dark:text-red-400',
         )}
       >
         {title}
       </label>
-      <div className="mt-2">
+      <div className='mt-2'>
         <input
           id={path as string}
-          type="email"
+          type='email'
           autoComplete={path}
-          placeholder="hello@example.com..."
+          placeholder='hello@example.com...'
           className={textInput()}
           {...register(path)}
         />
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode='wait'>
           {errors[path] && (
             <motion.span
               className={formError()}

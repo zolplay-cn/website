@@ -1,11 +1,11 @@
+import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
+import React from 'react'
 import { getMessages } from '~/i18n.server'
 import { getJob } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
 import { getJobIds } from '~/lib/sanity.queries'
 import { Job } from '~/modules/careers/job'
-import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
-import React from 'react'
 
 export async function generateStaticParams() {
   const ids = await getJobIds()
@@ -20,11 +20,7 @@ async function fetchJob(params: PageParams) {
   return job
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: PageParams
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const job = await fetchJob(params)
 
   if (!job) {

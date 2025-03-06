@@ -1,17 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: [
-    './app/**/*.tsx',
-    './components/**/*.tsx',
-    './pages/**/*.tsx',
-    './plugins/**/*.tsx',
-    './modules/**/*.tsx',
-  ],
+  content: ['./app/**/*.tsx', './components/**/*.tsx', './pages/**/*.tsx', './plugins/**/*.tsx', './modules/**/*.tsx'],
   theme: {
     container: {
       center: true,

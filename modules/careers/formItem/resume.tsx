@@ -1,9 +1,9 @@
-import { Button } from '~/components/ui/Button'
+import type { FieldErrors, Path } from 'react-hook-form'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
-import type { FieldErrors, Path } from 'react-hook-form'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
 import { toast } from 'sonner'
+import { Button } from '~/components/ui/Button'
 import { formError } from '../job'
 
 export function Resume<T extends Record<string, any>>({
@@ -21,20 +21,16 @@ export function Resume<T extends Record<string, any>>({
 
   return (
     <div>
-      <div className="mt-6 rounded-md border border-dashed py-2">
-        <div className="mt-2">
-          <div className="space-y-3 text-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <BsFileEarmarkPdf className="mx-auto h-8 w-8 text-stone-400 dark:text-stone-500" />
+      <div className='mt-6 rounded-md border border-dashed py-2'>
+        <div className='mt-2'>
+          <div className='space-y-3 text-center'>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <BsFileEarmarkPdf className='mx-auto h-8 w-8 text-stone-400 dark:text-stone-500' />
             </motion.div>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode='wait'>
               {fileName && (
                 <motion.div
-                  className="flex flex-col items-center"
+                  className='flex flex-col items-center'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -44,12 +40,12 @@ export function Resume<T extends Record<string, any>>({
               )}
             </AnimatePresence>
 
-            <div className="text-sm text-stone-600 dark:text-stone-400">
+            <div className='text-sm text-stone-600 dark:text-stone-400'>
               <input
-                type="file"
-                className="sr-only"
+                type='file'
+                className='sr-only'
                 multiple={false}
-                accept="application/pdf"
+                accept='application/pdf'
                 ref={fileInputRef}
                 onChange={(e) => {
                   const file = e.target.files?.[0]
@@ -65,8 +61,8 @@ export function Resume<T extends Record<string, any>>({
                 }}
               />
               <Button
-                variant="outline"
-                type="button"
+                variant='outline'
+                type='button'
                 onClick={() => {
                   fileInputRef.current?.click()
                   if (fileInputRef.current) {
@@ -78,11 +74,9 @@ export function Resume<T extends Record<string, any>>({
               </Button>
             </div>
 
-            <p className="text-sm text-stone-500">
-              Resume should be PDF files and under 50MB
-            </p>
+            <p className='text-sm text-stone-500'>Resume should be PDF files and under 50MB</p>
 
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode='wait'>
               {errors[path] && (
                 <motion.span
                   className={formError()}

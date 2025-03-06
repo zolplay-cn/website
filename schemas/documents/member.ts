@@ -1,10 +1,11 @@
-import { PaletteSwatch } from '~/schemas/documents/portfolio'
-import { localeStringSchema } from '~/schemas/objects/localeString'
 import { FaUserAstronaut } from 'react-icons/fa'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
+import { PaletteSwatch } from '~/schemas/documents/portfolio'
+import { localeStringSchema } from '~/schemas/objects/localeString'
 
-const Member = z.object({
+// eslint-disable-next-line unused-imports/no-unused-vars
+const member = z.object({
   _id: z.string(),
   name: z.string(),
   slug: z.string(),
@@ -43,11 +44,11 @@ const Member = z.object({
         'website',
       ]),
       url: z.string().url(),
-    })
+    }),
   ),
   joinedDate: z.string(),
 })
-export type Member = z.infer<typeof Member>
+export type Member = z.infer<typeof member>
 
 export const memberSchema = defineType({
   name: 'member',

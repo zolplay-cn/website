@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { z } from 'zod'
 
-export const useApplicationSchema = () => {
+export function useApplicationSchema() {
   const t = useTranslations('Careers.Zod')
 
   const APPLICATION_SCHEMA = z.object({
@@ -23,6 +23,4 @@ export const useApplicationSchema = () => {
   return APPLICATION_SCHEMA
 }
 
-export type JobApplicationFields = z.infer<
-  ReturnType<typeof useApplicationSchema>
->
+export type JobApplicationFields = z.infer<ReturnType<typeof useApplicationSchema>>

@@ -1,14 +1,14 @@
+import type { NextRequest } from 'next/server'
 import { ImageResponse } from '@vercel/og'
 import { i18n } from '~/i18n'
-import type { NextRequest } from 'next/server'
 
 export const config = {
   runtime: 'edge',
 }
 
-const enFont = fetch(
-  new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
+const enFont = fetch(new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)).then((res) =>
+  res.arrayBuffer(),
+)
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
@@ -81,6 +81,6 @@ export default async function handler(req: NextRequest) {
           style: 'normal',
         },
       ],
-    }
+    },
   )
 }

@@ -1,8 +1,8 @@
-import { Squad, squadSchema } from '~/schemas/documents/squad'
-import { blockContentSchema } from '~/schemas/objects/blockContent'
 import { BsPersonWorkspace } from 'react-icons/bs'
 import { defineField, defineType } from 'sanity'
 import { z } from 'zod'
+import { squad, squadSchema } from '~/schemas/documents/squad'
+import { blockContentSchema } from '~/schemas/objects/blockContent'
 
 export const Job = z.object({
   _type: z.literal('job'),
@@ -12,7 +12,7 @@ export const Job = z.object({
   title: z.string(),
   remote: z.boolean(),
   employmentType: z.enum(['fullTime', 'partTime', 'contract', 'internship']),
-  squad: Squad,
+  squad: squad,
   excerpt: z.string(),
   description: z.array(z.any()),
 })

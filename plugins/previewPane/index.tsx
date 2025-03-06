@@ -6,13 +6,13 @@
 
 import type { DefaultDocumentNodeResolver } from 'sanity/desk'
 
-export const previewDocumentNode = ({
+export function previewDocumentNode({
   apiVersion,
   previewSecretId,
 }: {
   apiVersion: string
   previewSecretId: `${string}.${string}`
-}): DefaultDocumentNodeResolver => {
+}): DefaultDocumentNodeResolver {
   return (S, { schemaType }) => {
     switch (schemaType) {
       default:

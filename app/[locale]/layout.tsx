@@ -3,10 +3,8 @@ import { ThemeProvider } from 'next-themes'
 import { DM_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
-import 'tailwindcss/tailwind.css'
 import { Background } from '~/app/Background'
 import { Footer } from '~/app/Footer'
-import '~/app/globals.css'
 import IntlProvider from '~/app/IntlProvider'
 import { Rulers } from '~/app/Rulers'
 import { Sidebar } from '~/app/Sidebar'
@@ -14,10 +12,9 @@ import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
 import { getMessages } from '~/i18n.server'
 import { getOpenGraphImage } from '~/lib/helper'
-import {
-  PostHogPageview,
-  PHProvider as PostHogProvider,
-} from '../PostHogProvider'
+import { PostHogPageview, PHProvider as PostHogProvider } from '../PostHogProvider'
+import 'tailwindcss/tailwind.css'
+import '~/app/globals.css'
 
 const fontSansEn = DM_Sans({
   weight: ['400', '500', '700'],
@@ -31,11 +28,7 @@ export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: RootParams
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   const messages = await getMessages(params)
 
   return {
@@ -85,13 +78,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: RootParams
-}) {
+export default async function RootLayout({ children, params }: { children: React.ReactNode; params: RootParams }) {
   let messages
   try {
     messages = await getMessages(params)
@@ -100,11 +87,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html
-      lang={params.locale}
-      suppressHydrationWarning
-      className={`font-sans ${fontSansEn.variable}`}
-    >
+    <html lang={params.locale} suppressHydrationWarning className={`font-sans ${fontSansEn.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -117,20 +100,15 @@ export default async function RootLayout({
       </Suspense>
 
       <PostHogProvider>
-        <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+        <body className='bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300'>
+          <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <IntlProvider locale={params.locale} messages={messages}>
               <Background />
-              <main className="relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
+              <main className='relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                 <Rulers />
                 <Sidebar />
-                <section className="frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44">
-                  <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl">
+                <section className='frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
+                  <article className='prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl'>
                     {children}
                   </article>
 

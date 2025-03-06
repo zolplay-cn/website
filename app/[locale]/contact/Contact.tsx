@@ -1,13 +1,13 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Form } from '~/components/ui/Form'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { TbMail } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { Form } from '~/components/ui/Form'
 
 const contactFormSchema = z.object({
   message: z.string().min(2),
@@ -42,7 +42,7 @@ export function Contact() {
         toast.error(t('Form.Submit.Error'))
       }
     },
-    [t, reset]
+    [t, reset],
   )
 
   return (
@@ -54,14 +54,14 @@ export function Contact() {
       <Form.Root submitting={isSubmitting} onSubmit={handleSubmit(onSubmit)}>
         <Form.Container>
           <header>
-            <p className="flex flex-col text-sm tracking-tight text-stone-500 md:flex-row md:items-center">
+            <p className='flex flex-col text-sm tracking-tight text-stone-500 md:flex-row md:items-center'>
               {t.rich('Tips', {
                 email: (text) => (
-                  <span className="inline-flex items-center space-x-0.5 text-stone-600 dark:text-stone-300 md:mx-1">
-                    <TbMail className="h-4 w-4" />
+                  <span className='inline-flex items-center space-x-0.5 text-stone-600 dark:text-stone-300 md:mx-1'>
+                    <TbMail className='h-4 w-4' />
                     <a
-                      href="mailto:contact@zolplay.com"
-                      className="text-stone-600 no-underline hover:underline dark:text-stone-300"
+                      href='mailto:contact@zolplay.com'
+                      className='text-stone-600 no-underline hover:underline dark:text-stone-300'
                     >
                       {text}
                     </a>
@@ -72,29 +72,26 @@ export function Contact() {
           </header>
 
           <Form.Section>
-            <Form.FieldGroup name="name">
+            <Form.FieldGroup name='name'>
               <Form.Label>{t('Form.FullName.Label')}</Form.Label>
-              <Form.Input
-                placeholder={t('Form.FullName.Placeholder')}
-                {...register('name')}
-              />
+              <Form.Input placeholder={t('Form.FullName.Placeholder')} {...register('name')} />
               <Form.Error message={errors.name?.message} />
             </Form.FieldGroup>
-            <Form.FieldGroup name="email">
+            <Form.FieldGroup name='email'>
               <Form.Label>{t('Form.Email.Label')}</Form.Label>
               <Form.Input
-                type="email"
-                autoComplete="on"
+                type='email'
+                autoComplete='on'
                 placeholder={t('Form.Email.Placeholder')}
                 {...register('email')}
               />
               <Form.Error message={errors.email?.message} />
             </Form.FieldGroup>
 
-            <Form.FieldGroup name="message" size="lg">
+            <Form.FieldGroup name='message' size='lg'>
               <Form.Label>{t('Form.Message.Label')}</Form.Label>
               <Form.TextArea
-                defaultValue=""
+                defaultValue=''
                 rows={3}
                 placeholder={t('Form.Message.Placeholder')}
                 {...register('message')}
@@ -105,9 +102,7 @@ export function Contact() {
         </Form.Container>
 
         <Form.Footer>
-          <Form.SubmitButton>
-            {t(isSubmitting ? 'Form.Submit.Sending' : 'Form.Submit.Idle')}
-          </Form.SubmitButton>
+          <Form.SubmitButton>{t(isSubmitting ? 'Form.Submit.Sending' : 'Form.Submit.Idle')}</Form.SubmitButton>
         </Form.Footer>
       </Form.Root>
     </>

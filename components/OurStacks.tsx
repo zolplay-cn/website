@@ -33,14 +33,14 @@ export function OurStacks() {
   const t = useTranslations('Careers.OurStacks')
 
   return (
-    <section className="pb-2">
+    <section className='pb-2'>
       <h2>{t('Title')}</h2>
       <ul>
         {t.raw('Content').map((stack, i) => {
           const Icon = icons[i]
           return (
             <li key={i}>
-              <Icon className="mr-1 inline-block h-5 w-5" />
+              <Icon className='mr-1 inline-block h-5 w-5' />
               <strong>{stack.split(':')[0]}:</strong>
               {stack.split(':')[1]}
             </li>
