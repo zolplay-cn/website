@@ -3,32 +3,25 @@ import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { getJob } from '~/lib/ashbyhq.queries'
+import { getJob, getJobs } from '~/lib/ashbyhq.queries'
 import { getOpenGraphImage } from '~/lib/helper'
-import { getJobIds } from '~/lib/sanity.queries'
 import { Job } from '~/modules/careers/job'
 
 export async function generateStaticParams() {
-  const ids = await getJobIds()
-  return ids.map((id) => ({ id }))
+  const jobs = await getJobs()
+  return jobs.map((job) => ({ id: job.id }))
 }
 
-type PageParams = RootParams & { id: string }
-
-async function fetchJob(params: PageParams) {
-  const job = await getJob(params.id)
-
-  return job
-}
+type PageParams = RootParams & Promise<{ id: string }>
 
 export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
-  const job = await fetchJob(params)
+  const { id, locale } = await params
+  const job = await getJob(id)
 
   if (!job) {
     return {}
   }
 
-  const { locale } = await params
   const t = await getTranslations({ locale })
   const title = job.title
   const subtitle = t('Careers.Details.Subtitle')
@@ -45,7 +38,8 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
 }
 
 export default async function JobPage({ params }: { params: PageParams }) {
-  const job = await fetchJob(params)
+  const { id } = await params
+  const job = await getJob(id)
 
   if (!job) {
     redirect('/careers')
