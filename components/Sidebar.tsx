@@ -19,7 +19,7 @@ import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/Logo'
 import { Clock } from '~/components/ui/Clock'
 import { useUWU } from '~/hooks/useUWU'
 import { Link, usePathname } from '~/modules/i18n/navigation'
-import UwU from './[locale]/zolplay-logo-uwu.png'
+import UwU from '../modules/uwu/zolplay-logo-uwu.png'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },

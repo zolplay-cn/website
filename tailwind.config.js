@@ -4,7 +4,15 @@ const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: ['./app/**/*.tsx', './components/**/*.tsx', './pages/**/*.tsx', './plugins/**/*.tsx', './modules/**/*.tsx'],
+  content: [
+    './app/**/*.tsx',
+    './components/**/*.tsx',
+    './pages/**/*.tsx',
+    './plugins/**/*.tsx',
+    './modules/**/*.tsx',
+    './mdx-components.tsx',
+    './app/**/*.mdx',
+  ],
   theme: {
     container: {
       center: true,

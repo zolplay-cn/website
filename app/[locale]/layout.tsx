@@ -10,7 +10,7 @@ import { Background } from '~/app/Background'
 import { Footer } from '~/app/Footer'
 import { Rulers } from '~/app/Rulers'
 
-import { Sidebar } from '~/app/Sidebar'
+import { Sidebar } from '~/components/Sidebar'
 import { Toasts } from '~/app/Toasts'
 import { i18n } from '~/i18n'
 import { getOpenGraphImage } from '~/lib/helper'
