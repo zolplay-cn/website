@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   },
 }
 
-const withNextIntl = createNextIntlPlugin()
+const withNextIntl = createNextIntlPlugin('./modules/i18n/request.ts')
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
 })
