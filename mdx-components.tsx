@@ -1,6 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
-import { ZolplayPoster } from './modules/mdx-components/zolplay-poster'
 import NextImage from 'next/image'
+import { ZolplayPoster } from './modules/mdx-components/zolplay-poster'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -20,8 +20,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </span>
     ),
-    ZolplayPoster: ZolplayPoster,
-    Image:NextImage
-
+    ZolplayPoster,
+    Image: NextImage,
   }
 }

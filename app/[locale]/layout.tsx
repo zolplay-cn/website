@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import type { RootParams } from '~/types/app'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
@@ -32,6 +32,13 @@ export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
+    { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
+  ],
+}
+
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale })
@@ -41,10 +48,6 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
       default: t('Root.Metadata.Title'),
       template: t('Root.Metadata.TitleTemplate'),
     },
-    themeColor: [
-      { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
-      { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
-    ],
     description: t('Root.Metadata.Description'),
     keywords: t('Root.Metadata.Keywords'),
     icons: {
