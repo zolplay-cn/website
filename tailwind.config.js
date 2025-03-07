@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
@@ -11,6 +10,8 @@ module.exports = {
     './pages/**/*.tsx',
     './plugins/**/*.tsx',
     './modules/**/*.tsx',
+    './mdx-components.tsx',
+    './app/**/*.mdx',
   ],
   theme: {
     container: {

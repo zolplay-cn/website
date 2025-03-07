@@ -1,23 +1,22 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import type { RootParams } from '~/types/app'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages, getTranslations } from 'next-intl/server'
+import { ThemeProvider } from 'next-themes'
 import { DM_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
-import 'tailwindcss/tailwind.css'
-import { Background } from '~/app/Background'
-import { Footer } from '~/app/Footer'
-import '~/app/globals.css'
-import IntlProvider from '~/app/IntlProvider'
-import { Rulers } from '~/app/Rulers'
-import { Sidebar } from '~/app/Sidebar'
-import { ThemeProvider } from '~/app/ThemeProvider'
-import { Toasts } from '~/app/Toasts'
-import { i18n } from '~/i18n'
-import { getMessages } from '~/i18n.server'
+import { Background } from '~/components/background'
+import { Footer } from '~/components/footer'
+
+import { Rulers } from '~/components/rulers'
+import { Sidebar } from '~/components/sidebar'
+import { Toasts } from '~/components/toasts'
 import { getOpenGraphImage } from '~/lib/helper'
-import {
-  PostHogPageview,
-  PHProvider as PostHogProvider,
-} from '../PostHogProvider'
+import { routing } from '~/modules/i18n/routing'
+import { PostHogPageview, PHProvider as PostHogProvider } from '../../lib/posthog/posthog-provider'
+import 'tailwindcss/tailwind.css'
+import '~/app/globals.css'
 
 const fontSansEn = DM_Sans({
   weight: ['400', '500', '700'],
@@ -28,27 +27,27 @@ const fontSansEn = DM_Sans({
 })
 
 export function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ locale }))
+  return routing.locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: RootParams
-}): Promise<Metadata> {
-  const messages = await getMessages(params)
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
+    { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
+  ],
+}
+
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return {
     title: {
-      default: messages.Root.Metadata.Title,
-      template: messages.Root.Metadata.TitleTemplate,
+      default: t('Root.Metadata.Title'),
+      template: t('Root.Metadata.TitleTemplate'),
     },
-    themeColor: [
-      { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
-      { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
-    ],
-    description: messages.Root.Metadata.Description,
-    keywords: messages.Root.Metadata.Keywords,
+    description: t('Root.Metadata.Description'),
+    keywords: t('Root.Metadata.Keywords'),
     icons: {
       icon: '/assets/favicon-v2.ico',
       shortcut: '/assets/favicon-v2.ico',
@@ -57,14 +56,14 @@ export async function generateMetadata({
     manifest: '/assets/site.webmanifest',
     openGraph: {
       title: {
-        default: messages.Root.Metadata.Title,
-        template: messages.Root.Metadata.TitleTemplate,
+        default: t('Root.Metadata.Title'),
+        template: t('Root.Metadata.TitleTemplate'),
       },
-      description: messages.Root.Metadata.Description,
-      siteName: messages.Root.Metadata.Title,
-      locale: params.locale,
+      description: t('Root.Metadata.Description'),
+      siteName: t('Root.Metadata.Title'),
+      locale,
       type: 'website',
-      images: [getOpenGraphImage(messages.Root.Metadata.Title, params.locale)],
+      images: [getOpenGraphImage(t('Root.Metadata.Title'), locale)],
     },
     robots: {
       index: true,
@@ -85,28 +84,22 @@ export async function generateMetadata({
   }
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: RootParams
-}) {
-  let messages
-  try {
-    messages = await getMessages(params)
-  } catch (error) {
+export default async function RootLayout({ children, params }: { children: React.ReactNode; params: RootParams }) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params
+  if (!routing.locales.includes(locale as any)) {
     notFound()
   }
 
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages()
+
   return (
-    <html
-      lang={params.locale}
-      suppressHydrationWarning
-      className={`font-sans ${fontSansEn.variable}`}
-    >
+    <html lang={locale} suppressHydrationWarning className={`font-sans ${fontSansEn.variable}`}>
       <head>
         <script
+          // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
           dangerouslySetInnerHTML={{
             __html: `${uwu.toString()};uwu()`,
           }}
@@ -117,27 +110,22 @@ export default async function RootLayout({
       </Suspense>
 
       <PostHogProvider>
-        <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <IntlProvider locale={params.locale} messages={messages}>
+        <body className='bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300'>
+          <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+            <NextIntlClientProvider messages={messages}>
               <Background />
-              <main className="relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
+              <main className='relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                 <Rulers />
                 <Sidebar />
-                <section className="frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44">
-                  <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl">
+                <section className='frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
+                  <article className='prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl'>
                     {children}
                   </article>
 
                   <Footer />
                 </section>
               </main>
-            </IntlProvider>
+            </NextIntlClientProvider>
 
             <Toasts />
           </ThemeProvider>

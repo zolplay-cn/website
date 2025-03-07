@@ -1,15 +1,16 @@
 import { Buffer } from 'node:buffer'
+import { cache } from 'react'
 
-export const getJobs = async () => {
+// eslint-disable-next-line node/prefer-global/process
+const ASHBY_API_KEY = process.env.ASHBY_API_KEY!
+export const getJobs = cache(async () => {
   try {
     const res = await fetch('https://api.ashbyhq.com/jobPosting.list', {
       method: 'POST',
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        authorization: `Basic ${Buffer.from(
-          `${process.env.ASHBY_API_KEY!}:`
-        ).toString('base64')}`,
+        authorization: `Basic ${Buffer.from(`${ASHBY_API_KEY}:`).toString('base64')}`,
       },
       body: JSON.stringify({ listedOnly: true }),
       cache: 'no-cache',
@@ -22,18 +23,16 @@ export const getJobs = async () => {
     console.error(error, 'get jobs error')
     return []
   }
-}
+})
 
-export const getJob = async (id: string) => {
+export const getJob = cache(async (id: string) => {
   try {
     const res = await fetch('https://api.ashbyhq.com/jobPosting.info', {
       method: 'POST',
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        authorization: `Basic ${Buffer.from(
-          `${process.env.ASHBY_API_KEY!}:`
-        ).toString('base64')}`,
+        authorization: `Basic ${Buffer.from(`${ASHBY_API_KEY}:`).toString('base64')}`,
       },
       body: JSON.stringify({
         jobPostingId: id,
@@ -46,4 +45,4 @@ export const getJob = async (id: string) => {
   } catch {
     return null
   }
-}
+})

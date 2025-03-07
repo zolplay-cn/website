@@ -1,14 +1,14 @@
-import { ImageResponse } from '@vercel/og'
-import { i18n } from '~/i18n'
 import type { NextRequest } from 'next/server'
+import { ImageResponse } from '@vercel/og'
+import { routing } from '~/modules/i18n/routing'
 
 export const config = {
   runtime: 'edge',
 }
 
-const enFont = fetch(
-  new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
+const enFont = fetch(new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)).then((res) =>
+  res.arrayBuffer(),
+)
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
@@ -56,7 +56,7 @@ export default async function handler(req: NextRequest) {
         <div
           style={{
             marginLeft: 50,
-            paddingRight: locale === i18n.defaultLocale ? 220 : 200,
+            paddingRight: locale === routing.defaultLocale ? 220 : 200,
             display: 'flex',
             fontSize: 78,
             fontFamily: 'Zolplay',
@@ -81,6 +81,6 @@ export default async function handler(req: NextRequest) {
           style: 'normal',
         },
       ],
-    }
+    },
   )
 }

@@ -1,39 +1,30 @@
-import { getMessages } from '~/i18n.server'
-import { getJob } from '~/lib/ashbyhq.queries'
-import { getOpenGraphImage } from '~/lib/helper'
-import { getJobIds } from '~/lib/sanity.queries'
-import { Job } from '~/modules/careers/job'
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
+import { getTranslations } from 'next-intl/server'
 import { redirect } from 'next/navigation'
 import React from 'react'
+import { getJob, getJobs } from '~/lib/ashbyhq.queries'
+import { getOpenGraphImage } from '~/lib/helper'
+import { Job } from '~/modules/careers/job'
 
 export async function generateStaticParams() {
-  const ids = await getJobIds()
-  return ids.map((id) => ({ id }))
+  const jobs = await getJobs()
+  return jobs.map((job) => ({ id: job.id }))
 }
 
-type PageParams = RootParams & { id: string }
+type PageParams = RootParams & Promise<{ id: string }>
 
-async function fetchJob(params: PageParams) {
-  const job = await getJob(params.id)
-
-  return job
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: PageParams
-}): Promise<Metadata> {
-  const job = await fetchJob(params)
+export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
+  const { id, locale } = await params
+  const job = await getJob(id)
 
   if (!job) {
     return {}
   }
 
-  const messages = await getMessages(params)
+  const t = await getTranslations({ locale })
   const title = job.title
-  const subtitle = messages.Careers.Details.Subtitle
+  const subtitle = t('Careers.Details.Subtitle')
 
   return {
     title,
@@ -41,13 +32,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description: job.descriptionSocial,
-      images: [getOpenGraphImage(title, params.locale, subtitle)],
+      images: [getOpenGraphImage(title, locale, subtitle)],
     },
   }
 }
 
 export default async function JobPage({ params }: { params: PageParams }) {
-  const job = await fetchJob(params)
+  const { id } = await params
+  const job = await getJob(id)
 
   if (!job) {
     redirect('/careers')
