@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { TbMail } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { Form } from '~/components/ui/Form'
+import { Form } from '~/components/ui/form'
 
 const contactFormSchema = z.object({
   message: z.string().min(2),

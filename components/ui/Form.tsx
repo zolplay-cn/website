@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react'
 import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
-import { Button } from '~/components/ui/Button'
+import { Button } from '~/components/ui/button'
 
 type FormRootProps = ComponentProps<'form'> & {
   submitting?: boolean

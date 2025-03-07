@@ -40,9 +40,10 @@ export function modulate(value: number, rangeA: number[], rangeB: number[], clam
   return clamp ? (v0 < v1 ? Math.max(Math.min(result, v1), v0) : Math.max(Math.min(result, v0), v1)) : result
 }
 
+const DEFAULT_CAMERA = { position: { x: 0, y: 0 }, zoom: 1 }
 function Grids({
   grid,
-  camera = { position: { x: 0, y: 0 }, zoom: 1 },
+  camera = DEFAULT_CAMERA,
 }: {
   grid: number
   camera?: { position: { x: number; y: number }; zoom: number }

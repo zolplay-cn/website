@@ -1,4 +1,5 @@
 import type { VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 import { clsxm } from '@zolplay/utils'
 import { cva } from 'class-variance-authority'
 
@@ -31,36 +32,19 @@ const buttonVariants = cva(
   },
 )
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
-export interface ButtonLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    VariantProps<typeof buttonVariants> {}
+type ButtonProps = ComponentProps<'button'> & VariantProps<typeof buttonVariants>
 
-function Button({
-  ref,
-  className,
-  variant,
-  size,
-  ...props
-}: ButtonProps & { ref?: React.RefObject<HTMLButtonElement | null> }) {
-  return <button className={clsxm(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+export function Button({ className, variant, size, ...props }: ButtonProps) {
+  // eslint-disable-next-line react-dom/no-missing-button-type
+  return <button className={clsxm(buttonVariants({ variant, size, className }))} {...props} />
 }
 Button.displayName = 'Button'
 
-function ButtonLink({
-  ref,
-  className,
-  href,
-  variant,
-  size,
-  ...props
-}: ButtonLinkProps & { ref?: React.RefObject<HTMLAnchorElement | null> }) {
+type ButtonLinkProps = ComponentProps<'a'> & VariantProps<typeof buttonVariants>
+
+export function ButtonLink({ className, variant, size, href, ...props }: ButtonLinkProps) {
   const Tag = href?.startsWith('#') ? 'a' : LocaleLink
 
-  return <Tag className={clsxm(buttonVariants({ variant, size, className }))} href={href ?? '/'} ref={ref} {...props} />
+  return <Tag className={clsxm(buttonVariants({ variant, size, className }))} href={href ?? '/'} {...props} />
 }
 ButtonLink.displayName = 'ButtonLink'
-
-export { Button, ButtonLink, buttonVariants }

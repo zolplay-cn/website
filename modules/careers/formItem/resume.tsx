@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
 import { toast } from 'sonner'
-import { Button } from '~/components/ui/Button'
+import { Button } from '~/components/ui/button'
 import { formError } from '../job'
 
 export function Resume<T extends Record<string, any>>({

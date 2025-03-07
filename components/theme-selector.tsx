@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import React from 'react'
 import { TbCircleHalf2, TbMoon, TbSun } from 'react-icons/tb'
-import { Select } from '~/components/ui/Select'
+import { Select } from '~/components/ui/select'
 
 const themes = [
   {

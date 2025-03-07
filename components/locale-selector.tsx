@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from 'next-intl'
 
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { Select } from '~/components/ui/Select'
+import { Select } from '~/components/ui/select'
 import { usePathname } from '~/modules/i18n/navigation'
 
 const languages = [
