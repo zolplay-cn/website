@@ -36,13 +36,7 @@
 
   "tailwindCSS.experimental.classRegex": [["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]],
 
-  "i18n-ally.localesPaths": [
-    "./messages"
-  ],
+  "i18n-ally.localesPaths": ["./messages"],
   "i18n-ally.keystyle": "nested",
-  "cSpell.words": [
-    "Zolplay",
-    "Zolplayer",
-    "zolplayers"
-  ]
+  "cSpell.words": ["Zolplay", "Zolplayer", "zolplayers"]
 }
