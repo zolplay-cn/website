@@ -1,19 +1,16 @@
 import type { Zolplayer } from './datasource'
-import { clsxm } from '@zolplay/utils'
-import { atom, useAtom } from 'jotai'
-import { useFormatter } from 'next-intl'
+import { useFormatter, useLocale } from 'next-intl'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import Tilt from 'react-parallax-tilt'
+import { useMemo } from 'react'
 import Balancer from 'react-wrap-balancer'
 import { LogoHelmetOutline } from '../Logo'
 import { SocialLink } from './social-link'
-
-const focusingMemberSlugAtom = atom<string | null>(null)
+import { TiltCard } from './tilt-card'
 
 export function ZolplayerCard({ member }: { member: Zolplayer }) {
   const posthog = usePostHog()
+  const locale = useLocale()
 
   const { dateTime: formatDateTime } = useFormatter()
   const joined = useMemo(
@@ -24,47 +21,9 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
       }),
     [formatDateTime, member.joinedDate],
   )
-  const [focusingMember, setFocusingMember] = useAtom(focusingMemberSlugAtom)
-  const onMouseEnter = useCallback(() => {
-    setFocusingMember(member.slug)
-  }, [member.slug, setFocusingMember])
-  const onMouseLeave = useCallback(() => {
-    setFocusingMember(null)
-  }, [setFocusingMember])
-
-  const [tiltEnabled, setTiltEnabled] = useState(true)
-  // only enable tilt on non-mobile devices
-  useEffect(() => {
-    if (/Mobi|Android|iPhone|iPad/i.test(window.navigator.userAgent)) {
-      setTiltEnabled(false)
-    }
-  }, [])
 
   return (
-    <Tilt
-      className={clsxm([
-        'not-prose group flex flex-col justify-between rounded-2xl p-2.5 md:p-4',
-        'border border-stone-100 bg-white text-[var(--accent)] dark:border-stone-800 dark:bg-stone-900',
-        '[--accent:var(--mb-accent)] dark:[--accent:var(--mb-accent-dark)]',
-        '[transform-style:preserve-3d]',
-        {
-          'md:opacity-80 md:blur-[1px]': focusingMember !== null && focusingMember !== member.slug,
-          'blur-none': focusingMember === member.slug,
-        },
-      ])}
-      style={{
-        '--mb-accent': member.portrait.palette.darkVibrant.background,
-        '--mb-accent-dark': member.portrait.palette.lightVibrant.background,
-      }}
-      tiltEnable={tiltEnabled}
-      perspective={400}
-      scale={1.05}
-      glareEnable={false}
-      tiltMaxAngleX={10}
-      tiltMaxAngleY={10}
-      onEnter={onMouseEnter}
-      onLeave={onMouseLeave}
-    >
+    <TiltCard zolplayer={member}>
       <header className='mb-4 flex flex-col items-center'>
         <Image
           data-portrait
@@ -82,7 +41,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
           {member.name}
         </span>
         <span className='mt-1 block text-center text-[13px] leading-4 -tracking-[0.015rem] text-[var(--accent)] opacity-70'>
-          <Balancer>{member.role}</Balancer>
+          <Balancer>{member.role[locale]}</Balancer>
         </span>
       </header>
 
@@ -110,6 +69,6 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
 
         <LogoHelmetOutline className='h-5 w-5 opacity-60' />
       </footer>
-    </Tilt>
+    </TiltCard>
   )
 }

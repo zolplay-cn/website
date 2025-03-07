@@ -7,7 +7,7 @@ export function SocialLink({ social, onClick }: { social: Zolplayer['social'][nu
   const Icon = SOCIAL_ICON_MAP[social.platform]
 
   return (
-    <li className='flex items-center' onClick={onClick}>
+    <li className='flex items-center cursor-pointer' onClick={onClick}>
       <Link
         href={social.url}
         target='_blank'

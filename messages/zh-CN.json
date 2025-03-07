@@ -42,6 +42,8 @@
     "MeetOurTeam": "团队成员"
   },
   "Careers": {
+    "Title": "加入我们",
+    "Description": "你是否厌倦了泛滥互联网世界的乏味和平庸应用？加入我们，用你的软件超能力和我们一起拯救世界",
     "OpenPositions": "开放职位：",
     "Openings": {
       "Squad": "{squad}团队",

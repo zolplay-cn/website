@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
-import { About } from '~/app/[locale]/about/About'
-import { OurMembers } from '~/components/zolplayers/zolplayers'
+import { notFound } from 'next/navigation'
 import { getOpenGraphImage } from '~/lib/helper'
 
 export async function generateMetadata({ params }: { params: Promise<RootParams> }): Promise<Metadata> {
@@ -21,11 +20,14 @@ export async function generateMetadata({ params }: { params: Promise<RootParams>
   }
 }
 
-export default async function AboutPage({ params }: { params: Promise<RootParams> }) {
-  return (
-    <>
-      <About />
-      <OurMembers />
-    </>
-  )
+export default async function Home({ params }: { params: Promise<RootParams> }) {
+  const { locale } = await params
+
+  try {
+    const Content = (await import(`./page.${locale}.mdx`)).default
+    return <Content />
+    // eslint-disable-next-line unused-imports/no-unused-vars
+  } catch (_) {
+    notFound()
+  }
 }

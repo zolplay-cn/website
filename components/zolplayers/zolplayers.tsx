@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { ZOLPLAYERS } from './datasource'
 import { ZolplayerCard } from './zolplayer-card'
 
-export function OurMembers() {
+export function Zolplayers() {
   const t = useTranslations('About')
 
   return (

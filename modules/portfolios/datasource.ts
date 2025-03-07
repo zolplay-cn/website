@@ -1,11 +1,11 @@
 import type { StaticImageData } from 'next/image'
 import type { Locale } from '../i18n/routing'
+import downwordlyImage from './images/downwordly-image.png'
+import downwordlyLogo from './images/downwordly-logo.webp'
 import nexusImage from './images/nexus-image.png'
 import nexusLogo from './images/nexus-logo.png'
 import vvsImage from './images/vvs-image.gif'
 import vvsLogo from './images/vvs-logo.png'
-import downwordlyImage from './images/downwordly-image.png'
-import downwordlyLogo from './images/downwordly-logo.webp'
 
 interface PaletteSwatch {
   background: string
@@ -63,7 +63,8 @@ export const PORTFOLIOS: Portfolio[] = [
     },
     description: {
       en: '"very very spaceship" is a game development company based in Seattle. Zolplay was responsible for developing and iterating their official website, the speed and performance were boosted ~10x too.',
-      'zh-CN': 'very very spaceship 是西雅图的一家游戏开发公司，佐玩负责开发与迭代更新他们的官网，同时帮助了他们进行官网的数字转型与优化了~10倍以上的访问速度与性能指标。',
+      'zh-CN':
+        'very very spaceship 是西雅图的一家游戏开发公司，佐玩负责开发与迭代更新他们的官网，同时帮助了他们进行官网的数字转型与优化了~10倍以上的访问速度与性能指标。',
     },
     timeframe: {
       en: '2020 - 2023',
@@ -74,7 +75,7 @@ export const PORTFOLIOS: Portfolio[] = [
   {
     title: {
       en: 'Downwordly - A Word Building Game Website',
-      "zh-CN":"Downwordly - 拼字游戏官网"
+      'zh-CN': 'Downwordly - 拼字游戏官网',
     },
     slug: 'downwordly',
     palette: {
@@ -83,7 +84,8 @@ export const PORTFOLIOS: Portfolio[] = [
     },
     description: {
       en: 'Downwordly is a word building game that challenges you to make the most out of the letters you have. Zolplay helped Bird Cartel develop an official website for the game using an interactive 3D canvas.',
-      'zh-CN': 'Downwordly 是一个由 Bird Cartel 开发的英语拼词游戏，你需要充分利用手中的字母去拼凑成词汇，佐玩负责帮助 Bird Cartel 打造开发了一个 3D 版官方网站。',
+      'zh-CN':
+        'Downwordly 是一个由 Bird Cartel 开发的英语拼词游戏，你需要充分利用手中的字母去拼凑成词汇，佐玩负责帮助 Bird Cartel 打造开发了一个 3D 版官方网站。',
     },
     timeframe: {
       en: '2021',

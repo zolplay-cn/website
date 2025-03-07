@@ -43,6 +43,8 @@
     "MeetOurTeam": "Meet the crew"
   },
   "Careers": {
+    "Title": "Join us",
+    "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",
     "OpenPositions": "Open positions:",
     "Openings": {
       "Squad": "{squad} squad",
