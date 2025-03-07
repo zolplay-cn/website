@@ -3,9 +3,6 @@ import createMDX from '@next/mdx'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
-  experimental: {
-    nodeMiddleware: true,
-  },
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
   images: {
     remotePatterns: [
