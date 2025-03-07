@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 import { useMemo } from 'react'
 import Balancer from 'react-wrap-balancer'
-import { LogoHelmetOutline } from '../Logo'
+import { LogoHelmetOutline } from '../logo'
 import { SocialLink } from './social-link'
 import { TiltCard } from './tilt-card'
 
