@@ -3,7 +3,6 @@ import type { RootParams } from '~/types/app'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
-import dynamic from 'next/dynamic'
 import { DM_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
@@ -13,7 +12,6 @@ import { Footer } from '~/app/Footer'
 import { Rulers } from '~/app/Rulers'
 import { Sidebar } from '~/components/Sidebar'
 import { Toasts } from '~/components/toasts'
-import { i18n } from '~/i18n'
 import { getOpenGraphImage } from '~/lib/helper'
 import { routing } from '~/modules/i18n/routing'
 import { PostHogPageview, PHProvider as PostHogProvider } from '../PostHogProvider'
@@ -29,7 +27,7 @@ const fontSansEn = DM_Sans({
 })
 
 export function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ locale }))
+  return routing.locales.map((locale) => ({ locale }))
 }
 
 export const viewport: Viewport = {

@@ -1,12 +1,13 @@
 import type { NextRequest } from 'next/server'
-import type { ContactFormSchema } from '~/app/[locale]/contact/Contact'
+
 import { NextResponse } from 'next/server'
 
+// eslint-disable-next-line node/prefer-global/process
 const WebhookURL = process.env.CONTACT_WEBHOOK_URL ?? ''
 
 export async function POST(req: NextRequest) {
   try {
-    const { data }: { data: ContactFormSchema } = await req.json()
+    const { data }: { data: { message: string; name: string; email: string } } = await req.json()
     const mainText = `${data.name} ${data.email} sent a message`
 
     const blocks = [
@@ -42,7 +43,8 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.error()
-  } catch (e) {
+    // eslint-disable-next-line unused-imports/no-unused-vars
+  } catch (_) {
     return NextResponse.error()
   }
 }

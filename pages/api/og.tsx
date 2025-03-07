@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { ImageResponse } from '@vercel/og'
-import { i18n } from '~/i18n'
+import { routing } from '~/modules/i18n/routing'
 
 export const config = {
   runtime: 'edge',
@@ -56,7 +56,7 @@ export default async function handler(req: NextRequest) {
         <div
           style={{
             marginLeft: 50,
-            paddingRight: locale === i18n.defaultLocale ? 220 : 200,
+            paddingRight: locale === routing.defaultLocale ? 220 : 200,
             display: 'flex',
             fontSize: 78,
             fontFamily: 'Zolplay',
