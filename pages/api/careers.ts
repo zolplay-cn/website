@@ -28,7 +28,7 @@ function requestAshby(formData: any) {
         },
         (err, res) => {
           if (err) {
-            console.log(err, 'requestAshby error')
+            console.error(err, 'requestAshby error')
             resolve(null)
           } else {
             resolve(JSON.parse(res.body))
@@ -36,6 +36,7 @@ function requestAshby(formData: any) {
         },
       )
     } catch (error) {
+      console.error(error, 'requestAshby error')
       resolve(null)
     }
   })
@@ -96,7 +97,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
     }
   } catch (error) {
-    console.log(error, 'error')
+    console.error(error, 'error')
     return res.status(500).json({ status: 'error' })
   }
 }

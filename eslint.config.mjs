@@ -23,4 +23,8 @@ base.append([
   },
 ])
 
+base.overrideRules({
+  'antfu/if-newline': 'off',
+})
+
 export default base

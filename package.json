@@ -23,7 +23,6 @@
     "date-fns": "^2.30.0",
     "formidable": "^3.5.2",
     "foxact": "^0.2.33",
-    "framer-motion": "^10.12.9",
     "googleapis": "^112.0.0",
     "intl-segmenter-polyfill": "^0.4.4",
     "jotai": "^2.12.1",
