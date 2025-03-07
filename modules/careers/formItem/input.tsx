@@ -1,7 +1,7 @@
 import type { HTMLInputTypeAttribute } from 'react'
 import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
 import { clsxm } from '@zolplay/utils'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
 import { formError, label, textInput } from '../job'
 

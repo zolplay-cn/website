@@ -3,7 +3,7 @@
 import type { ComponentProps } from '@zolplay/react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { clsxm } from '@zolplay/utils'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
 import Image from 'next/image'

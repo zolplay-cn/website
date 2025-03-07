@@ -28,6 +28,7 @@
     "intl-segmenter-polyfill": "^0.4.4",
     "jotai": "^2.12.1",
     "js-yaml": "^4.1.0",
+    "motion": "^12.4.10",
     "next": "^15.2.1",
     "next-intl": "3.26.5",
     "next-sanity": "^4.3.2",

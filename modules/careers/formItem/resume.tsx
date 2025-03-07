@@ -1,5 +1,5 @@
 import type { FieldErrors, Path } from 'react-hook-form'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
 import { toast } from 'sonner'
