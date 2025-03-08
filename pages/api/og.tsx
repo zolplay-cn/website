@@ -7,7 +7,7 @@ export const config = {
 }
 
 const enFont = fetch(
-  new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)
+  new URL('../../public/assets/fonts/DMSans-Light.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(req: NextRequest) {
@@ -55,8 +55,9 @@ export default async function handler(req: NextRequest) {
         )}
         <div
           style={{
+            marginTop: 60,
             marginLeft: 50,
-            paddingRight: locale === i18n.defaultLocale ? 220 : 200,
+            paddingRight: locale === i18n.defaultLocale ? 450 : 200,
             display: 'flex',
             fontSize: 78,
             fontFamily: 'Zolplay',
