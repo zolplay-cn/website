@@ -41,7 +41,7 @@ function Section({ children, className, title }: FormSectionProps) {
           <h3 className='text-base font-semibold leading-6'>{title}</h3>
         </div>
       )}
-      <div className='mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6'>{children}</div>
+      <div className='grid grid-cols-1 mt-6 gap-x-4 gap-y-6 sm:grid-cols-6'>{children}</div>
     </section>
   )
 }
@@ -92,7 +92,7 @@ function Input({ ref, className, id, name, type, ...rest }: ComponentProps<'inpu
     <input
       className={clsxm(
         [
-          'block w-full rounded-md border-0 bg-transparent py-1.5 shadow-sm ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6 ',
+          'block w-full rounded-md border-0 bg-transparent py-1.5 px-2 shadow-sm ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6 ',
         ],
         className,
       )}
@@ -113,7 +113,7 @@ function TextArea({ ref, className, id, name, ...rest }: ComponentProps<'textare
   return (
     <textarea
       ref={ref}
-      className={clsxm(input, className)}
+      className={clsxm(input, className, 'p-2')}
       id={id ?? defaultName ?? name}
       name={defaultName ?? name}
       autoCorrect='off'
