@@ -23,9 +23,11 @@ export function Benefits() {
       <ul>
         {t.raw('Content').map((benefit, i) => {
           const Icon = icons[i]
+          const benefitKey = `benefit-${i}-${benefit.split(':')[0].substring(0, 3)}`
+
           return (
-            <li key={i}>
-              <Icon className='mr-1 inline-block h-5 w-5' />
+            <li key={benefitKey}>
+              <Icon className='inline-block w-5 h-5 mr-1' />
               <strong>{benefit.split(':')[0]}:</strong>
               {benefit.split(':')[1]}
             </li>

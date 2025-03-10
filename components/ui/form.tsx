@@ -41,7 +41,7 @@ function Section({ children, className, title }: FormSectionProps) {
           <h3 className='text-base font-semibold leading-6'>{title}</h3>
         </div>
       )}
-      <div className='grid grid-cols-1 mt-6 gap-x-4 gap-y-6 sm:grid-cols-6'>{children}</div>
+      <div className='grid grid-cols-1 gap-x-4 gap-y-6 mt-6 sm:grid-cols-6'>{children}</div>
     </section>
   )
 }
@@ -56,8 +56,10 @@ type FormFieldGroupProps = ComponentProps<'div'> & {
   name?: string
 }
 function FieldGroup({ children, className, size = 'md', name }: FormFieldGroupProps) {
+  const contextValue = React.useMemo(() => ({ name }), [name])
+
   return (
-    <FieldGroupContext value={{ name }}>
+    <FieldGroupContext value={contextValue}>
       <div
         className={clsxm(
           'space-y-2',

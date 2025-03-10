@@ -1,44 +1,34 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { modulate } from './utils/math'
 
 const GRID_STEPS = [
   {
     min: -1,
     mid: 0.15,
     size: 64,
+    id: 'grid-step-1',
   },
   {
     min: 0.05,
     mid: 0.375,
     size: 16,
+    id: 'grid-step-2',
   },
   {
     min: 0.15,
     mid: 1,
     size: 4,
+    id: 'grid-step-3',
   },
   {
     min: 0.7,
     mid: 2.5,
     size: 1,
+    id: 'grid-step-4',
   },
 ]
-
-/**
- * Modulate a value between two ranges.
- * @param value
- * @param rangeA from [low, high]
- * @param rangeB to [low, high]
- * @param clamp
- */
-export function modulate(value: number, rangeA: number[], rangeB: number[], clamp = false): number {
-  const [fromLow, fromHigh] = rangeA
-  const [v0, v1] = rangeB
-  const result = v0 + ((value - fromLow) / (fromHigh - fromLow)) * (v1 - v0)
-
-  return clamp ? (v0 < v1 ? Math.max(Math.min(result, v1), v0) : Math.max(Math.min(result, v0), v1)) : result
-}
 
 const DEFAULT_CAMERA = { position: { x: 0, y: 0 }, zoom: 1 }
 function Grids({
@@ -50,13 +40,13 @@ function Grids({
 }) {
   return (
     <svg
-      className='pointer-events-none h-full w-full touch-none select-none bg-transparent'
+      className='w-full h-full bg-transparent pointer-events-none select-none touch-none'
       version='1.1'
       xmlns='http://www.w3.org/2000/svg'
       fill='transparent'
     >
       <defs>
-        {GRID_STEPS.map(({ min, mid, size }, i) => {
+        {GRID_STEPS.map(({ min, mid, size, id }) => {
           const s = size * grid * camera.zoom
           const xo = camera.position.x * camera.zoom
           const yo = camera.position.y * camera.zoom
@@ -66,8 +56,8 @@ function Grids({
 
           return (
             <pattern
-              key={`grid-pattern-${i}`}
-              id={`grid-${i}`}
+              key={id}
+              id={`grid-${id}`}
               width={s}
               height={s}
               patternUnits='userSpaceOnUse'
@@ -85,8 +75,8 @@ function Grids({
           )
         })}
       </defs>
-      {GRID_STEPS.map((_, i) => (
-        <rect key={`grid-rect-${i}`} width='100%' height='100%' fill={`url(#grid-${i})`} />
+      {GRID_STEPS.map(({ id }) => (
+        <rect key={id} width='100%' height='100%' fill={`url(#grid-${id})`} />
       ))}
     </svg>
   )
@@ -97,7 +87,7 @@ export function Background() {
     <>
       <div className='fixed inset-0 -z-[1] bg-stone-50 dark:bg-stone-900' />
       <motion.span
-        className='pointer-events-none fixed inset-0 h-full w-full'
+        className='fixed inset-0 w-full h-full pointer-events-none'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
