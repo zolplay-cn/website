@@ -12,7 +12,6 @@ const enFont = fetch(new URL('../../public/assets/fonts/DMSans-Light.ttf', impor
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const title = searchParams.get('title') ?? ''
-  const subtitle = searchParams.get('subtitle') ?? ''
   const locale = searchParams.get('locale') ?? 'zh-CN'
 
   // og background image path
@@ -40,23 +39,6 @@ export default async function handler(req: NextRequest) {
           backgroundImage: `url(${process.env.NEXT_PUBLIC_DOMAIN || 'https://zolplay.com'}${ogBgPath})`,
         }}
       >
-        {subtitle && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 58,
-              left: 140,
-              fontFamily: 'Zolplay',
-              fontSize: 30,
-              letterSpacing: '-0.02em',
-              textTransform: 'uppercase',
-              color: '#111111',
-              opacity: 0.4,
-            }}
-          >
-            {`/ ${subtitle}`}
-          </div>
-        )}
         <div
           style={{
             marginLeft: 50,

@@ -1,4 +1,5 @@
 import type { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
+import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'motion/react'
 import { formError, label, textInput } from '../job'
 
@@ -25,7 +26,7 @@ export function LongText<T extends Record<string, any>>({
         <textarea
           id={path as string}
           autoComplete={path}
-          className={textInput()}
+          className={clsxm(textInput(), 'px-2')}
           placeholder='Type here...'
           rows={4}
           {...register(path)}
