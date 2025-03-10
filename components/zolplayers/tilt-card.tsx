@@ -32,7 +32,6 @@ export function TiltCard({ children, zolplayer }: { children: ReactNode; zolplay
         'not-prose group flex flex-col justify-between rounded-2xl p-2.5 md:p-4',
         'border border-stone-100 bg-white text-[var(--accent)] dark:border-stone-800 dark:bg-stone-900',
         '[--accent:var(--mb-accent)] dark:[--accent:var(--mb-accent-dark)]',
-        '[transform-style:preserve-3d]',
         {
           'md:opacity-80 md:blur-[1px]': focusingMember !== null && focusingMember !== zolplayer.slug,
           'blur-none': focusingMember === zolplayer.slug,

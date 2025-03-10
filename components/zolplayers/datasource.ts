@@ -3,6 +3,7 @@ import type { SocialPlatform } from './social-platform'
 import cali from './images/cali.png'
 import ethan from './images/ethan.png'
 import larry from './images/larry.png'
+import luolei from './images/luolei.png'
 import sonia from './images/sonia.png'
 import spike from './images/spike.png'
 import timx from './images/timx.png'
@@ -72,7 +73,7 @@ export const ZOLPLAYERS = [
     social: [
       {
         platform: 'twitter',
-        url: 'https://twitter.com/peekbomb',
+        url: 'https://x.com/peekbomb',
       },
       {
         platform: 'github',
@@ -100,7 +101,7 @@ export const ZOLPLAYERS = [
     social: [
       {
         platform: 'twitter',
-        url: 'https://twitter.com/larryfreeform',
+        url: 'https://x.com/larryfreeform',
       },
     ],
     joinedDate: '2022-08-01',
@@ -124,7 +125,7 @@ export const ZOLPLAYERS = [
     social: [
       {
         platform: 'twitter',
-        url: 'https://twitter.com/thesonia33',
+        url: 'https://x.com/thesonia33',
       },
     ],
     joinedDate: '2024-11-11',
@@ -148,7 +149,7 @@ export const ZOLPLAYERS = [
     social: [
       {
         platform: 'twitter',
-        url: 'https://twitter.com/real_spike014',
+        url: 'https://x.com/real_spike014',
       },
     ],
     joinedDate: '2023-09-01',
@@ -191,7 +192,7 @@ export const ZOLPLAYERS = [
     social: [
       {
         platform: 'twitter',
-        url: 'https://twitter.com/thecuvii',
+        url: 'https://x.com/thecuvii',
       },
       {
         platform: 'github',
@@ -204,5 +205,39 @@ export const ZOLPLAYERS = [
       },
     ],
     joinedDate: '2023-04-25',
+  },
+  {
+    name: 'Luo Lei',
+    slug: 'luolei',
+    role: {
+      en: 'Full Stack Engineer',
+      'zh-CN': '全栈工程师',
+    },
+    portrait: {
+      url: luolei,
+      palette: {
+        background: {
+          light: '#141c2c',
+          dark: '#dee5f0',
+        },
+      },
+    },
+    social: [
+      {
+        platform: 'twitter',
+        url: 'https://x.com/luoleiorg',
+      },
+      {
+        platform: 'github',
+        url: 'https://github.com/foru17',
+      },
+      { platform: 'instagram', url: 'https://www.instagram.com/luoleiorg' },
+      {
+        platform: 'website',
+        url: 'https://luolei.org',
+      },
+      { platform: 'youtube', url: 'https://www.youtube.com/zuoluotv' },
+    ],
+    joinedDate: '2025-03-06',
   },
 ] satisfies Zolplayer[]

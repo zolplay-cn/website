@@ -42,7 +42,7 @@ export function Input<T extends Record<string, any>>({
           autoComplete={path}
           placeholder={placeholder || 'Type here...'}
           id={path as string}
-          className={textInput()}
+          className={clsxm(textInput(), 'px-2')}
           {...register(path)}
         />
         <AnimatePresence mode='wait'>

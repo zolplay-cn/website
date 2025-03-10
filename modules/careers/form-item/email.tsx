@@ -33,7 +33,7 @@ export function Email<T extends Record<string, any>>({
           type='email'
           autoComplete={path}
           placeholder='hello@example.com...'
-          className={textInput()}
+          className={clsxm(textInput(), 'px-2')}
           {...register(path)}
         />
         <AnimatePresence mode='wait'>
