@@ -38,9 +38,10 @@ export function OurStacks() {
       <ul>
         {t.raw('Content').map((stack, i) => {
           const Icon = icons[i]
+          const stackKey = `stack-${i}-${stack.split(':')[0].substring(0, 3)}`
           return (
-            <li key={i}>
-              <Icon className='mr-1 inline-block h-5 w-5' />
+            <li key={stackKey}>
+              <Icon className='inline-block mr-1 w-5 h-5' />
               <strong>{stack.split(':')[0]}:</strong>
               {stack.split(':')[1]}
             </li>

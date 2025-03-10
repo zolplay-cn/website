@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18]
+        node-version: [20]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 10.5.2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

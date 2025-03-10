@@ -5,10 +5,14 @@
     "build": "next build",
     "dev": "next dev --port 3333 --turbo",
     "format": "npx prettier --write . --ignore-path .gitignore",
-    "lint": "next lint -- --ignore-path .gitignore",
+    "lint": "next lint --ignore-path .gitignore",
     "lint:fix": "npm run format && npm run lint -- --fix",
     "start": "next start",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md,mdx,json,yaml,yml}": "prettier --ignore-path .gitignore --cache --write"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
@@ -68,6 +72,8 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "postcss": "^8.4.23",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.0.12",

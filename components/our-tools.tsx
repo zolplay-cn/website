@@ -32,9 +32,10 @@ export function OurTools() {
       <ul>
         {t.raw('Content').map((tool, i) => {
           const Icon = icons[i]
+          const toolKey = `tool-${i}-${tool.split(':')[0].substring(0, 3)}`
           return (
-            <li key={i}>
-              <Icon className='mr-1 inline-block h-5 w-5' />
+            <li key={toolKey}>
+              <Icon className='inline-block mr-1 w-5 h-5' />
               <strong>{tool.split(':')[0]}:</strong>
               {tool.split(':')[1]}
             </li>
