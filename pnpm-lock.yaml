@@ -37,9 +37,6 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
-      formidable:
-        specifier: ^3.5.2
-        version: 3.5.2
       foxact:
         specifier: ^0.2.33
         version: 0.2.44(react@19.0.0)
@@ -140,9 +137,6 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.16(tailwindcss@4.0.12)
-      '@types/formidable':
-        specifier: ^3.4.5
-        version: 3.4.5
       '@types/js-yaml':
         specifier: ^4.0.5
         version: 4.0.9
@@ -3296,10 +3290,6 @@ packages:
     resolution:
       { integrity: sha512-GWXfsD0Jc1RWiFmMuMFCpXMzi9L7oPDVwxUnZdg89kDNnqsRfUKXEtUYtA98A6lig1WXH/CYY/fvPW9HuN5fTA== }
 
-  '@types/formidable@3.4.5':
-    resolution:
-      { integrity: sha512-s7YPsNVfnsng5L8sKnG/Gbb2tiwwJTY1conOkJzTMRvJAlLFW1nEua+ADsJQu8N1c0oTHx9+d5nqg10WuT9gHQ== }
-
   '@types/hast@2.3.10':
     resolution:
       { integrity: sha512-McWspRw8xx8J9HurkVBfYj0xKoE25tOFlHGdx4MJ5xORQrMGZNqJhVQWaIbm6Oyla5kYOXtDiopzKRJzEOkwJw== }
@@ -3844,10 +3834,6 @@ packages:
     resolution:
       { integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug== }
     engines: { node: '>=8' }
-
-  asap@2.0.6:
-    resolution:
-      { integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA== }
 
   asn1@0.2.6:
     resolution:
@@ -4659,10 +4645,6 @@ packages:
   devlop@1.1.0:
     resolution:
       { integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA== }
-
-  dezalgo@1.0.4:
-    resolution:
-      { integrity: sha512-rXSP0bf+5n0Qonsb+SVVfNfIsimO4HEtmnIpPHY8Q1UCzKlQrDMfdobr8nJOOsRgWCyMRqeSBQzmWUMq7zvVig== }
 
   dir-glob@3.0.1:
     resolution:
@@ -5603,10 +5585,6 @@ packages:
       { integrity: sha512-hGfm/slu0ZabnNt4oaRZ6uREyfCj6P4fT/n6A1rGV+Z0VdGXjfOhVUpkn6qVQONHGIFwmveGXyDs75+nr6FM8w== }
     engines: { node: '>= 6' }
 
-  formidable@3.5.2:
-    resolution:
-      { integrity: sha512-Jqc1btCy3QzRbJaICGwKcBfGWuLADRerLzDqi2NwSt/UkXLsHJw2TVResiaoBufHVHy9aSgClOHCeJsSsFLTbg== }
-
   foxact@0.2.44:
     resolution:
       { integrity: sha512-+dBx0dXnfTDuYrDIDXYVeQw+Dw6YEDwyZwvmkycCuzP78rWfE7xBSzlEIX46ge14hD4DZ3i2tTEE3SoDTAVihA== }
@@ -5999,11 +5977,6 @@ packages:
     resolution:
       { integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw== }
     engines: { node: '>=6' }
-
-  hexoid@2.0.0:
-    resolution:
-      { integrity: sha512-qlspKUK7IlSQv2o+5I7yhUd7TxlOG2Vr5LTa3ve2XSNVKAL/n/u/7KLvKmFNimomDIKvZFXWHv0T12mv7rT8Aw== }
-    engines: { node: '>=8' }
 
   history@5.3.0:
     resolution:
@@ -12742,10 +12715,6 @@ snapshots:
     dependencies:
       '@types/node': 22.13.9
 
-  '@types/formidable@3.4.5':
-    dependencies:
-      '@types/node': 22.13.9
-
   '@types/hast@2.3.10':
     dependencies:
       '@types/unist': 2.0.11
@@ -13334,8 +13303,6 @@ snapshots:
   arrify@1.0.1: {}
 
   arrify@2.0.1: {}
-
-  asap@2.0.6: {}
 
   asn1@0.2.6:
     dependencies:
@@ -13956,11 +13923,6 @@ snapshots:
   devlop@1.1.0:
     dependencies:
       dequal: 2.0.3
-
-  dezalgo@1.0.4:
-    dependencies:
-      asap: 2.0.6
-      wrappy: 1.0.2
 
   dir-glob@3.0.1:
     dependencies:
@@ -15120,12 +15082,6 @@ snapshots:
       es-set-tostringtag: 2.1.0
       mime-types: 2.1.35
 
-  formidable@3.5.2:
-    dependencies:
-      dezalgo: 1.0.4
-      hexoid: 2.0.0
-      once: 1.4.0
-
   foxact@0.2.44(react@19.0.0):
     dependencies:
       client-only: 0.0.1
@@ -15547,8 +15503,6 @@ snapshots:
   he@1.2.0: {}
 
   hex-rgb@4.3.0: {}
-
-  hexoid@2.0.0: {}
 
   history@5.3.0:
     dependencies:
