@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
-
+@custom-variant dark (&:where(.dark, .dark *));
 * {
   @apply antialiased;
   text-rendering: optimizeLegibility;
