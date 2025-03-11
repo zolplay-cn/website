@@ -109,14 +109,14 @@ export default async function RootLayout({ children, params }: { children: React
       </Suspense>
 
       <PostHogProvider>
-        <body className='bg-neutral-50 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300'>
+        <body className='bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300'>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <NextIntlClientProvider messages={messages}>
               <Background />
               <main className='flex relative flex-col pt-12 mx-2 max-w-4xl min-h-screen md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                 <Rulers />
                 <Sidebar />
-                <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-neutral-800 dark:bg-neutral-950 md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
+                <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800  dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
                   <article className='prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl'>
                     {children}
                   </article>
