@@ -5,12 +5,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { clsxm } from '@zolplay/utils'
 import { cva } from 'class-variance-authority'
 import { useTranslations } from 'next-intl'
+import { useAction } from 'next-safe-action/hooks'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { TbArrowBadgeDown, TbArrowBadgeLeft } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { submitCareerApplication } from '~/app/actions/careers'
 import { Button, ButtonLink } from '~/components/ui/button'
 import { Hr } from '~/components/ui/hr'
 import { Link } from '../i18n/navigation'
@@ -91,7 +93,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     setValue,
     reset,
   } = useForm<z.infer<typeof applicationSchema>>({
@@ -100,40 +102,50 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
 
   const [hasApplied, setHasApplied] = React.useState(false)
 
+  const { execute, status } = useAction(submitCareerApplication, {
+    onSuccess: () => {
+      toast.success(t('ApplyCTA.Success'), { duration: 5000 })
+      reset()
+      setHasApplied(true)
+    },
+    onError: (error) => {
+      let errorMessage = t('ApplyCTA.Error')
+      if (error && typeof error === 'object' && 'message' in error) {
+        errorMessage = String(error.message)
+      }
+
+      toast.error(errorMessage)
+    },
+  })
+
   const onSubmit = React.useCallback(
-    async (data) => {
-      const jobPostingId = pathname?.split('/').slice(-1)[0]
-      if (!jobPostingId) return
+    async (data: z.infer<typeof applicationSchema>) => {
+      try {
+        const jobPostingId = pathname?.split('/').slice(-1)[0]
+        if (!jobPostingId) return
 
-      const formData = new FormData()
-      formData.append('jobPostingId', jobPostingId)
+        const formData = new FormData()
+        formData.append('jobPostingId', jobPostingId)
+        Object.entries(data).forEach(([key, value]) => {
+          if (key === '_systemfield_resume') {
+            formData.append(key, 'Resume/CV')
+            formData.append('Resume/CV', value as File)
+          } else if (key === '_systemfield_location') {
+            formData.append(key, JSON.stringify({ city: value }))
+          } else {
+            formData.append(key, value as string)
+          }
+        })
 
-      Object.entries(data).forEach(([key, value]) => {
-        if (key === '_systemfield_resume') {
-          formData.append(key, 'Resume/CV')
-          formData.append('Resume/CV', value as File)
-        } else if (key === '_systemfield_location') {
-          formData.append(key, JSON.stringify({ city: value }))
-        } else {
-          formData.append(key, value as string)
-        }
-      })
-
-      const res = await fetch('/api/careers', {
-        method: 'POST',
-        body: formData,
-      }).then((res) => res.json())
-
-      if (res.status === 'success') {
-        toast.success(t('ApplyCTA.Success'), { duration: 5000 })
-        reset()
-        setHasApplied(true)
-      } else {
+        execute({ formData })
+      } catch {
         toast.error(t('ApplyCTA.Error'))
       }
     },
-    [pathname, reset, t],
+    [pathname, execute, t],
   )
+
+  const isSubmitting = status === 'executing'
 
   return (
     <section id='apply' className='pt-8'>
@@ -144,7 +156,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
           <>
             {sections.map((item, index) => (
               <div key={index}>
-                <div className='border-b border-stone-200 pb-2 dark:border-stone-700/60'>
+                <div className='pb-2 border-b border-stone-200 dark:border-stone-700/60'>
                   <h3 className='text-xl font-semibold leading-6'>{item.title}</h3>
                   {!!item.descriptionPlain && <div>{item.descriptionPlain}</div>}
                 </div>
@@ -165,7 +177,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
                     />
                   ))}
 
-                <div className='mt-6 flex flex-col gap-y-6'>
+                <div className='flex flex-col gap-y-6 mt-6'>
                   {item.fields.map((field) => {
                     switch (field.field.type) {
                       case 'String':
@@ -229,7 +241,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
               </div>
             ))}
 
-            <div className='mt-8 flex'>
+            <div className='flex mt-8'>
               <Button type='submit' disabled={isSubmitting}>
                 {isSubmitting ? 'Applying...' : 'Apply'}
               </Button>
@@ -264,14 +276,14 @@ export function Job({ job }: { job: JobProps }) {
     <>
       <Link
         href='/careers'
-        className='mb-2 inline-flex items-center text-sm text-stone-500 no-underline transition-transform hover:-translate-x-px hover:underline focus:outline-none focus-visible:ring focus-visible:ring-stone-500 focus-visible:ring-opacity-50 dark:text-stone-400'
+        className='inline-flex items-center mb-2 text-sm no-underline transition-transform text-stone-500 hover:-translate-x-px hover:underline focus:outline-none focus-visible:ring focus-visible:ring-stone-500 focus-visible:ring-opacity-50 dark:text-stone-400'
       >
-        <TbArrowBadgeLeft className='mr-1 flex h-4 w-4' />
+        <TbArrowBadgeLeft className='flex mr-1 w-4 h-4' />
         {t('Back')}
       </Link>
 
       <h1 className='mb-0'>{job.title}</h1>
-      <p className='my-2 w-full space-x-1'>
+      <p className='my-2 space-x-1 w-full'>
         <span className='inline-flex items-center rounded bg-green-100 px-1 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-800 dark:text-green-100'>
           {EmploymentType[job.employmentType]}
         </span>
