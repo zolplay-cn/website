@@ -51,7 +51,7 @@ export const submitCareerApplication = actionClient
 
       const jobPostingId = fieldValues.jobPostingId
       if (!jobPostingId) {
-        return { status: 'error' }
+        throw new Error('Internal error')
       }
 
       const fieldSubmissions: { path: string; value: any }[] = []
@@ -74,7 +74,7 @@ export const submitCareerApplication = actionClient
 
       const resumeKey = Object.keys(files)[0]
       if (!resumeKey || !files[resumeKey]) {
-        return { status: 'error' }
+        throw new Error('Internal error')
       }
 
       const fileObj = files[resumeKey]
@@ -106,7 +106,7 @@ export const submitCareerApplication = actionClient
 
       if (!response.ok) {
         console.error('Ashby API HTTP error:', response.status, response.statusText, responseText)
-        return { status: 'error' }
+        throw new Error('Ashby API HTTP error')
       }
 
       try {
