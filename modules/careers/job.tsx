@@ -1,11 +1,11 @@
 'use client'
 
 import type { Path } from 'react-hook-form'
-import type { ActionResponse } from '~/app/actions/careers'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsxm } from '@zolplay/utils'
 import { cva } from 'class-variance-authority'
 import { useTranslations } from 'next-intl'
+import { useAction } from 'next-safe-action/hooks'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -93,7 +93,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     setValue,
     reset,
   } = useForm<z.infer<typeof applicationSchema>>({
@@ -102,8 +102,24 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
 
   const [hasApplied, setHasApplied] = React.useState(false)
 
+  const { execute, status } = useAction(submitCareerApplication, {
+    onSuccess: () => {
+      toast.success(t('ApplyCTA.Success'), { duration: 5000 })
+      reset()
+      setHasApplied(true)
+    },
+    onError: (error) => {
+      let errorMessage = t('ApplyCTA.Error')
+      if (error && typeof error === 'object' && 'message' in error) {
+        errorMessage = String(error.message)
+      }
+
+      toast.error(errorMessage)
+    },
+  })
+
   const onSubmit = React.useCallback(
-    async (data) => {
+    async (data: z.infer<typeof applicationSchema>) => {
       try {
         const jobPostingId = pathname?.split('/').slice(-1)[0]
         if (!jobPostingId) return
@@ -121,25 +137,15 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
           }
         })
 
-        const result = await submitCareerApplication({ formData })
-
-        if (result?.data && result.data.status === 'success') {
-          toast.success(t('ApplyCTA.Success'), { duration: 5000 })
-          reset()
-          setHasApplied(true)
-        } else {
-          const errorMessage =
-            result?.data?.status === 'error'
-              ? (result.data as Extract<ActionResponse, { status: 'error' }>).message
-              : undefined
-          toast.error(errorMessage || t('ApplyCTA.Error'))
-        }
+        execute({ formData })
       } catch {
         toast.error(t('ApplyCTA.Error'))
       }
     },
-    [pathname, reset, t],
+    [pathname, execute, t],
   )
+
+  const isSubmitting = status === 'executing'
 
   return (
     <section id='apply' className='pt-8'>

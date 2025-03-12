@@ -2,11 +2,8 @@
 
 import { Buffer } from 'node:buffer'
 import FormData from 'form-data'
-import { createSafeActionClient } from 'next-safe-action'
-import fetch from 'node-fetch'
 import { z } from 'zod'
-
-const action = createSafeActionClient()
+import { actionClient } from '~/lib/safe-action'
 
 // ashbyhq API References: https://developers.ashbyhq.com/reference/applicationformsubmit
 const AshbySubmitURL = 'https://api.ashbyhq.com/applicationForm.submit'
@@ -45,7 +42,7 @@ function extractFormData(formData: FormDataLike) {
   return { fieldValues, files }
 }
 
-export const submitCareerApplication = action
+export const submitCareerApplication = actionClient
   .schema(careerApplicationSchema)
   .action(async ({ parsedInput }): Promise<ActionResponse> => {
     try {
@@ -93,16 +90,18 @@ export const submitCareerApplication = action
         contentType: fileObj.type || 'application/octet-stream',
       })
 
+      const formDataBuffer = nodeFormData.getBuffer()
+      const boundary = nodeFormData.getBoundary()
+
       const response = await fetch(AshbySubmitURL, {
         method: 'POST',
         headers: {
-          ...nodeFormData.getHeaders(),
           // eslint-disable-next-line node/prefer-global/process
           Authorization: `Basic ${Buffer.from(`${process.env.ASHBY_API_KEY!}:`).toString('base64')}`,
+          'Content-Type': `multipart/form-data; boundary=${boundary}`,
         },
-        body: nodeFormData,
+        body: formDataBuffer,
       })
-
       const responseText = await response.text()
 
       if (!response.ok) {
@@ -117,17 +116,18 @@ export const submitCareerApplication = action
           return { status: 'success' }
         } else {
           console.error('Ashby API error:', ashbyResponse)
-          return {
-            status: 'error',
-            message: ashbyResponse?.errors,
-          }
+          throw new Error(`Ashby API error: ${JSON.stringify(ashbyResponse?.errors || 'Unknown error')}`)
         }
       } catch (parseError) {
         console.error('Failed to parse Ashby API response:', parseError)
-        return { status: 'error' }
+        throw new Error(
+          `Failed to parse Ashby API response: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`,
+        )
       }
     } catch (error) {
       console.error('Error submitting career application:', error)
-      return { status: 'error' }
+      throw new Error(
+        `Error submitting career application: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      )
     }
   })
