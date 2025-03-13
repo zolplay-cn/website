@@ -12,9 +12,9 @@ import { useForm } from 'react-hook-form'
 import { TbArrowBadgeDown, TbArrowBadgeLeft } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { submitCareerApplication } from '~/app/actions/careers'
 import { Button, ButtonLink } from '~/components/ui/button'
 import { Hr } from '~/components/ui/hr'
+import { submitCareerApplication } from '~/modules/careers/actions'
 import { Link } from '../i18n/navigation'
 import { Email } from './form-item/email'
 import { Input } from './form-item/input'
@@ -102,7 +102,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
 
   const [hasApplied, setHasApplied] = React.useState(false)
 
-  const { execute, status } = useAction(submitCareerApplication, {
+  const { execute, isExecuting } = useAction(submitCareerApplication, {
     onSuccess: () => {
       toast.success(t('ApplyCTA.Success'), { duration: 5000 })
       reset()
@@ -145,11 +145,9 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
     [pathname, execute, t],
   )
 
-  const isSubmitting = status === 'executing'
-
   return (
     <section id='apply' className='pt-8'>
-      <form className={clsxm(isSubmitting && 'pointer-events-none opacity-50')} onSubmit={handleSubmit(onSubmit)}>
+      <form className={clsxm(isExecuting && 'pointer-events-none opacity-50')} onSubmit={handleSubmit(onSubmit)}>
         <h2 className='pb-2'>Apply now</h2>
 
         {!hasApplied ? (
@@ -242,8 +240,8 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
             ))}
 
             <div className='flex mt-8'>
-              <Button type='submit' disabled={isSubmitting}>
-                {isSubmitting ? 'Applying...' : 'Apply'}
+              <Button type='submit' disabled={isExecuting}>
+                {isExecuting ? 'Applying...' : 'Apply'}
               </Button>
             </div>
           </>
