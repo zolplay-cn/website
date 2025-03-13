@@ -175,7 +175,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
                     />
                   ))}
 
-                <div className='flex flex-col mt-6 gap-y-6'>
+                <div className='flex flex-col gap-y-6 mt-6'>
                   {item.fields.map((field) => {
                     switch (field.field.type) {
                       case 'String':
@@ -276,12 +276,12 @@ export function Job({ job }: { job: JobProps }) {
         href='/careers'
         className='inline-flex items-center mb-2 text-sm no-underline transition-transform text-stone-500 hover:-translate-x-px hover:underline focus:outline-none focus-visible:ring focus-visible:ring-stone-500 focus-visible:ring-opacity-50 dark:text-stone-400'
       >
-        <TbArrowBadgeLeft className='flex w-4 h-4 mr-1' />
+        <TbArrowBadgeLeft className='flex mr-1 w-4 h-4' />
         {t('Back')}
       </Link>
 
       <h1 className='mb-0'>{job.title}</h1>
-      <p className='w-full my-2 space-x-1'>
+      <p className='my-2 space-x-1 w-full'>
         <span className='inline-flex items-center rounded bg-green-100 px-1 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-800 dark:text-green-100'>
           {EmploymentType[job.employmentType]}
         </span>
