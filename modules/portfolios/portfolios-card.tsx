@@ -30,7 +30,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
         <div className='relative z-20 flex h-full max-w-full flex-col justify-between pl-5 md:max-w-[16rem] md:pl-6 lg:max-w-[22rem]'>
           <div className='flex items-center mt-6 space-x-3 not-prose lg:space-x-5'>
             <Image
-              className='w-7 h-7 rounded-lg md:h-9 md:w-9 lg:h-12 lg:w-12 lg:rounded-xl'
+              className='w-7 h-7 rounded-lg md:h-9 md:w-9 lg:size-12 lg:rounded-xl'
               src={portfolio.logo}
               alt='Logo'
             />
