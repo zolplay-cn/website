@@ -12,9 +12,9 @@ import { useForm } from 'react-hook-form'
 import { TbArrowBadgeDown, TbArrowBadgeLeft } from 'react-icons/tb'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { submitCareerApplication } from '~/app/actions/careers'
 import { Button, ButtonLink } from '~/components/ui/button'
 import { Hr } from '~/components/ui/hr'
+import { submitCareerApplication } from '~/modules/careers/actions'
 import { Link } from '../i18n/navigation'
 import { Email } from './form-item/email'
 import { Input } from './form-item/input'
@@ -102,7 +102,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
 
   const [hasApplied, setHasApplied] = React.useState(false)
 
-  const { execute, status } = useAction(submitCareerApplication, {
+  const { execute, isExecuting } = useAction(submitCareerApplication, {
     onSuccess: () => {
       toast.success(t('ApplyCTA.Success'), { duration: 5000 })
       reset()
@@ -145,11 +145,9 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
     [pathname, execute, t],
   )
 
-  const isSubmitting = status === 'executing'
-
   return (
     <section id='apply' className='pt-8'>
-      <form className={clsxm(isSubmitting && 'pointer-events-none opacity-50')} onSubmit={handleSubmit(onSubmit)}>
+      <form className={clsxm(isExecuting && 'pointer-events-none opacity-50')} onSubmit={handleSubmit(onSubmit)}>
         <h2 className='pb-2'>Apply now</h2>
 
         {!hasApplied ? (
@@ -177,7 +175,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
                     />
                   ))}
 
-                <div className='flex flex-col gap-y-6 mt-6'>
+                <div className='flex flex-col mt-6 gap-y-6'>
                   {item.fields.map((field) => {
                     switch (field.field.type) {
                       case 'String':
@@ -242,8 +240,8 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
             ))}
 
             <div className='flex mt-8'>
-              <Button type='submit' disabled={isSubmitting}>
-                {isSubmitting ? 'Applying...' : 'Apply'}
+              <Button type='submit' disabled={isExecuting}>
+                {isExecuting ? 'Applying...' : 'Apply'}
               </Button>
             </div>
           </>
@@ -278,12 +276,12 @@ export function Job({ job }: { job: JobProps }) {
         href='/careers'
         className='inline-flex items-center mb-2 text-sm no-underline transition-transform text-stone-500 hover:-translate-x-px hover:underline focus:outline-none focus-visible:ring focus-visible:ring-stone-500 focus-visible:ring-opacity-50 dark:text-stone-400'
       >
-        <TbArrowBadgeLeft className='flex mr-1 w-4 h-4' />
+        <TbArrowBadgeLeft className='flex w-4 h-4 mr-1' />
         {t('Back')}
       </Link>
 
       <h1 className='mb-0'>{job.title}</h1>
-      <p className='my-2 space-x-1 w-full'>
+      <p className='w-full my-2 space-x-1'>
         <span className='inline-flex items-center rounded bg-green-100 px-1 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-800 dark:text-green-100'>
           {EmploymentType[job.employmentType]}
         </span>

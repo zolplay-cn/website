@@ -4,6 +4,13 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
+  experimental: {
+    serverActions: {
+      // Limit body size to 50MB
+      // Referenced from https://nextjs.org/docs/app/api-reference/config/next-config-js/serverActions#bodysizelimit
+      bodySizeLimit: '50mb',
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -18,35 +25,35 @@ const nextConfig: NextConfig = {
     return [
       // Standard paths - no locale prefix
       {
-        source: "/ingest/static/:path*",
-        destination: "https://us-assets.i.posthog.com/static/:path*",
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*',
       },
       {
-        source: "/ingest/:path*",
-        destination: "https://us.i.posthog.com/:path*",
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
       },
-      { 
-        source: "/ingest/decide",
-        destination: "https://us.i.posthog.com/decide",
+      {
+        source: '/ingest/decide',
+        destination: 'https://us.i.posthog.com/decide',
       },
-      
+
       // Localized paths with language prefix
       {
-        source: "/:locale/ingest/static/:path*",
-        destination: "https://us-assets.i.posthog.com/static/:path*",
+        source: '/:locale/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*',
       },
       {
-        source: "/:locale/ingest/:path*",
-        destination: "https://us.i.posthog.com/:path*",
+        source: '/:locale/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
       },
-      { 
-        source: "/:locale/ingest/decide",
-        destination: "https://us.i.posthog.com/decide",
+      {
+        source: '/:locale/ingest/decide',
+        destination: 'https://us.i.posthog.com/decide',
       },
-    ];
+    ]
   },
   // This is required to support PostHog trailing slash API requests
-  skipTrailingSlashRedirect: true, 
+  skipTrailingSlashRedirect: true,
 }
 
 const withNextIntl = createNextIntlPlugin('./modules/i18n/request.ts')

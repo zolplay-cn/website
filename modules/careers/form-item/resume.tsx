@@ -6,6 +6,9 @@ import { toast } from 'sonner'
 import { Button } from '~/components/ui/button'
 import { formError } from '../job'
 
+// limit file size to 50MB
+const FILE_SIZE_LIMIT = 50 * 1024 * 1024 //  50MB
+
 export function Resume<T extends Record<string, any>>({
   path,
   onChange,
@@ -21,11 +24,11 @@ export function Resume<T extends Record<string, any>>({
 
   return (
     <div>
-      <div className='mt-6 rounded-md border border-dashed py-2'>
+      <div className='py-2 mt-6 rounded-md border border-dashed'>
         <div className='mt-2'>
           <div className='space-y-3 text-center'>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <BsFileEarmarkPdf className='mx-auto h-8 w-8 text-stone-400 dark:text-stone-500' />
+              <BsFileEarmarkPdf className='mx-auto w-8 h-8 text-stone-400 dark:text-stone-500' />
             </motion.div>
             <AnimatePresence mode='wait'>
               {fileName && (
@@ -50,7 +53,7 @@ export function Resume<T extends Record<string, any>>({
                 onChange={(e) => {
                   const file = e.target.files?.[0]
                   if (!file) return
-                  if (file.size > 50 * 1024 * 1024) {
+                  if (file.size > FILE_SIZE_LIMIT) {
                     toast.error('Resume should be PDF files and under 50MB')
                     return
                   }

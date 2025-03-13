@@ -78,6 +78,7 @@ export const submitCareerApplication = actionClient
       }
 
       const fileObj = files[resumeKey]
+
       const arrayBuffer = await fileObj.arrayBuffer()
       const buffer = Buffer.from(arrayBuffer)
 
