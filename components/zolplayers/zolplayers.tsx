@@ -1,14 +1,11 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { ZOLPLAYERS } from './datasource'
+import { ZOLPLAYERS_SORTED } from './datasource'
 import { ZolplayerCard } from './zolplayer-card'
 
 export function Zolplayers() {
   const t = useTranslations('About')
-
-  // sort members by alphabetical order
-  const ZOLPLAYERS_SORTED = ZOLPLAYERS.sort((a, b) => a.name.localeCompare(b.name))
 
   return (
     <>

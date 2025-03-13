@@ -241,3 +241,6 @@ export const ZOLPLAYERS = [
     joinedDate: '2025-03-06',
   },
 ] satisfies Zolplayer[]
+
+// sort members by alphabetical order
+export const ZOLPLAYERS_SORTED = ZOLPLAYERS.sort((a, b) => a.name.localeCompare(b.name))
