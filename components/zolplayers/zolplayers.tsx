@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { ZOLPLAYERS } from './datasource'
+import { ZOLPLAYERS_SORTED } from './datasource'
 import { ZolplayerCard } from './zolplayer-card'
 
 export function Zolplayers() {
@@ -19,7 +19,7 @@ export function Zolplayers() {
 
       <h2>{t('MeetOurTeam')}</h2>
       <section className='grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5'>
-        {ZOLPLAYERS.map((member) => (
+        {ZOLPLAYERS_SORTED.map((member) => (
           <ZolplayerCard key={member.slug} member={member} />
         ))}
       </section>

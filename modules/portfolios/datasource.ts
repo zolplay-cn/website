@@ -21,6 +21,7 @@ export interface Portfolio {
   description: Record<Locale, string>
   timeframe: Record<Locale, string>
   website: string
+  hasDetail: boolean
 }
 
 export const PORTFOLIOS: Portfolio[] = [
@@ -31,6 +32,7 @@ export const PORTFOLIOS: Portfolio[] = [
     },
     slug: 'nexus',
     website: 'https://liveaware.io',
+    hasDetail: true,
     logo: nexusLogo,
     image: nexusImage,
     palette: {
@@ -55,6 +57,7 @@ export const PORTFOLIOS: Portfolio[] = [
     },
     slug: 'vvs-website',
     website: 'https://vvspaceship.website',
+    hasDetail: false,
     logo: vvsLogo,
     image: vvsImage,
     palette: {
@@ -92,6 +95,7 @@ export const PORTFOLIOS: Portfolio[] = [
       'zh-CN': '2021',
     },
     website: 'https://downwordly.com',
+    hasDetail: false,
     logo: downwordlyLogo,
     image: downwordlyImage,
   },
