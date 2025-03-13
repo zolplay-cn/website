@@ -7,6 +7,9 @@ import { ZolplayerCard } from './zolplayer-card'
 export function Zolplayers() {
   const t = useTranslations('About')
 
+  // sort members by alphabetical order
+  const ZOLPLAYERS_SORTED = ZOLPLAYERS.sort((a, b) => a.name.localeCompare(b.name))
+
   return (
     <>
       <svg width={0} height={0} viewBox='0 0 372 346'>
@@ -19,7 +22,7 @@ export function Zolplayers() {
 
       <h2>{t('MeetOurTeam')}</h2>
       <section className='grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5'>
-        {ZOLPLAYERS.map((member) => (
+        {ZOLPLAYERS_SORTED.map((member) => (
           <ZolplayerCard key={member.slug} member={member} />
         ))}
       </section>
