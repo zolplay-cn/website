@@ -21,5 +21,5 @@ export function RenderIfConfig({
   const config = useEdgeConfig()
   const value = config[configKey]
 
-  return value === expectedValue ? <>{children}</> : null
+  return value === expectedValue ? children : null
 }

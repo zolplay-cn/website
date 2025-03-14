@@ -2,15 +2,12 @@ import FunImage from './fun.jpg'
 import WorkshopImage from './careers-workshop.jpg'
 import { OpenPositionButton } from './open-position-button'
 import { Positions } from '~/modules/careers/positions/positions'
-import { RenderIfConfig } from '~/lib/edge-config'
 
 # 加入我们，用你的软件<Gradient>超能力</Gradient>和我们一起拯救世界
 
 你是否厌倦了泛滥互联网世界的乏味和平庸应用？还记得刚开始接触软件和应用时的那种充满未知与探索的冒险感吗？那种触动曾是改变我们生活和工作方式的催化剂。<br></br><br></br>在佐玩，为了寻回那一丝触动，我们的使命便是匠心打造<b>次世代软件应用</b>，我们需要<b>你</b>来共同实现这一目标。如果你认为「打造<Red>让人痴迷的软件体验</Red>」才是王道的话，不妨和我们联系。让我们一起魔法般地创造出非凡的产品与体验 —— 立即申请加入我们，<b>让魔法开始吧！</b> 🪄
 
-<RenderIfConfig configKey='showOpenPositions' expectedValue={true}>
-  <OpenPositionButton />
-</RenderIfConfig>
+<OpenPositionButton />
 
 <Image src={WorkshopImage} alt='Join us' placeholder='blur' />
 
