@@ -1,11 +1,9 @@
-// 'use client'
-
 import { Suspense } from 'react'
-import { getConfigValue } from '~/lib/edge-config'
+import { ConfigKey, getConfigValue } from '~/lib/edge-config'
 import { OpenPositionButtonImpl } from './open-position-button-impl'
 
 export async function OpenPositionButton() {
-  const showOpenPositions = await getConfigValue('showOpenPositions', false)
+  const showOpenPositions = await getConfigValue(ConfigKey.ShowOpenPositions, false)
 
   if (!showOpenPositions) {
     return null
@@ -16,7 +14,7 @@ export async function OpenPositionButton() {
 
 export function SuspendedOpenPositionButton() {
   return (
-    <Suspense fallback={<></>}>
+    <Suspense>
       <OpenPositionButton />
     </Suspense>
   )
