@@ -22,6 +22,3 @@ export const getConfigValue = cache(async <T>(key: string, defaultValue?: T): Pr
     return defaultValue
   }
 })
-
-export * from './hooks'
-export * from './provider'

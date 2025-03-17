@@ -1,31 +1,23 @@
-'use client'
+// 'use client'
 
-import { useTranslations } from 'next-intl'
-import { usePostHog } from 'posthog-js/react'
-import { TbArrowRight } from 'react-icons/tb'
-import { ButtonLink } from '~/components/ui/button'
-import { RenderIfConfig } from '~/lib/edge-config'
+import { Suspense } from 'react'
+import { getConfigValue } from '~/lib/edge-config'
+import { OpenPositionButtonImpl } from './open-position-button-impl'
 
-function OpenPositionButtonImpl() {
-  const posthog = usePostHog()
-  const t = useTranslations('Careers')
-  return (
-    <ButtonLink
-      href='#positions'
-      onClick={() => {
-        posthog?.capture('click_see_all_cta')
-      }}
-    >
-      {t('SeeAllCTA')}&nbsp;
-      <TbArrowRight />
-    </ButtonLink>
-  )
+export async function OpenPositionButton() {
+  const showOpenPositions = await getConfigValue('showOpenPositions', false)
+
+  if (!showOpenPositions) {
+    return null
+  }
+
+  return <OpenPositionButtonImpl />
 }
 
-export function OpenPositionButton() {
+export function SuspendedOpenPositionButton() {
   return (
-    <RenderIfConfig configKey='showOpenPositions'>
-      <OpenPositionButtonImpl />
-    </RenderIfConfig>
+    <Suspense fallback={<></>}>
+      <OpenPositionButton />
+    </Suspense>
   )
 }

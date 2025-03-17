@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import type { RootParams } from '~/types/app'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
-import { EdgeConfigProvider, getConfigValue } from '~/lib/edge-config/index'
 import { getOpenGraphImage } from '~/lib/helper'
 
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
@@ -21,31 +19,14 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
   }
 }
 
-async function ConfiguredContent({ locale }: { locale: string }) {
-  const showOpenPositions = (await getConfigValue('showOpenPositions', true)) ?? true
-  const edgeConfig = {
-    showOpenPositions,
-  }
+export default async function CareersPage({ params }: { params: Promise<RootParams> }) {
+  const { locale } = await params
 
   try {
     const Content = (await import(`./page.${locale}.mdx`)).default
-    return (
-      <EdgeConfigProvider config={edgeConfig}>
-        <Content />
-      </EdgeConfigProvider>
-    )
+    return <Content />
     // eslint-disable-next-line unused-imports/no-unused-vars
   } catch (_) {
     notFound()
   }
-}
-
-export default async function CareersPage({ params }: { params: Promise<RootParams> }) {
-  const { locale } = await params
-
-  return (
-    <Suspense fallback={<></>}>
-      <ConfiguredContent locale={locale} />
-    </Suspense>
-  )
 }
