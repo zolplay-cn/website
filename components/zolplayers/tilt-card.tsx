@@ -3,8 +3,7 @@ import type { ReactNode } from 'react'
 
 import type { Zolplayer } from './datasource'
 import { clsxm } from '@zolplay/utils'
-import { atom, useAtom } from 'jotai'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Tilt from 'react-parallax-tilt'
 
 export function TiltCard({ children, zolplayer }: { children: ReactNode; zolplayer: Zolplayer }) {
