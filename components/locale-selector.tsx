@@ -50,7 +50,7 @@ export function LocaleSelector() {
       <Select.Content className='relative z-50' position='popper'>
         {languages.map(({ value, icon: Icon }) => (
           <Select.Item key={value} value={value}>
-            <span className='inline-flex select-none items-center space-x-2 font-bold'>
+            <span className='inline-flex select-none items-center space-x-2 font-medium'>
               <Icon />
               <span>{t(value as any)}</span>
             </span>

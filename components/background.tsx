@@ -103,7 +103,6 @@ export function Background() {
       />
 
       <div className='mask-t pointer-events-none fixed inset-x-0 top-0 z-30 h-[88px] w-full select-none backdrop-blur-[1px]' />
-      <div className='mask-b pointer-events-none fixed inset-x-0 bottom-0 z-30 h-[80px] w-full select-none backdrop-blur-[1px]' />
     </>
   )
 }

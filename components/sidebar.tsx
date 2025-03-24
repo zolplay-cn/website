@@ -179,7 +179,7 @@ function MenuLink({
             window.scroll(0, 0)
           }}
           className={clsxm(
-            'relative inline-flex select-none p-2 font-bold leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
+            'relative inline-flex select-none p-2 font-medium leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
             'rounded-lg focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
             'data-[active]:text-stone-900 dark:data-[active]:text-stone-50',
             className,

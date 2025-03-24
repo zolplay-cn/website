@@ -1,17 +1,19 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:where(.dark, .dark *));
+
 * {
   @apply antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-:root {
-  --font-sans: var(--font-sans-en);
 }
 
 body {
   overscroll-behavior: none;
+  font-synthesis: none;
+  font-feature-settings: 'salt', 'calt', 'ss02', 'zero';
+  text-rendering: geometricPrecision;
+  text-decoration-skip-ink: auto;
+  font-optical-sizing: auto;
 }
 
 ::selection {
@@ -90,4 +92,41 @@ b,
 strong {
   @apply font-medium;
   @apply text-black dark:text-white;
+}
+
+@supports (view-transition-name: none) {
+  @media not (prefers-reduced-motion: reduce) {
+    ::view-transition-old(crossfade) {
+      animation: hide 0.4s cubic-bezier(0.6, 0, 0.8, 1) forwards;
+    }
+
+    ::view-transition-new(crossfade) {
+      opacity: 0;
+      animation: appear 0.6s ease 0.2s forwards;
+    }
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
 }

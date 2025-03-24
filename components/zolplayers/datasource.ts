@@ -34,14 +34,14 @@ export const ZOLPLAYERS = [
     name: 'Cali Castle',
     slug: 'cali',
     role: {
-      'zh-CN': '创始人 CEO、首席工程师',
-      en: 'Founder & CEO, Principal Engineer',
+      'zh-CN': '创始人 CEO、设计工程师',
+      en: 'Founder & CEO, Design Engineer',
     },
     portrait: {
       url: cali,
       palette: {
         background: {
-          light: '#5c7c04',
+          light: '#465d05',
           dark: '#f9b191',
         },
       },
@@ -93,7 +93,7 @@ export const ZOLPLAYERS = [
       url: larry,
       palette: {
         background: {
-          light: '#c7a60e',
+          light: '#c27761',
           dark: '#f69679',
         },
       },
@@ -117,7 +117,7 @@ export const ZOLPLAYERS = [
       url: sonia,
       palette: {
         background: {
-          light: '#39120b',
+          light: '#ae4141',
           dark: '#fc7474',
         },
       },
@@ -141,7 +141,7 @@ export const ZOLPLAYERS = [
       url: spike,
       palette: {
         background: {
-          light: '#0a1431',
+          light: '#3f5f8c',
           dark: '#74acfc',
         },
       },
@@ -155,7 +155,7 @@ export const ZOLPLAYERS = [
     joinedDate: '2023-09-01',
   },
   {
-    name: 'Tim X',
+    name: 'Timx',
     slug: 'timx',
     role: {
       en: 'Tech Manager, Full Stack Engineer',
@@ -184,7 +184,7 @@ export const ZOLPLAYERS = [
       url: will,
       palette: {
         background: {
-          light: '#06b357',
+          light: '#ae644a',
           dark: '#fa936f',
         },
       },
@@ -217,7 +217,7 @@ export const ZOLPLAYERS = [
       url: luolei,
       palette: {
         background: {
-          light: '#141c2c',
+          light: '#64676d',
           dark: '#dee5f0',
         },
       },

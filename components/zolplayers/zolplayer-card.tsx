@@ -37,7 +37,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
             clipPath: 'url(#member-arch)',
           }}
         />
-        <span className='mt-4 block text-center text-base font-bold tracking-tight text-[var(--accent)]'>
+        <span className='mt-4 block text-center text-base font-medium tracking-tight text-[var(--accent)]'>
           {member.name}
         </span>
         <span className='mt-1 block text-center text-[13px] leading-4 -tracking-[0.015rem] text-[var(--accent)] opacity-70'>
@@ -63,7 +63,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
       )}
 
       <footer className='mt-2 flex w-full items-center justify-between'>
-        <time className='select-none rounded-lg border border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-50 [transform:translateZ(60px)] dark:border-stone-600/50'>
+        <time className='select-none rounded-lg border border-dashed border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-65 tracking-tight [transform:translateZ(60px)] dark:border-stone-600/50'>
           {joined}
         </time>
 

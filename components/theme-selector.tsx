@@ -45,7 +45,7 @@ export function ThemeSelector() {
       <Select.Content position='popper'>
         {themes.map(({ label, value, icon: Icon }) => (
           <Select.Item key={value} value={value}>
-            <span className='inline-flex select-none items-center space-x-2 font-bold'>
+            <span className='inline-flex select-none items-center space-x-2 font-medium'>
               <Icon className='h-4 w-4 stroke-current' />
               <span>{t(label as any)}</span>
             </span>
