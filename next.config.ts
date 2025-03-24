@@ -5,7 +5,6 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
   experimental: {
-    viewTransition: true,
     serverActions: {
       // Limit body size to 50MB
       // Referenced from https://nextjs.org/docs/app/api-reference/config/next-config-js/serverActions#bodysizelimit
