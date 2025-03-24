@@ -114,14 +114,14 @@ export default async function RootLayout({ children, params }: { children: React
                 <Rulers />
                 <Sidebar />
 
-                <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800  dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
-                  <ViewTransition name='crossfade'>
-                    <article className='prose dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white'>
+                <ViewTransition name='crossfade'>
+                  <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800  dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
+                    <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white'>
                       {children}
                     </article>
                     <Footer />
-                  </ViewTransition>
-                </section>
+                  </section>
+                </ViewTransition>
               </main>
             </NextIntlClientProvider>
 

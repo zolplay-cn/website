@@ -155,7 +155,7 @@ export const ZOLPLAYERS = [
     joinedDate: '2023-09-01',
   },
   {
-    name: 'Timx',
+    name: 'Timx Wong',
     slug: 'timx',
     role: {
       en: 'Tech Manager, Full Stack Engineer',
