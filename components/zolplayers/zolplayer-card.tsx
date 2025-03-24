@@ -62,7 +62,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
         </ul>
       )}
 
-      <footer className='mt-2 flex w-full items-center justify-between group-hover:translate-z-14 transition-transform duration-150'>
+      <footer className='mt-2 flex w-full items-center justify-between group-hover:translate-z-6 transition-transform duration-150'>
         <time className='select-none rounded-lg border border-dashed border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-65 tracking-tight [transform:translateZ(60px)] dark:border-stone-600/50'>
           {joined}
         </time>
