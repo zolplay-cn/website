@@ -3,12 +3,11 @@ import type { RootParams } from '~/types/app'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
-import { DM_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
+import { Suspense, unstable_ViewTransition as ViewTransition } from 'react'
 import { Background } from '~/components/background'
 import { Footer } from '~/components/footer'
-
 import { Rulers } from '~/components/rulers'
 import { Sidebar } from '~/components/sidebar'
 import { Toasts } from '~/components/toasts'
@@ -17,12 +16,10 @@ import { routing } from '~/modules/i18n/routing'
 import { PostHogPageview, PHProvider as PostHogProvider } from '../../lib/posthog/posthog-provider'
 import '~/app/globals.css'
 
-const fontSansEn = DM_Sans({
-  weight: ['400', '500', '700'],
-  display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-sans-en',
-  fallback: ['ui-sans-serif'],
+const sansFont = localFont({
+  src: '../_fonts/InterVariable.woff2',
+  preload: true,
+  variable: '--font-sans',
 })
 
 export function generateStaticParams() {
@@ -77,7 +74,7 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
     },
     twitter: {
       site: '@zolplay',
-      creator: '@thecalicastle',
+      creator: '@zolplay',
       card: 'summary_large_image',
     },
   }
@@ -95,7 +92,7 @@ export default async function RootLayout({ children, params }: { children: React
   const messages = await getMessages()
 
   return (
-    <html lang={locale} suppressHydrationWarning className={`font-sans ${fontSansEn.variable}`}>
+    <html lang={locale} suppressHydrationWarning className={`font-sans ${sansFont.variable}`}>
       <head>
         <script
           // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
@@ -116,12 +113,15 @@ export default async function RootLayout({ children, params }: { children: React
               <main className='flex relative flex-col pt-12 mx-2 max-w-4xl min-h-screen md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                 <Rulers />
                 <Sidebar />
-                <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800  dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
-                  <article className='prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl'>
-                    {children}
-                  </article>
-                  <Footer />
-                </section>
+
+                <ViewTransition name='crossfade'>
+                  <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800  dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
+                    <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white'>
+                      {children}
+                    </article>
+                    <Footer />
+                  </section>
+                </ViewTransition>
               </main>
             </NextIntlClientProvider>
 

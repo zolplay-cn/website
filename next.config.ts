@@ -5,18 +5,12 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
   experimental: {
+    viewTransition: true,
     serverActions: {
       // Limit body size to 50MB
       // Referenced from https://nextjs.org/docs/app/api-reference/config/next-config-js/serverActions#bodysizelimit
       bodySizeLimit: '50mb',
     },
-  },
-  images: {
-    remotePatterns: [
-      {
-        hostname: 'cdn.sanity.io',
-      },
-    ],
   },
   // PostHog proxy configuration: Rewrites analytics requests through our domain to bypass ad blockers
   // Handles both root paths (/ingest/*) and localized paths (/:locale/ingest/*)

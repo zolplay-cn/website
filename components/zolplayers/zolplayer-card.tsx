@@ -24,20 +24,20 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
 
   return (
     <TiltCard zolplayer={member}>
-      <header className='mb-4 flex flex-col items-center'>
+      <header className='mb-4 flex flex-col items-center transform-3d translate-z-4 transition-transform duration-150'>
         <Image
           data-portrait
           src={member.portrait.url}
           alt={member.name}
           width={120}
           height={120}
-          className='mx-auto h-20 w-20 shadow-2xl md:h-28 md:w-28'
+          className='mx-auto size-20 shadow-2xl md:size-28 translate-z-2 transition-transform'
           placeholder='blur'
           style={{
             clipPath: 'url(#member-arch)',
           }}
         />
-        <span className='mt-4 block text-center text-base font-bold tracking-tight text-[var(--accent)]'>
+        <span className='mt-4 block text-center text-base font-medium tracking-tight text-[var(--accent)]'>
           {member.name}
         </span>
         <span className='mt-1 block text-center text-[13px] leading-4 -tracking-[0.015rem] text-[var(--accent)] opacity-70'>
@@ -46,7 +46,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
       </header>
 
       {member.social && member.social.length > 0 && (
-        <ul className='mb-3 flex w-full items-center justify-center gap-1.5'>
+        <ul className='mb-3 translate-z-10 transition-transform duration-150 flex w-full items-center justify-center gap-1.5'>
           {member.social.map((social) => (
             <SocialLink
               social={social}
@@ -62,8 +62,8 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
         </ul>
       )}
 
-      <footer className='mt-2 flex w-full items-center justify-between'>
-        <time className='select-none rounded-lg border border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-50 [transform:translateZ(60px)] dark:border-stone-600/50'>
+      <footer className='mt-2 flex w-full items-center justify-between translate-z-6 transition-transform duration-150'>
+        <time className='select-none rounded-lg border border-dashed border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-65 tracking-tight [transform:translateZ(60px)] dark:border-stone-600/50'>
           {joined}
         </time>
 

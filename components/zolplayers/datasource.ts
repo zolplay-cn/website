@@ -8,6 +8,7 @@ import sonia from './images/sonia.png'
 import spike from './images/spike.png'
 import timx from './images/timx.png'
 import will from './images/will.png'
+import zaotang from './images/zaotang.png'
 
 export interface Zolplayer {
   name: string
@@ -34,14 +35,14 @@ export const ZOLPLAYERS = [
     name: 'Cali Castle',
     slug: 'cali',
     role: {
-      'zh-CN': '创始人 CEO、首席工程师',
-      en: 'Founder & CEO, Principal Engineer',
+      'zh-CN': '创始人 CEO、设计工程师',
+      en: 'Founder & CEO, Design Engineer',
     },
     portrait: {
       url: cali,
       palette: {
         background: {
-          light: '#5c7c04',
+          light: '#465d05',
           dark: '#f9b191',
         },
       },
@@ -93,7 +94,7 @@ export const ZOLPLAYERS = [
       url: larry,
       palette: {
         background: {
-          light: '#c7a60e',
+          light: '#c27761',
           dark: '#f69679',
         },
       },
@@ -117,7 +118,7 @@ export const ZOLPLAYERS = [
       url: sonia,
       palette: {
         background: {
-          light: '#39120b',
+          light: '#ae4141',
           dark: '#fc7474',
         },
       },
@@ -141,7 +142,7 @@ export const ZOLPLAYERS = [
       url: spike,
       palette: {
         background: {
-          light: '#0a1431',
+          light: '#3f5f8c',
           dark: '#74acfc',
         },
       },
@@ -155,7 +156,7 @@ export const ZOLPLAYERS = [
     joinedDate: '2023-09-01',
   },
   {
-    name: 'Tim X',
+    name: 'Timx Wong',
     slug: 'timx',
     role: {
       en: 'Tech Manager, Full Stack Engineer',
@@ -184,7 +185,7 @@ export const ZOLPLAYERS = [
       url: will,
       palette: {
         background: {
-          light: '#06b357',
+          light: '#ae644a',
           dark: '#fa936f',
         },
       },
@@ -217,7 +218,7 @@ export const ZOLPLAYERS = [
       url: luolei,
       palette: {
         background: {
-          light: '#141c2c',
+          light: '#64676d',
           dark: '#dee5f0',
         },
       },
@@ -239,6 +240,34 @@ export const ZOLPLAYERS = [
       { platform: 'youtube', url: 'https://www.youtube.com/zuoluotv' },
     ],
     joinedDate: '2025-03-06',
+  },
+  {
+    name: 'Zaotang',
+    slug: 'zaotang',
+    role: {
+      en: 'Product Designer',
+      'zh-CN': '产品设计师',
+    },
+    portrait: {
+      url: zaotang,
+      palette: {
+        background: {
+          light: '#8b7740',
+          dark: '#ffda77',
+        },
+      },
+    },
+    social: [
+      {
+        platform: 'twitter',
+        url: 'https://x.com/zaotang18',
+      },
+      {
+        platform: 'website',
+        url: 'https://www.zaotang.xyz/',
+      },
+    ],
+    joinedDate: '2025-03-24',
   },
 ] satisfies Zolplayer[]
 
