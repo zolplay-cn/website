@@ -8,6 +8,7 @@ import sonia from './images/sonia.png'
 import spike from './images/spike.png'
 import timx from './images/timx.png'
 import will from './images/will.png'
+import zaotang from './images/zaotang.png'
 
 export interface Zolplayer {
   name: string
@@ -239,6 +240,34 @@ export const ZOLPLAYERS = [
       { platform: 'youtube', url: 'https://www.youtube.com/zuoluotv' },
     ],
     joinedDate: '2025-03-06',
+  },
+  {
+    name: 'Zaotang',
+    slug: 'zaotang',
+    role: {
+      en: 'Product Designer',
+      'zh-CN': '产品设计师',
+    },
+    portrait: {
+      url: zaotang,
+      palette: {
+        background: {
+          light: '#8b7740',
+          dark: '#ffda77',
+        },
+      },
+    },
+    social: [
+      {
+        platform: 'twitter',
+        url: 'https://x.com/zaotang18',
+      },
+      {
+        platform: 'website',
+        url: 'https://www.zaotang.xyz/',
+      },
+    ],
+    joinedDate: '2025-03-24',
   },
 ] satisfies Zolplayer[]
 
