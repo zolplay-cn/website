@@ -24,14 +24,14 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
 
   return (
     <TiltCard zolplayer={member}>
-      <header className='mb-4 flex flex-col items-center transform-3d group-hover:translate-z-4 transition-transform duration-150'>
+      <header className='mb-4 flex flex-col items-center transform-3d translate-z-4 transition-transform duration-150'>
         <Image
           data-portrait
           src={member.portrait.url}
           alt={member.name}
           width={120}
           height={120}
-          className='mx-auto size-20 shadow-2xl md:size-28 group-hover:translate-z-2 transition-transform'
+          className='mx-auto size-20 shadow-2xl md:size-28 translate-z-2 transition-transform'
           placeholder='blur'
           style={{
             clipPath: 'url(#member-arch)',
@@ -46,7 +46,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
       </header>
 
       {member.social && member.social.length > 0 && (
-        <ul className='mb-3 group-hover:translate-z-10 transition-transform duration-150 flex w-full items-center justify-center gap-1.5'>
+        <ul className='mb-3 translate-z-10 transition-transform duration-150 flex w-full items-center justify-center gap-1.5'>
           {member.social.map((social) => (
             <SocialLink
               social={social}
@@ -62,7 +62,7 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
         </ul>
       )}
 
-      <footer className='mt-2 flex w-full items-center justify-between group-hover:translate-z-6 transition-transform duration-150'>
+      <footer className='mt-2 flex w-full items-center justify-between translate-z-6 transition-transform duration-150'>
         <time className='select-none rounded-lg border border-dashed border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-65 tracking-tight [transform:translateZ(60px)] dark:border-stone-600/50'>
           {joined}
         </time>
