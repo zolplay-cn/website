@@ -85,3 +85,9 @@ body {
   color: var(--color-stone-300) !important;
   border-color: var(--color-stone-700) !important;
 }
+
+b,
+strong {
+  @apply font-medium;
+  @apply text-black dark:text-white;
+}
