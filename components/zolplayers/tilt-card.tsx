@@ -36,13 +36,14 @@ export function TiltCard({ children, zolplayer }: { children: ReactNode; zolplay
           'md:opacity-80 md:blur-[1px]': focusingMember !== null && focusingMember !== zolplayer.slug,
           'blur-none': focusingMember === zolplayer.slug,
         },
+        'transform-3d',
       ])}
       style={{
         '--mb-accent': zolplayer.portrait.palette.background.light,
         '--mb-accent-dark': zolplayer.portrait.palette.background.dark,
       }}
       tiltEnable={tiltEnabled}
-      perspective={400}
+      perspective={1000}
       scale={1.05}
       glareEnable={false}
       tiltMaxAngleX={10}
