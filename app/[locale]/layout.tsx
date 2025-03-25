@@ -126,9 +126,9 @@ export default async function RootLayout({ children, params }: { children: React
                 </ScrollArea.Viewport>
                 <ScrollArea.Scrollbar
                   orientation='vertical'
-                  className='flex touch-none select-none bg-stone-200/20 p-0.5 transition-colors duration-[160ms] ease-out hover:bg-stone-200/30 data-[orientation=vertical]:w-2.5'
+                  className='flex touch-none select-none bg-stone-200/20 dark:bg-stone-800/20 p-0.5 transition-colors duration-[160ms] ease-out hover:bg-stone-200/30 dark:hover:bg-stone-800/30 data-[orientation=vertical]:w-2.5'
                 >
-                  <ScrollArea.Thumb className='relative flex-1 rounded-[10px] bg-stone-400 before:absolute before:left-1/2 before:top-1/2 before:size-full before:min-h-11 before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2' />
+                  <ScrollArea.Thumb className='relative flex-1 rounded-[10px] bg-stone-400 dark:bg-stone-600 before:absolute before:left-1/2 before:top-1/2 before:size-full before:min-h-11 before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2' />
                 </ScrollArea.Scrollbar>
               </ScrollArea.Root>
             </NextIntlClientProvider>
