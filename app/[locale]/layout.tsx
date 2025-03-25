@@ -113,7 +113,7 @@ export default async function RootLayout({ children, params }: { children: React
               <Background />
               <ScrollArea.Root className='w-screen h-screen'>
                 <ScrollArea.Viewport className='w-full h-full'>
-                  <main className='flex relative flex-col pt-12 mx-2 max-w-4xl min-h-screen md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
+                  <main className='flex relative flex-col pt-12 mx-2 max-w-4xl md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                     <Rulers />
                     <Sidebar />
                     <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
@@ -124,6 +124,9 @@ export default async function RootLayout({ children, params }: { children: React
                     </section>
                   </main>
                 </ScrollArea.Viewport>
+                <ScrollArea.Scrollbar orientation='vertical'>
+                  <ScrollArea.Thumb />
+                </ScrollArea.Scrollbar>
               </ScrollArea.Root>
             </NextIntlClientProvider>
 
