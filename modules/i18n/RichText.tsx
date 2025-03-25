@@ -1,7 +1,5 @@
-import type { PortableTextMarkComponentProps } from '@portabletext/react/src/types'
-
 import type { RichTranslationValues } from 'next-intl'
-import { TbArrowDownLeft, TbArrowUpRight } from 'react-icons/tb'
+import { TbArrowDownLeft } from 'react-icons/tb'
 import { Link } from './navigation'
 
 export const DefaultRichTextComponents = {
