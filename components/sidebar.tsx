@@ -6,7 +6,6 @@ import { clsxm } from '@zolplay/utils'
 import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
-import Image from 'next/image'
 import NextLink from 'next/link'
 import React from 'react'
 import { BsGithub, BsYoutube } from 'react-icons/bs'
@@ -17,9 +16,7 @@ import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
-import { useUWU } from '~/hooks/useUWU'
 import { Link, usePathname } from '~/modules/i18n/navigation'
-import UwU from '../modules/uwu/zolplay-logo-uwu.png'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
@@ -60,7 +57,6 @@ const social = [
 
 export function Sidebar({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
-  const isUWU = useUWU()
 
   return (
     <aside className={clsxm('md:mx-0 md:w-44 md:flex-shrink-0 md:px-0', className)}>
@@ -70,21 +66,17 @@ export function Sidebar({ className }: { className?: string }) {
           aria-label={t('Title')}
           className='group relative mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6'
         >
-          {isUWU ? (
-            <Image className='w-20' src={UwU} alt='zolplay logo uwu' />
-          ) : (
-            <motion.span
-              initial={{ opacity: 0, x: 8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                type: 'spring',
-                stiffness: 300,
-                damping: 30,
-              }}
-            >
-              <LogoHelmetFilled className='w-7 md:w-10' />
-            </motion.span>
-          )}
+          <motion.span
+            initial={{ opacity: 0, x: 8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+            }}
+          >
+            <LogoHelmetFilled className='w-7 md:w-10' />
+          </motion.span>
         </Link>
 
         <NavMenu />
