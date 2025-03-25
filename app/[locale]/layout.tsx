@@ -111,13 +111,13 @@ export default async function RootLayout({ children, params }: { children: React
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <NextIntlClientProvider messages={messages}>
               <Background />
-              <ScrollArea.Root className='w-screen h-screen'>
-                <ScrollArea.Viewport className='w-full h-full'>
+              <ScrollArea.Root className='overflow-x-hidden w-screen h-screen'>
+                <ScrollArea.Viewport className='overflow-x-hidden w-full h-full'>
                   <main className='flex relative flex-col pt-12 mx-2 max-w-4xl md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                     <Rulers />
                     <Sidebar />
-                    <section className='flex relative z-20 flex-col flex-auto p-5 pb-36 mt-3 w-full bg-white border border-transparent shadow-xl frosted-noise dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
-                      <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white'>
+                    <section className='frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44'>
+                      <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white max-w-full overflow-hidden'>
                         {children}
                       </article>
                       <Footer />
@@ -126,7 +126,7 @@ export default async function RootLayout({ children, params }: { children: React
                 </ScrollArea.Viewport>
                 <ScrollArea.Scrollbar
                   orientation='vertical'
-                  className='flex touch-none select-none bg-stone-200/20 dark:bg-stone-800/20 p-0.5 transition-colors duration-[160ms] ease-out hover:bg-stone-200/30 dark:hover:bg-stone-800/30 data-[orientation=vertical]:w-2.5'
+                  className='hidden md:flex touch-none select-none bg-stone-200/20 dark:bg-stone-800/20 p-0.5 transition-colors duration-[160ms] ease-out hover:bg-stone-200/30 dark:hover:bg-stone-800/30 data-[orientation=vertical]:w-2.5'
                 >
                   <ScrollArea.Thumb className='relative flex-1 rounded-[10px] bg-stone-400 dark:bg-stone-600 before:absolute before:left-1/2 before:top-1/2 before:size-full before:min-h-11 before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2' />
                 </ScrollArea.Scrollbar>
