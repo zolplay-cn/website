@@ -1,6 +1,7 @@
 'use server'
 
 import { Buffer } from 'node:buffer'
+import path from 'node:path'
 import FormData from 'form-data'
 import { z } from 'zod'
 import { actionClient } from '~/lib/safe-action'
@@ -18,28 +19,16 @@ interface FormDataLike {
   entries: () => Iterable<[string, unknown]>
 }
 
-interface FormDataEntry {
-  name: string
-  size: number
-  arrayBuffer: () => Promise<ArrayBuffer>
-  type?: string
-}
-
 function extractFormData(formData: FormDataLike) {
   const fieldValues: Record<string, string> = {}
-  const files: Record<string, FormDataEntry> = {}
 
   if (formData && typeof formData.entries === 'function') {
     for (const [key, value] of Array.from(formData.entries() as Iterable<[string, unknown]>)) {
-      if (value && typeof value === 'object' && 'name' in value && 'size' in value) {
-        files[key] = value as FormDataEntry
-      } else {
-        fieldValues[key] = String(value)
-      }
+      fieldValues[key] = String(value)
     }
   }
 
-  return { fieldValues, files }
+  return { fieldValues }
 }
 
 export const submitCareerApplication = actionClient
@@ -47,52 +36,87 @@ export const submitCareerApplication = actionClient
   .action(async ({ parsedInput }): Promise<ActionResponse> => {
     try {
       const formData = parsedInput.formData
-      const { fieldValues, files } = extractFormData(formData)
+      const { fieldValues } = extractFormData(formData)
 
       const jobPostingId = fieldValues.jobPostingId
       if (!jobPostingId) {
         throw new Error('Internal error')
       }
 
-      const fieldSubmissions: { path: string; value: any }[] = []
-
-      Object.keys(fieldValues).forEach((key) => {
-        if (key !== 'jobPostingId') {
-          if (!fieldValues[key]) return
-
-          fieldSubmissions.push({
-            path: key,
-            value:
-              key === '_systemfield_location'
-                ? fieldValues[key]
-                  ? JSON.parse(fieldValues[key])
-                  : null
-                : fieldValues[key],
-          })
-        }
-      })
-
-      const resumeKey = Object.keys(files)[0]
-      if (!resumeKey || !files[resumeKey]) {
-        throw new Error('Internal error')
+      const resumeUrl = fieldValues._systemfield_resume
+      if (!resumeUrl) {
+        throw new Error('Internal error: Missing resume URL')
       }
 
-      const fileObj = files[resumeKey]
+      console.error('Fetching resume from URL:', resumeUrl)
 
-      const arrayBuffer = await fileObj.arrayBuffer()
-      const buffer = Buffer.from(arrayBuffer)
-
-      const nodeFormData = new FormData()
-      nodeFormData.append('applicationForm', JSON.stringify({ fieldSubmissions }))
-      nodeFormData.append('jobPostingId', jobPostingId)
-
-      nodeFormData.append(resumeKey, buffer, {
-        filename: fileObj.name,
-        contentType: fileObj.type || 'application/octet-stream',
+      const resumeResponse = await fetch(resumeUrl, {
+        signal: AbortSignal.timeout(30000),
+        headers: {
+          Accept: 'application/pdf',
+        },
       })
 
+      if (!resumeResponse.ok) {
+        throw new Error(`Failed to fetch resume: ${resumeResponse.status} ${resumeResponse.statusText}`)
+      }
+
+      const resumeArrayBuffer = await resumeResponse.arrayBuffer()
+      const resumeBuffer = Buffer.from(resumeArrayBuffer)
+      console.error('Resume buffer size:', resumeBuffer.length)
+
+      const resumeFileName = 'resume.pdf'
+
+      const fieldSubmissions: { path: string; value: any }[] = []
+
+      for (const [key, value] of Object.entries(fieldValues)) {
+        if (key === 'jobPostingId' || !value) continue
+
+        if (key === '_systemfield_location') {
+          try {
+            const locationValue =
+              typeof value === 'string' && value.startsWith('{') ? JSON.parse(value) : { city: value }
+
+            fieldSubmissions.push({
+              path: key,
+              value: locationValue,
+            })
+          } catch {
+            fieldSubmissions.push({
+              path: key,
+              value: { city: value },
+            })
+          }
+        } else if (key === '_systemfield_resume') {
+          fieldSubmissions.push({
+            path: key,
+            value: resumeFileName,
+          })
+        } else {
+          fieldSubmissions.push({
+            path: key,
+            value,
+          })
+        }
+      }
+
+      const nodeFormData = new FormData()
+
+      nodeFormData.append('applicationForm', JSON.stringify({ fieldSubmissions }))
+      nodeFormData.append('jobPostingId', jobPostingId)
+      nodeFormData.append(resumeFileName, resumeBuffer, {
+        filename: resumeFileName,
+        contentType: 'application/pdf',
+      })
       const formDataBuffer = nodeFormData.getBuffer()
       const boundary = nodeFormData.getBoundary()
+
+      console.error('Submitting to Ashby API with form data:', {
+        jobPostingId,
+        fieldSubmissions: JSON.stringify(fieldSubmissions, null, 2),
+        resumeSize: resumeBuffer.length,
+        formDataFields: ['applicationForm', 'jobPostingId', resumeFileName],
+      })
 
       const response = await fetch(AshbySubmitURL, {
         method: 'POST',
@@ -103,11 +127,20 @@ export const submitCareerApplication = actionClient
         },
         body: formDataBuffer,
       })
+
       const responseText = await response.text()
+      console.error('Ashby API response:', responseText)
 
       if (!response.ok) {
-        console.error('Ashby API HTTP error:', response.status, response.statusText, responseText)
-        throw new Error('Ashby API HTTP error')
+        console.error('Ashby API HTTP error:', {
+          status: response.status,
+          statusText: response.statusText,
+          response: responseText,
+        })
+        return {
+          status: 'error',
+          message: `API error: ${response.status} ${response.statusText}`,
+        }
       }
 
       try {
@@ -117,18 +150,23 @@ export const submitCareerApplication = actionClient
           return { status: 'success' }
         } else {
           console.error('Ashby API error:', ashbyResponse)
-          throw new Error(`Ashby API error: ${JSON.stringify(ashbyResponse?.errors || 'Unknown error')}`)
+          return {
+            status: 'error',
+            message: `Application submission failed: ${JSON.stringify(ashbyResponse.errors || 'Unknown error')}`,
+          }
         }
       } catch (parseError) {
         console.error('Failed to parse Ashby API response:', parseError)
-        throw new Error(
-          `Failed to parse Ashby API response: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`,
-        )
+        return {
+          status: 'error',
+          message: `Failed to parse response: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`,
+        }
       }
     } catch (error) {
       console.error('Error submitting career application:', error)
-      throw new Error(
-        `Error submitting career application: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      )
+      return {
+        status: 'error',
+        message: `Error submitting application: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      }
     }
   })

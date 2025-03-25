@@ -1,13 +1,14 @@
 'use client'
 
 import type { Path } from 'react-hook-form'
+import type { ResumeRef } from './form-item/resume'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsxm } from '@zolplay/utils'
 import { cva } from 'class-variance-authority'
 import { useTranslations } from 'next-intl'
 import { useAction } from 'next-safe-action/hooks'
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { TbArrowBadgeDown, TbArrowBadgeLeft } from 'react-icons/tb'
 import { toast } from 'sonner'
@@ -61,11 +62,19 @@ export const textInput = cva([
   'block w-full rounded-md border-0 bg-transparent py-1.5 shadow-sm ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6 ',
 ])
 
+type ApplicationFormData = Record<string, string>
+
 function JobApplicationForm({ sections }: { sections: JobSection[] }) {
   const t = useTranslations('Careers')
   const pathname = usePathname()
+  const [submissionState, setSubmissionState] = React.useState<
+    'idle' | 'uploading' | 'submitting' | 'success' | 'error'
+  >('idle')
+  const resumeRef = useRef<ResumeRef>(null)
+  const formSubmittedRef = useRef(false)
 
   const fields = sections.flatMap((item) => item.fields)
+  const resumeField = fields.find((field) => field.field.type === 'File')
 
   const validators = fields.reduce((acc, field) => {
     switch (field.field.type) {
@@ -79,7 +88,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
         acc[field.field.path] = field.isRequired ? z.string().nonempty().email() : z.string().email()
         break
       case 'File':
-        acc[field.field.path] = z.any().refine((file: File) => !!file?.size)
+        acc[field.field.path] = field.isRequired ? z.string().min(1, 'Resume is required') : z.string().optional()
         break
       default:
         return acc
@@ -96,64 +105,110 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
     formState: { errors },
     setValue,
     reset,
-  } = useForm<z.infer<typeof applicationSchema>>({
+  } = useForm<ApplicationFormData>({
     resolver: zodResolver(applicationSchema),
   })
 
-  const [hasApplied, setHasApplied] = React.useState(false)
-
-  const { execute, isExecuting } = useAction(submitCareerApplication, {
+  const { execute } = useAction(submitCareerApplication, {
+    onExecute: () => {
+      setSubmissionState('submitting')
+    },
     onSuccess: () => {
       toast.success(t('ApplyCTA.Success'), { duration: 5000 })
       reset()
-      setHasApplied(true)
+      setSubmissionState('success')
+      formSubmittedRef.current = true
     },
     onError: (error) => {
       let errorMessage = t('ApplyCTA.Error')
       if (error && typeof error === 'object' && 'message' in error) {
         errorMessage = String(error.message)
       }
-
       toast.error(errorMessage)
+      setSubmissionState('error')
     },
   })
 
   const onSubmit = React.useCallback(
     async (data: z.infer<typeof applicationSchema>) => {
+      if (submissionState !== 'idle' && submissionState !== 'error') return
+
       try {
         const jobPostingId = pathname?.split('/').slice(-1)[0]
         if (!jobPostingId) return
 
         const formData = new FormData()
         formData.append('jobPostingId', jobPostingId)
-        Object.entries(data).forEach(([key, value]) => {
-          if (key === '_systemfield_resume') {
-            formData.append(key, 'Resume/CV')
-            formData.append('Resume/CV', value as File)
-          } else if (key === '_systemfield_location') {
+
+        if (resumeField?.field.path && data[resumeField.field.path] === 'pending') {
+          setSubmissionState('uploading')
+
+          try {
+            const resumeUrl = await resumeRef.current?.upload()
+            if (!resumeUrl) {
+              console.error('Resume upload failed: no URL returned')
+              toast.error('Failed to upload resume')
+              setSubmissionState('error')
+              return
+            }
+            formData.append(resumeField.field.path, resumeUrl)
+          } catch (error) {
+            console.error('Resume upload failed:', error)
+            toast.error('Failed to upload resume')
+            setSubmissionState('error')
+            return
+          }
+        } else if (resumeField?.field.path && data[resumeField.field.path]) {
+          formData.append(resumeField.field.path, data[resumeField.field.path] as string)
+        }
+
+        for (const [key, value] of Object.entries(data)) {
+          if (key === resumeField?.field.path) continue
+
+          if (key === '_systemfield_location') {
             formData.append(key, JSON.stringify({ city: value }))
-          } else {
+          } else if (value) {
             formData.append(key, value as string)
           }
-        })
+        }
 
-        execute({ formData })
-      } catch {
-        toast.error(t('ApplyCTA.Error'))
+        await execute({ formData })
+      } catch (error) {
+        console.error('Form submission error:', error)
+        toast.error('Failed to submit application')
+        setSubmissionState('error')
       }
     },
-    [pathname, execute, t],
+    [pathname, execute, resumeField?.field.path, submissionState],
   )
+
+  const getSubmitButtonText = () => {
+    switch (submissionState) {
+      case 'uploading':
+        return 'Uploading resume...'
+      case 'submitting':
+        return 'Submitting...'
+      case 'success':
+        return 'Submitted'
+      case 'error':
+      case 'idle':
+      default:
+        return 'Apply'
+    }
+  }
+
+  const isButtonDisabled =
+    submissionState === 'uploading' || submissionState === 'submitting' || submissionState === 'success'
 
   return (
     <section id='apply' className='pt-8'>
-      <form className={clsxm(isExecuting && 'pointer-events-none opacity-50')} onSubmit={handleSubmit(onSubmit)}>
+      <form className={clsxm(isButtonDisabled && 'pointer-events-none opacity-50')} onSubmit={handleSubmit(onSubmit)}>
         <h2 className='pb-2'>Apply now</h2>
 
-        {!hasApplied ? (
+        {submissionState !== 'success' ? (
           <>
-            {sections.map((item, index) => (
-              <div key={index}>
+            {sections.map((item) => (
+              <div key={item.title}>
                 <div className='pb-2 border-b border-stone-200 dark:border-stone-700/60'>
                   <h3 className='text-xl font-semibold leading-6'>{item.title}</h3>
                   {!!item.descriptionPlain && <div>{item.descriptionPlain}</div>}
@@ -162,15 +217,18 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
                 {item.fields
                   .filter((field) => field.field.type === 'File')
                   .map((field) => (
-                    <Resume<z.infer<typeof applicationSchema>>
+                    <Resume
                       key={field.field.id}
-                      path={field.field.path as Path<z.infer<typeof applicationSchema>>}
+                      ref={resumeRef}
+                      path={field.field.path as Path<Record<string, string>>}
                       errors={errors}
-                      onChange={(e) => {
-                        const file = e.target.files?.[0]
-                        if (!file) return
-
-                        setValue(field.field.path as Path<z.infer<typeof applicationSchema>>, file as unknown as never)
+                      onChange={(value) => {
+                        setValue(field.field.path, value)
+                      }}
+                      onUploadStart={() => {}}
+                      onUploadComplete={() => {}}
+                      onUploadError={(error) => {
+                        toast.error(error.message)
                       }}
                     />
                   ))}
@@ -240,8 +298,8 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
             ))}
 
             <div className='flex mt-8'>
-              <Button type='submit' disabled={isExecuting}>
-                {isExecuting ? 'Applying...' : 'Apply'}
+              <Button type='submit' disabled={isButtonDisabled}>
+                {getSubmitButtonText()}
               </Button>
             </div>
           </>
@@ -299,6 +357,7 @@ export function Job({ job }: { job: JobProps }) {
 
       <div
         className='prose mt-5 dark:prose-invert prose-p:my-0 prose-p:leading-[1.8] prose-ol:my-0 prose-ul:my-0 [&>p]:my-4'
+        // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
         dangerouslySetInnerHTML={{ __html: job.descriptionHtml }}
       />
 
