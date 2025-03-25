@@ -48,8 +48,6 @@ export const submitCareerApplication = actionClient
         throw new Error('Internal error: Missing resume URL')
       }
 
-      console.error('Fetching resume from URL:', resumeUrl)
-
       const resumeResponse = await fetch(resumeUrl, {
         signal: AbortSignal.timeout(30000),
         headers: {
@@ -63,7 +61,6 @@ export const submitCareerApplication = actionClient
 
       const resumeArrayBuffer = await resumeResponse.arrayBuffer()
       const resumeBuffer = Buffer.from(resumeArrayBuffer)
-      console.error('Resume buffer size:', resumeBuffer.length)
 
       const resumeFileName = 'resume.pdf'
 
@@ -111,13 +108,6 @@ export const submitCareerApplication = actionClient
       const formDataBuffer = nodeFormData.getBuffer()
       const boundary = nodeFormData.getBoundary()
 
-      console.error('Submitting to Ashby API with form data:', {
-        jobPostingId,
-        fieldSubmissions: JSON.stringify(fieldSubmissions, null, 2),
-        resumeSize: resumeBuffer.length,
-        formDataFields: ['applicationForm', 'jobPostingId', resumeFileName],
-      })
-
       const response = await fetch(AshbySubmitURL, {
         method: 'POST',
         headers: {
@@ -129,18 +119,9 @@ export const submitCareerApplication = actionClient
       })
 
       const responseText = await response.text()
-      console.error('Ashby API response:', responseText)
 
       if (!response.ok) {
-        console.error('Ashby API HTTP error:', {
-          status: response.status,
-          statusText: response.statusText,
-          response: responseText,
-        })
-        return {
-          status: 'error',
-          message: `API error: ${response.status} ${response.statusText}`,
-        }
+        throw new Error('Ashby API HTTP error')
       }
 
       try {
@@ -149,24 +130,16 @@ export const submitCareerApplication = actionClient
         if (ashbyResponse.success) {
           return { status: 'success' }
         } else {
-          console.error('Ashby API error:', ashbyResponse)
-          return {
-            status: 'error',
-            message: `Application submission failed: ${JSON.stringify(ashbyResponse.errors || 'Unknown error')}`,
-          }
+          throw new Error(`Ashby API error: ${JSON.stringify(ashbyResponse?.errors || 'Unknown error')}`)
         }
       } catch (parseError) {
-        console.error('Failed to parse Ashby API response:', parseError)
-        return {
-          status: 'error',
-          message: `Failed to parse response: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`,
-        }
+        throw new Error(
+          `Failed to parse Ashby API response: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`,
+        )
       }
     } catch (error) {
-      console.error('Error submitting career application:', error)
-      return {
-        status: 'error',
-        message: `Error submitting application: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      }
+      throw new Error(
+        `Error submitting career application: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      )
     }
   })

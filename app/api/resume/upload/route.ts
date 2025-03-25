@@ -1,3 +1,5 @@
+// References: https://vercel.com/guides/how-to-bypass-vercel-body-size-limit-serverless-functions
+
 import type { HandleUploadBody } from '@vercel/blob/client'
 import { handleUpload } from '@vercel/blob/client'
 import { NextResponse } from 'next/server'
