@@ -1,6 +1,7 @@
 'use client'
 
 import type { FieldErrors, Path } from 'react-hook-form'
+import { upload } from '@vercel/blob/client'
 import { AnimatePresence, motion } from 'motion/react'
 import React, { useImperativeHandle } from 'react'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
@@ -58,47 +59,42 @@ export function Resume({
     onChange('pending')
   }
 
-  const upload = async () => {
+  const handleUpload = async () => {
     if (!file) return null
     setIsUploading(true)
     onUploadStart()
-    try {
-      const formData = new FormData()
-      formData.append('file', file)
 
-      const response = await fetch('/api/resume/upload', {
-        method: 'POST',
-        body: formData,
+    try {
+      const safeFileName = `resume-${Date.now()}-${file.name.replace(/[^a-z0-9.-]/gi, '_')}`
+
+      const blob = await upload(safeFileName, file, {
+        access: 'public',
+        handleUploadUrl: '/api/resume/upload',
       })
 
-      if (!response.ok) {
-        throw new Error('Upload failed')
-      }
-
-      const data = await response.json()
-      onChange(data.url)
-      onUploadComplete(data.url)
-      setIsUploading(false)
-      return data.url
+      onChange(blob.url)
+      onUploadComplete(blob.url)
+      return blob.url
     } catch (error) {
       console.error('Upload failed:', error)
       onUploadError(error instanceof Error ? error : new Error('Upload failed'))
-      setIsUploading(false)
       return null
+    } finally {
+      setIsUploading(false)
     }
   }
 
   useImperativeHandle(ref, () => ({
-    upload,
+    upload: handleUpload,
   }))
 
   return (
     <div>
-      <div className='py-2 mt-6 rounded-md border border-dashed'>
+      <div className='py-2 mt-6 border border-dashed rounded-md'>
         <div className='mt-2'>
           <div className='space-y-3 text-center'>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <BsFileEarmarkPdf className='mx-auto w-8 h-8 text-stone-400 dark:text-stone-500' />
+              <BsFileEarmarkPdf className='w-8 h-8 mx-auto text-stone-400 dark:text-stone-500' />
             </motion.div>
             <AnimatePresence mode='wait'>
               {file && (

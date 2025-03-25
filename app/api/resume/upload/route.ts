@@ -1,6 +1,5 @@
-'use server'
-
-import { put } from '@vercel/blob'
+import type { HandleUploadBody } from '@vercel/blob/client'
+import { handleUpload } from '@vercel/blob/client'
 import { NextResponse } from 'next/server'
 
 // limit file size to 50MB
@@ -8,35 +7,30 @@ const FILE_SIZE_LIMIT = 50 * 1024 * 1024
 
 export async function POST(request: Request): Promise<NextResponse> {
   try {
-    const formData = await request.formData()
-    const file = formData.get('file') as File
-    if (!file) {
-      return NextResponse.json({ error: 'No file provided' }, { status: 400 })
-    }
+    const body = (await request.json()) as HandleUploadBody
 
-    const allowedTypes = [
-      'application/pdf',
-      'application/msword',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    ]
-
-    if (!allowedTypes.includes(file.type)) {
-      return NextResponse.json({ error: 'Invalid file type' }, { status: 400 })
-    }
-
-    if (file.size > FILE_SIZE_LIMIT) {
-      return NextResponse.json({ error: 'File size exceeds 50MB' }, { status: 400 })
-    }
-
-    const blob = await put(file.name, file, {
-      access: 'public',
-      contentType: file.type,
-      addRandomSuffix: true,
+    const jsonResponse = await handleUpload({
+      body,
+      request,
+      onBeforeGenerateToken: async () => {
+        return {
+          allowedContentTypes: [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          ],
+          maximumSizeInBytes: FILE_SIZE_LIMIT,
+          tokenPayload: JSON.stringify({
+            timestamp: Date.now(),
+          }),
+        }
+      },
+      onUploadCompleted: async () => {},
     })
 
-    return NextResponse.json({ url: blob.url })
+    return NextResponse.json(jsonResponse)
   } catch (error) {
     console.error('Resume upload error:', error)
-    return NextResponse.json({ error: 'Upload failed' }, { status: 500 })
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Upload failed' }, { status: 400 })
   }
 }
