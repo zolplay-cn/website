@@ -1,29 +1,32 @@
-import { getMessages } from '~/i18n.server'
-import { getJobs } from '~/lib/ashbyhq.queries'
-import { getOpenGraphImage } from '~/lib/helper'
 import type { Metadata } from 'next'
-import { Careers } from './Careers'
+import type { RootParams } from '~/types/app'
+import { getTranslations } from 'next-intl/server'
+import { notFound } from 'next/navigation'
+import { getOpenGraphImage } from '~/lib/helper'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: RootParams
-}): Promise<Metadata> {
-  const messages = await getMessages(params)
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return {
-    title: messages.Careers.Title,
-    description: messages.Careers.Description,
+    title: t('Careers.Title'),
+    description: t('Careers.Description'),
     openGraph: {
-      title: messages.Careers.Title,
-      description: messages.Careers.Description,
-      images: [getOpenGraphImage(messages.Careers.Title, params.locale)],
+      title: t('Careers.Title'),
+      description: t('Careers.Description'),
+      images: [getOpenGraphImage(t('Careers.Title'), locale)],
     },
   }
 }
 
-export default async function CareersPage() {
-  const jobs = await getJobs()
+export default async function CareersPage({ params }: { params: Promise<RootParams> }) {
+  const { locale } = await params
 
-  return <Careers jobs={jobs} />
+  try {
+    const Content = (await import(`./page.${locale}.mdx`)).default
+    return <Content />
+    // eslint-disable-next-line unused-imports/no-unused-vars
+  } catch (_) {
+    notFound()
+  }
 }

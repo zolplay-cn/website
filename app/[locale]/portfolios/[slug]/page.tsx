@@ -1,55 +1,51 @@
-import { PortfolioPage } from '~/app/[locale]/portfolios/[slug]/PortfolioPage'
-import { getMessages } from '~/i18n.server'
-import { getOpenGraphImage } from '~/lib/helper'
-import { getPortfolio, getPortfolioSlugs } from '~/lib/sanity.queries'
 import type { Metadata } from 'next'
+import type { RootParams } from '~/types/app'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { getOpenGraphImage } from '~/lib/helper'
+import { PORTFOLIOS } from '~/modules/portfolios/datasource'
+
+type PortfolioParams = RootParams & Promise<{ slug: string }>
 
 export async function generateStaticParams() {
-  const slugs = await getPortfolioSlugs()
-  return slugs.map((slug) => ({ slug }))
+  return PORTFOLIOS.map((portfolio) => ({
+    slug: portfolio.slug,
+  }))
 }
 
-type PageParams = RootParams & { slug: string }
-async function fetchPortfolio(params: PageParams) {
-  const portfolio = await getPortfolio({
-    slug: params.slug,
-    locale: params.locale,
-  })
+export async function generateMetadata({ params }: { params: PortfolioParams }): Promise<Metadata> {
+  const { locale, slug } = await params
+  const t = await getTranslations({ locale, namespace: 'Portfolios.Details' })
+
+  const portfolio = PORTFOLIOS.find((p) => p.slug === slug)
   if (!portfolio) {
-    notFound()
+    return {}
   }
 
-  return portfolio
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: PageParams
-}): Promise<Metadata> {
-  const portfolio = await fetchPortfolio(params)
-  const messages = await getMessages(params)
-
   return {
-    title: portfolio.title,
-    description: portfolio.description,
+    title: `${portfolio.title[locale]} | ${t('Subtitle')}`,
+    description: portfolio.description[locale],
     openGraph: {
-      title: portfolio.title,
-      description: portfolio.description,
-      images: [
-        getOpenGraphImage(
-          portfolio.title,
-          params.locale,
-          messages.Portfolios.Details.Subtitle
-        ),
-      ],
+      title: portfolio.title[locale],
+      description: portfolio.description[locale],
+      images: [getOpenGraphImage(portfolio.title[locale], locale)],
     },
   }
 }
 
-export default async function Page({ params }: { params: PageParams }) {
-  const portfolio = await fetchPortfolio(params)
+export default async function PortfolioPage({ params }: { params: PortfolioParams }) {
+  const { locale, slug } = await params
 
-  return <PortfolioPage portfolio={portfolio} />
+  const portfolio = PORTFOLIOS.find((p) => p.slug === slug)
+  if (!portfolio) {
+    notFound()
+  }
+
+  try {
+    const Content = (await import(`./page.${locale}.${slug}.mdx`)).default
+    return <Content />
+  } catch (error) {
+    console.error(`Failed to load MDX file for ${slug} in ${locale}:`, error)
+    notFound()
+  }
 }

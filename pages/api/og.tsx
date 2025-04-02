@@ -1,20 +1,22 @@
-import { ImageResponse } from '@vercel/og'
-import { i18n } from '~/i18n'
 import type { NextRequest } from 'next/server'
+import { ImageResponse } from '@vercel/og'
 
 export const config = {
   runtime: 'edge',
 }
 
-const enFont = fetch(
-  new URL('../../public/assets/fonts/Manrope-ExtraBold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
+const enFont = fetch(new URL('../../public/assets/fonts/DMSans-Light.ttf', import.meta.url)).then((res) =>
+  res.arrayBuffer(),
+)
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const title = searchParams.get('title') ?? ''
-  const subtitle = searchParams.get('subtitle') ?? ''
   const locale = searchParams.get('locale') ?? 'zh-CN'
+
+  // og background image path
+  const ogBgPath = `/assets/og-bg.jpg`
+
   let fontData: ArrayBuffer
   switch (locale) {
     default:
@@ -33,30 +35,15 @@ export default async function handler(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: `url(https://zolplay.com/assets/og-bg-${locale}.jpg)`,
+          // eslint-disable-next-line node/prefer-global/process
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_DOMAIN || 'https://zolplay.com'}${ogBgPath})`,
         }}
       >
-        {subtitle && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 58,
-              left: 140,
-              fontFamily: 'Zolplay',
-              fontSize: 30,
-              letterSpacing: '-0.02em',
-              textTransform: 'uppercase',
-              color: '#111111',
-              opacity: 0.4,
-            }}
-          >
-            {`/ ${subtitle}`}
-          </div>
-        )}
         <div
           style={{
             marginLeft: 50,
-            paddingRight: locale === i18n.defaultLocale ? 220 : 200,
+            marginTop: 60,
+            paddingRight: 450,
             display: 'flex',
             fontSize: 78,
             fontFamily: 'Zolplay',
@@ -81,6 +68,6 @@ export default async function handler(req: NextRequest) {
           style: 'normal',
         },
       ],
-    }
+    },
   )
 }

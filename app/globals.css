@@ -1,24 +1,29 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   @apply antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-:root {
-  --font-sans: var(--font-sans-en);
 }
 
 body {
   overscroll-behavior: none;
+  font-synthesis: none;
+  font-feature-settings: 'salt', 'calt', 'ss02', 'zero';
+  text-rendering: geometricPrecision;
+  text-decoration-skip-ink: auto;
+  font-optical-sizing: auto;
 }
 
 ::selection {
-  background: theme('colors.stone.700');
-  color: theme('colors.stone.50');
+  background: var(--color-stone-700);
+  color: var(--color-stone-50);
 }
 
 .dark ::selection {
-  background: theme('colors.stone.300');
-  color: theme('colors.stone.900');
+  background: var(--color-stone-300);
+  color: var(--color-stone-900);
 }
 
 .mask-t {
@@ -43,20 +48,12 @@ body {
 
 .mask-l {
   background: linear-gradient(to left, transparent, var(--mask-color));
-  -webkit-mask-image: linear-gradient(
-    to right,
-    var(--mask-color) 26%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(to right, var(--mask-color) 26%, transparent);
 }
 
 .mask-r {
   background: linear-gradient(to right, transparent, var(--mask-color));
-  -webkit-mask-image: linear-gradient(
-    to left,
-    var(--mask-color) 26%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(to left, var(--mask-color) 26%, transparent);
 }
 
 .frosted-noise::before {
@@ -77,33 +74,22 @@ body {
 /* Toast */
 [data-sonner-toast],
 [data-sonner-toast] [data-close-button] {
-  @apply font-sans;
-  background-color: theme('colors.stone.100') !important;
-  color: theme('colors.stone.800') !important;
-  border-color: theme('colors.stone.200') !important;
+  font-family: var(--font-sans);
+  background-color: var(--color-stone-100) !important;
+  color: var(--color-stone-800) !important;
+  border-color: var(--color-stone-200) !important;
 }
 
 .dark [data-sonner-toast],
 .dark [data-sonner-toast] [data-close-button] {
-  background-color: theme('colors.stone.800') !important;
-  color: theme('colors.stone.300') !important;
-  border-color: theme('colors.stone.700') !important;
+  font-family: var(--font-sans);
+  background-color: var(--color-stone-800) !important;
+  color: var(--color-stone-300) !important;
+  border-color: var(--color-stone-700) !important;
 }
 
-/* Uploader */
-.uploader__modal {
-  @apply font-sans;
-  @apply bg-stone-50 text-stone-800;
-}
-.uploader .btn--primary {
-  @apply bg-stone-800 font-semibold text-stone-50;
-}
-.dark .uploader__modal {
-  @apply bg-stone-900 text-stone-200;
-}
-.dark .uploader__submitted-file__container {
-  @apply bg-stone-800;
-}
-.dark .uploader .btn--primary {
-  @apply bg-stone-100 text-stone-900;
+b,
+strong {
+  @apply font-medium;
+  @apply text-black dark:text-white;
 }
