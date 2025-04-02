@@ -94,14 +94,6 @@ export default async function RootLayout({ children, params }: { children: React
 
   return (
     <html lang={locale} suppressHydrationWarning className={`font-sans ${sansFont.variable}`}>
-      <head>
-        <script
-          // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
-          dangerouslySetInnerHTML={{
-            __html: `${uwu.toString()};uwu()`,
-          }}
-        />
-      </head>
       <Suspense>
         <PostHogPageview />
       </Suspense>
@@ -139,14 +131,4 @@ export default async function RootLayout({ children, params }: { children: React
       </PostHogProvider>
     </html>
   )
-}
-function uwu() {
-  const query = new URLSearchParams(location.search)
-  if (query?.has('uwu')) {
-    if (query.get('uwu') === '0' || query.get('uwu') === 'false') {
-      localStorage.removeItem('uwu')
-    } else {
-      localStorage.setItem('uwu', '1')
-    }
-  }
 }
