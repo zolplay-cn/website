@@ -12,8 +12,7 @@ export async function generateStaticParams() {
   return jobs.map((job) => ({ id: job.id }))
 }
 
-type PageParams = RootParams & Promise<{ id: string }>
-
+type PageParams = Promise<RootParams & { id: string }>
 export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const { id, locale } = await params
   const job = await getJob(id)
