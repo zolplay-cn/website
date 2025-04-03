@@ -13,6 +13,7 @@ import { Rulers } from '~/components/rulers'
 import { Sidebar } from '~/components/sidebar'
 import { Toasts } from '~/components/toasts'
 import { PostHogPageview, PHProvider as PostHogProvider } from '~/lib/posthog/posthog-provider'
+import { redirect } from '~/modules/i18n/navigation'
 import { routing } from '~/modules/i18n/routing'
 import '~/app/globals.css'
 
@@ -83,7 +84,7 @@ export default async function RootLayout({ children, params }: { children: React
   // Ensure that the incoming `locale` is valid
   const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
-    notFound()
+    redirect({ href: '/', locale: routing.defaultLocale })
   }
 
   // Enable static rendering
