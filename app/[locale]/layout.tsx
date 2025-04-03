@@ -108,7 +108,7 @@ export default async function RootLayout({ children, params }: { children: React
                   <main className='flex relative flex-col pt-12 mx-2 max-w-4xl md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28'>
                     <Rulers />
                     <Sidebar />
-                    <section className='frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#3d2f2f] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44 min-h-screen'>
+                    <section className='frosted-noise relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44 min-h-screen'>
                       <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white max-w-full overflow-hidden'>
                         {children}
                       </article>
