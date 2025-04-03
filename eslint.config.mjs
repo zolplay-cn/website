@@ -19,6 +19,7 @@ base.append([
       '@next/next/no-duplicate-head': 'off',
       '@next/next/no-img-element': 'error',
       '@next/next/no-page-custom-font': 'off',
+      'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
     },
   },
 ])
