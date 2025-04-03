@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import type { RootParams } from '~/types/app'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { getOpenGraphImage } from '~/lib/helper'
 import { PORTFOLIOS } from '~/modules/portfolios/datasource'
 
 type PortfolioParams = RootParams & Promise<{ slug: string }>
@@ -28,7 +27,6 @@ export async function generateMetadata({ params }: { params: PortfolioParams }):
     openGraph: {
       title: portfolio.title[locale],
       description: portfolio.description[locale],
-      images: [getOpenGraphImage(portfolio.title[locale], locale)],
     },
   }
 }
@@ -40,6 +38,9 @@ export default async function PortfolioPage({ params }: { params: PortfolioParam
   if (!portfolio) {
     notFound()
   }
+
+  // Enable static rendering
+  setRequestLocale(locale)
 
   try {
     const Content = (await import(`./page.${locale}.${slug}.mdx`)).default
