@@ -12,7 +12,6 @@ import { Footer } from '~/components/footer'
 import { Rulers } from '~/components/rulers'
 import { Sidebar } from '~/components/sidebar'
 import { Toasts } from '~/components/toasts'
-import { getOpenGraphImage } from '~/lib/helper'
 import { PostHogPageview, PHProvider as PostHogProvider } from '~/lib/posthog/posthog-provider'
 import { routing } from '~/modules/i18n/routing'
 import '~/app/globals.css'
@@ -60,7 +59,6 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
       siteName: t('Root.Metadata.Title'),
       locale,
       type: 'website',
-      images: [getOpenGraphImage(t('Root.Metadata.Title'), locale)],
     },
     robots: {
       index: true,

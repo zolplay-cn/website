@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import type { RootParams } from '~/types/app'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { getOpenGraphImage } from '~/lib/helper'
 
 export async function generateMetadata({ params }: { params: Promise<RootParams> }): Promise<Metadata> {
   const { locale } = await params
@@ -14,7 +13,6 @@ export async function generateMetadata({ params }: { params: Promise<RootParams>
     openGraph: {
       title,
       description: t('About.Description'),
-      images: [getOpenGraphImage(title, locale)],
     },
   }
 }
