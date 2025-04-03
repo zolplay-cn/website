@@ -1,14 +1,9 @@
 import type { Metadata } from 'next'
 import type { RootParams } from '~/types/app'
-import { redirect } from 'next/navigation'
 import React from 'react'
-import { getJob, getJobs } from '~/lib/ashbyhq.queries'
+import { getJob } from '~/lib/ashbyhq.queries'
 import { Job } from '~/modules/careers/job'
-
-export async function generateStaticParams() {
-  const jobs = await getJobs()
-  return jobs.map((job) => ({ id: job.id }))
-}
+import { redirect } from '~/modules/i18n/navigation'
 
 type PageParams = RootParams & Promise<{ id: string }>
 
@@ -33,11 +28,11 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
 }
 
 export default async function JobPage({ params }: { params: PageParams }) {
-  const { id } = await params
+  const { id, locale } = await params
   const job = await getJob(id)
 
   if (!job) {
-    redirect('/careers')
+    redirect({ href: '/careers', locale })
   }
 
   return <Job job={job} />
