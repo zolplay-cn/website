@@ -1,19 +1,18 @@
 import type { Metadata, Viewport } from 'next'
 import type { RootParams } from '~/types/app'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, getTranslations } from 'next-intl/server'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import localFont from 'next/font/local'
-import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import { Background } from '~/components/background'
 import { Footer } from '~/components/footer'
 import { Rulers } from '~/components/rulers'
 import { Sidebar } from '~/components/sidebar'
 import { Toasts } from '~/components/toasts'
-import { getOpenGraphImage } from '~/lib/helper'
 import { PostHogPageview, PHProvider as PostHogProvider } from '~/lib/posthog/posthog-provider'
+import { redirect } from '~/modules/i18n/navigation'
 import { routing } from '~/modules/i18n/routing'
 import '~/app/globals.css'
 
@@ -60,7 +59,6 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
       siteName: t('Root.Metadata.Title'),
       locale,
       type: 'website',
-      images: [getOpenGraphImage(t('Root.Metadata.Title'), locale)],
     },
     robots: {
       index: true,
@@ -84,13 +82,12 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: RootParams }) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params
-  if (!routing.locales.includes(locale as any)) {
-    notFound()
+  if (!hasLocale(routing.locales, locale)) {
+    redirect({ href: '/', locale: routing.defaultLocale })
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages()
+  // Enable static rendering
+  setRequestLocale(locale)
 
   return (
     <html lang={locale} suppressHydrationWarning className={`font-sans ${sansFont.variable}`}>
@@ -101,7 +98,7 @@ export default async function RootLayout({ children, params }: { children: React
       <PostHogProvider>
         <body className='bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300'>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-            <NextIntlClientProvider messages={messages}>
+            <NextIntlClientProvider>
               <Background />
               <ScrollArea.Root className='overflow-x-hidden'>
                 <ScrollArea.Viewport className='overflow-x-hidden w-dvw h-dvh'>
