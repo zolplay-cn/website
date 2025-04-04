@@ -84,14 +84,7 @@ Label.displayName = 'Form.Label'
 const input =
   'block w-full rounded-lg border-0 bg-transparent py-1.5 px-2.5 ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6'
 
-function Input({
-  ref,
-  className,
-  id,
-  name,
-  type,
-  ...rest
-}: ComponentProps<'input'> & { ref?: React.RefObject<HTMLInputElement | null> }) {
+function Input({ ref, className, id, name, type, ...rest }: ComponentProps<'input'>) {
   const { name: defaultName } = use(FieldGroupContext)
   return (
     <input
@@ -109,13 +102,7 @@ function Input({
 }
 Input.displayName = 'Form.Input'
 
-function TextArea({
-  ref,
-  className,
-  id,
-  name,
-  ...rest
-}: ComponentProps<'textarea'> & { ref?: React.RefObject<HTMLTextAreaElement | null> }) {
+function TextArea({ ref, className, id, name, ...rest }: ComponentProps<'textarea'>) {
   const { name: defaultName } = use(FieldGroupContext)
   return (
     <textarea
