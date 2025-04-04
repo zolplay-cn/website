@@ -55,7 +55,7 @@ export const ZOLPLAYERS = [
     joinedDate: '2021-02-01',
   },
   {
-    name: 'Ethan',
+    name: 'Ethan Liu',
     slug: 'ethan',
     role: {
       'zh-CN': '全栈工程师',
@@ -131,7 +131,7 @@ export const ZOLPLAYERS = [
     joinedDate: '2024-11-11',
   },
   {
-    name: 'Spike',
+    name: 'Spike Ling',
     slug: 'spike',
     role: {
       en: 'Full Stack Engineer',
