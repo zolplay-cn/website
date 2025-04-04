@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react'
 import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'motion/react'
-import React from 'react'
+import React, { use } from 'react'
 import { Button } from '~/components/ui/button'
 
 type FormRootProps = ComponentProps<'form'> & {
@@ -76,7 +76,7 @@ FieldGroup.displayName = 'Form.FieldGroup'
 
 const label = 'block text-sm font-medium leading-6 tracking-tight'
 function Label({ className, htmlFor, ...rest }: ComponentProps<'label'>) {
-  const { name } = React.useContext(FieldGroupContext)
+  const { name } = use(FieldGroupContext)
   return <label className={clsxm(label, className)} htmlFor={name ?? htmlFor} {...rest} />
 }
 Label.displayName = 'Form.Label'
@@ -84,10 +84,18 @@ Label.displayName = 'Form.Label'
 const input =
   'block w-full rounded-lg border-0 bg-transparent py-1.5 px-2.5 ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6'
 
-function Input({ ref, className, id, name, type, ...rest }: ComponentProps<'input'>) {
-  const { name: defaultName } = React.useContext(FieldGroupContext)
+function Input({
+  ref,
+  className,
+  id,
+  name,
+  type,
+  ...rest
+}: ComponentProps<'input'> & { ref?: React.RefObject<HTMLInputElement | null> }) {
+  const { name: defaultName } = use(FieldGroupContext)
   return (
     <input
+      ref={ref}
       className={clsxm(input, className)}
       id={id ?? defaultName ?? name}
       name={defaultName ?? name}
@@ -101,8 +109,14 @@ function Input({ ref, className, id, name, type, ...rest }: ComponentProps<'inpu
 }
 Input.displayName = 'Form.Input'
 
-function TextArea({ ref, className, id, name, ...rest }: ComponentProps<'textarea'>) {
-  const { name: defaultName } = React.useContext(FieldGroupContext)
+function TextArea({
+  ref,
+  className,
+  id,
+  name,
+  ...rest
+}: ComponentProps<'textarea'> & { ref?: React.RefObject<HTMLTextAreaElement | null> }) {
+  const { name: defaultName } = use(FieldGroupContext)
   return (
     <textarea
       ref={ref}
