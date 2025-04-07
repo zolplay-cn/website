@@ -52,7 +52,7 @@ function Grids({
           const yo = camera.position.y * camera.zoom
           const gxo = xo > 0 ? xo % s : s + (xo % s)
           const gyo = yo > 0 ? yo % s : s + (yo % s)
-          const opacity = camera.zoom < mid ? modulate(camera.zoom, [min, mid], [0, 1]) : 1
+          const opacity = camera.zoom < mid ? modulate(camera.zoom, [min, mid], [0.25, 1]) : 1
 
           return (
             <pattern
@@ -67,9 +67,9 @@ function Grids({
               <circle
                 cx={gxo}
                 cy={gyo}
-                r={2}
+                r={1}
                 opacity={opacity}
-                className='bg-transparent fill-stone-300 dark:fill-stone-700'
+                className='bg-transparent fill-stone-500 dark:fill-stone-600'
               />
             </pattern>
           )
@@ -85,7 +85,7 @@ function Grids({
 export function Background() {
   return (
     <>
-      <div className='fixed inset-0 -z-[1] bg-stone-50 dark:bg-stone-900' />
+      <div className='fixed inset-0 -z-[1] bg-stone-100 dark:bg-stone-950' />
       <motion.span
         className='fixed inset-0 w-full h-full pointer-events-none'
         initial={{ opacity: 0 }}
