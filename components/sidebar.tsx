@@ -62,7 +62,7 @@ export function Sidebar({ className }: { className?: string }) {
       <div className='flex flex-col items-between justify-between h-dvh pt-12 lg:pt-16'>
         <div className=''>
           <div className='flex items-center justify-between'>
-            <span className='scale-75 text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
+            <span className='scale-75 origin-left text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
               01_LOGO
             </span>
           </div>
@@ -79,7 +79,7 @@ export function Sidebar({ className }: { className?: string }) {
 
           <section className='md:pt-6'>
             <div className='flex items-center justify-between'>
-              <span className='scale-75 text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
+              <span className='scale-75 origin-left text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
                 03_SOCIAL
               </span>
             </div>
@@ -134,7 +134,7 @@ function NavMenu() {
   return (
     <NavigationMenu.Root className='relative z-50 ml-0 md:pt-6' orientation='vertical'>
       <div className='flex items-center justify-between'>
-        <span className='scale-75 text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
+        <span className='scale-75 origin-left text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
           02_NAVIGATION
         </span>
       </div>
@@ -179,7 +179,7 @@ function MenuLink({
         >
           {isActive && (
             <motion.span
-              className='absolute inset-0 -z-10 bg-gradient-to-br from-white to-stone-100 dark:from-stone-950 dark:to-stone-800'
+              className='absolute inset-0 -z-10 bg-white dark:bg-stone-950 outline outline-(--sidebar-fg)/35'
               layoutId='active-menu'
             />
           )}
