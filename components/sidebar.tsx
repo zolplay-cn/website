@@ -54,19 +54,22 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm(
         'fixed top-0 left-[calc(50%-(3*var(--gutter-width))-(2*var(--spacing)*44))] md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
-        'bg-stone-50 border border-stone-200',
+        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-stone-400)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-stone-500)]',
+        'border-x border-(--sidebar-bg)',
         className,
       )}
     >
       <div className='flex flex-col items-between justify-between h-dvh pt-12 lg:pt-16'>
         <div className=''>
           <div className='flex items-center justify-between'>
-            <span className='text-stone-300 text-[10px] font-mono tracking-wider pl-2'>LOGO</span>
+            <span className='scale-75 text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
+              01_LOGO
+            </span>
           </div>
           <Link
             href='/'
             aria-label={t('Title')}
-            className='group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-stone-200'
+            className='group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-bg)'
           >
             <LogoHelmetFilled className='w-7 md:size-6' />
             <span className='text-xl font-bold tracking-tight'>{t('Title')}</span>
@@ -76,10 +79,12 @@ export function Sidebar({ className }: { className?: string }) {
 
           <section className='md:pt-6'>
             <div className='flex items-center justify-between'>
-              <span className='text-stone-300 text-[10px] font-mono tracking-wider pl-2'>SOCIAL</span>
+              <span className='scale-75 text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
+                03_SOCIAL
+              </span>
             </div>
-            <div className='grid grid-cols-2 w-full items-center relative border-t border-stone-200'>
-              <div className='absolute h-full w-0 left-[calc(50%+1px)] -translate-x-1/2 border-r border-stone-200' />
+            <div className='grid grid-cols-2 w-full items-center relative border-t border-(--sidebar-bg)'>
+              <div className='absolute h-full w-0 left-[calc(50%+1px)] -translate-x-1/2 border-r border-(--sidebar-bg)' />
               {social.map((item) => (
                 <NextLink
                   href={item.url}
@@ -89,7 +94,7 @@ export function Sidebar({ className }: { className?: string }) {
                   rel='noopener noreferrer'
                   className={clsxm(
                     'text-stone-400 transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
-                    'aspect-video border-b border-stone-200',
+                    'aspect-video border-b border-(--sidebar-bg)',
                     'flex items-center justify-center',
                     {
                       'hover:text-[#FF0000] dark:hover:text-[#FF0000]': item.name === 'YouTube',
@@ -129,9 +134,11 @@ function NavMenu() {
   return (
     <NavigationMenu.Root className='relative z-50 ml-0 md:pt-6' orientation='vertical'>
       <div className='flex items-center justify-between'>
-        <span className='text-stone-300 text-[10px] font-mono tracking-wider pl-2'>NAVIGATION</span>
+        <span className='scale-75 text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
+          02_NAVIGATION
+        </span>
       </div>
-      <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-stone-200'>
+      <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-(--sidebar-bg)'>
         {links.map(({ href, label, icon: Icon }) => (
           <MenuLink key={label} href={href} label={t(label)}>
             <Icon className='size-5 stroke-current' />
@@ -153,7 +160,7 @@ function MenuLink({
   const pathname = usePathname()
   const isActive = href === pathname
   return (
-    <li className='border-t border-stone-200 w-full'>
+    <li className='border-t border-(--sidebar-bg) w-full'>
       <NavigationMenu.Link active={isActive} asChild>
         <Link
           href={href}
@@ -164,7 +171,7 @@ function MenuLink({
           className={clsxm(
             'relative flex select-none p-3.5 font-medium leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
             'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
-            'data-[active]:text-stone-50 dark:data-[active]:text-stone-950',
+            'data-[active]:text-stone-950 dark:data-[active]:text-white',
             className,
           )}
           aria-label={label}
@@ -172,7 +179,7 @@ function MenuLink({
         >
           {isActive && (
             <motion.span
-              className='absolute inset-0 bg-gradient-to-br from-stone-700 to-stone-950 dark:border-stone-700 dark:from-stone-900 dark:to-stone-800'
+              className='absolute inset-0 -z-10 bg-gradient-to-br from-white to-stone-100 dark:from-stone-950 dark:to-stone-800'
               layoutId='active-menu'
             />
           )}
