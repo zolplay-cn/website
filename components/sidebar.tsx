@@ -8,7 +8,12 @@ import { useTranslations } from 'next-intl'
 
 import NextLink from 'next/link'
 import React from 'react'
-import { TbBriefcase, TbCarouselHorizontal, TbMail, TbMailbox, TbPlanet } from 'react-icons/tb'
+import { TbBriefcase, TbCarouselHorizontal, TbMailbox } from 'react-icons/tb'
+import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
+import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
+import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
+import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
+import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
 import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
@@ -16,7 +21,7 @@ import { Clock } from '~/components/ui/clock'
 import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
-  { href: '/', label: 'Home', icon: TbPlanet },
+  { href: '/', label: 'Home', icon: ZpHomeIcon },
   { href: '/about', label: 'About', icon: LogoHelmetOutline },
   { href: '/careers', label: 'Careers', icon: TbBriefcase },
   { href: '/portfolios', label: 'Portfolios', icon: TbCarouselHorizontal },
@@ -29,23 +34,36 @@ const social = [
     name: 'Twitter',
     url: 'https://x.com/zolplay',
     label: 'X/Twitter',
+    icon: ZpBrandXIcon,
   },
   {
     name: 'GitHub',
     url: 'https://github.com/zolplay-cn',
     label: 'GitHub',
+    icon: ZpBrandGitHubIcon,
   },
   {
     name: 'YouTube',
     url: 'https://youtube.com/@zolplay',
     label: 'YouTube',
+    icon: ZpBrandYouTubeIcon,
   },
   {
     name: 'Email',
     url: 'mailto:contact@zolplay.com',
     label: 'Email',
+    icon: ZpMailIcon,
   },
 ]
+
+// Caption component for section headers
+function Caption({ children }: { children: React.ReactNode }) {
+  return (
+    <span className='scale-75 origin-left text-(--sidebar-fg)/50 text-xs font-mono tracking-wider select-none pointer-events-none'>
+      {children}
+    </span>
+  )
+}
 
 export function Sidebar({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
@@ -54,7 +72,7 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm(
         'fixed top-0 left-[calc(50%-(3*var(--gutter-width))-(2*var(--spacing)*44))] md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
-        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-stone-400)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-stone-500)]',
+        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-stone-400)]',
         'border-x border-(--sidebar-bg)',
         className,
       )}
@@ -62,9 +80,7 @@ export function Sidebar({ className }: { className?: string }) {
       <div className='flex flex-col items-between justify-between h-dvh pt-12 lg:pt-16'>
         <div className=''>
           <div className='flex items-center justify-between'>
-            <span className='scale-75 origin-left text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
-              01_LOGO
-            </span>
+            <Caption>01_LOGO</Caption>
           </div>
           <Link
             href='/'
@@ -79,12 +95,10 @@ export function Sidebar({ className }: { className?: string }) {
 
           <section className='md:pt-6'>
             <div className='flex items-center justify-between'>
-              <span className='scale-75 origin-left text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
-                03_SOCIAL
-              </span>
+              <Caption>03_SOCIAL</Caption>
             </div>
-            <div className='grid grid-cols-2 w-full items-center relative border-t border-(--sidebar-bg)'>
-              <div className='absolute h-full w-0 left-[calc(50%+1px)] -translate-x-1/2 border-r border-(--sidebar-bg)' />
+            <div className='grid grid-cols-4 w-full items-center relative border-y border-(--sidebar-bg)'>
+              {/* <div className='absolute h-full w-0 left-[calc(50%+1px)] -translate-x-1/2 border-r border-(--sidebar-bg)' /> */}
               {social.map((item) => (
                 <NextLink
                   href={item.url}
@@ -93,15 +107,15 @@ export function Sidebar({ className }: { className?: string }) {
                   target='_blank'
                   rel='noopener noreferrer'
                   className={clsxm(
-                    'text-stone-400 transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
-                    'aspect-video border-b border-(--sidebar-bg)',
+                    'text-(--sidebar-fg) transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
+                    'aspect-square border-r border-(--sidebar-bg) last-of-type:border-r-0',
                     'flex items-center justify-center',
                     {
                       'hover:text-[#FF0000] dark:hover:text-[#FF0000]': item.name === 'YouTube',
                     },
                   )}
                 >
-                  <span className='text-xs font-medium'>{item.label}</span>
+                  <item.icon className='size-5' />
                 </NextLink>
               ))}
             </div>
@@ -134,9 +148,7 @@ function NavMenu() {
   return (
     <NavigationMenu.Root className='relative z-50 ml-0 md:pt-6' orientation='vertical'>
       <div className='flex items-center justify-between'>
-        <span className='scale-75 origin-left text-(--sidebar-fg) text-xs font-mono tracking-wider select-none pointer-events-none opacity-80'>
-          02_NAVIGATION
-        </span>
+        <Caption>02_NAVIGATION</Caption>
       </div>
       <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-(--sidebar-bg)'>
         {links.map(({ href, label, icon: Icon }) => (
@@ -169,9 +181,9 @@ function MenuLink({
             window.scroll(0, 0)
           }}
           className={clsxm(
-            'relative flex select-none p-3.5 font-medium leading-none text-stone-400 no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
+            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
             'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
-            'data-[active]:text-stone-950 dark:data-[active]:text-white',
+            'data-[active]:text-black dark:data-[active]:text-white',
             className,
           )}
           aria-label={label}
