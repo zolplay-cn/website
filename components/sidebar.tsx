@@ -62,7 +62,10 @@ const social = [
 // Caption component for section headers
 function Caption({ children }: { children: React.ReactNode }) {
   return (
-    <span className='scale-65 origin-left text-(--sidebar-fg)/50 text-xs font-mono tracking-wider select-none pointer-events-none'>
+    <span
+      className='scale-65 origin-left text-(--sidebar-fg)/50 text-xs font-mono tracking-wider select-none pointer-events-none'
+      aria-hidden='true'
+    >
       {children}
     </span>
   )
