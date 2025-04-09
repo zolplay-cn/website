@@ -8,25 +8,28 @@ import { useTranslations } from 'next-intl'
 
 import NextLink from 'next/link'
 import React from 'react'
-import { TbBriefcase, TbCarouselHorizontal, TbMailbox } from 'react-icons/tb'
+import { ZpAboutIcon } from '~/components/icons/ZpAboutIcon'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
 import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
+import { ZpBriefcaseIcon } from '~/components/icons/ZpBriefcaseIcon'
+import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
+import { ZpProjectGridIcon } from '~/components/icons/ZpProjectGridIcon'
 import { LocaleSelector } from '~/components/locale-selector'
-import { LogoHelmetFilled, LogoHelmetOutline } from '~/components/logo'
+import { LogoHelmetFilled } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
 import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
-  { href: '/about', label: 'About', icon: LogoHelmetOutline },
-  { href: '/careers', label: 'Careers', icon: TbBriefcase },
-  { href: '/portfolios', label: 'Portfolios', icon: TbCarouselHorizontal },
+  { href: '/work', label: 'Projects', icon: ZpProjectGridIcon },
+  { href: '/about', label: 'About', icon: ZpAboutIcon },
+  { href: '/careers', label: 'Careers', icon: ZpBriefcaseIcon },
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
-  { href: '/contact', label: 'Contact', icon: TbMailbox },
+  { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
 ]
 const social = [
@@ -59,7 +62,7 @@ const social = [
 // Caption component for section headers
 function Caption({ children }: { children: React.ReactNode }) {
   return (
-    <span className='scale-75 origin-left text-(--sidebar-fg)/50 text-xs font-mono tracking-wider select-none pointer-events-none'>
+    <span className='scale-65 origin-left text-(--sidebar-fg)/50 text-xs font-mono tracking-wider select-none pointer-events-none'>
       {children}
     </span>
   )
@@ -72,7 +75,7 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm(
         'fixed top-0 left-[calc(50%-(3*var(--gutter-width))-(2*var(--spacing)*44))] md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
-        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-stone-400)]',
+        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-neutral-400)]',
         'border-x border-(--sidebar-bg)',
         'overflow-y-scroll',
         className,
@@ -86,10 +89,49 @@ export function Sidebar({ className }: { className?: string }) {
           <Link
             href='/'
             aria-label={t('Title')}
-            className='group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-bg)'
+            className={clsxm(
+              'group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-bg)',
+              '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
+            )}
           >
-            <LogoHelmetFilled className='w-7 md:size-6' />
+            <LogoHelmetFilled className='size-6' />
             <span className='text-xl font-bold tracking-tight'>{t('Title')}</span>
+            <svg
+              width='5'
+              height='5'
+              viewBox='0 0 5 5'
+              className='absolute top-[2px] left-[2px] fill-(--sidebar-fg)'
+              data-highlight
+            >
+              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+            </svg>
+            <svg
+              width='5'
+              height='5'
+              viewBox='0 0 5 5'
+              className='absolute top-[2px] right-[2px] fill-(--sidebar-fg)'
+              data-highlight
+            >
+              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+            </svg>
+            <svg
+              width='5'
+              height='5'
+              viewBox='0 0 5 5'
+              className='absolute bottom-[2px] left-[2px] fill-(--sidebar-fg)'
+              data-highlight
+            >
+              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+            </svg>
+            <svg
+              width='5'
+              height='5'
+              viewBox='0 0 5 5'
+              className='absolute bottom-[2px] right-[2px] fill-(--sidebar-fg)'
+              data-highlight
+            >
+              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+            </svg>
           </Link>
 
           <NavMenu />
@@ -108,7 +150,7 @@ export function Sidebar({ className }: { className?: string }) {
                   target='_blank'
                   rel='noopener noreferrer'
                   className={clsxm(
-                    'text-(--sidebar-fg) transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
+                    'text-(--sidebar-fg) transition-colors hover:text-stone-800 dark:hover:text-stone-100',
                     'aspect-square border-r border-(--sidebar-bg) last-of-type:border-r-0',
                     'flex items-center justify-center',
                     {
@@ -176,9 +218,10 @@ function MenuLink({
             window.scroll(0, 0)
           }}
           className={clsxm(
-            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors hover:text-stone-800 dark:text-stone-500 dark:hover:text-stone-100',
+            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors hover:text-stone-800 dark:hover:text-stone-100',
             'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
-            'data-[active]:text-black dark:data-[active]:text-white',
+            'data-active:text-black dark:data-active:text-white',
+            'data-active:**:data-highlight:opacity-20',
             className,
           )}
           aria-label={label}
