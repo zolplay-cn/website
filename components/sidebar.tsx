@@ -74,6 +74,7 @@ export function Sidebar({ className }: { className?: string }) {
         'fixed top-0 left-[calc(50%-(3*var(--gutter-width))-(2*var(--spacing)*44))] md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
         'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-stone-400)]',
         'border-x border-(--sidebar-bg)',
+        'overflow-y-scroll',
         className,
       )}
     >
@@ -122,21 +123,15 @@ export function Sidebar({ className }: { className?: string }) {
           </section>
         </div>
 
-        <motion.div
-          className='relative z-50 flex h-12 md:h-24 md:flex-col'
-          initial={{ opacity: 0, scale: 0.98, y: 8 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 30,
-            delay: 0.1,
-          }}
-        >
+        <div className='relative z-50 grid grid-cols-1'>
+          <Caption>04_SETTINGS</Caption>
+          <div className='border-t border-(--sidebar-bg) w-full h-0' />
           <ThemeSelector />
+          <div className='border-t border-(--sidebar-bg) w-full h-0' />
           <LocaleSelector />
+          <div className='border-t border-(--sidebar-bg) w-full h-0' />
           <Clock />
-        </motion.div>
+        </div>
       </div>
     </aside>
   )

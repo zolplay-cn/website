@@ -27,8 +27,8 @@ export function Clock() {
   }
 
   return (
-    <div className='flex h-8 items-center px-2 py-1'>
-      <span className='select-none text-xs font-mono text-stone-400 dark:text-stone-600'>
+    <div className='flex items-center px-2 py-1'>
+      <span className='select-none text-xs font-mono text-(--sidebar-fg)/70'>
         {formatDateTime(time, {
           timeZone: 'Asia/Shanghai',
           hour: 'numeric',

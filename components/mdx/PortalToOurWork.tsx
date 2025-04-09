@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Link } from '~/modules/i18n/navigation'
 import { LATEST_PORTFOLIO } from '~/modules/portfolios/datasource'
 
-export function PortalToOurWork({ children }: { children: React.ReactNode }) {
+export function PortalToOurWork() {
   return (
     <div className='flex flex-col items-center justify-center pt-12 pb-6'>
       <div
