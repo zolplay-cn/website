@@ -9,7 +9,7 @@ import { Suspense } from 'react'
 import { Background } from '~/components/background'
 import { Footer } from '~/components/footer'
 import { Rulers } from '~/components/rulers'
-import { Sidebar } from '~/components/sidebar'
+import { NavBar, Sidebar } from '~/components/sidebar'
 import { Toasts } from '~/components/toasts'
 import { PostHogPageview, PHProvider as PostHogProvider } from '~/lib/posthog/posthog-provider'
 import { redirect } from '~/modules/i18n/navigation'
@@ -110,7 +110,8 @@ export default async function RootLayout({ children, params }: { children: React
                   >
                     <Rulers />
                     <Sidebar />
-                    <section className='frosted-noise relative z-20 ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 pt-12 lg:pt-16 lg:p-9 lg:pb-44 min-h-screen'>
+                    <NavBar />
+                    <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 pt-12 lg:pt-16 lg:p-9 lg:pb-44 min-h-screen'>
                       <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white max-w-full'>
                         {children}
                       </article>

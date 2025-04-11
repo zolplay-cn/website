@@ -81,6 +81,7 @@ export function Sidebar({ className }: { className?: string }) {
         'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-neutral-400)]',
         'border-x border-(--sidebar-bg)',
         'overflow-y-scroll',
+        'hidden md:block',
         className,
       )}
     >
@@ -243,3 +244,33 @@ function MenuLink({
   )
 }
 MenuLink.displayName = 'NavigationLinkMenuItem'
+
+// NavBar component for mobile
+export function NavBar() {
+  const t = useTranslations('Root.Metadata')
+
+  return (
+    <header className='sticky top-0 z-50 h-14 -ml-2 [--nav-bg:var(--color-stone-100)] bg-gradient-to-b from-stone-100 to-stone-100/85 w-[calc(100%+var(--spacing)*4)] flex items-center border-b border-dashed border-(--grid-border-color)'>
+      <div className='w-full h-full relative mx-2 mt-1 flex border-x border-dashed border-(--grid-border-color)'>
+        <div className='absolute size-2 z-10 border border-dashed border-(--grid-border-color) bg-(--nav-bg) left-[-4.6px] -bottom-1' />
+        <div className='absolute size-2 z-10 border border-dashed border-(--grid-border-color) bg-(--nav-bg) right-[-4.6px] -bottom-1' />
+        <div className='absolute w-[calc(100%+var(--spacing)*6)] -left-3 top-1 h-0 z-10 border-t border-dashed border-(--grid-border-color)' />
+        <nav data-orientation='horizontal' className='relative z-2 w-full py-3 px-4 flex justify-between gap-4'>
+          <div className='flex gap-2 items-center'>
+            <Link
+              href='/'
+              aria-label={t('Title')}
+              className={clsxm(
+                'flex relative justify-center items-center gap-1',
+                '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
+              )}
+            >
+              <LogoHelmetFilled className='size-4.5' />
+              <span className='text-base font-bold tracking-tight'>{t('Title')}</span>
+            </Link>
+          </div>
+        </nav>
+      </div>
+    </header>
+  )
+}

@@ -46,6 +46,7 @@
     "sonner": "^2.0.3",
     "styled-components": "^5.3.11",
     "suspend-react": "^0.0.8",
+    "vaul": "^1.1.2",
     "zod": "^3.24.2",
     "zod-form-data": "^2.0.7"
   },
