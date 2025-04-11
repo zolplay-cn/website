@@ -250,11 +250,11 @@ export function NavBar() {
   const t = useTranslations('Root.Metadata')
 
   return (
-    <header className='sticky top-0 z-50 h-14 -ml-2 [--nav-bg:var(--color-stone-100)] bg-gradient-to-b from-stone-100 to-stone-100/85 w-[calc(100%+var(--spacing)*4)] flex items-center border-b border-dashed border-(--grid-border-color)'>
-      <div className='w-full h-full relative mx-2 mt-1 flex border-x border-dashed border-(--grid-border-color)'>
+    <header className='sticky md:hidden top-0 z-50 h-14 -ml-2 [--nav-bg:var(--color-stone-100)] dark:[--nav-bg:var(--color-stone-900)] bg-gradient-to-b from-stone-100 to-stone-100/85 dark:from-stone-900 dark:to-stone-900/80 w-[calc(100%+var(--spacing)*4)] flex items-center border-b border-dashed border-(--grid-border-color)'>
+      <div className='w-full h-full relative mx-2 pt-1.5 flex border-x border-dashed border-(--grid-border-color)'>
         <div className='absolute size-2 z-10 border border-dashed border-(--grid-border-color) bg-(--nav-bg) left-[-4.6px] -bottom-1' />
         <div className='absolute size-2 z-10 border border-dashed border-(--grid-border-color) bg-(--nav-bg) right-[-4.6px] -bottom-1' />
-        <div className='absolute w-[calc(100%+var(--spacing)*6)] -left-3 top-1 h-0 z-10 border-t border-dashed border-(--grid-border-color)' />
+        <div className='absolute w-[calc(100%+var(--spacing)*6)] -left-3 top-1.5 h-0 z-10 border-t border-dashed border-(--grid-border-color)' />
         <nav data-orientation='horizontal' className='relative z-2 w-full py-3 px-4 flex justify-between gap-4'>
           <div className='flex gap-2 items-center'>
             <Link
