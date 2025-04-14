@@ -290,7 +290,7 @@ export function NavBar() {
               </span>
             </Drawer.Trigger>
             <Drawer.Portal>
-              <Drawer.Overlay className='fixed left-0 right-0 bottom-0 top-[26dvh] z-50 mask-t-from-90% bg-white/70 dark:bg-black/70 backdrop-blur-lg backdrop-saturate-150' />
+              <Drawer.Overlay className='fixed inset-0 z-50 mask-t-from-74% bg-white/70 dark:bg-black/70 backdrop-blur-lg backdrop-saturate-150' />
               <Drawer.Content
                 className={clsxm(
                   'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--navbar-bg)_0,_var(--navbar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
