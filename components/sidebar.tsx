@@ -343,7 +343,7 @@ export function NavBar() {
 
                     {/* Social */}
                     <ul
-                      className='relative text-(--navbar-fg) mt-8 mb-12 grid grid-cols-5 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
+                      className='relative text-(--navbar-fg) mt-8 mb-4 grid grid-cols-5 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
                       data-label='SOCIAL'
                     >
                       {social.map(({ url, label, icon: Icon }) => (
