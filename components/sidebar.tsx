@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 
 import NextLink from 'next/link'
 import React from 'react'
+import { Drawer } from 'vaul'
 import { ZpAboutIcon } from '~/components/icons/ZpAboutIcon'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
@@ -16,6 +17,7 @@ import { ZpBriefcaseIcon } from '~/components/icons/ZpBriefcaseIcon'
 import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
+import { ZpNavBarOpenIcon } from '~/components/icons/ZpNavBarOpenIcon'
 import { ZpProjectGridIcon } from '~/components/icons/ZpProjectGridIcon'
 import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled } from '~/components/logo'
@@ -248,13 +250,24 @@ MenuLink.displayName = 'NavigationLinkMenuItem'
 // NavBar component for mobile
 export function NavBar() {
   const t = useTranslations('Root.Metadata')
+  const tMenu = useTranslations('NavMenu')
+  const pathname = usePathname()
+  const isLinkActive = (href: string) => href === pathname
+
+  const [isOpen, setIsOpen] = React.useState(false)
+  React.useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   return (
-    <header className='sticky md:hidden top-0 z-50 h-14 -ml-2 [--nav-bg:var(--color-stone-100)] dark:[--nav-bg:var(--color-stone-900)] bg-gradient-to-b from-stone-100 to-stone-100/85 dark:from-stone-900 dark:to-stone-900/80 w-[calc(100%+var(--spacing)*4)] flex items-center border-b border-dashed border-(--grid-border-color)'>
-      <div className='w-full h-full relative mx-2 pt-1.5 flex border-x border-dashed border-(--grid-border-color)'>
-        <div className='absolute size-2 z-10 border border-dashed border-(--grid-border-color) bg-(--nav-bg) left-[-4.6px] -bottom-1' />
-        <div className='absolute size-2 z-10 border border-dashed border-(--grid-border-color) bg-(--nav-bg) right-[-4.6px] -bottom-1' />
-        <div className='absolute w-[calc(100%+var(--spacing)*6)] -left-3 top-1.5 h-0 z-10 border-t border-dashed border-(--grid-border-color)' />
+    <header className='sticky md:hidden top-0 z-50 h-14 -ml-2 [--nav-bg:var(--color-stone-100)] dark:[--nav-bg:var(--color-stone-900)] bg-gradient-to-b from-stone-100 to-stone-100/85 dark:from-stone-900 dark:to-stone-900/80 w-[calc(100%+var(--spacing)*4)] flex items-center border-b border-(--grid-border-color)'>
+      <div className='w-full h-full relative mx-2 pt-1.5 flex border-x border-(--grid-border-color)'>
+        <div className='absolute w-[calc(100%+var(--spacing)*6)] -left-3 top-1.5 h-0 z-10 border-t border-(--grid-border-color)' />
+        <div className='absolute size-2 z-10 border border-(--grid-border-color) border-dashed bg-(--nav-bg) left-[-4.6px] top-[3px]' />
+        <div className='absolute size-2 z-10 border border-(--grid-border-color) border-dashed bg-(--nav-bg) right-[-4.6px] top-[3px]' />
+        <div className='absolute size-2 z-10 border border-(--grid-border-color) border-dashed bg-(--nav-bg) left-[-4.6px] -bottom-1' />
+        <div className='absolute size-2 z-10 border border-(--grid-border-color) border-dashed bg-(--nav-bg) right-[-4.6px] -bottom-1' />
+
         <nav data-orientation='horizontal' className='relative z-2 w-full py-3 px-4 flex justify-between gap-4'>
           <div className='flex gap-2 items-center'>
             <Link
@@ -269,6 +282,107 @@ export function NavBar() {
               <span className='text-base font-bold tracking-tight'>{t('Title')}</span>
             </Link>
           </div>
+
+          <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
+            <Drawer.Trigger className='relative w-8 h-full' aria-label='Open navigation menu'>
+              <span className='absolute inset-0 flex items-center justify-end'>
+                <ZpNavBarOpenIcon className='size-5' />
+              </span>
+            </Drawer.Trigger>
+            <Drawer.Portal>
+              <Drawer.Overlay className='fixed inset-0 z-50 mask-t-from-55% bg-white/70 dark:bg-black/70 backdrop-blur-lg backdrop-saturate-150' />
+              <Drawer.Content
+                className={clsxm(
+                  'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--navbar-bg)_0,_var(--navbar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
+                  '[--navbar-bg:var(--color-black)]/6 [--navbar-fg:var(--color-neutral-500)] dark:[--navbar-bg:var(--color-white)]/7 dark:[--navbar-fg:var(--color-gray-400)]',
+                  'border-t border-(--grid-border-color)',
+                  'pb-[env(safe-area-inset-bottom)]',
+                  'overflow-hidden',
+                )}
+              >
+                <div className='p-4 flex-1'>
+                  <div
+                    aria-hidden
+                    className='mx-auto w-8 h-1 flex-shrink-0 rounded-full bg-(--grid-border-color) mb-4'
+                  />
+                  <div className='max-w-md mx-auto relative before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'>
+                    <div className='absolute -left-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
+                    <div className='absolute -right-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
+
+                    <Drawer.Title
+                      className='font-medium relative mb-6 text-2xl text-gray-900 dark:text-white tracking-tight before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
+                      data-label='TAGLINE'
+                    >
+                      {t('OpenGraphTitle')}
+                    </Drawer.Title>
+
+                    {/* Navigation */}
+                    <ul
+                      className='relative mb-2 grid grid-cols-3 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
+                      data-label='NAVIGATION'
+                    >
+                      {links.map(({ href, label, icon: Icon }) => (
+                        <li
+                          key={label}
+                          className={clsxm(
+                            'flex relative h-18 items-center before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) data-active:**:data-highlight:opacity-20',
+                            'text-(--navbar-fg)',
+                            'data-active:text-black dark:data-active:text-white',
+                          )}
+                          data-active={isLinkActive(href) ? 'true' : null}
+                        >
+                          <div className='absolute right-0 top-0 w-px h-full bg-(--grid-border-color)' />
+                          <div className='absolute left-0 top-0 w-px h-full bg-(--grid-border-color)' />
+                          <Link className='flex flex-col justify-between w-full h-full' href={href}>
+                            <Icon className='size-6' />
+                            <span className='text-sm font-medium'>{tMenu(label)}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Social */}
+                    <ul
+                      className='relative text-(--navbar-fg) mt-8 mb-12 grid grid-cols-5 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
+                      data-label='SOCIAL'
+                    >
+                      {social.map(({ url, label, icon: Icon }) => (
+                        <li
+                          key={label}
+                          className='flex relative aspect-square justify-center items-center before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
+                        >
+                          <div className='absolute right-0 top-0 w-px h-full bg-(--grid-border-color)' />
+                          <div className='absolute left-0 top-0 w-px h-full bg-(--grid-border-color)' />
+                          <Link className='flex flex-col justify-center' href={url}>
+                            <Icon className='size-5' />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className='p-4 border-t border-(--grid-border-color) mt-auto'>
+                  <div className='relative grid grid-cols-2 gap-1 max-w-md mx-auto before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:w-px after:left-[calc(50%-0.5px)] after:top-0 after:h-full after:bg-(--grid-border-color)'>
+                    <div
+                      className='relative before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none'
+                      data-label='THEME'
+                    >
+                      <ThemeSelector />
+                    </div>
+                    <div
+                      className='relative before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none'
+                      data-label='LANGUAGE'
+                    >
+                      <LocaleSelector />
+                    </div>
+                  </div>
+                  <div className='relative flex justify-end max-w-md mx-auto before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'>
+                    <Clock className='border-l border-(--grid-border-color) pl-1 scale-80 origin-right' />
+                  </div>
+                </div>
+              </Drawer.Content>
+            </Drawer.Portal>
+          </Drawer.Root>
         </nav>
       </div>
     </header>
