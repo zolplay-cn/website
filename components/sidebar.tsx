@@ -301,10 +301,7 @@ export function NavBar() {
                 )}
               >
                 <div className='p-4 flex-1'>
-                  <div
-                    aria-hidden
-                    className='mx-auto w-8 h-1 flex-shrink-0 rounded-full bg-(--grid-border-color) mb-4'
-                  />
+                  <div aria-hidden className='mx-auto w-8 h-1 flex-shrink-0 rounded-full bg-(--navbar-fg) mb-4' />
                   <div className='max-w-md mx-auto relative before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'>
                     <div className='absolute -left-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
                     <div className='absolute -right-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
