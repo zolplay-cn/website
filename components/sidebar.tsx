@@ -284,7 +284,10 @@ export function NavBar() {
           </div>
 
           <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
-            <Drawer.Trigger className='relative w-8 h-full' aria-label='Open navigation menu'>
+            <Drawer.Trigger
+              className='relative w-8 h-full outline-none active:outline-none'
+              aria-label='Open navigation menu'
+            >
               <span className='absolute inset-0 flex items-center justify-end'>
                 <ZpNavBarOpenIcon className='size-5' />
               </span>
