@@ -14,11 +14,11 @@ body {
   text-rendering: geometricPrecision;
   text-decoration-skip-ink: auto;
   font-optical-sizing: auto;
-  --grid-border-color: var(--color-stone-300);
+  --grid-border-color: var(--color-stone-200);
 }
 
 .dark body {
-  --grid-border-color: var(--color-stone-800);
+  --grid-border-color: var(--color-gray-800);
 }
 
 ::selection {

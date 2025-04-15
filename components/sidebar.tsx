@@ -80,8 +80,8 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm(
         'fixed top-0 md:left-4 lg:left-[calc(50%-(3*var(--gutter-width))-(2*var(--spacing)*44))] md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
-        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/5 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/8 dark:[--sidebar-fg:var(--color-neutral-400)]',
-        'border-x border-(--sidebar-bg)',
+        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/3 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/5 dark:[--sidebar-fg:var(--color-neutral-400)]',
+        'border-x border-(--sidebar-fg)/20',
         'overflow-y-scroll',
         'hidden md:block',
         className,
@@ -96,7 +96,7 @@ export function Sidebar({ className }: { className?: string }) {
             href='/'
             aria-label={t('Title')}
             className={clsxm(
-              'group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-bg)',
+              'group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-fg)/20',
               '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
             )}
           >
@@ -146,7 +146,7 @@ export function Sidebar({ className }: { className?: string }) {
             <div className='flex items-center justify-between'>
               <Caption>03_SOCIAL</Caption>
             </div>
-            <div className='grid grid-cols-4 w-full items-center relative border-y border-(--sidebar-bg)'>
+            <div className='grid grid-cols-4 w-full items-center relative border-y border-(--sidebar-fg)/20'>
               {/* <div className='absolute h-full w-0 left-[calc(50%+1px)] -translate-x-1/2 border-r border-(--sidebar-bg)' /> */}
               {social.map((item) => (
                 <NextLink
@@ -157,7 +157,7 @@ export function Sidebar({ className }: { className?: string }) {
                   rel='noopener noreferrer'
                   className={clsxm(
                     'text-(--sidebar-fg) transition-colors hover:text-stone-800 dark:hover:text-stone-100',
-                    'aspect-square border-r border-(--sidebar-bg) last-of-type:border-r-0',
+                    'aspect-square border-r border-(--sidebar-fg)/20 last-of-type:border-r-0',
                     'flex items-center justify-center',
                     {
                       'hover:text-[#FF0000] dark:hover:text-[#FF0000]': item.name === 'YouTube',
@@ -173,11 +173,11 @@ export function Sidebar({ className }: { className?: string }) {
 
         <div className='relative z-50 grid grid-cols-1'>
           <Caption>04_SETTINGS</Caption>
-          <div className='border-t border-(--sidebar-bg) w-full h-0' />
+          <div className='border-t border-(--sidebar-fg)/20 w-full h-0' />
           <ThemeSelector />
-          <div className='border-t border-(--sidebar-bg) w-full h-0' />
+          <div className='border-t border-(--sidebar-fg)/20 w-full h-0' />
           <LocaleSelector />
-          <div className='border-t border-(--sidebar-bg) w-full h-0' />
+          <div className='border-t border-(--sidebar-fg)/20 w-full h-0' />
           <Clock />
         </div>
       </div>
@@ -193,7 +193,7 @@ function NavMenu() {
       <div className='flex items-center justify-between'>
         <Caption>02_NAVIGATION</Caption>
       </div>
-      <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-(--sidebar-bg)'>
+      <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-(--sidebar-fg)/20'>
         {links.map(({ href, label, icon: Icon }) => (
           <MenuLink key={label} href={href} label={t(label)}>
             <Icon className='size-5 stroke-current' />
@@ -215,7 +215,7 @@ function MenuLink({
   const pathname = usePathname()
   const isActive = href === pathname
   return (
-    <li className='border-t border-(--sidebar-bg) w-full'>
+    <li className='border-t border-(--sidebar-fg)/20 w-full'>
       <NavigationMenu.Link active={isActive} asChild>
         <Link
           href={href}
@@ -293,18 +293,19 @@ export function NavBar() {
               </span>
             </Drawer.Trigger>
             <Drawer.Portal>
-              <Drawer.Overlay className='fixed inset-0 z-50 mask-t-from-74% bg-white/70 dark:bg-black/70 backdrop-blur-lg backdrop-saturate-150' />
+              <Drawer.Overlay className='fixed inset-0 z-50 mask-t-from-70% bg-white/80 dark:bg-black/70 backdrop-blur-xl backdrop-saturate-50' />
               <Drawer.Content
                 className={clsxm(
-                  'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--navbar-bg)_0,_var(--navbar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
-                  '[--navbar-bg:var(--color-black)]/6 [--navbar-fg:var(--color-neutral-500)] dark:[--navbar-bg:var(--color-white)]/7 dark:[--navbar-fg:var(--color-gray-400)]',
+                  'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--drawer-bg)_0,_var(--drawer-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
+                  '[--drawer-bg:var(--color-black)]/4 [--drawer-fg:var(--color-stone-400)] dark:[--drawer-bg:var(--color-white)]/7 dark:[--drawer-fg:var(--color-gray-600)]',
                   'border-t border-(--grid-border-color)',
+                  'mix-blend-multiply dark:mix-blend-plus-lighter',
                   'pb-[env(safe-area-inset-bottom)]',
                   'overflow-hidden',
                 )}
               >
                 <div className='p-4 flex-1'>
-                  <div aria-hidden className='mx-auto w-8 h-1 flex-shrink-0 rounded-full bg-(--navbar-fg) mb-4' />
+                  <div aria-hidden className='mx-auto w-8 h-1 flex-shrink-0 rounded-full bg-(--drawer-fg) mb-4' />
                   <div className='max-w-md mx-auto relative before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'>
                     <div className='absolute -left-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
                     <div className='absolute -right-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
