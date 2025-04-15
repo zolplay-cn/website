@@ -102,7 +102,7 @@ export function Background() {
         transition={{ duration: 1, type: 'spring' }}
       />
 
-      <div className='mask-t pointer-events-none fixed inset-x-0 top-0 z-30 h-[100px] md:h-[88px] w-full select-none backdrop-blur-[1px]' />
+      <div className='mask-t pointer-events-none fixed hidden md:block inset-x-0 top-0 z-30 h-[100px] md:h-[88px] w-full select-none backdrop-blur-[1px]' />
     </>
   )
 }
