@@ -80,7 +80,8 @@ export function Sidebar({ className }: { className?: string }) {
     <aside
       className={clsxm(
         'fixed top-0 md:left-4 lg:left-[calc(50%-(3*var(--gutter-width))-(2*var(--spacing)*44))] md:mx-0 md:w-44 md:flex-shrink-0 md:px-0',
-        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--sidebar-bg:var(--color-black)]/3 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/5 dark:[--sidebar-fg:var(--color-neutral-400)]',
+        '[--sidebar-backdrop:var(--color-stone-100)] dark:[--sidebar-backdrop:var(--color-stone-950)]',
+        'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_var(--sidebar-backdrop)_0,_var(--sidebar-backdrop)_50%)] bg-[size:16px_16px] bg-fixed [--sidebar-bg:var(--color-black)]/3 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/5 dark:[--sidebar-fg:var(--color-neutral-400)]',
         'border-x border-(--sidebar-fg)/20',
         'overflow-y-scroll',
         'hidden md:block',
@@ -293,14 +294,14 @@ export function NavBar() {
               </span>
             </Drawer.Trigger>
             <Drawer.Portal>
-              <Drawer.Overlay className='fixed inset-0 z-50 mask-t-from-70% bg-white/80 dark:bg-black/70 backdrop-blur-xl backdrop-saturate-50' />
+              <Drawer.Overlay className='fixed inset-x-0 bottom-0 h-[calc(var(--spacing)*24+var(--spacing)*142)] z-50 mask-t-from-70% bg-white/80 dark:bg-black/70 backdrop-blur-xl backdrop-saturate-50' />
               <Drawer.Content
                 className={clsxm(
                   'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--drawer-bg)_0,_var(--drawer-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
                   '[--drawer-bg:var(--color-black)]/4 [--drawer-fg:var(--color-stone-400)] dark:[--drawer-bg:var(--color-white)]/7 dark:[--drawer-fg:var(--color-gray-600)]',
                   'border-t border-(--grid-border-color)',
                   'mix-blend-multiply dark:mix-blend-plus-lighter',
-                  'pb-[env(safe-area-inset-bottom)]',
+                  'pb-[calc(env(safe-area-inset-bottom)+var(--spacing)*2)]',
                   'overflow-hidden',
                 )}
               >

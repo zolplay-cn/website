@@ -43,7 +43,7 @@ export function LocaleSelector() {
   return (
     <Select.Root value={locale} onValueChange={onChange}>
       <Select.Trigger
-        className='flex justify-between border-none font-medium text-(--sidebar-fg) transition-colors hover:text-stone-600 dark:hover:text-stone-200 h-10'
+        className='flex justify-between border-none font-medium text-(--sidebar-fg) transition-colors hover:text-stone-600 dark:hover:text-stone-200 h-10 rounded-none'
         aria-label={t('Placeholder')}
       >
         <Select.Value placeholder={t('Placeholder')} />
