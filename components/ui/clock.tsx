@@ -29,7 +29,7 @@ export function Clock({ className }: { className?: string }) {
 
   return (
     <div className={clsxm('flex items-center md:px-2 md:py-1', className)}>
-      <span className='select-none text-xs font-mono text-(--navbar-fg)/70 md:text-(--sidebar-fg)/70'>
+      <span className='select-none text-xs font-mono text-(--navbar-fg) md:text-(--sidebar-fg)/70'>
         {formatDateTime(time, {
           timeZone: 'Asia/Shanghai',
           hour: 'numeric',

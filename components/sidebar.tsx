@@ -312,7 +312,7 @@ export function NavBar() {
                     <div className='absolute -right-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
 
                     <Drawer.Title
-                      className='font-medium relative mb-6 text-2xl text-gray-900 dark:text-white tracking-tight before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
+                      className='font-medium relative mb-6 text-2xl text-gray-900 dark:text-white tracking-tight before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
                       data-label='TAGLINE'
                     >
                       {t('OpenGraphTitle')}
@@ -320,7 +320,7 @@ export function NavBar() {
 
                     {/* Navigation */}
                     <ul
-                      className='relative mb-2 grid grid-cols-3 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
+                      className='relative mb-2 grid grid-cols-3 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
                       data-label='NAVIGATION'
                     >
                       {links.map(({ href, label, icon: Icon }) => (
@@ -345,7 +345,7 @@ export function NavBar() {
 
                     {/* Social */}
                     <ul
-                      className='relative text-(--navbar-fg) mt-8 mb-4 grid grid-cols-5 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
+                      className='relative text-(--navbar-fg) mt-8 mb-4 grid grid-cols-5 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
                       data-label='SOCIAL'
                     >
                       {social.map(({ url, label, icon: Icon }) => (
@@ -366,20 +366,20 @@ export function NavBar() {
                 <div className='p-4 border-t border-(--grid-border-color) mt-auto'>
                   <div className='relative grid grid-cols-2 gap-1 max-w-md mx-auto before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:w-px after:left-[calc(50%-0.5px)] after:top-0 after:h-full after:bg-(--grid-border-color)'>
                     <div
-                      className='relative before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none'
+                      className='relative before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40'
                       data-label='THEME'
                     >
                       <ThemeSelector />
                     </div>
                     <div
-                      className='relative before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none'
+                      className='relative before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40'
                       data-label='LANGUAGE'
                     >
                       <LocaleSelector />
                     </div>
                   </div>
                   <div className='relative flex justify-end max-w-md mx-auto before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'>
-                    <Clock className='border-l border-(--grid-border-color) pl-1 scale-80 origin-right' />
+                    <Clock className='pl-1 scale-70 origin-right opacity-40' />
                   </div>
                 </div>
               </Drawer.Content>
