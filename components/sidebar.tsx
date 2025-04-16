@@ -83,7 +83,7 @@ export function Sidebar({ className }: { className?: string }) {
         '[--sidebar-backdrop:var(--color-stone-100)] dark:[--sidebar-backdrop:var(--color-stone-950)]',
         'bg-[image:repeating-linear-gradient(45deg,_var(--sidebar-bg)_0,_var(--sidebar-bg)_1px,_var(--sidebar-backdrop)_0,_var(--sidebar-backdrop)_50%)] bg-[size:16px_16px] bg-fixed [--sidebar-bg:var(--color-black)]/3 [--sidebar-fg:var(--color-neutral-500)] dark:[--sidebar-bg:var(--color-white)]/5 dark:[--sidebar-fg:var(--color-neutral-400)]',
         'border-x border-(--sidebar-fg)/20',
-        'overflow-y-scroll',
+        'overflow-y-scroll z-30',
         'hidden md:block',
         className,
       )}

@@ -37,7 +37,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
 
             <span className='text-xs font-bold opacity-60'>{portfolio.timeframe[locale]}</span>
           </div>
-          <h2 className='mt-4'>
+          <h2 className='not-prose mt-4 tracking-tighter'>
             <LocaleLink
               href={makePortfolioLink(portfolio)}
               className='text-lg not-prose md:text-xl lg:text-2xl hover:underline'

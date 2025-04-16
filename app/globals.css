@@ -18,7 +18,7 @@ body {
 }
 
 .dark body {
-  --grid-border-color: var(--color-gray-800);
+  --grid-border-color: var(--color-stone-800);
 }
 
 ::selection {
@@ -71,7 +71,7 @@ body {
   background-image: url(/assets/noise.png);
   background-repeat: repeat;
   background-size: 182px;
-  opacity: 0.04;
+  opacity: 0.03;
   pointer-events: none;
   user-select: none;
 }
