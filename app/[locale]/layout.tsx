@@ -111,9 +111,9 @@ export default async function RootLayout({ children, params }: { children: React
                     <Rulers />
                     <Sidebar />
                     <NavBar />
-                    <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-3 flex w-full flex-auto flex-col border border-(--grid-border-color) bg-white p-4 pb-36 dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 pt-4 lg:pt-16 lg:p-9 lg:pb-44 min-h-screen'>
-                      <div className='absolute left-4 md:left-7 lg:left-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
-                      <div className='absolute right-4 md:right-7 lg:right-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
+                    <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-3 flex w-full flex-auto flex-col border border-(--grid-border-color) bg-white p-2.5 pb-36 dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 pt-4 lg:pt-16 lg:p-9 lg:pb-44 min-h-screen'>
+                      <div className='absolute left-2.5 md:left-7 lg:left-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
+                      <div className='absolute right-2.5 md:right-7 lg:right-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
 
                       <article className='prose prose-neutral dark:prose-invert prose-headings:tracking-[-0.035em] prose-headings:font-medium prose-h1:text-2xl prose-p:leading-[1.75em] prose-p:tracking-tight prose-p:px-1 md:prose-p:px-2 prose-li:tracking-tight lg:prose-h1:text-3xl prose-strong:font-medium prose-strong:text-black prose-strong:dark:text-white max-w-full prose-headings:relative prose-headings:before:absolute prose-headings:before:-top-px prose-headings:before:h-px prose-headings:before:w-[200vw] prose-headings:before:left-[-100vw] prose-headings:before:bg-(--grid-border-color) prose-headings:after:absolute prose-headings:after:-bottom-px prose-headings:after:h-px prose-headings:after:w-[200vw] prose-headings:after:left-[-100vw] prose-headings:after:bg-(--grid-border-color)'>
                         {children}
