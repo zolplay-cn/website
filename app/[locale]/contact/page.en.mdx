@@ -5,6 +5,10 @@ import booth from './booth.jpg'
 
 We're always looking for new opportunities to collaborate with like-minded people. If you want to say hi, we'd love to hear from you 👏.
 
-<ContactForm />
+<div className='not-prose grid grid-cols-12 with-separator items-start'>
+  <Image src={booth} alt='Zolplay Booth' placeholder='blur' className='col-span-12 md:col-span-6' />
 
-<Image src={booth} alt='Zolplay Booth' placeholder='blur' />
+  <div className='col-span-12 md:col-span-6 border-l border-(--grid-border-color)'>
+    <ContactForm />
+  </div>
+</div>

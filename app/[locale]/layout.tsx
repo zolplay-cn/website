@@ -111,7 +111,7 @@ export default async function RootLayout({ children, params }: { children: React
                     <Rulers />
                     <Sidebar />
                     <NavBar />
-                    <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-3 flex w-full flex-auto flex-col border border-(--grid-border-color) bg-white p-2.5 pb-36 dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 pt-4 lg:pt-16 lg:p-9 lg:pb-44 min-h-screen'>
+                    <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-0 flex w-full flex-auto flex-col border border-(--grid-border-color) bg-white p-2.5 pb-36 dark:border-stone-800 dark:bg-[#1a1a1a] md:p-7 md:pb-36 pt-8 md:pt-16 lg:p-9 lg:pt-20 lg:pb-44 min-h-screen'>
                       <div className='absolute left-2.5 md:left-7 lg:left-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
                       <div className='absolute right-2.5 md:right-7 lg:right-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
 

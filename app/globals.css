@@ -98,3 +98,17 @@ strong {
   @apply font-medium;
   @apply text-black dark:text-white;
 }
+
+.with-separator {
+  @apply relative;
+}
+
+.with-separator::before {
+  content: '';
+  @apply absolute top-0 left-[-100vw] w-[200vw] h-px bg-(--grid-border-color);
+}
+
+.with-separator::after {
+  content: '';
+  @apply absolute bottom-0 left-[-100vw] w-[200vw] h-px bg-(--grid-border-color);
+}
