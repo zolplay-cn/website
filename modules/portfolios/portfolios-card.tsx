@@ -9,8 +9,8 @@ import { TbArrowBadgeRight, TbArrowUpRight } from 'react-icons/tb'
 import Balancer from 'react-wrap-balancer'
 import { LocaleLink } from '~/modules/i18n/navigation'
 
-function makePortfolioLink(portfolio: Portfolio) {
-  return `/portfolios/${portfolio.slug}`
+function makeProjectLink(portfolio: Portfolio) {
+  return `/work/${portfolio.slug}`
 }
 
 export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; locale: string }) {
@@ -19,7 +19,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
 
   return (
     <div
-      className='w-full rounded-none ring-2 ring-black/5 dark:ring-white/5'
+      className='w-full rounded-none not-prose ring-2 ring-black/5 dark:ring-white/5'
       style={{
         background: palette.background,
         color: palette.foreground,
@@ -27,8 +27,8 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
       }}
     >
       <div className='flex relative'>
-        <div className='relative z-20 flex h-full max-w-full flex-col justify-between pl-5 md:max-w-[16rem] md:pl-6 lg:max-w-[22rem]'>
-          <div className='flex items-center mt-6 space-x-3 not-prose lg:space-x-5'>
+        <div className='relative z-20 flex h-full max-w-full flex-col justify-between pl-5 md:max-w-[18rem] md:pl-6 lg:max-w-[22rem]'>
+          <div className='flex items-center mt-6 space-x-3 lg:space-x-5'>
             <Image
               className='w-7 h-7 rounded-lg md:h-9 md:w-9 lg:size-12 lg:rounded-xl'
               src={portfolio.logo}
@@ -37,19 +37,25 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
 
             <span className='text-xs font-bold opacity-60'>{portfolio.timeframe[locale]}</span>
           </div>
-          <h2 className='not-prose mt-4 tracking-tighter'>
-            <LocaleLink
-              href={makePortfolioLink(portfolio)}
-              className='text-lg not-prose md:text-xl lg:text-2xl hover:underline'
-              style={{
-                color: palette.foreground,
-              }}
-            >
-              <Balancer>{portfolio.title[locale]}</Balancer>
-            </LocaleLink>
+          <h2 className='mt-4 tracking-tighter'>
+            {portfolio.hasDetail ? (
+              <LocaleLink
+                href={makeProjectLink(portfolio)}
+                className='text-lg md:text-xl lg:text-2xl hover:underline leading-6 md:leading-6 lg:leading-8'
+                style={{
+                  color: palette.foreground,
+                }}
+              >
+                <Balancer>{portfolio.title[locale]}</Balancer>
+              </LocaleLink>
+            ) : (
+              <span className='text-lg md:text-xl lg:text-2xl md:leading-6 lg:leading-8'>
+                <Balancer>{portfolio.title[locale]}</Balancer>
+              </span>
+            )}
           </h2>
           <p
-            className='pr-5 text-sm !leading-relaxed opacity-70 md:pr-0 lg:text-sm'
+            className='mt-3 mb-2 pr-5 lg:pr-0 text-sm leading-5 opacity-70 tracking-tight'
             style={{
               color: palette.foreground,
             }}
@@ -65,7 +71,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
           >
             {portfolio.hasDetail && (
               <LocaleLink
-                href={makePortfolioLink(portfolio)}
+                href={makeProjectLink(portfolio)}
                 className='flex items-center font-bold text-current no-underline hover:underline'
               >
                 <span>{t('LearnMoreCTA')}</span>
@@ -84,7 +90,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
             )}
           </div>
         </div>
-        <div className='not-prose absolute left-0 right-0 h-full overflow-hidden rounded-xl md:left-[unset] md:aspect-square'>
+        <div className='absolute left-0 right-0 h-full overflow-hidden rounded-xl md:left-[unset] md:aspect-square'>
           <Image
             className='p-0 m-0 mx-auto w-auto h-full rounded-none pointer-events-none select-none'
             src={portfolio.image}

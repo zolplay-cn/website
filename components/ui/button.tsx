@@ -7,7 +7,7 @@ import * as React from 'react'
 import { LocaleLink } from '~/modules/i18n/navigation'
 
 const buttonVariants = cva(
-  'active:scale-95 inline-flex no-underline items-center justify-center rounded-lg text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 focus-visible:ring-offset-2 dark:hover:bg-stone-800 dark:hover:text-stone-100 disabled:opacity-50 dark:focus-visible:ring-stone-400 disabled:pointer-events-none dark:focus-visible:ring-offset-stone-900 data-[state=open]:bg-stone-100 dark:data-[state=open]:bg-stone-800',
+  'active:scale-95 inline-flex no-underline items-center justify-center rounded-none text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 focus-visible:ring-offset-2 dark:hover:bg-stone-800 dark:hover:text-stone-100 disabled:opacity-50 dark:focus-visible:ring-stone-400 disabled:pointer-events-none dark:focus-visible:ring-offset-stone-900 data-[state=open]:bg-stone-100 dark:data-[state=open]:bg-stone-800',
   {
     variants: {
       variant: {
