@@ -14,6 +14,11 @@ body {
   text-rendering: geometricPrecision;
   text-decoration-skip-ink: auto;
   font-optical-sizing: auto;
+  --grid-border-color: var(--color-stone-200);
+}
+
+.dark body {
+  --grid-border-color: var(--color-stone-800);
 }
 
 ::selection {
@@ -66,7 +71,7 @@ body {
   background-image: url(/assets/noise.png);
   background-repeat: repeat;
   background-size: 182px;
-  opacity: 0.04;
+  opacity: 0.03;
   pointer-events: none;
   user-select: none;
 }
@@ -92,4 +97,18 @@ b,
 strong {
   @apply font-medium;
   @apply text-black dark:text-white;
+}
+
+.with-separator {
+  @apply relative;
+}
+
+.with-separator::before {
+  content: '';
+  @apply absolute top-0 left-[-100vw] w-[200vw] h-px bg-(--grid-border-color);
+}
+
+.with-separator::after {
+  content: '';
+  @apply absolute bottom-0 left-[-100vw] w-[200vw] h-px bg-(--grid-border-color);
 }

@@ -24,29 +24,28 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
 
   return (
     <TiltCard zolplayer={member}>
-      <header className='mb-4 flex flex-col items-center transform-3d translate-z-4 transition-transform duration-150'>
-        <Image
-          data-portrait
-          src={member.portrait.url}
-          alt={member.name}
-          width={120}
-          height={120}
-          className='mx-auto size-20 shadow-2xl md:size-28 translate-z-2 transition-transform'
-          placeholder='blur'
-          style={{
-            clipPath: 'url(#member-arch)',
-          }}
-        />
-        <span className='mt-4 block text-center text-base font-medium tracking-tight text-[var(--accent)]'>
+      <header className='mb-0 pt-0.5 pb-2 h-44 flex flex-col items-center transform-3d translate-z-4 transition-transform duration-150'>
+        <div className='w-full flex justify-center'>
+          <Image
+            data-portrait
+            src={member.portrait.url}
+            alt={member.name}
+            width={120}
+            height={120}
+            className='size-24'
+            placeholder='blur'
+          />
+        </div>
+        <span className='mt-2 block text-center text-base font-medium tracking-tight text-[var(--accent)]'>
           {member.name}
         </span>
-        <span className='mt-1 block text-center text-[13px] leading-4 -tracking-[0.015rem] text-[var(--accent)] opacity-70'>
+        <span className='mt-0.5 block text-center text-xs leading-4 -tracking-[0.015rem] text-[var(--accent)] opacity-70'>
           <Balancer>{member.role[locale]}</Balancer>
         </span>
       </header>
 
-      {member.social && member.social.length > 0 && (
-        <ul className='mb-3 translate-z-10 transition-transform duration-150 flex w-full items-center justify-center gap-1.5'>
+      {member.social && member.social.length > 0 ? (
+        <ul className='mb-1 pt-3 h-8 flex w-full items-center justify-center gap-1.5 border-t border-(--grid-border-color)'>
           {member.social.map((social) => (
             <SocialLink
               social={social}
@@ -60,14 +59,16 @@ export function ZolplayerCard({ member }: { member: Zolplayer }) {
             />
           ))}
         </ul>
+      ) : (
+        <div className='mb-1 pt-3 h-8 flex w-full items-center justify-center gap-1.5 border-t border-(--grid-border-color)' />
       )}
 
-      <footer className='mt-2 flex w-full items-center justify-between translate-z-6 transition-transform duration-150'>
-        <time className='select-none rounded-lg border border-dashed border-stone-400/40 p-1 text-xs text-[var(--accent)] opacity-65 tracking-tight [transform:translateZ(60px)] dark:border-stone-600/50'>
+      <footer className='mt-3 pt-0.5 pb-1.5 flex w-full items-center justify-between border-t border-(--grid-border-color) '>
+        <time className='select-none pl-1 text-xs text-[var(--accent)]/50 tracking-tight [transform:translateZ(60px)]'>
           {joined}
         </time>
 
-        <LogoHelmetOutline className='h-5 w-5 opacity-60' />
+        <LogoHelmetOutline className='size-4 mr-1 opacity-60' />
       </footer>
     </TiltCard>
   )

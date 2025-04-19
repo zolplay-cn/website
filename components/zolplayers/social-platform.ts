@@ -1,8 +1,8 @@
 import type { IconType } from 'react-icons'
 import { CgWebsite } from 'react-icons/cg'
 import { TbBrandDribbble, TbBrandGithub, TbBrandInstagram, TbBrandLinkedin, TbBrandYoutube } from 'react-icons/tb'
-import { BrandXIcon } from '../icons/BrandXIcon'
 import { ZpBrandReadCV } from '../icons/ZpBrandReadCV'
+import { ZpBrandXIcon } from '../icons/ZpBrandXIcon'
 
 export type SocialPlatform =
   | 'twitter'
@@ -16,7 +16,7 @@ export type SocialPlatform =
   | 'website'
 
 export const SOCIAL_ICON_MAP: Record<SocialPlatform, IconType | React.FC<{ className?: string }>> = {
-  twitter: BrandXIcon,
+  twitter: ZpBrandXIcon,
   youtube: TbBrandYoutube,
   github: TbBrandGithub,
   linkedin: TbBrandLinkedin,
