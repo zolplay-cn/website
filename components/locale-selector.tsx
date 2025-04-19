@@ -1,7 +1,8 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl'
+import { clsxm } from '@zolplay/utils'
 
+import { useLocale, useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { Select } from '~/components/ui/select'
@@ -10,12 +11,12 @@ import { usePathname } from '~/modules/i18n/navigation'
 const languages = [
   {
     value: 'en',
-    icon: () => <span>🇺🇸</span>,
+    icon: ({ className }: { className?: string }) => <span className={clsxm('w-4', className)}>🇺🇸</span>,
     url: '/',
   },
   {
     value: 'zh-CN',
-    icon: () => <span>🇨🇳</span>,
+    icon: ({ className }: { className?: string }) => <span className={clsxm('w-4', className)}>🇨🇳</span>,
     url: '/zh-CN',
   },
 ]
@@ -42,7 +43,7 @@ export function LocaleSelector() {
   return (
     <Select.Root value={locale} onValueChange={onChange}>
       <Select.Trigger
-        className='flex w-fit justify-start space-x-1 border-none font-bold text-stone-400 transition-colors hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-200 md:w-40'
+        className='flex justify-between border-none font-medium text-(--sidebar-fg) transition-colors hover:text-stone-600 dark:hover:text-stone-200 h-10 rounded-none'
         aria-label={t('Placeholder')}
       >
         <Select.Value placeholder={t('Placeholder')} />

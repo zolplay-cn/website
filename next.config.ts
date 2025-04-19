@@ -45,6 +45,21 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  // Redirects from old portfolios to new work pages
+  async redirects() {
+    return [
+      {
+        source: '/portfolios/:slug',
+        destination: '/work/:slug',
+        permanent: true,
+      },
+      {
+        source: '/portfolios/nexus',
+        destination: '/work/live-aware',
+        permanent: true,
+      },
+    ]
+  },
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 }

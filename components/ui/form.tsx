@@ -82,13 +82,12 @@ function Label({ className, htmlFor, ...rest }: ComponentProps<'label'>) {
 Label.displayName = 'Form.Label'
 
 const input =
-  'block w-full rounded-lg border-0 bg-transparent py-1.5 px-2.5 ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6'
+  'block w-full rounded-none border-0 bg-transparent py-1.5 px-2.5 ring-1 ring-inset ring-stone-300 placeholder:text-stone-400 focus:ring-2 focus:ring-inset focus:ring-stone-400 dark:ring-stone-700 dark:placeholder:text-stone-600 dark:focus:ring-stone-500 text-sm sm:leading-6'
 
-function Input({ ref, className, id, name, type, ...rest }: ComponentProps<'input'>) {
+function Input({ className, id, name, type, ...rest }: ComponentProps<'input'>) {
   const { name: defaultName } = use(FieldGroupContext)
   return (
     <input
-      ref={ref}
       className={clsxm(input, className)}
       id={id ?? defaultName ?? name}
       name={defaultName ?? name}
@@ -102,11 +101,10 @@ function Input({ ref, className, id, name, type, ...rest }: ComponentProps<'inpu
 }
 Input.displayName = 'Form.Input'
 
-function TextArea({ ref, className, id, name, ...rest }: ComponentProps<'textarea'>) {
+function TextArea({ className, id, name, ...rest }: ComponentProps<'textarea'>) {
   const { name: defaultName } = use(FieldGroupContext)
   return (
     <textarea
-      ref={ref}
       className={clsxm(input, className, 'p-2.5')}
       id={id ?? defaultName ?? name}
       name={defaultName ?? name}
@@ -148,7 +146,7 @@ function Footer({ className, ...props }: ComponentProps<'div'>) {
 Footer.displayName = 'Form.Footer'
 
 function SubmitButton({ className, ...props }: ComponentProps<typeof Button>) {
-  return <Button type='submit' className={clsxm('rounded-lg', className)} {...props} />
+  return <Button type='submit' className={clsxm('rounded-none', className)} {...props} />
 }
 SubmitButton.displayName = 'Form.SubmitButton'
 

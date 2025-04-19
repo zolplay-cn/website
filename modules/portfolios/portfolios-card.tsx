@@ -19,7 +19,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
 
   return (
     <div
-      className='w-full rounded-xl ring-2 shadow-xl ring-black/5 dark:ring-white/5'
+      className='w-full rounded-none ring-2 ring-black/5 dark:ring-white/5'
       style={{
         background: palette.background,
         color: palette.foreground,
@@ -37,7 +37,7 @@ export function PortfolioCard({ portfolio, locale }: { portfolio: Portfolio; loc
 
             <span className='text-xs font-bold opacity-60'>{portfolio.timeframe[locale]}</span>
           </div>
-          <h2 className='mt-4'>
+          <h2 className='not-prose mt-4 tracking-tighter'>
             <LocaleLink
               href={makePortfolioLink(portfolio)}
               className='text-lg not-prose md:text-xl lg:text-2xl hover:underline'

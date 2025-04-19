@@ -100,3 +100,5 @@ export const PORTFOLIOS: Portfolio[] = [
     image: downwordlyImage,
   },
 ]
+
+export const LATEST_PORTFOLIO = PORTFOLIOS[0]

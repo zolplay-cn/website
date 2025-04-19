@@ -18,10 +18,11 @@ export function TiltCard({ children, zolplayer }: { children: ReactNode; zolplay
   return (
     <Tilt
       className={clsxm([
-        'not-prose group flex flex-col justify-between rounded-2xl p-2.5 md:p-4',
-        'border border-stone-100 bg-white text-[var(--accent)] dark:border-stone-800 dark:bg-stone-900',
+        'not-prose group flex flex-col justify-between rounded-none',
+        'border-x border-(--grid-border-color) bg-stone-50 text-[var(--accent)] dark:bg-stone-900',
         '[--accent:var(--mb-accent)] dark:[--accent:var(--mb-accent-dark)]',
         'transform-3d',
+        'with-separator z-50 hover:z-[51]',
       ])}
       style={{
         '--mb-accent': zolplayer.portrait.palette.background.light,
