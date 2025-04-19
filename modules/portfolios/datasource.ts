@@ -30,7 +30,7 @@ export const PORTFOLIOS: Portfolio[] = [
       en: 'Live Aware - Next-gen SaaS Platform for Game Developers',
       'zh-CN': 'Live Aware - 下一代游戏开发者SaaS平台',
     },
-    slug: 'nexus',
+    slug: 'live-aware',
     website: 'https://liveaware.io',
     hasDetail: true,
     logo: nexusLogo,
