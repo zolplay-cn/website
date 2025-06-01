@@ -4,7 +4,6 @@ import cali from './images/cali.png'
 import ethan from './images/ethan.png'
 import larry from './images/larry.png'
 import sonia from './images/sonia.png'
-import spike from './images/spike.png'
 import timx from './images/timx.png'
 import will from './images/will.png'
 import zaotang from './images/zaotang.png'
@@ -129,30 +128,6 @@ export const ZOLPLAYERS = [
       },
     ],
     joinedDate: '2024-11-11',
-  },
-  {
-    name: 'Spike Ling',
-    slug: 'spike',
-    role: {
-      en: 'Full Stack Engineer',
-      'zh-CN': '全栈工程师',
-    },
-    portrait: {
-      url: spike,
-      palette: {
-        background: {
-          light: '#3f5f8c',
-          dark: '#74acfc',
-        },
-      },
-    },
-    social: [
-      {
-        platform: 'twitter',
-        url: 'https://x.com/real_spike014',
-      },
-    ],
-    joinedDate: '2023-09-01',
   },
   {
     name: 'Timx Wong',
