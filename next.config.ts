@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
+  output: 'standalone',
   experimental: {
     serverActions: {
       // Limit body size to 50MB

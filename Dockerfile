@@ -38,12 +38,8 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Application environment variables
-ENV NEXT_PUBLIC_UPLOAD_API_KEY=""
-ENV CAREERS_WEBHOOK_URL=""
 ENV CONTACT_WEBHOOK_URL=""
-ENV NEXT_PUBLIC_OG_URL=""
 ENV NEXT_PUBLIC_POSTHOG_KEY=""
-ENV EDGE_CONFIG=""
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
