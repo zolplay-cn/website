@@ -65,9 +65,6 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Create .next directory with proper ownership
-RUN mkdir .next && chown nextjs:nodejs .next
-
 # Switch to non-root user
 USER nextjs
 
