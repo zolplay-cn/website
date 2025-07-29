@@ -29,20 +29,6 @@ const nextConfig: NextConfig = {
         source: '/ingest/decide',
         destination: 'https://us.i.posthog.com/decide',
       },
-
-      // Localized paths with language prefix
-      {
-        source: '/:locale/ingest/static/:path*',
-        destination: 'https://us-assets.i.posthog.com/static/:path*',
-      },
-      {
-        source: '/:locale/ingest/:path*',
-        destination: 'https://us.i.posthog.com/:path*',
-      },
-      {
-        source: '/:locale/ingest/decide',
-        destination: 'https://us.i.posthog.com/decide',
-      },
     ]
   },
   // Redirects from old portfolios to new work pages

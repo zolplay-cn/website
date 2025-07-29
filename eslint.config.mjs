@@ -3,9 +3,12 @@ import nextPlugin from '@next/eslint-plugin-next'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
-const base = antfu({
-  react: true,
-})
+const base = antfu(
+  {
+    react: true,
+  },
+  { ignores: ['*.md'] },
+)
 
 base.append([eslintPluginPrettierRecommended, eslintConfigPrettier])
 

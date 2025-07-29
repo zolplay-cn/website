@@ -1,4 +1,3 @@
-'use client'
 import type { getJobs } from '~/lib/ashbyhq.queries'
 import { useTranslations } from 'next-intl'
 import { TbArrowBadgeRight, TbIdBadge } from 'react-icons/tb'
