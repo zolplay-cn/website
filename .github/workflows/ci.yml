@@ -25,14 +25,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Enable corepack
+        run: corepack enable
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
 
-      - name: Enable corepack
-        run: corepack enable
+      - name: Prepare package manager
+        run: corepack prepare --activate
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
