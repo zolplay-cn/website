@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
+  output: 'standalone',
   experimental: {
     serverActions: {
       // Limit body size to 50MB
@@ -27,20 +28,6 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/ingest/decide',
-        destination: 'https://us.i.posthog.com/decide',
-      },
-
-      // Localized paths with language prefix
-      {
-        source: '/:locale/ingest/static/:path*',
-        destination: 'https://us-assets.i.posthog.com/static/:path*',
-      },
-      {
-        source: '/:locale/ingest/:path*',
-        destination: 'https://us.i.posthog.com/:path*',
-      },
-      {
-        source: '/:locale/ingest/decide',
         destination: 'https://us.i.posthog.com/decide',
       },
     ]

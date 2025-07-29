@@ -1,14 +1,16 @@
-import { getJobs } from '~/lib/ashbyhq.queries'
-import { ConfigKey, getConfigValue } from '~/lib/edge-config'
+import { Suspense } from 'react'
+import { queryJobs } from '../_queries/jobs.query'
 import { PositionsImpl } from './positions-impl'
 
 export async function Positions() {
-  const showOpenPositions = await getConfigValue(ConfigKey.ShowOpenPositions, true)
-
-  if (!showOpenPositions) {
-    return <PositionsImpl jobs={[]} />
-  }
-
-  const jobs = await getJobs()
+  const jobs = await queryJobs()
   return <PositionsImpl jobs={jobs} />
+}
+
+export function SuspendedPositions() {
+  return (
+    <Suspense>
+      <Positions />
+    </Suspense>
+  )
 }
