@@ -1,9 +1,9 @@
-import type { getJobs } from '~/lib/ashbyhq.queries'
+import type { queryJobs } from '../_queries/jobs.query'
 import { useTranslations } from 'next-intl'
 import { TbArrowBadgeRight, TbIdBadge } from 'react-icons/tb'
 import { Link } from '~/modules/i18n/navigation'
 
-export function PositionsImpl({ jobs }: { jobs: Awaited<ReturnType<typeof getJobs>> }) {
+export function PositionsImpl({ jobs }: { jobs: Awaited<ReturnType<typeof queryJobs>> }) {
   const t = useTranslations('Careers')
 
   return (
