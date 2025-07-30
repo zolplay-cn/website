@@ -93,9 +93,9 @@ jobs:
         if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'dev')
         run: |
           if [ "${{ github.ref_name }}" = "main" ]; then
-            curl -X GET ${{ env.DOKPLOY_WEBHOOK_MAIN }}
+            curl -X GET ${{ vars.DOKPLOY_WEBHOOK_MAIN }}
           elif [ "${{ github.ref_name }}" = "dev" ]; then
-            curl -X GET ${{ env.DOKPLOY_WEBHOOK_DEV }}
+            curl -X GET ${{ vars.DOKPLOY_WEBHOOK_DEV }}
           fi
 
       - name: Generate build summary
