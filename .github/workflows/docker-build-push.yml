@@ -82,8 +82,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            CONTACT_WEBHOOK_URL=${{ env.CONTACT_WEBHOOK_URL }}
-            NEXT_PUBLIC_POSTHOG_KEY=${{ env.NEXT_PUBLIC_POSTHOG_KEY }}
+            CONTACT_WEBHOOK_URL=${{ vars.CONTACT_WEBHOOK_URL }}
+            NEXT_PUBLIC_POSTHOG_KEY=${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           provenance: false
