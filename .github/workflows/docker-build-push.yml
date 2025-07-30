@@ -88,6 +88,16 @@ jobs:
           cache-to: type=gha,mode=max
           provenance: false
 
+      # Trigger redeploy on dokploy => project webhooks settings
+      - name: Trigger dokploy redeploy
+        if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'dev')
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            curl -X GET ${{ secrets.DOKPLOY_WEBHOOK_MAIN }}
+          elif [ "${{ github.ref_name }}" = "dev" ]; then
+            curl -X GET ${{ secrets.DOKPLOY_WEBHOOK_DEV }}
+          fi
+
       - name: Generate build summary
         run: |
           echo "## Docker Build Summary" >> $GITHUB_STEP_SUMMARY
