@@ -1,4 +1,4 @@
-name: Build and Push Docker Image to GHCR
+name: Build and Push Docker Image to Registry
 
 on:
   push:
@@ -20,8 +20,8 @@ on:
         type: boolean
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  REGISTRY: ${{ vars.DOCKER_REGISTRY }}
+  IMAGE_NAME: ${{ vars.DOCKER_IMAGE_NAME }}
 
 jobs:
   build-and-push:
@@ -45,8 +45,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ vars.DOCKER_PASSWORD }}
 
       - name: Extract metadata
         id: meta
