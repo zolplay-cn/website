@@ -1,15 +1,9 @@
 import { Suspense } from 'react'
-import { ConfigKey, getConfigValue } from '~/lib/edge-config'
-import { OpenPositionButtonImpl } from './open-position-button-impl'
 
 export async function OpenPositionButton() {
-  const showOpenPositions = await getConfigValue(ConfigKey.ShowOpenPositions, false)
+  return null
 
-  if (!showOpenPositions) {
-    return null
-  }
-
-  return <OpenPositionButtonImpl />
+  // return <OpenPositionButtonImpl />
 }
 
 export function SuspendedOpenPositionButton() {
