@@ -73,7 +73,7 @@ jobs:
             org.opencontainers.image.licenses=MIT
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: useblacksmith/build-push-action@v1
         with:
           context: .
           file: ./Dockerfile
@@ -84,8 +84,6 @@ jobs:
           build-args: |
             CONTACT_WEBHOOK_URL=${{ vars.CONTACT_WEBHOOK_URL }}
             NEXT_PUBLIC_POSTHOG_KEY=${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
           provenance: false
 
       # Trigger redeploy on dokploy => project webhooks settings
