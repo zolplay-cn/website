@@ -121,7 +121,7 @@ function JobApplicationForm({ sections }: { sections: JobSection[] }) {
   const onSubmit = React.useCallback(
     async (data: z.infer<typeof applicationSchema>) => {
       try {
-        const jobPostingId = pathname?.split('/').slice(-1)[0]
+        const jobPostingId = pathname?.split('/').slice(-1)?.[0]
         if (!jobPostingId) return
 
         const formData = new FormData()
