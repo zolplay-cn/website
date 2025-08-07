@@ -1,5 +1,3 @@
-'use client'
-
 import { useTranslations } from 'next-intl'
 import { CgLinear } from 'react-icons/cg'
 import {

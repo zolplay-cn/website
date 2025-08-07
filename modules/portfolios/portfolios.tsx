@@ -1,4 +1,3 @@
-'use client'
 import { useLocale } from 'next-intl'
 import { PORTFOLIOS } from './datasource'
 import { PortfolioCard } from './portfolios-card'
