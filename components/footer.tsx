@@ -1,10 +1,9 @@
-'use client'
-
 import { clsxm } from '@zolplay/utils'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 export function Footer() {
   const t = useTranslations('Copyright')
+  const locale = useLocale()
 
   return (
     <footer
@@ -19,6 +18,12 @@ export function Footer() {
           year: new Date().getFullYear(),
         })}
       </p>
+
+      {locale === 'zh-CN' && (
+        <a className='my-2 text-xs opacity-50' href='https://beian.miit.gov.cn/' target='_blank' rel='noreferrer'>
+          粤ICP备2025454293号
+        </a>
+      )}
     </footer>
   )
 }
