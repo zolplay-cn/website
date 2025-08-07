@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import { SiElectron, SiPostgresql, SiSwift } from 'react-icons/si'
 import {

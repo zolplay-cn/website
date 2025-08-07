@@ -1,3 +1,5 @@
+'use client'
+
 import type { Portfolio } from './datasource'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'

@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import { ZOLPLAYERS_SORTED } from './datasource'
 import { ZolplayerCard } from './zolplayer-card'
