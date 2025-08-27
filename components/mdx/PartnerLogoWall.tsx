@@ -67,7 +67,7 @@ export function PartnerLogoWall() {
       {partners.map((partner) => (
         <div
           key={partner.ariaLabel}
-          className='flex items-center justify-center p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors'
+          className='flex relative items-center justify-center p-4 rounded-lg before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
           aria-label={partner.ariaLabel}
         >
           <div className='text-neutral-600 dark:text-neutral-400 h-8'>{partner.svg}</div>
