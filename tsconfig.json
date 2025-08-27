@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "ES2020",
+    "target": "ES2022",
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
-    "module": "Node16",
-    "moduleResolution": "node16",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
       "~/*": ["./*"]
     },
     "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
     "allowJs": true,
     "strict": false,
     "strictNullChecks": true,
