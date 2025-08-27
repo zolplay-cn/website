@@ -5,12 +5,13 @@
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "Node16",
+    "moduleResolution": "node16",
     "paths": {
       "~/*": ["./*"]
     },
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     "allowJs": true,
     "strict": false,
     "strictNullChecks": true,
