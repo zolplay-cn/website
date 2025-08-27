@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 import createMDX from '@next/mdx'
 import createNextIntlPlugin from 'next-intl/plugin'
+import { withNextVideo } from 'next-video/process'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
@@ -63,4 +64,4 @@ const withNextIntl = createNextIntlPlugin('./modules/i18n/request.ts')
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
 })
-export default withNextIntl(withMDX(nextConfig))
+export default withNextVideo(withNextIntl(withMDX(nextConfig)))
