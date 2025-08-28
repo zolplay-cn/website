@@ -66,7 +66,7 @@ const partners = [
   },
   {
     svg: (
-      <svg className='h-4.5 w-auto' viewBox='0 0 758 104' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg className='h-3.5 lg:h-4.5 w-auto' viewBox='0 0 758 104' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M255.25 101.29H240.415C239.47 101.29 238.615 100.905 237.995 100.285C237.375 99.6651 236.99 98.8101 236.99 97.8651V8.50508C236.99 7.56008 237.375 6.70508 237.995 6.08508C238.615 5.46508 239.47 5.08008 240.415 5.08008H255.25C256.175 5.08008 257.01 5.44508 257.625 6.04008C258.24 6.63508 258.67 7.53508 258.67 8.50508V97.8701C258.67 98.8151 258.285 99.6701 257.665 100.29C257.045 100.91 256.19 101.295 255.245 101.295L255.25 101.29Z'
           fill='currentColor'
@@ -117,7 +117,7 @@ const partners = [
   },
   {
     svg: (
-      <svg className='h-3.5 w-auto' viewBox='0 0 1408 108' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg className='h-3 lg:h-3.5 w-auto' viewBox='0 0 1408 108' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M203.004 101.994H202.62L185.682 102L178.672 89.274H190.925V68.496L176.21 79.26V63.402L190.931 52.638V48.588H184.61L174.448 29.808H186.671L190.931 37.716V20.364H174.454V7.644H203.01L203.004 101.994ZM232.566 101.994H231.996L216.041 102L209.672 90.534H220.493V68.772L206.149 79.26V63.402L220.493 52.914V48.588H216.359L206.209 29.808H217.174L220.493 35.976V20.364H206.149V7.644H232.572L232.566 101.994ZM174.394 64.308L156.522 92.586L161.692 101.976H147.78L130.668 70.884H144.569L149.979 80.706L160.638 63.858L159.511 61.8H130.698V49.92H166.563L174.394 64.308ZM23.247 100.86H9.63431L15.9254 80.7H29.5261L23.247 100.86ZM66.883 77.928H46.6318V100.86H33.0371V77.928H12.7858V55.26H66.889V77.94L66.883 77.928ZM117.583 60.042L84.6178 100.86H56.4338L50.1488 80.7H63.7494L69.3994 98.82L100.723 60.042H117.583ZM26.3685 68.862H53.2943V64.326H26.3626V68.856L26.3685 68.862ZM87.9011 61.554H71.1609L98.0028 32.832H114.737L87.9011 61.554ZM68.7643 37.872H45.9128L47.0991 41.142H73.6773V51.978H5.99149V41.148H32.6416L31.4553 37.878H10.9045V7.638H68.7643V37.878V37.872ZM178.69 43.254H165.473L152.807 19.578H148.793L141.735 32.832H154.095L161.363 46.608H148.17L141.309 33.618L133.91 47.52H120.471L142.597 6H158.756L178.69 43.254ZM88.015 32.838H71.1609L95.1269 7.134H111.981L88.015 32.838ZM24.4872 29.814H55.1816V26.658H24.4872V29.814ZM24.4872 18.852H55.1816V15.702H24.4872V18.852Z'
           fill='currentColor'
@@ -187,7 +187,7 @@ const partners = [
   },
   {
     svg: (
-      <svg className='h-full w-auto' viewBox='0 0 697 129' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg className='h-4 lg:h-4.5 w-auto' viewBox='0 0 697 129' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           fill-rule='evenodd'
           clip-rule='evenodd'
@@ -283,7 +283,7 @@ const partners = [
 
 export function PartnerLogoWall() {
   return (
-    <div className={clsxm('grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 mb-6 overflow-hidden')}>
+    <div className={clsxm('grid relative grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 mb-6 overflow-hidden')}>
       <svg
         aria-hidden='true'
         className='pointer-events-none absolute inset-0 [z-index:-1] size-full fill-neutral-500/50 stroke-neutral-500/50 [mask-image:radial-gradient(circle,_#ffffffad,_transparent)] opacity-35'
@@ -302,7 +302,9 @@ export function PartnerLogoWall() {
           aria-label={partner.ariaLabel}
         >
           <div className='absolute inset-0 before:absolute before:left-0 before:w-px before:h-[200vh] before:-top-[100vh] before:bg-(--grid-border-color) after:absolute after:right-0 after:w-px after:h-[200vh] after:-bottom-[100vh] after:bg-(--grid-border-color)' />
-          <div className='text-neutral-600 dark:text-neutral-300 h-5.5'>{partner.svg}</div>
+          <div className='flex items-center justify-center text-neutral-600 dark:text-neutral-300 h-5 lg:h-5.5'>
+            {partner.svg}
+          </div>
         </div>
       ))}
     </div>
