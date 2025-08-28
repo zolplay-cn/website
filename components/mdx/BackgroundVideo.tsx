@@ -8,7 +8,5 @@ interface BackgroundVideoProps {
 }
 
 export function BackgroundVideo({ src, aspectRatio = '16/9', className }: BackgroundVideoProps) {
-  return (
-    <RawBackgroundVideo src={src} disableTracking className={clsxm('not-prose', className)} style={{ aspectRatio }} />
-  )
+  return <RawBackgroundVideo src={src} className={clsxm('not-prose', className)} style={{ aspectRatio }} />
 }

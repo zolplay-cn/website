@@ -63,7 +63,7 @@ const partners = [
 
 export function PartnerLogoWall() {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 mb-6 border-y border-(--grid-border-color)'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 mb-6'>
       {partners.map((partner) => (
         <div
           key={partner.ariaLabel}

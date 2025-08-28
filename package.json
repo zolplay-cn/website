@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.4.0",
     "foxact": "^0.2.45",
     "jotai": "^2.12.2",
+    "lenis": "^1.3.9",
     "motion": "^12.23.11",
     "next": "^15.4.4",
     "next-intl": "4.3.4",
