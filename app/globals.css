@@ -14,21 +14,21 @@ body {
   text-rendering: geometricPrecision;
   text-decoration-skip-ink: auto;
   font-optical-sizing: auto;
-  --grid-border-color: var(--color-stone-200);
+  --grid-border-color: var(--color-neutral-200);
 }
 
 .dark body {
-  --grid-border-color: var(--color-stone-800);
+  --grid-border-color: var(--color-neutral-700);
 }
 
 ::selection {
-  background: var(--color-stone-700);
-  color: var(--color-stone-50);
+  background: var(--color-neutral-700);
+  color: var(--color-neutral-50);
 }
 
 .dark ::selection {
-  background: var(--color-stone-300);
-  color: var(--color-stone-900);
+  background: var(--color-neutral-300);
+  color: var(--color-neutral-900);
 }
 
 .mask-t {

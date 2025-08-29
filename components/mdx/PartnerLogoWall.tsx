@@ -284,16 +284,13 @@ const partners = [
 export function PartnerLogoWall() {
   return (
     <div className={clsxm('grid relative grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 mb-6 overflow-hidden')}>
-      <svg
-        aria-hidden='true'
-        className='pointer-events-none absolute inset-0 [z-index:-1] size-full fill-neutral-500/50 stroke-neutral-500/50 [mask-image:radial-gradient(circle,_#ffffffad,_transparent)] opacity-35'
-      >
+      <svg className='pointer-events-none absolute inset-0 [z-index:-1] size-full select-none text-(--grid-border-color) py-[1px] opacity-60'>
         <defs>
-          <pattern id=':S1:' width='14' height='14' patternUnits='userSpaceOnUse' x='-1' y='-1'>
-            <path d='M.5 14V.5H14' fill='none' stroke-dasharray='0'></path>
+          <pattern id='gutter-s1' width='4' height='4' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'>
+            <line x1='0' y1='0' x2='0' y2='4' stroke='currentColor' strokeWidth='1.5' />
           </pattern>
         </defs>
-        <rect width='100%' height='100%' stroke-width='0' fill='url(#:S1:)'></rect>
+        <rect width='100%' height='100%' fill='url(#gutter-s1)'></rect>
       </svg>
       {partners.map((partner) => (
         <div
