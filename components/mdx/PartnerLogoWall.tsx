@@ -283,7 +283,7 @@ const partners = [
 
 export function PartnerLogoWall() {
   return (
-    <div className={clsxm('grid relative grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 mb-6 overflow-hidden')}>
+    <div className={clsxm('grid relative grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5 mb-6 overflow-hidden')}>
       <svg className='pointer-events-none absolute inset-0 [z-index:-1] size-full select-none text-(--grid-border-color) py-[1px] opacity-60'>
         <defs>
           <pattern id='gutter-s1' width='4' height='4' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'>

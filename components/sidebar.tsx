@@ -300,7 +300,7 @@ export function NavBar() {
                   'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--drawer-bg)_0,_var(--drawer-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
                   '[--drawer-bg:var(--color-black)]/4 [--drawer-fg:var(--color-stone-400)] dark:[--drawer-bg:var(--color-white)]/7 dark:[--drawer-fg:var(--color-gray-600)]',
                   'border-t border-(--grid-border-color)',
-                  'mix-blend-multiply dark:mix-blend-plus-lighter',
+                  'mix-blend-multiply dark:mix-blend-difference',
                   'pb-[calc(env(safe-area-inset-bottom)+var(--spacing)*2)]',
                   'overflow-hidden',
                 )}
