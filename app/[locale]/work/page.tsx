@@ -7,11 +7,19 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
   const t = await getTranslations({ locale })
 
   return {
-    title: t('Portfolios.Title'),
-    description: t('Portfolios.Description'),
+    title: t('Portfolios.PageTitle'),
+    description: t('Portfolios.PageDescription'),
     openGraph: {
-      title: t('Portfolios.Title'),
-      description: t('Portfolios.Description'),
+      title: t('Portfolios.PageTitle'),
+      description: t('Portfolios.PageDescription'),
+    },
+    keywords: t('Portfolios.PageKeywords'),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: '/work',
     },
   }
 }

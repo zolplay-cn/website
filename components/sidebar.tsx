@@ -27,7 +27,7 @@ import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
-  { href: '/work', label: 'Projects', icon: ZpProjectGridIcon },
+  { href: '/work', label: 'Work', icon: ZpProjectGridIcon },
   { href: '/about', label: 'About', icon: ZpAboutIcon },
   { href: '/careers', label: 'Careers', icon: ZpBriefcaseIcon },
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
@@ -102,7 +102,7 @@ export function Sidebar({ className }: { className?: string }) {
             )}
           >
             <LogoHelmetFilled className='size-6' />
-            <span className='text-xl font-bold tracking-tight'>{t('Title')}</span>
+            <span className='text-xl font-bold tracking-tight'>Zolplay</span>
             <svg
               width='5'
               height='5'
