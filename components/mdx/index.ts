@@ -1,4 +1,5 @@
 export * from './BackgroundVideo'
+export * from './Capabilities'
 export * from './CTAButton'
 export * from './Gradient'
 export * from './PartnerLogoWall'
