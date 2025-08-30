@@ -6,7 +6,7 @@
 - `modules/`: Feature modules (e.g., `i18n`, `careers`, `portfolios`).
 - `lib/`: Helpers and client/server utilities. `types/`: shared TypeScript types.
 - `messages/`: i18n message catalogs (`en.json`, `zh-CN.json`).
-- `public/`: static assets. `videos/`: next-video assets. Global styles in `app/globals.css`.
+- `public/`: static assets. Global styles in `app/globals.css`.
 
 ## Build, Test, and Development Commands
 - `pnpm dev`: Run the app locally on `http://localhost:3333`.
@@ -15,7 +15,7 @@
 - `pnpm lint`: Lint with ESLint; `pnpm lint:fix` auto-fixes + formats.
 - `pnpm format`: Run Prettier across the repo.
 - `pnpm type-check`: TypeScript type checking (no emit).
-- `pnpm video`: Sync `next-video` assets during development.
+ 
 
 ## Coding Style & Naming Conventions
 - TypeScript + React. Prefer server components; use `"use client"` only when needed.
