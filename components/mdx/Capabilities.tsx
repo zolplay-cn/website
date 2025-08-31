@@ -95,7 +95,7 @@ export function Capabilities({ className }: { className?: string }) {
                 <div className='md:col-span-5 px-3 md:px-1.5'>
                   <div className='flex items-baseline gap-3'>
                     <span
-                      className='select-none font-mono text-xs tracking-wide text-neutral-500/30 -translate-y-px'
+                      className='md:block hidden select-none font-mono text-xs tracking-wide text-neutral-500/50 -translate-y-px'
                       aria-hidden
                     >
                       {id}
