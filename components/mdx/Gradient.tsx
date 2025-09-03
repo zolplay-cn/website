@@ -1,6 +1,6 @@
 export function Gradient({ children }: { children: React.ReactNode }) {
   return (
-    <span className='bg-gradient-to-r from-rose-500 to-indigo-500 bg-clip-text font-medium text-transparent dark:from-amber-200 dark:to-sky-400'>
+    <span className='bg-gradient-to-r from-rose-500 to-indigo-500 bg-clip-text font-medium text-transparent dark:from-emerald-100 dark:to-blue-400'>
       {children}
     </span>
   )

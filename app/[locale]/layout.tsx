@@ -29,8 +29,8 @@ export function generateStaticParams() {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
-    { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
+    { media: '(prefers-color-scheme: dark)', color: '#171717' },
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
   ],
 }
 
@@ -97,7 +97,7 @@ export default async function RootLayout({ children, params }: { children: React
       </Suspense>
 
       <PostHogProvider>
-        <body className='bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300'>
+        <body className='bg-neutral-50 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300'>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <NextIntlClientProvider>
               <Background />
@@ -114,7 +114,7 @@ export default async function RootLayout({ children, params }: { children: React
                       <Rulers />
                       <Sidebar />
                       <NavBar />
-                      <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-0 flex w-full flex-auto flex-col border border-(--grid-border-color) bg-white px-1.5 pb-36 dark:border-stone-800 dark:bg-[#1a1a1a] md:p-7 md:pb-36 pt-8 md:pt-16 lg:p-9 lg:pt-20 lg:pb-44 min-h-screen'>
+                      <section className='frosted-noise relative z-20 ml-0 md:ml-[calc(var(--spacing)*44+var(--gutter-width))] mt-0 flex w-full flex-auto flex-col border border-(--grid-border-color) bg-white px-1.5 pb-36 dark:border-neutral-800 dark:bg-[#1a1a1a] md:p-7 md:pb-36 pt-8 md:pt-16 lg:p-9 lg:pt-20 lg:pb-44 min-h-screen'>
                         <div className='absolute left-1.5 md:left-7 lg:left-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
                         <div className='absolute right-1.5 md:right-7 lg:right-9 top-[-100%] w-px h-[200%] bg-(--grid-border-color)' />
 
@@ -127,9 +127,9 @@ export default async function RootLayout({ children, params }: { children: React
                   </ScrollArea.Viewport>
                   <ScrollArea.Scrollbar
                     orientation='vertical'
-                    className='hidden md:flex touch-none select-none bg-stone-200/20 dark:bg-stone-800/20 p-0.5 transition-colors duration-[160ms] ease-out hover:bg-stone-200/30 dark:hover:bg-stone-800/30 data-[orientation=vertical]:w-2.5'
+                    className='hidden md:flex touch-none select-none bg-neutral-200/20 dark:bg-neutral-800/20 p-0.5 transition-colors duration-[160ms] ease-out hover:bg-neutral-200/30 dark:hover:bg-neutral-800/30 data-[orientation=vertical]:w-2.5'
                   >
-                    <ScrollArea.Thumb className='relative flex-1 z-[999] rounded-[10px] bg-stone-400 dark:bg-stone-600 before:absolute before:left-1/2 before:top-1/2 before:size-full before:min-h-11 before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2' />
+                    <ScrollArea.Thumb className='relative flex-1 z-[999] rounded-[10px] bg-neutral-400 dark:bg-neutral-600 before:absolute before:left-1/2 before:top-1/2 before:size-full before:min-h-11 before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2' />
                   </ScrollArea.Scrollbar>
                 </ScrollArea.Root>
               </LenisProvider>
