@@ -6,11 +6,13 @@ import {
   BackgroundVideo,
   Capabilities,
   CTAButton,
+  FramedImage,
   Gradient,
   Green,
   PartnerLogoWall,
   PortalToOurWork,
   Red,
+  WithFrame,
 } from './components/mdx'
 import { Link } from './modules/i18n/navigation'
 
@@ -22,12 +24,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Capabilities,
     CTAButton,
     Gradient,
+    WithFrame,
     Red,
     Green,
     PartnerLogoWall,
     PortalToOurWork,
     Balancer,
     Link,
-    Image: NextImage,
+    Image: FramedImage,
+    NakedImage: NextImage,
   }
 }

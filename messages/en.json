@@ -201,7 +201,8 @@
     }
   },
   "Portfolios": {
-    "PageTitle": "Work — Design bold. Ship gold",
+    "OpenGraphTitle": "Work — Our Portfolio",
+    "PageTitle": "Work — Our Portfolio",
     "PageDescription": "See our most impactful brand and product projects—work that wins users and moves metrics across startups and enterprises.",
     "PageKeywords": "Zolplay work, design portfolio, case studies, brand design, product design, UI UX, startup design, launch design, creative studio",
     "Heading": "Projects showroom: witness our <gradient>exceptional software delight</gradient> in action.",
