@@ -8,7 +8,8 @@ import Image from 'next/image'
 import * as React from 'react'
 import { BackgroundVideo, WithFrame } from '~/components/mdx'
 import { capabilitiesByLocale } from '~/components/mdx/capabilities.data'
-import works from './work.data.json'
+import { Link } from '../i18n/navigation'
+import works from './work.data'
 
 type CategoryKind = 'all' | 'top'
 
@@ -67,22 +68,28 @@ const WorkCard = React.memo(function WorkCard({
   categoryFormatter: (keys: WorkCategoryKey[]) => string
 }) {
   const hasVideo = Boolean(work.showreel?.src)
+  const isExternal = !work.hasCaseStudy && Boolean(work.website)
 
   return (
-    <div className='group not-prose relative overflow-hidden ring-1 ring-(--grid-border-color) bg-white dark:bg-[#1a1a1a]'>
+    <div className='group not-prose relative overflow-hidden ring-1 ring-(--grid-border-color) bg-white dark:bg-[#1a1a1a] will-change-[opacity] transition-opacity duration-100 hover:opacity-75'>
       <div className='relative aspect-video overflow-hidden bg-neutral-200 dark:bg-neutral-800'>
         <WithFrame className='size-full'>
-          <div className='absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-[1.02]'>
+          <div
+            className={clsxm(
+              'absolute inset-0 size-full object-cover transition-transform',
+              (work.hasCaseStudy || isExternal) && 'duration-100 group-hover:scale-[1.02]',
+            )}
+          >
             {/* Poster image */}
             <Image
               src={work.featuredImage}
               alt={work.title[locale]}
               className='absolute inset-0'
               objectFit='cover'
-              width={1920}
-              height={1080}
+              width={960}
+              height={540}
             />
-            {hasVideo && <BackgroundVideo src={work.showreel!.src} aspectRatio='16/9' />}
+            {hasVideo && <BackgroundVideo src={work.showreel!.src} poster={work.showreel!.poster} aspectRatio='16/9' />}
           </div>
         </WithFrame>
 
@@ -91,17 +98,36 @@ const WorkCard = React.memo(function WorkCard({
         <div aria-hidden className='absolute inset-x-0 bottom-0 h-px bg-(--grid-border-color)' />
       </div>
 
-      <div className='border-t border-(--grid-border-color) p-3 md:p-4'>
+      <div className='border-t border-(--grid-border-color) p-3 md:p-4 '>
         <div className='flex flex-col lg:flex-row items-center justify-between gap-2'>
-          <h4 className='text-base md:text-xl lg:text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100'>
+          <h4 className='text-base md:text-lg lg:text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100 flex items-center gap-1 flex-1'>
             {work.title[locale]}
+            {isExternal && (
+              <svg className='size-4' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  d='M9.99855 5.51601C12.5858 5.12863 15.2066 5.07776 17.7955 5.36385C18.0176 5.38839 18.2154 5.48747 18.3639 5.63594M18.4838 14.0013C18.8712 11.414 18.9221 8.79321 18.636 6.20434C18.6115 5.98226 18.5124 5.7844 18.3639 5.63594M18.3639 5.63594L5.63599 18.3639'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                />
+              </svg>
+            )}
           </h4>
 
-          <span className='mt-2 lg:mt-0 text-base font-medium text-neutral-500 tracking-tight'>
+          <span className='mt-2 flex-1 text-right lg:mt-0 text-base font-medium text-neutral-400 dark:text-neutral-500 tracking-tight'>
             {categoryFormatter(work.categories)}
           </span>
         </div>
       </div>
+
+      {(isExternal || work.hasCaseStudy) && (
+        <Link
+          className='absolute inset-0'
+          target={isExternal ? '_blank' : undefined}
+          href={work.hasCaseStudy ? `/work/${work.slug}` : work.website!}
+        />
+      )}
     </div>
   )
 })
@@ -137,7 +163,7 @@ export function WorkCatalog() {
       keys
         .map((key) => capTitleMap.get(key) ?? capItemMap.get(key))
         .filter((v): v is string => Boolean(v))
-        .join(' / '),
+        .join(' + '),
     [capTitleMap, capItemMap],
   )
 
@@ -193,12 +219,15 @@ export function WorkCatalog() {
         {years.map((year) => {
           const list = grouped.get(year)!
           return (
-            <div key={year} className='relative grid grid-cols-12 border-y border-(--grid-border-color) py-0'>
+            <div
+              key={year}
+              className='relative grid grid-cols-12 border-y border-(--grid-border-color) box-content -mt-px'
+            >
               <div className='absolute top-0 left-2/12 -translate-x-px w-px h-full bg-(--grid-border-color)'></div>
               {/* Left sticky year label */}
               <div className='col-span-12 md:col-span-2 px-3 pt-4 md:px-0'>
                 <div className='sticky top-14 flex justify-center'>
-                  <h3 className='text-2xl md:text-3xl font-medium leading-none tracking-tight inline-block text-neutral-900 dark:text-neutral-100'>
+                  <h3 className='text-xl md:text-2xl font-medium leading-none tracking-tight inline-block text-neutral-900 dark:text-neutral-100'>
                     {String(year)}
                   </h3>
                 </div>
