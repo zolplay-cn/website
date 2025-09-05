@@ -12,6 +12,7 @@ export interface WorkShowreel {
 export interface WorkEntry {
   slug: string
   year: number
+  month?: number
   title: Record<Locale, string>
   categories: WorkCategoryKey[]
   featuredImage: string | StaticImageData

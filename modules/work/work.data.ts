@@ -8,7 +8,8 @@ import WellwordImage from '~/public/images/wellword.jpg'
 const works: WorkEntry[] = [
   {
     slug: 'live-aware',
-    year: 2024,
+    year: 2021,
+    month: 12,
     title: {
       en: 'Live Aware',
       'zh-CN': 'Live Aware',
@@ -21,6 +22,7 @@ const works: WorkEntry[] = [
   {
     slug: 'celhive',
     year: 2025,
+    month: 3,
     title: {
       en: 'CelHive',
       'zh-CN': 'CelHive',
@@ -35,7 +37,8 @@ const works: WorkEntry[] = [
   },
   {
     slug: 'vvs-website',
-    year: 2023,
+    year: 2022,
+    month: 5,
     title: {
       en: 'very very spaceship',
       'zh-CN': 'very very spaceship',
@@ -47,7 +50,8 @@ const works: WorkEntry[] = [
   },
   {
     slug: 'well-word',
-    year: 2021,
+    year: 2023,
+    month: 2,
     title: {
       en: 'Well Word',
       'zh-CN': 'Well Word',
@@ -60,6 +64,7 @@ const works: WorkEntry[] = [
   {
     slug: 'downwordly',
     year: 2021,
+    month: 9,
     title: {
       en: 'Downwordly',
       'zh-CN': 'Downwordly',

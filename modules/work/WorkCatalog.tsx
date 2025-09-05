@@ -41,8 +41,8 @@ function groupByYear(list: WorkEntry[]): Map<number, WorkEntry[]> {
     if (!grouped.has(year)) grouped.set(year, [])
     grouped.get(year)!.push(item)
   }
-  // Ensure each year's items are in a stable order (optional)
-  for (const [, arr] of grouped) arr.sort((a, b) => a.slug.localeCompare(b.slug))
+  // Ensure each year's items are ordered by month (desc), then slug for stability
+  for (const [, arr] of grouped) arr.sort((a, b) => (b.month ?? 1) - (a.month ?? 1) || a.slug.localeCompare(b.slug))
   return grouped
 }
 
@@ -167,7 +167,21 @@ export function WorkCatalog() {
     [capTitleMap, capItemMap],
   )
 
-  const items = React.useMemo(() => (works as WorkEntry[]).slice().sort((a, b) => b.year - a.year), [])
+  const items = React.useMemo(
+    () => (works as WorkEntry[]).slice().sort((a, b) => b.year - a.year || (b.month ?? 1) - (a.month ?? 1)),
+    [],
+  )
+
+  // Precompute counts per category (including 'all')
+  const categoryCounts = React.useMemo(() => {
+    const map = new Map<string, number>()
+    for (const cat of categories) {
+      const key = cat.key as WorkCategoryKey
+      const count = items.filter((w) => matchesCategory(w, key)).length
+      map.set(cat.key, count)
+    }
+    return map
+  }, [categories, items])
   const filtered = React.useMemo(
     () => (selected === 'all' ? items : items.filter((w) => matchesCategory(w, selected))),
     [items, selected],
@@ -206,6 +220,7 @@ export function WorkCatalog() {
                     )}
                   >
                     {cat.label}
+                    <span className='ml-0.5 opacity-50'> {categoryCounts.get(cat.key) ?? 0}</span>
                   </button>
                 </WithFrame>
               ))}
