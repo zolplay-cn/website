@@ -19,4 +19,5 @@ export interface WorkEntry {
   showreel?: WorkShowreel
   hasCaseStudy: boolean
   website?: string
+  isOriginal: boolean
 }
