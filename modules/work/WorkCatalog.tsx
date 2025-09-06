@@ -251,7 +251,7 @@ export function WorkCatalog() {
             >
               <div className='absolute top-0 left-2/12 -translate-x-px w-px h-full bg-(--grid-border-color)'></div>
               {/* Left sticky year label */}
-              <div className='col-span-12 md:col-span-2 px-3 pt-4 md:px-0'>
+              <div className='col-span-12 md:col-span-2 px-3 py-4 md:px-0'>
                 <div className='sticky top-14 flex justify-center'>
                   <h3 className='text-xl md:text-2xl font-medium leading-none tracking-tight inline-block text-neutral-900 dark:text-neutral-100'>
                     {String(year)}

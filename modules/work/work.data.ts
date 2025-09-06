@@ -5,8 +5,10 @@ import CelHiveImage from '~/public/images/celhive.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
 import LearningPracticalImage from '~/public/images/learning-practical.jpg'
+import PaddingLeftImage from '~/public/images/paddingleft.jpg'
 import PaperGenImage from '~/public/images/papergen-ai.jpg'
 import TheVinotecaImage from '~/public/images/the-vinoteca.jpg'
+import VueConf24Image from '~/public/images/vueconf24.jpg'
 import vvsImage from '~/public/images/vvs.jpg'
 import WellwordImage from '~/public/images/wellword.jpg'
 
@@ -54,6 +56,37 @@ const works: WorkEntry[] = [
     featuredImage: PaperGenImage,
     hasCaseStudy: false,
     website: 'https://papergen.ai',
+    isOriginal: false,
+  },
+  {
+    slug: 'padding-left',
+    year: 2024,
+    month: 8,
+    title: {
+      en: 'PaddingLeft',
+      'zh-CN': 'PaddingLeft',
+    },
+    categories: ['cap:001'],
+    featuredImage: PaddingLeftImage,
+    showreel: {
+      src: '/vids/work/padding-left-reel.mp4',
+    },
+    hasCaseStudy: false,
+    website: 'https://padding-left.com',
+    isOriginal: false,
+  },
+  {
+    slug: 'vueconf24',
+    year: 2024,
+    month: 6,
+    title: {
+      en: 'VueConf China 2024',
+      'zh-CN': 'VueConf China 2024',
+    },
+    categories: ['cap:002', 'cap:003'],
+    featuredImage: VueConf24Image,
+    hasCaseStudy: false,
+    website: 'https://vueconf.zolplay.com',
     isOriginal: false,
   },
   {
