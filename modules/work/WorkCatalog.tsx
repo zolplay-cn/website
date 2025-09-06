@@ -96,10 +96,9 @@ const WorkCard = React.memo(function WorkCard({
             <Image
               src={work.featuredImage}
               alt={work.title[locale]}
-              className='absolute inset-0'
-              objectFit='cover'
-              width={960}
-              height={540}
+              className='absolute inset-0 object-cover'
+              fill
+              sizes='(max-width: 1024px) 100vw, 960px'
             />
             {hasVideo && <BackgroundVideo src={work.showreel!.src} poster={work.showreel!.poster} aspectRatio='16/9' />}
           </div>
@@ -110,9 +109,9 @@ const WorkCard = React.memo(function WorkCard({
         <div aria-hidden className='absolute inset-x-0 bottom-0 h-px bg-(--grid-border-color)' />
       </div>
 
-      <div className='border-t border-(--grid-border-color) p-3 md:p-4 '>
-        <div className='flex flex-col lg:flex-row items-center justify-between gap-2'>
-          <h4 className='text-base md:text-lg lg:text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100 flex items-center gap-1 flex-1'>
+      <div className='border-t border-(--grid-border-color) p-3 md:p-4'>
+        <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-0 lg:gap-2'>
+          <h4 className='text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100 flex items-center gap-1 flex-1'>
             {work.title[locale]}
             {isExternal && (
               <svg className='size-4' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -127,7 +126,7 @@ const WorkCard = React.memo(function WorkCard({
             )}
           </h4>
 
-          <span className='mt-2 flex-1 text-right lg:mt-0 text-base font-medium text-neutral-400 dark:text-neutral-500 tracking-tight'>
+          <span className='mt-0 flex-1 text-left lg:text-right lg:mt-0 text-base text-neutral-400 dark:text-neutral-500 tracking-tight truncate'>
             {categoryFormatter(work.categories)}
           </span>
         </div>
@@ -209,9 +208,9 @@ export function WorkCatalog() {
         'after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)',
       )}
     >
-      {/* Page edge vertical lines for cohesion */}
-      <div aria-hidden className='absolute left-0 top-0 h-full w-px bg-(--grid-border-color) z-10' />
-      <div aria-hidden className='absolute right-0 top-0 h-full w-px bg-(--grid-border-color) z-10' />
+      {/* Page edge vertical lines */}
+      <div aria-hidden className='absolute hidden md:block left-0 top-0 h-full w-px bg-(--grid-border-color) z-10' />
+      <div aria-hidden className='absolute hidden md:block right-0 top-0 h-full w-px bg-(--grid-border-color) z-10' />
 
       {/* Filters */}
       <div className='relative z-20 border-x border-(--grid-border-color)'>
@@ -241,7 +240,7 @@ export function WorkCatalog() {
         </div>
       </div>
 
-      {/* Year sections */}
+      {/* Year sections: desktop/tablet */}
       <div className='relative z-10 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-neutral-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/5'>
         {years.map((year) => {
           const list = grouped.get(year)!
@@ -270,6 +269,29 @@ export function WorkCatalog() {
                   ))}
                 </ul>
               </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Year sections: mobile */}
+      <div className='relative z-10 lg:hidden'>
+        {years.map((year) => {
+          const list = grouped.get(year)!
+          return (
+            <div key={year} className='border-y border-(--grid-border-color) -mt-px'>
+              <div className='px-3 py-3 bg-white/70 dark:bg-neutral-900/70 backdrop-blur supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-neutral-900/30'>
+                <h3 className='text-3xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100'>
+                  {String(year)}
+                </h3>
+              </div>
+              <ul className='grid grid-cols-1 gap-4 -mx-1.5 py-3'>
+                {list.map((work) => (
+                  <li key={work.slug}>
+                    <WorkCard work={work} locale={locale} categoryFormatter={formatCategoryLabel} />
+                  </li>
+                ))}
+              </ul>
             </div>
           )
         })}
