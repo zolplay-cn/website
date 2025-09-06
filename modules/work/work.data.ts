@@ -5,8 +5,10 @@ import CelHiveImage from '~/public/images/celhive.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
 import LearningPracticalImage from '~/public/images/learning-practical.jpg'
+import LetsVision24Image from '~/public/images/lets-visionos-24.jpg'
 import PaddingLeftImage from '~/public/images/paddingleft.jpg'
 import PaperGenImage from '~/public/images/papergen-ai.jpg'
+import TechPodfest23Image from '~/public/images/tech-podfest.jpg'
 import TheVinotecaImage from '~/public/images/the-vinoteca.jpg'
 import VueConf24Image from '~/public/images/vueconf24.jpg'
 import vvsImage from '~/public/images/vvs.jpg'
@@ -87,6 +89,34 @@ const works: WorkEntry[] = [
     featuredImage: VueConf24Image,
     hasCaseStudy: false,
     website: 'https://vueconf.zolplay.com',
+    isOriginal: false,
+  },
+  {
+    slug: 'tech-podfest-2023',
+    year: 2023,
+    month: 11,
+    title: {
+      en: 'Tech Podfest 2023',
+      'zh-CN': 'Tech Podfest 2023',
+    },
+    categories: ['cap:002', 'cap:003'],
+    featuredImage: TechPodfest23Image,
+    hasCaseStudy: false,
+    website: 'https://podfest.zolplay.com/',
+    isOriginal: false,
+  },
+  {
+    slug: 'lets-visionos-24',
+    year: 2024,
+    month: 4,
+    title: {
+      en: "Let's visionOS 2024",
+      'zh-CN': 'Lets visionOS 2024',
+    },
+    categories: ['cap:003'],
+    featuredImage: LetsVision24Image,
+    hasCaseStudy: false,
+    website: 'https://letsvisionos24.swiftgg.team/',
     isOriginal: false,
   },
   {
