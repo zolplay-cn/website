@@ -72,8 +72,10 @@ export default function WordmarkMorphScene({ className, onEnterViewport, onExitV
         fps={60}
         dpi={1.5}
         scale={scale}
-        lazyLoad={false}
-        production
+        lazyLoad={true}
+        production={true}
+        width='100%'
+        height='100%'
         className={className}
         onLoad={handleLoad}
         onError={handleError}
