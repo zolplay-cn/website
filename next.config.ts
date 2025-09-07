@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
         source: '/ingest/decide',
         destination: 'https://us.i.posthog.com/decide',
       },
+      // Proxy CDN assets to avoid client-side CORS issues
+      {
+        source: '/assets/cdn/:path*',
+        destination: 'https://cdn.zolplay.com/:path*',
+      },
     ]
   },
   // Redirects from old portfolios to new work pages
