@@ -32,7 +32,7 @@
       "layerType": "effect",
       "type": "video",
       "usesPingPong": false,
-      "src": "https://zolplay.b-cdn.net/vids/wordmark-hand-morph.mp4",
+      "src": "https://cdn.zolplay.com/vids/wordmark-hand-morph.mp4",
       "playbackRate": 0.85,
       "loop": 1,
       "trackMouse": 0,
