@@ -9,7 +9,6 @@ export default function WordmarkMorphScene({ className }: { className?: string }
       fps={60}
       dpi={1.5}
       scale={1}
-      production
       className={className}
     />
   )

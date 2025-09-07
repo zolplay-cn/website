@@ -84,7 +84,7 @@
       "type": "ascii",
       "usesPingPong": false,
       "texture": {
-        "src": "https://assets.unicorn.studio/images/lxhIT99R9RbyloJnzj5w8vlMYy82/zolplay-dither-glyph.png",
+        "src": "https://cdn.zolplay.com/zolplay-dither-glyph.png",
         "sampler": "uCustomTexture"
       },
       "trackMouse": 0,
@@ -102,7 +102,7 @@
         "depth": false,
         "uniforms": {},
         "isBackground": false,
-        "texture": { "src": "https://assets.unicorn.studio/media/ascii_spritesheet_larger.png", "sampler": "uSprite" }
+        "texture": { "src": "https://cdn.zolplay.com/zolplay-dither-glyph.png", "sampler": "uSprite" }
       },
       "id": "effect3"
     }
