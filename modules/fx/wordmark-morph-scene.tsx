@@ -1,84 +1,55 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
-import UnicornScene from 'unicornstudio-react/next'
+import Script from 'next/script'
+import { useEffect, useRef } from 'react'
 
 interface Props {
   className?: string
-  onEnterViewport?: () => void
-  onExitViewport?: () => void
+  // Allow overriding the Unicorn Studio project id if needed
+  projectId?: string
 }
 
-export default function WordmarkMorphScene({ className, onEnterViewport, onExitViewport }: Props) {
-  // Start at a lower scale, then bump to 1 after initial load
-  const [scale, setScale] = useState<number>(1)
-  // Force remounts to kick the scene if initial load stalls
-  const [attempt, setAttempt] = useState(0)
-  const loadedRef = useRef(false)
+/**
+ * WordmarkMorphScene
+ *
+ * Next.js-friendly client component that integrates Unicorn Studio JS SDK
+ * without relying on unicornstudio-react. It loads the SDK via next/script,
+ * initializes once it is available, and supports multiple mounts safely.
+ */
+export default function WordmarkMorphScene({ className }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
-  const handleLoad = useCallback(() => {
-    loadedRef.current = true
-    setScale((prev) => (prev !== 1 ? 1 : prev))
-  }, [])
-
-  const handleError = useCallback(() => {
-    if (attempt < 2) {
-      setTimeout(() => setAttempt((a) => a + 1), 250)
-    }
-  }, [attempt])
-
+  // Initialize if SDK already present (e.g., loaded elsewhere in the app)
   useEffect(() => {
-    const t = setTimeout(() => {
-      if (!loadedRef.current) setAttempt((a) => a + 1)
-    }, 800)
-    return () => clearTimeout(t)
-  }, [])
-
-  // Viewport intersection listeners
-  useEffect(() => {
-    const el = containerRef.current
-    if (!el || typeof window === 'undefined') return
-
-    const dispatch = (type: 'unicorn:enter' | 'unicorn:exit') => {
-      el.dispatchEvent(new CustomEvent(type, { bubbles: true }))
+    if (typeof window === 'undefined') return
+    const us: any = (window as any).UnicornStudio
+    if (us && typeof us.init === 'function') {
+      try {
+        us.init()
+      } catch {}
     }
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-        if (!entry) return
-        if (entry.isIntersecting) {
-          onEnterViewport?.()
-          dispatch('unicorn:enter')
-          if (!loadedRef.current) setAttempt((a) => a + 1)
-        } else {
-          onExitViewport?.()
-          dispatch('unicorn:exit')
-        }
-      },
-      { root: null, rootMargin: '0px', threshold: 0.1 },
-    )
-
-    io.observe(el)
-    return () => io.disconnect()
-  }, [onEnterViewport, onExitViewport])
+  }, [])
 
   return (
-    <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
-      <UnicornScene
-        key={`scene-${attempt}`}
-        jsonFilePath='/assets/zolplay-wordmark-dither-morph.json'
-        fps={60}
-        dpi={1.5}
-        scale={scale}
-        lazyLoad={true}
-        production={true}
-        width='100%'
-        height='100%'
-        className={className}
-        onLoad={handleLoad}
-        onError={handleError}
+    <div ref={containerRef} className={className} style={{ width: '100%', height: '100%' }}>
+      <div data-us-project-src='/assets/zolplay-wordmark-dither-morph.json' style={{ width: '100%', height: '100%' }} />
+
+      {/* Load the Unicorn Studio SDK once and init on load */}
+      <Script
+        id='unicornstudio-sdk'
+        src='https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.30/dist/unicornStudio.umd.js'
+        strategy='afterInteractive'
+        onLoad={() => {
+          try {
+            const w = window as any
+            if (!w.__US_INITIALIZED && w.UnicornStudio && typeof w.UnicornStudio.init === 'function') {
+              w.UnicornStudio.init()
+              w.__US_INITIALIZED = true
+            }
+          } catch {
+            // no-op
+          }
+        }}
       />
     </div>
   )
