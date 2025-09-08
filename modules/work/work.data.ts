@@ -4,12 +4,14 @@ import NexusImage from '~/modules/portfolios/images/nexus-image.png'
 import CelHiveImage from '~/public/images/celhive.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
+import IsthataiImage from '~/public/images/isthatai.jpg'
 import LearningPracticalImage from '~/public/images/learning-practical.jpg'
 import LetsVision24Image from '~/public/images/lets-visionos-24.jpg'
 import PaddingLeftImage from '~/public/images/paddingleft.jpg'
 import PaperGenImage from '~/public/images/papergen-ai.jpg'
 import TechPodfest23Image from '~/public/images/tech-podfest.jpg'
 import TheVinotecaImage from '~/public/images/the-vinoteca.jpg'
+import VivgridImage from '~/public/images/vivgrid.jpeg'
 import VueConf24Image from '~/public/images/vueconf24.jpg'
 import vvsImage from '~/public/images/vvs.jpg'
 import WellwordImage from '~/public/images/wellword.jpg'
@@ -76,6 +78,39 @@ const works: WorkEntry[] = [
     hasCaseStudy: false,
     website: 'https://padding-left.com',
     isOriginal: false,
+  },
+  {
+    slug: 'vivgrid',
+    year: 2024,
+    month: 9,
+    title: {
+      en: 'vivgrid',
+      'zh-CN': 'vivgrid',
+    },
+    showreel: {
+      src: '/vids/work/vivgrid.mp4',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: VivgridImage,
+    hasCaseStudy: false,
+    website: 'https://vivgrid.com',
+    isOriginal: false,
+  },
+  {
+    slug: 'isthatai',
+    year: 2023,
+    month: 10,
+    title: {
+      en: 'IsThat.AI',
+      'zh-CN': 'IsThat.AI',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: IsthataiImage,
+    showreel: {
+      src: '/vids/work/isthatai.mp4',
+    },
+    hasCaseStudy: false,
+    isOriginal: true,
   },
   {
     slug: 'vueconf24',

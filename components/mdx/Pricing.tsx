@@ -1,6 +1,8 @@
 import { useLocale } from 'next-intl'
+import Image from 'next/image'
 import { BiCheck } from 'react-icons/bi'
 import { CTAButton } from './CTAButton'
+import { WithFrame } from './WithFrame'
 
 export function PricingPlans() {
   const locale = useLocale()
@@ -25,7 +27,7 @@ export function PricingPlans() {
             '异步协作，稳步推进',
             '高影响力事项优先',
             '无冗余流程与交付',
-            '适合早期团队/高标准创始人',
+            '适合早期团队/创始人',
           ]
         : [
             'One high‑priority stream',
@@ -33,14 +35,14 @@ export function PricingPlans() {
             'Async collaboration, steady cadence',
             'Focus on high‑impact essentials',
             'No‑fluff process and deliverables',
-            'Best for early teams/high‑standard founders',
+            'Best for early teams/founders',
           ],
     },
     {
       key: 'pro',
       name: 'Creative Pro',
       hours: isZH ? '每周 20 小时' : '20 hrs/week',
-      price: 5000,
+      price: 4800,
       features: isZH
         ? [
             '加倍节奏与产出',
@@ -55,7 +57,7 @@ export function PricingPlans() {
             '1–2 parallel streams',
             'Faster iteration cycles',
             'Room for exploration and refinement',
-            'Sharper, faster product/design decisions',
+            'Faster product/design decisions',
             'Ideal for build‑and‑grow teams',
           ],
     },
@@ -74,19 +76,19 @@ export function PricingPlans() {
             '创始人与高标准团队的首选',
           ]
         : [
-            'Fractional, embedded design org',
-            'Multiple parallel tracks (UX/system/site/launch)',
+            'Embedded design org',
+            'Multiple parallel streams',
             'Daily progress, first‑in‑line priority',
-            'Brand, product, and web in parallel',
-            'Built for category‑defining, high‑velocity teams',
-            'Founders’ choice for decisive advantage',
+            'Brand, product, and growth in parallel',
+            'Built for high‑velocity teams',
+            'Gaining an unfair advantage',
           ],
     },
   ]
 
   return (
     <section className='not-prose my-8'>
-      <ul className='grid gap-4 md:grid-cols-3 list-none m-0 p-0'>
+      <ul className='grid gap-2 md:grid-cols-3 list-none m-0 p-0'>
         {plans.map(({ key, name, hours, features, price }) => {
           const isPopular = key === 'pro'
           const popularLabel = isZH ? '最受欢迎' : 'Most popular'
@@ -98,16 +100,16 @@ export function PricingPlans() {
               }`}
             >
               {isPopular ? (
-                <div className='pointer-events-none absolute top-2 left-2 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-300/15 dark:text-amber-200 border border-(--grid-border-color) px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider'>
+                <div className='pointer-events-none absolute z-30 top-2 left-2 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-300/15 dark:text-amber-200 border border-(--grid-border-color) px-2 py-0.5 text-[10px] font-medium uppercase'>
                   {popularLabel}
                 </div>
               ) : null}
-              <div className='aspect-square w-full bg-neutral-200/70 dark:bg-neutral-800/60 grid place-items-center text-neutral-500 dark:text-neutral-400 text-xs tracking-wide'>
-                {isZH ? '插画占位' : 'Illustration placeholder'}
-              </div>
+              <WithFrame className='relative group z-20 aspect-square w-full bg-neutral-200/70 dark:bg-neutral-800/60 grid place-items-center text-neutral-500 dark:text-neutral-400 text-xs tracking-wide'>
+                <Image src={`/images/pricing/${key}.jpg`} alt={name} fill className='object-cover' />
+              </WithFrame>
               <div className='flex flex-col items-baseline justify-between p-0 md:px-3 md:py-2'>
-                <h3 className='text-lg md:text-xl font-medium tracking-tight'>{name}</h3>
-                <span className='text-xs font-mono opacity-60'>{hours}</span>
+                <h3 className='text-lg md:text-2xl font-medium tracking-tight'>{name}</h3>
+                <span className='text-xs font-mono opacity-70'>{hours}</span>
               </div>
               <ul className='list-none m-0 p-0 md:px-3 md:py-2 space-y-1.5'>
                 {features.map((text: string) => (
@@ -121,15 +123,15 @@ export function PricingPlans() {
                   </li>
                 ))}
               </ul>
-              <div className='mt-auto md:px-3 md:py-2 flex flex-col gap-2'>
-                <div className='text-xl md:text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100'>
+              <div className='mt-auto md:px-3 flex flex-col'>
+                <div className='text-xl md:text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100'>
                   {fmt.format(price)}
                   <span className='ml-1 text-sm font-normal opacity-70'>{isZH ? '/月' : '/mo'}</span>
                 </div>
-                <CTAButton href='/contact' className='w-full'>
-                  {isZH ? '立即订阅' : 'Subscribe'}
-                </CTAButton>
               </div>
+              <CTAButton href='/contact' className='w-full'>
+                {isZH ? '立即订阅' : 'Subscribe'}
+              </CTAButton>
             </li>
           )
         })}
