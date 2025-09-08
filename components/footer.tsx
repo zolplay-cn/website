@@ -16,7 +16,7 @@ export function Footer() {
       )}
     >
       <WithFrame className='w-full relative aspect-[35/12] h-auto'>
-        <WordmarkMorphScene className='mix-blend-difference dark:mix-blend-lighten' />
+        <WordmarkMorphScene className='mix-blend-difference dark:mix-blend-exclusion' />
       </WithFrame>
 
       <p className='my-6 text-sm opacity-50'>

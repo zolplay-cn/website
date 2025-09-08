@@ -16,7 +16,7 @@ interface Props {
  * without relying on unicornstudio-react. It loads the SDK via next/script,
  * initializes once it is available, and supports multiple mounts safely.
  */
-export default function WordmarkMorphScene({ className, projectId = 'm51awCqQ9gmrAHsw8ot6' }: Props) {
+export default function WordmarkMorphScene({ className }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const initializedRef = useRef(false)
   const visibleRef = useRef(false)
@@ -64,8 +64,6 @@ export default function WordmarkMorphScene({ className, projectId = 'm51awCqQ9gm
 
   return (
     <div ref={containerRef} className={className} style={{ width: '100%', height: '100%' }}>
-      <div data-us-project={projectId} style={{ width: '100%', height: '100%' }} />
-
       {/* Load the Unicorn Studio SDK once and init on load */}
       <Script
         id='unicornstudio-sdk'
@@ -82,6 +80,13 @@ export default function WordmarkMorphScene({ className, projectId = 'm51awCqQ9gm
             // no-op
           }
         }}
+      />
+
+      <div
+        data-us-project-src='/assets/zolplay-wordmark-dither-morph.json'
+        data-us-lazyload='true'
+        data-us-alttext='Zolplay Wordmark Dither Animation'
+        style={{ width: '100%', height: '100%' }}
       />
     </div>
   )
