@@ -31,9 +31,9 @@ const links = [
   { href: '/about', label: 'About', icon: ZpAboutIcon },
   { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
   // { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
-  // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
+  // { href: '/services', label: 'Services', icon: ZpSignboardIcon },
   { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
-  // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
+  // { href: '/blog', label: 'Blog', icon: ZpBlogIcon },
 ]
 const social = [
   {
