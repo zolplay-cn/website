@@ -16,8 +16,8 @@ import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
 import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
-import { ZpNavBarOpenIcon } from '~/components/icons/ZpNavBarOpenIcon'
-import { ZpShirtIcon } from '~/components/icons/ZpShirtIcon'
+import { ZpPricingIcon } from '~/components/icons/ZpPricingIcon'
+import { ZpSignboardIcon } from '~/components/icons/ZpSignboardIcon'
 import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled } from '~/components/logo'
@@ -28,10 +28,10 @@ import { Link, usePathname } from '~/modules/i18n/navigation'
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
   { href: '/work', label: 'Work', icon: ZpWorkIcon },
+  // { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
+  { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
+  { href: '/services', label: 'Services', icon: ZpSignboardIcon },
   { href: '/about', label: 'About', icon: ZpAboutIcon },
-  { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
-  // { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
-  // { href: '/services', label: 'Services', icon: ZpSignboardIcon },
   { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
   // { href: '/blog', label: 'Blog', icon: ZpBlogIcon },
 ]
@@ -277,17 +277,44 @@ export function NavBar() {
               )}
             >
               <LogoHelmetFilled className='size-4.5' />
-              <span className='text-base font-bold tracking-tight'>{t('Title')}</span>
+              <span className='text-base font-bold tracking-tight'>{t('SiteName')}</span>
             </Link>
           </div>
 
           <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
             <Drawer.Trigger
               className='relative w-8 h-full outline-none active:outline-none'
-              aria-label='Open navigation menu'
+              aria-label={tMenu('ToggleNav')}
             >
               <span className='absolute inset-0 flex items-center justify-end'>
-                <ZpNavBarOpenIcon className='size-5' />
+                <svg aria-hidden='true' height='18' width='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'>
+                  <g fill='currentColor'>
+                    <path
+                      d='M2.25 9H15.75'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='1.5'
+                    />
+                    <path
+                      d='M2.25 3.75H15.75'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='1.5'
+                    />
+                    <path
+                      d='M9.75 14.25H15.75'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='1.5'
+                    />
+                  </g>
+                </svg>
               </span>
             </Drawer.Trigger>
             <Drawer.Portal>

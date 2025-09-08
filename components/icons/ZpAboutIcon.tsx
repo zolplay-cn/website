@@ -14,23 +14,13 @@ export function ZpAboutIcon({ fill = 'currentColor', secondaryfill, ...props }: 
     <svg aria-hidden='true' height='18' width='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg' {...props}>
       <g fill={fill}>
         <path
-          d='M13.75 13.2505V4.75048C13.75 3.64548 12.8546 2.75049 11.75 2.75049H6.25C5.1454 2.75049 4.25 3.64548 4.25 4.75048V13.2505C4.25 14.3555 5.1454 15.2505 6.25 15.2505H11.75C12.8546 15.2505 13.75 14.3555 13.75 13.2505Z'
+          d='M9 11.25C10.2426 11.25 11.25 10.2426 11.25 9C11.25 7.75736 10.2426 6.75 9 6.75C7.75736 6.75 6.75 7.75736 6.75 9C6.75 10.2426 7.75736 11.25 9 11.25Z'
           fill={secondaryfill}
           fillOpacity='0.1'
           stroke='none'
         />
         <path
-          d='M9.00002 8.53851C9.70082 8.53851 10.269 7.9705 10.269 7.2695C10.269 6.5685 9.70082 6.00049 9.00002 6.00049C8.29922 6.00049 7.73102 6.5685 7.73102 7.2695C7.73102 7.9705 8.29912 8.53851 9.00002 8.53851Z'
-          fill={fill}
-          stroke='none'
-        />
-        <path
-          d='M11.198 11.9115C11.595 11.7865 11.804 11.3485 11.635 10.9675C11.187 9.9565 10.177 9.25049 9.00001 9.25049C7.82301 9.25049 6.81301 9.9565 6.36501 10.9675C6.19701 11.3485 6.40501 11.7865 6.80201 11.9115C7.36701 12.0895 8.11601 12.2505 9.00001 12.2505C9.88401 12.2505 10.632 12.0895 11.198 11.9115Z'
-          fill={fill}
-          stroke='none'
-        />
-        <path
-          d='M13.75 13.2505V4.75048C13.75 3.64548 12.8546 2.75049 11.75 2.75049H6.25C5.1454 2.75049 4.25 3.64548 4.25 4.75048V13.2505C4.25 14.3555 5.1454 15.2505 6.25 15.2505H11.75C12.8546 15.2505 13.75 14.3555 13.75 13.2505Z'
+          d='M9 11.25C10.2426 11.25 11.25 10.2426 11.25 9C11.25 7.75736 10.2426 6.75 9 6.75C7.75736 6.75 6.75 7.75736 6.75 9C6.75 10.2426 7.75736 11.25 9 11.25Z'
           fill='none'
           stroke={fill}
           strokeLinecap='round'
@@ -38,7 +28,7 @@ export function ZpAboutIcon({ fill = 'currentColor', secondaryfill, ...props }: 
           strokeWidth='1.5'
         />
         <path
-          d='M16.75 4.25049V13.7505'
+          d='M2.75 6.75V4.75C2.75 3.645 3.645 2.75 4.75 2.75H6.75'
           fill='none'
           stroke={fill}
           strokeLinecap='round'
@@ -46,7 +36,23 @@ export function ZpAboutIcon({ fill = 'currentColor', secondaryfill, ...props }: 
           strokeWidth='1.5'
         />
         <path
-          d='M1.25 4.25049V13.7505'
+          d='M11.25 2.75H13.25C14.355 2.75 15.25 3.645 15.25 4.75V6.75'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+        <path
+          d='M15.25 11.25V13.25C15.25 14.355 14.355 15.25 13.25 15.25H11.25'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+        <path
+          d='M6.75 15.25H4.75C3.645 15.25 2.75 14.355 2.75 13.25V11.25'
           fill='none'
           stroke={fill}
           strokeLinecap='round'

@@ -5,11 +5,12 @@
     "Home": "Home",
     "About": "About",
     "Careers": "Careers",
+    "Pricing": "Pricing",
     "Services": "Services",
     "Work": "Work",
     "Contact": "Contact",
     "Gallery": "Gallery",
-    "Shop": "Shop"
+    "ToggleNav": "Toggle navigation"
   },
   "Themes": {
     "Placeholder": "Select a theme",
@@ -24,6 +25,7 @@
   },
   "Root": {
     "Metadata": {
+      "SiteName": "Zolplay",
       "Title": "Zolplay (Creative Studio)",
       "TitleTemplate": "%s — Zolplay (Creative Studio)",
       "OpenGraphTitle": "A creative studio for people with high standards.",

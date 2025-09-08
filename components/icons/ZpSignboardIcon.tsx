@@ -16,7 +16,7 @@ export function ZpSignboardIcon({ fill = 'currentColor', secondaryfill, ...props
         <path
           d='M4.75269 2.75L13.2547 2.75L15.5219 12.25H7.0469L4.75269 2.75Z'
           fill={secondaryfill}
-          fillOpacity='0.3'
+          fillOpacity='0.1'
           stroke='none'
         />
         <path
