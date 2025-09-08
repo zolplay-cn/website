@@ -7,20 +7,20 @@ type IconProps = SVGProps<SVGSVGElement> & {
   title?: string
 }
 
-export function ZpContactUsIcon({ fill = 'currentColor', secondaryfill, ...props }: IconProps) {
+export function ZpPricingIcon({ fill = 'currentColor', secondaryfill, ...props }: IconProps) {
   secondaryfill = secondaryfill || fill
 
   return (
     <svg aria-hidden='true' height='18' width='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg' {...props}>
       <g fill={fill}>
         <path
-          d='M2.88299 6.935L15.182 2.542C15.545 2.412 15.912 2.725 15.842 3.104L13.646 14.964C13.579 15.327 13.154 15.495 12.857 15.275L2.75399 7.807C2.43199 7.569 2.50599 7.07 2.88299 6.935Z'
+          d='M2.25 4.75V13.25C2.25 14.355 3.145 15.25 4.25 15.25H14.75C15.302 15.25 15.75 14.802 15.75 14.25V7.75C15.75 7.198 15.302 6.75 14.75 6.75H4.25C3.145 6.75 2.25 5.855 2.25 4.75Z'
           fill={secondaryfill}
-          fillOpacity='0.1'
+          opacity='0.1'
           stroke='none'
         />
         <path
-          d='M5.75 10.022V14.268C5.75 14.677 6.214 14.913 6.544 14.672L7.284 14.133'
+          d='M2.25 4.75C2.25 3.645 3.145 2.75 4.25 2.75H12.75C13.302 2.75 13.75 3.198 13.75 3.75V4.25'
           fill='none'
           stroke={fill}
           strokeLinecap='round'
@@ -28,7 +28,7 @@ export function ZpContactUsIcon({ fill = 'currentColor', secondaryfill, ...props
           strokeWidth='1.5'
         />
         <path
-          d='M15.58 2.569L5.75 10.022'
+          d='M2.25 4.75V13.25C2.25 14.355 3.145 15.25 4.25 15.25H14.75C15.302 15.25 15.75 14.802 15.75 14.25V7.75C15.75 7.198 15.302 6.75 14.75 6.75H4.25C3.145 6.75 2.25 5.855 2.25 4.75Z'
           fill='none'
           stroke={fill}
           strokeLinecap='round'
@@ -36,12 +36,9 @@ export function ZpContactUsIcon({ fill = 'currentColor', secondaryfill, ...props
           strokeWidth='1.5'
         />
         <path
-          d='M2.88299 6.935L15.182 2.542C15.545 2.412 15.912 2.725 15.842 3.104L13.646 14.964C13.579 15.327 13.154 15.495 12.857 15.275L2.75399 7.807C2.43199 7.569 2.50599 7.07 2.88299 6.935Z'
-          fill='none'
-          stroke={fill}
-          strokeLinecap='round'
-          strokeLinejoin='round'
-          strokeWidth='1.5'
+          d='M12.5 12C13.052 12 13.5 11.552 13.5 11C13.5 10.448 13.052 10 12.5 10C11.948 10 11.5 10.448 11.5 11C11.5 11.552 11.948 12 12.5 12Z'
+          fill={fill}
+          stroke='none'
         />
       </g>
     </svg>

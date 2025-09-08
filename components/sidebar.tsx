@@ -13,12 +13,12 @@ import { ZpAboutIcon } from '~/components/icons/ZpAboutIcon'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
 import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
-import { ZpBriefcaseIcon } from '~/components/icons/ZpBriefcaseIcon'
 import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
 import { ZpNavBarOpenIcon } from '~/components/icons/ZpNavBarOpenIcon'
-import { ZpProjectGridIcon } from '~/components/icons/ZpProjectGridIcon'
+import { ZpShirtIcon } from '~/components/icons/ZpShirtIcon'
+import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
@@ -27,9 +27,10 @@ import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
-  { href: '/work', label: 'Work', icon: ZpProjectGridIcon },
+  { href: '/work', label: 'Work', icon: ZpWorkIcon },
   { href: '/about', label: 'About', icon: ZpAboutIcon },
-  { href: '/careers', label: 'Careers', icon: ZpBriefcaseIcon },
+  { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
+  // { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
   // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
@@ -197,7 +198,7 @@ function NavMenu() {
       <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-(--sidebar-fg)/20'>
         {links.map(({ href, label, icon: Icon }) => (
           <MenuLink key={label} href={href} label={t(label)}>
-            <Icon className='size-5 stroke-current' />
+            <Icon className='size-4.5' />
             <span>{t(label)}</span>
           </MenuLink>
         ))}
@@ -220,12 +221,8 @@ function MenuLink({
       <NavigationMenu.Link active={isActive} asChild>
         <Link
           href={href}
-          onClick={() => {
-            // @see https://github.com/framer/motion/issues/2006#issuecomment-1477824846
-            window.scroll(0, 0)
-          }}
           className={clsxm(
-            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors hover:text-stone-800 dark:hover:text-stone-100',
+            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors duration-75 hover:text-stone-800 dark:hover:text-stone-100',
             'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
             'data-active:text-black dark:data-active:text-white',
             'data-active:**:data-highlight:opacity-20',
