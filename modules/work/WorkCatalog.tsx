@@ -74,7 +74,7 @@ const WorkCard = React.memo(function WorkCard({
     <div className='group not-prose relative overflow-hidden ring-1 ring-(--grid-border-color) bg-white dark:bg-[#1a1a1a] will-change-[opacity] transition-opacity duration-100 hover:opacity-75'>
       <div className='relative aspect-video overflow-hidden bg-neutral-200 dark:bg-neutral-800'>
         {work.isOriginal && (
-          <div className='absolute top-2 left-2 z-20'>
+          <div className='absolute top-2 right-2 z-20'>
             <span
               className={clsxm(
                 'inline-flex items-center gap-1 rounded-full border border-(--grid-border-color) bg-white/90 dark:bg-neutral-900/80 backdrop-blur px-2 py-0.5 text-xs font-medium',

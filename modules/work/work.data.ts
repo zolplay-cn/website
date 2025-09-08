@@ -1,12 +1,17 @@
 import type { WorkEntry } from '~/types/work'
 
 import NexusImage from '~/modules/portfolios/images/nexus-image.png'
+import AntigravityImage from '~/public/images/antigravity.jpg'
+import BeaconImage from '~/public/images/beacon.jpg'
 import CelHiveImage from '~/public/images/celhive.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
+import Insta360Image from '~/public/images/insta360.jpg'
 import IsthataiImage from '~/public/images/isthatai.jpg'
 import LearningPracticalImage from '~/public/images/learning-practical.jpg'
 import LetsVision24Image from '~/public/images/lets-visionos-24.jpg'
+import MoimoiImage from '~/public/images/moimoi.jpg'
+import NeuSalonImage from '~/public/images/neusalon.jpg'
 import PaddingLeftImage from '~/public/images/paddingleft.jpg'
 import PaperGenImage from '~/public/images/papergen-ai.jpg'
 import TechPodfest23Image from '~/public/images/tech-podfest.jpg'
@@ -32,6 +37,20 @@ const works: WorkEntry[] = [
     isOriginal: false,
   },
   {
+    slug: 'beacon',
+    year: 2025,
+    month: 9,
+    title: {
+      en: 'Beacon',
+      'zh-CN': 'Beacon',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: BeaconImage,
+    hasCaseStudy: false,
+    website: 'https://beacon.zolplay.co',
+    isOriginal: true,
+  },
+  {
     slug: 'celhive',
     year: 2025,
     month: 9,
@@ -46,6 +65,34 @@ const works: WorkEntry[] = [
     },
     hasCaseStudy: false,
     website: 'https://celhive.com',
+    isOriginal: false,
+  },
+  {
+    slug: 'antigravity',
+    year: 2025,
+    month: 8,
+    title: {
+      en: 'Antigravity',
+      'zh-CN': 'Antigravity',
+    },
+    categories: ['cap:002'],
+    featuredImage: AntigravityImage,
+    hasCaseStudy: false,
+    website: 'https://antigravity.tech',
+    isOriginal: false,
+  },
+  {
+    slug: 'insta360',
+    year: 2025,
+    month: 7,
+    title: {
+      en: 'Insta360',
+      'zh-CN': 'Insta360',
+    },
+    categories: ['cap:002'],
+    featuredImage: Insta360Image,
+    hasCaseStudy: false,
+    website: 'https://insta360.com',
     isOriginal: false,
   },
   {
@@ -95,6 +142,40 @@ const works: WorkEntry[] = [
     hasCaseStudy: false,
     website: 'https://vivgrid.com',
     isOriginal: false,
+  },
+  {
+    slug: 'neusalon',
+    year: 2024,
+    month: 7,
+    title: {
+      en: 'neu.salon',
+      'zh-CN': 'neu.salon',
+    },
+    showreel: {
+      src: '/vids/work/neusalon-reel.mp4',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: NeuSalonImage,
+    hasCaseStudy: false,
+    website: 'https://neu.salon',
+    isOriginal: true,
+  },
+  {
+    slug: 'moimoi',
+    year: 2024,
+    month: 5,
+    title: {
+      en: 'moimoi',
+      'zh-CN': 'moimoi',
+    },
+    showreel: {
+      src: '/vids/work/moimoi-reel.mp4',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: MoimoiImage,
+    hasCaseStudy: false,
+    website: 'https://moimoi.app',
+    isOriginal: true,
   },
   {
     slug: 'isthatai',
