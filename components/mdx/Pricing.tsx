@@ -37,6 +37,7 @@ export function PricingPlans() {
             'No‑fluff process and deliverables',
             'Best for early teams/founders',
           ],
+      href: 'https://buy.stripe.com/3cI4gz3ew6jo24Lbgeb7y0h',
     },
     {
       key: 'pro',
@@ -60,6 +61,7 @@ export function PricingPlans() {
             'Faster product/design decisions',
             'Ideal for build‑and‑grow teams',
           ],
+      href: 'https://buy.stripe.com/aFaeVdcP6azE4cT842b7y0l',
     },
     {
       key: 'max',
@@ -83,13 +85,14 @@ export function PricingPlans() {
             'Built for high‑velocity teams',
             'Gaining an unfair advantage',
           ],
+      href: 'https://buy.stripe.com/eVq8wPbL27ns10Hesqb7y0k',
     },
   ]
 
   return (
     <section className='not-prose my-8'>
       <ul className='grid gap-2 md:grid-cols-3 list-none m-0 p-0'>
-        {plans.map(({ key, name, hours, features, price }) => {
+        {plans.map(({ key, name, hours, features, price, href }) => {
           const isPopular = key === 'pro'
           const popularLabel = isZH ? '最受欢迎' : 'Most popular'
           return (
@@ -129,7 +132,7 @@ export function PricingPlans() {
                   <span className='ml-1 text-sm font-normal opacity-70'>{isZH ? '/月' : '/mo'}</span>
                 </div>
               </div>
-              <CTAButton href='/contact' className='w-full'>
+              <CTAButton href={href} className='w-full'>
                 {isZH ? '立即订阅' : 'Subscribe'}
               </CTAButton>
             </li>
