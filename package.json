@@ -12,7 +12,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@calcom/atoms": "^1.7.1",
+    "@calcom/embed-react": "^1.5.3",
     "@hookform/resolvers": "^2.9.11",
     "@mdx-js/react": "^3.1.0",
     "@radix-ui/react-navigation-menu": "^1.2.6",

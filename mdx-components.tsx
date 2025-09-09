@@ -14,6 +14,7 @@ import {
   Red,
   WithFrame,
 } from './components/mdx'
+import CalendarBooker from './modules/contact/calendar-booker'
 import { Link } from './modules/i18n/navigation'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -33,5 +34,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Link,
     Image: FramedImage,
     NakedImage: NextImage,
+    CalendarBooker,
   }
 }

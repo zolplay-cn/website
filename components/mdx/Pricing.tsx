@@ -108,8 +108,8 @@ export function PricingPlans() {
                 <Image src={`/images/pricing/${key}.jpg`} alt={name} fill className='object-cover' />
               </WithFrame>
               <div className='flex flex-col items-baseline justify-between p-0 md:px-3 md:py-2'>
-                <h3 className='text-lg md:text-2xl font-medium tracking-tight'>{name}</h3>
-                <span className='text-xs font-mono opacity-70'>{hours}</span>
+                <h3 className='text-3xl md:text-xl lg:text-2xl font-medium tracking-tight'>{name}</h3>
+                <span className='text-sm md:text-xs font-mono opacity-70'>{hours}</span>
               </div>
               <ul className='list-none m-0 p-0 md:px-3 md:py-2 space-y-1.5'>
                 {features.map((text: string) => (
@@ -124,7 +124,7 @@ export function PricingPlans() {
                 ))}
               </ul>
               <div className='mt-auto md:px-3 flex flex-col'>
-                <div className='text-xl md:text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100'>
+                <div className='text-3xl md:text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100'>
                   {fmt.format(price)}
                   <span className='ml-1 text-sm font-normal opacity-70'>{isZH ? '/月' : '/mo'}</span>
                 </div>
