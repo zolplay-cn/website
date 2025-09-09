@@ -4,6 +4,7 @@ import NexusImage from '~/modules/portfolios/images/nexus-image.png'
 import AntigravityImage from '~/public/images/antigravity.jpg'
 import BeaconImage from '~/public/images/beacon.jpg'
 import BenchflowImage from '~/public/images/benchflow.jpg'
+import BerkeleySummitHouseImage from '~/public/images/bsh.jpg'
 import CelHiveImage from '~/public/images/celhive.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
@@ -16,6 +17,7 @@ import NeuSalonImage from '~/public/images/neusalon.jpg'
 import NeushipImage from '~/public/images/neuship.jpg'
 import PaddingLeftImage from '~/public/images/paddingleft.jpg'
 import PaperGenImage from '~/public/images/papergen-ai.jpg'
+import PerformAdImage from '~/public/images/performad.jpg'
 import TechPodfest23Image from '~/public/images/tech-podfest.jpg'
 import TheVinotecaImage from '~/public/images/the-vinoteca.jpg'
 import VivgridImage from '~/public/images/vivgrid.jpeg'
@@ -95,6 +97,40 @@ const works: WorkEntry[] = [
     featuredImage: Insta360Image,
     hasCaseStudy: false,
     website: 'https://insta360.com',
+    isOriginal: false,
+  },
+  {
+    slug: 'berkeleysummithouse',
+    year: 2025,
+    month: 6,
+    title: {
+      en: 'Berkeley Summit House',
+      'zh-CN': 'Berkeley Summit House',
+    },
+    categories: ['cap:002', 'cap:003'],
+    featuredImage: BerkeleySummitHouseImage,
+    showreel: {
+      src: '/vids/work/bsh-reel.mp4',
+    },
+    hasCaseStudy: false,
+    website: 'https://berkeleysummithouse.org',
+    isOriginal: false,
+  },
+  {
+    slug: 'performad',
+    year: 2025,
+    month: 5,
+    title: {
+      en: 'PerforMad',
+      'zh-CN': '亿帆出海',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: PerformAdImage,
+    showreel: {
+      src: '/vids/work/performad-reel.mp4',
+    },
+    hasCaseStudy: false,
+    website: 'https://www.performad.cn/en',
     isOriginal: false,
   },
   {
