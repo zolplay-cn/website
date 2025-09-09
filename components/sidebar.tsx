@@ -13,12 +13,12 @@ import { ZpAboutIcon } from '~/components/icons/ZpAboutIcon'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
 import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
-import { ZpBriefcaseIcon } from '~/components/icons/ZpBriefcaseIcon'
 import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
-import { ZpNavBarOpenIcon } from '~/components/icons/ZpNavBarOpenIcon'
-import { ZpProjectGridIcon } from '~/components/icons/ZpProjectGridIcon'
+import { ZpPricingIcon } from '~/components/icons/ZpPricingIcon'
+import { ZpSignboardIcon } from '~/components/icons/ZpSignboardIcon'
+import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
@@ -27,12 +27,13 @@ import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
-  { href: '/work', label: 'Projects', icon: ZpProjectGridIcon },
+  { href: '/work', label: 'Work', icon: ZpWorkIcon },
+  // { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
+  { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
+  { href: '/services', label: 'Services', icon: ZpSignboardIcon },
   { href: '/about', label: 'About', icon: ZpAboutIcon },
-  { href: '/careers', label: 'Careers', icon: ZpBriefcaseIcon },
-  // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
-  // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
+  // { href: '/blog', label: 'Blog', icon: ZpBlogIcon },
 ]
 const social = [
   {
@@ -102,7 +103,7 @@ export function Sidebar({ className }: { className?: string }) {
             )}
           >
             <LogoHelmetFilled className='size-6' />
-            <span className='text-xl font-bold tracking-tight'>{t('Title')}</span>
+            <span className='text-xl font-bold tracking-tight'>Zolplay</span>
             <svg
               width='5'
               height='5'
@@ -197,7 +198,7 @@ function NavMenu() {
       <NavigationMenu.List className='m-0 flex list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0 border-b border-(--sidebar-fg)/20'>
         {links.map(({ href, label, icon: Icon }) => (
           <MenuLink key={label} href={href} label={t(label)}>
-            <Icon className='size-5 stroke-current' />
+            <Icon className='size-4.5' />
             <span>{t(label)}</span>
           </MenuLink>
         ))}
@@ -220,12 +221,8 @@ function MenuLink({
       <NavigationMenu.Link active={isActive} asChild>
         <Link
           href={href}
-          onClick={() => {
-            // @see https://github.com/framer/motion/issues/2006#issuecomment-1477824846
-            window.scroll(0, 0)
-          }}
           className={clsxm(
-            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors hover:text-stone-800 dark:hover:text-stone-100',
+            'relative flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) no-underline outline-none transition-colors duration-75 hover:text-stone-800 dark:hover:text-stone-100',
             'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
             'data-active:text-black dark:data-active:text-white',
             'data-active:**:data-highlight:opacity-20',
@@ -280,17 +277,44 @@ export function NavBar() {
               )}
             >
               <LogoHelmetFilled className='size-4.5' />
-              <span className='text-base font-bold tracking-tight'>{t('Title')}</span>
+              <span className='text-base font-bold tracking-tight'>{t('SiteName')}</span>
             </Link>
           </div>
 
           <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
             <Drawer.Trigger
               className='relative w-8 h-full outline-none active:outline-none'
-              aria-label='Open navigation menu'
+              aria-label={tMenu('ToggleNav')}
             >
               <span className='absolute inset-0 flex items-center justify-end'>
-                <ZpNavBarOpenIcon className='size-5' />
+                <svg aria-hidden='true' height='18' width='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'>
+                  <g fill='currentColor'>
+                    <path
+                      d='M2.25 9H15.75'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='1.5'
+                    />
+                    <path
+                      d='M2.25 3.75H15.75'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='1.5'
+                    />
+                    <path
+                      d='M9.75 14.25H15.75'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='1.5'
+                    />
+                  </g>
+                </svg>
               </span>
             </Drawer.Trigger>
             <Drawer.Portal>
@@ -300,7 +324,7 @@ export function NavBar() {
                   'z-50 flex flex-col mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none bg-[image:repeating-linear-gradient(135deg,_var(--drawer-bg)_0,_var(--drawer-bg)_1px,_transparent_0,_transparent_50%)] bg-[size:12px_12px] bg-fixed',
                   '[--drawer-bg:var(--color-black)]/4 [--drawer-fg:var(--color-stone-400)] dark:[--drawer-bg:var(--color-white)]/7 dark:[--drawer-fg:var(--color-gray-600)]',
                   'border-t border-(--grid-border-color)',
-                  'mix-blend-multiply dark:mix-blend-plus-lighter',
+                  'mix-blend-multiply dark:mix-blend-difference',
                   'pb-[calc(env(safe-area-inset-bottom)+var(--spacing)*2)]',
                   'overflow-hidden',
                 )}

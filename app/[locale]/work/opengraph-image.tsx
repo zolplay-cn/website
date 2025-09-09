@@ -7,7 +7,7 @@ export default async function OpengraphImage({ params }: { params: Promise<RootP
   const t = await getTranslations({ locale })
 
   return OpenGraphImageTemplate({
-    text: t('Portfolios.Title'),
+    text: t('Portfolios.OpenGraphTitle'),
     locale,
   })
 }

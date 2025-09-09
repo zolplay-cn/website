@@ -1,5 +1,7 @@
 import { clsxm } from '@zolplay/utils'
 import { useLocale, useTranslations } from 'next-intl'
+import { WithFrame } from '~/components/mdx'
+import WordmarkMorphScene from '~/modules/fx/wordmark-morph-scene'
 
 export function Footer() {
   const t = useTranslations('Copyright')
@@ -8,12 +10,16 @@ export function Footer() {
   return (
     <footer
       className={clsxm(
-        'absolute inset-x-0 bottom-10 flex h-20 flex-col items-center justify-center',
+        'mt-8 relative flex flex-col items-center justify-center',
         'before:absolute before:top-0 before:left-[-100vw] before:w-[200vw] before:h-px before:bg-(--grid-border-color)',
         'after:absolute after:bottom-0 after:right-[-100vw] after:w-[200vw] after:h-px after:bg-(--grid-border-color)',
       )}
     >
-      <p className='my-2 text-sm opacity-50'>
+      <WithFrame className='w-full relative aspect-[35/12] h-auto'>
+        <WordmarkMorphScene className='mix-blend-difference dark:mix-blend-exclusion' />
+      </WithFrame>
+
+      <p className='my-6 text-sm opacity-50'>
         {t('Text', {
           year: new Date().getFullYear(),
         })}

@@ -6,7 +6,6 @@ import larry from './images/larry.png'
 import sonia from './images/sonia.png'
 import timx from './images/timx.png'
 import will from './images/will.png'
-import zaotang from './images/zaotang.png'
 
 export interface Zolplayer {
   name: string
@@ -17,15 +16,11 @@ export interface Zolplayer {
   }
   portrait: {
     url: StaticImageData
-    palette: {
-      background: { light: string; dark: string }
-    }
   }
   social: {
     platform: SocialPlatform
     url: string
   }[]
-  joinedDate: string
 }
 
 export const ZOLPLAYERS = [
@@ -38,12 +33,6 @@ export const ZOLPLAYERS = [
     },
     portrait: {
       url: cali,
-      palette: {
-        background: {
-          light: '#465d05',
-          dark: '#f9b191',
-        },
-      },
     },
     social: [
       { platform: 'twitter', url: 'https://x.com/thecalicastle' },
@@ -51,7 +40,6 @@ export const ZOLPLAYERS = [
       { platform: 'website', url: 'https://cali.so' },
       { platform: 'youtube', url: 'https://www.youtube.com/@calicastle' },
     ],
-    joinedDate: '2021-02-01',
   },
   {
     name: 'Ethan Liu',
@@ -62,12 +50,6 @@ export const ZOLPLAYERS = [
     },
     portrait: {
       url: ethan,
-      palette: {
-        background: {
-          light: '#144688',
-          dark: '#64acfc',
-        },
-      },
     },
     social: [
       {
@@ -79,7 +61,6 @@ export const ZOLPLAYERS = [
         url: 'https://github.com/Peek-A-Booo',
       },
     ],
-    joinedDate: '2023-09-27',
   },
   {
     name: 'Larry Zhou',
@@ -90,12 +71,6 @@ export const ZOLPLAYERS = [
     },
     portrait: {
       url: larry,
-      palette: {
-        background: {
-          light: '#c27761',
-          dark: '#f69679',
-        },
-      },
     },
     social: [
       {
@@ -103,23 +78,16 @@ export const ZOLPLAYERS = [
         url: 'https://x.com/larryfreeform',
       },
     ],
-    joinedDate: '2022-08-01',
   },
   {
     name: 'Sonia Liu',
     slug: 'sonia',
     role: {
-      en: 'Senior Designer',
-      'zh-CN': '高级设计师',
+      en: 'Founding Designer',
+      'zh-CN': '创始设计师',
     },
     portrait: {
       url: sonia,
-      palette: {
-        background: {
-          light: '#ae4141',
-          dark: '#fc7474',
-        },
-      },
     },
     social: [
       {
@@ -127,7 +95,6 @@ export const ZOLPLAYERS = [
         url: 'https://x.com/thesonia33',
       },
     ],
-    joinedDate: '2024-11-11',
   },
   {
     name: 'Timx Wong',
@@ -138,31 +105,18 @@ export const ZOLPLAYERS = [
     },
     portrait: {
       url: timx,
-      palette: {
-        background: {
-          light: '#141c2c',
-          dark: '#a3b4d5',
-        },
-      },
     },
     social: [],
-    joinedDate: '2021-04-26',
   },
   {
     name: 'Will Xiang',
     slug: 'will-xiang',
     role: {
-      en: 'No-stack Developer & Headless Engineer',
-      'zh-CN': '全不会工程师',
+      en: 'Founding Engineer',
+      'zh-CN': '创始工程师',
     },
     portrait: {
       url: will,
-      palette: {
-        background: {
-          light: '#ae644a',
-          dark: '#fa936f',
-        },
-      },
     },
     social: [
       {
@@ -179,35 +133,6 @@ export const ZOLPLAYERS = [
         url: 'https://cuvii.dev',
       },
     ],
-    joinedDate: '2023-04-25',
-  },
-  {
-    name: 'Zaotang',
-    slug: 'zaotang',
-    role: {
-      en: 'Product Designer',
-      'zh-CN': '产品设计师',
-    },
-    portrait: {
-      url: zaotang,
-      palette: {
-        background: {
-          light: '#8b7740',
-          dark: '#ffda77',
-        },
-      },
-    },
-    social: [
-      {
-        platform: 'twitter',
-        url: 'https://x.com/zaotang18',
-      },
-      {
-        platform: 'website',
-        url: 'https://www.zaotang.xyz/',
-      },
-    ],
-    joinedDate: '2025-03-24',
   },
 ] satisfies Zolplayer[]
 

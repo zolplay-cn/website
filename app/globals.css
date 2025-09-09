@@ -14,21 +14,21 @@ body {
   text-rendering: geometricPrecision;
   text-decoration-skip-ink: auto;
   font-optical-sizing: auto;
-  --grid-border-color: var(--color-stone-200);
+  --grid-border-color: var(--color-neutral-200);
 }
 
 .dark body {
-  --grid-border-color: var(--color-stone-800);
+  --grid-border-color: oklch(35.1% 0 0);
 }
 
 ::selection {
-  background: var(--color-stone-700);
-  color: var(--color-stone-50);
+  background: var(--color-neutral-700);
+  color: var(--color-neutral-50);
 }
 
 .dark ::selection {
-  background: var(--color-stone-300);
-  color: var(--color-stone-900);
+  background: var(--color-neutral-300);
+  color: var(--color-neutral-900);
 }
 
 .mask-t {
@@ -83,6 +83,20 @@ body {
   background-color: var(--color-stone-100) !important;
   color: var(--color-stone-800) !important;
   border-color: var(--color-stone-200) !important;
+}
+
+/* Lenis (smooth scrolling) */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 .dark [data-sonner-toast],

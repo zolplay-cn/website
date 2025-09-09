@@ -1,14 +1,25 @@
+import { WithFrame, CTAButton } from '~/components/mdx'
 import { ContactForm } from '~/modules/contact/contact-form'
-import booth from './booth.jpg'
 
-# 🤙 Feel free to contact us anytime
+# Get in touch
 
-We're always looking for new opportunities to collaborate with like-minded people. If you want to say hi, we'd love to hear from you 👏.
+We’re always looking for new opportunities to collaborate with like‑minded people. If you want to say hi or explore a project, we’d love to hear from you.
 
-<div className='not-prose grid grid-cols-12 with-separator items-start'>
-  <Image src={booth} alt='Zolplay Booth' placeholder='blur' className='col-span-12 md:col-span-6' />
+<WithFrame className='my-6'>
+  <ContactForm />
+</WithFrame>
 
-  <div className='col-span-12 md:col-span-6 border-l border-(--grid-border-color)'>
-    <ContactForm />
-  </div>
+---
+
+# Book a discovery call
+
+Prefer to talk live? Book a short discovery call and we’ll confirm fit, align on goals and timeline, and outline the best next steps for your project.
+
+<div className='flex gap-4 flex-col lg:flex-row mb-12'>
+  <CTAButton href='/work'>See our past work</CTAButton>
+  <CTAButton href='/services'>Explore our services</CTAButton>
 </div>
+
+<WithFrame className="my-6">
+  <CalendarBooker />
+</WithFrame>

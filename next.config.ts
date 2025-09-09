@@ -5,6 +5,9 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
   output: 'standalone',
+  images: {
+    remotePatterns: [new URL('https://cdn.zolplay.com/**')],
+  },
   experimental: {
     serverActions: {
       // Limit body size to 50MB
@@ -29,6 +32,11 @@ const nextConfig: NextConfig = {
       {
         source: '/ingest/decide',
         destination: 'https://us.i.posthog.com/decide',
+      },
+      // Proxy CDN assets to avoid client-side CORS issues
+      {
+        source: '/assets/cdn/:path*',
+        destination: 'https://cdn.zolplay.com/:path*',
       },
     ]
   },

@@ -10,8 +10,8 @@ interface OpenGraphImageProps {
 }
 
 export async function OpenGraphImageTemplate({ text, locale }: OpenGraphImageProps) {
-  const font = await readFile(join(process.cwd(), 'app/_fonts/DMSans-Light.ttf'))
-  const bgImageData = await readFile(join(process.cwd(), 'public/assets/og-bg.jpg'))
+  const font = await readFile(join(process.cwd(), 'app/_fonts/InterTight-Regular.ttf'))
+  const bgImageData = await readFile(join(process.cwd(), 'public/assets/OpenGraph-Template.jpg'))
   const bgImageSrc = Uint8Array.from(bgImageData).buffer
 
   return new ImageResponse(
@@ -58,11 +58,12 @@ export async function OpenGraphImageTemplate({ text, locale }: OpenGraphImagePro
             display: 'flex',
             fontSize: 78,
             fontFamily: 'ZolplaySans',
-            letterSpacing: '-0.065em',
+            letterSpacing: '-0.03em',
             fontStyle: 'normal',
             color: '#1a1a1a',
-            lineHeight: '86px',
+            lineHeight: '80px',
             whiteSpace: 'pre-wrap',
+            textWrap: 'balance',
           }}
         >
           {text}
