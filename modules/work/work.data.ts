@@ -2,10 +2,12 @@ import type { WorkEntry } from '~/types/work'
 
 import NexusImage from '~/modules/portfolios/images/nexus-image.png'
 import AntigravityImage from '~/public/images/antigravity.jpg'
+import BagelPayImage from '~/public/images/bagelpay.jpg'
 import BeaconImage from '~/public/images/beacon.jpg'
 import BenchflowImage from '~/public/images/benchflow.jpg'
 import BerkeleySummitHouseImage from '~/public/images/bsh.jpg'
 import CelHiveImage from '~/public/images/celhive.jpg'
+import CronusImage from '~/public/images/cronus.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
 import Insta360Image from '~/public/images/insta360.jpg'
@@ -43,7 +45,7 @@ const works: WorkEntry[] = [
   {
     slug: 'beacon',
     year: 2025,
-    month: 9,
+    month: 10,
     title: {
       en: 'Beacon',
       'zh-CN': 'Beacon',
@@ -55,9 +57,26 @@ const works: WorkEntry[] = [
     isOriginal: true,
   },
   {
+    slug: 'bagelpay',
+    year: 2025,
+    month: 8,
+    title: {
+      en: 'BagelPay',
+      'zh-CN': 'BagelPay',
+    },
+    categories: ['cap:001', 'cap:002'],
+    featuredImage: BagelPayImage,
+    showreel: {
+      src: '/vids/work/bagelpay-brand-reveal.mp4',
+    },
+    hasCaseStudy: false,
+    website: 'https://bagelpay.io',
+    isOriginal: false,
+  },
+  {
     slug: 'celhive',
     year: 2025,
-    month: 9,
+    month: 8,
     title: {
       en: 'CelHive',
       'zh-CN': 'CelHive',
@@ -97,6 +116,23 @@ const works: WorkEntry[] = [
     featuredImage: Insta360Image,
     hasCaseStudy: false,
     website: 'https://insta360.com',
+    isOriginal: false,
+  },
+  {
+    slug: 'cronus',
+    year: 2025,
+    month: 7,
+    title: {
+      en: 'Cronus',
+      'zh-CN': 'Cronus',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: CronusImage,
+    showreel: {
+      src: '/vids/work/cronus-demo.mp4',
+    },
+    hasCaseStudy: false,
+    website: 'https://cronushq.com',
     isOriginal: false,
   },
   {
