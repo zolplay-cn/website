@@ -53,7 +53,7 @@ export function PricingPlans() {
             '适合构建与增长期团队',
           ]
         : [
-            'Doubled cadence and output',
+            '2x speed and output',
             '1–2 parallel streams',
             'Faster iteration cycles',
             'Room for exploration and refinement',
@@ -72,7 +72,7 @@ export function PricingPlans() {
             '多条并行（产品 UX/设计系统/站点/发布）',
             '日更节奏，最高优先级',
             '品牌、产品与网站同时推进',
-            '为定义品类与高速增长而生',
+            '为高速增长而生',
             '创始人与高标准团队的首选',
           ]
         : [
@@ -100,7 +100,7 @@ export function PricingPlans() {
               }`}
             >
               {isPopular ? (
-                <div className='pointer-events-none absolute z-30 top-2 left-2 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-300/15 dark:text-amber-200 border border-(--grid-border-color) px-2 py-0.5 text-[10px] font-medium uppercase'>
+                <div className='pointer-events-none absolute z-30 top-2 left-2 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-300 dark:text-amber-950 border border-(--grid-border-color) px-2 py-0.5 text-[10px] font-medium uppercase'>
                   {popularLabel}
                 </div>
               ) : null}
