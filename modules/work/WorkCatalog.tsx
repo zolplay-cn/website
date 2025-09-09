@@ -111,7 +111,7 @@ const WorkCard = React.memo(function WorkCard({
 
       <div className='border-t border-(--grid-border-color) p-3 md:p-4'>
         <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-0 lg:gap-2'>
-          <h4 className='text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100 flex items-center gap-1 flex-1'>
+          <h4 className='text-lg lg:text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100 flex items-center gap-1 flex-1'>
             {work.title[locale]}
             {isExternal && (
               <svg className='size-4' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -126,7 +126,7 @@ const WorkCard = React.memo(function WorkCard({
             )}
           </h4>
 
-          <span className='mt-0 flex-1 text-left lg:text-right lg:mt-0 text-base text-neutral-400 dark:text-neutral-500 tracking-tight truncate'>
+          <span className='mt-0 flex-1 text-left lg:text-right lg:mt-0 text-sm lg:text-base text-neutral-400 dark:text-neutral-500 tracking-tight truncate'>
             {categoryFormatter(work.categories)}
           </span>
         </div>
@@ -174,7 +174,7 @@ export function WorkCatalog() {
       keys
         .map((key) => capTitleMap.get(key) ?? capItemMap.get(key))
         .filter((v): v is string => Boolean(v))
-        .join(' + '),
+        .join(' / '),
     [capTitleMap, capItemMap],
   )
 

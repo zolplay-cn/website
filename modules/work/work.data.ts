@@ -1,6 +1,5 @@
 import type { WorkEntry } from '~/types/work'
 
-import NexusImage from '~/modules/portfolios/images/nexus-image.png'
 import AntigravityImage from '~/public/images/antigravity.jpg'
 import BagelPayImage from '~/public/images/bagelpay.jpg'
 import BeaconImage from '~/public/images/beacon.jpg'
@@ -14,6 +13,7 @@ import Insta360Image from '~/public/images/insta360.jpg'
 import IsthataiImage from '~/public/images/isthatai.jpg'
 import LearningPracticalImage from '~/public/images/learning-practical.jpg'
 import LetsVision24Image from '~/public/images/lets-visionos-24.jpg'
+import LiveAwareImage from '~/public/images/liveaware.jpg'
 import MoimoiImage from '~/public/images/moimoi.jpg'
 import NeuSalonImage from '~/public/images/neusalon.jpg'
 import NeushipImage from '~/public/images/neuship.jpg'
@@ -26,18 +26,22 @@ import VivgridImage from '~/public/images/vivgrid.jpeg'
 import VueConf24Image from '~/public/images/vueconf24.jpg'
 import vvsImage from '~/public/images/vvs.jpg'
 import WellwordImage from '~/public/images/wellword.jpg'
+import ZoundFMImage from '~/public/images/zound.jpg'
 
 const works: WorkEntry[] = [
   {
     slug: 'live-aware',
-    year: 2022,
-    month: 1,
+    year: 2024,
+    month: 10,
     title: {
-      en: 'Live Aware',
-      'zh-CN': 'Live Aware',
+      en: 'Live Aware - $4.8M Seed',
+      'zh-CN': 'Live Aware - $4.8M 种子轮融资',
     },
     categories: ['cap:001', 'cap:002', 'cap:003'],
-    featuredImage: NexusImage,
+    featuredImage: LiveAwareImage,
+    showreel: {
+      src: '/vids/work/liveaware-demo.mp4',
+    },
     hasCaseStudy: true,
     website: 'https://liveaware.io',
     isOriginal: false,
@@ -107,7 +111,7 @@ const works: WorkEntry[] = [
   {
     slug: 'insta360',
     year: 2025,
-    month: 7,
+    month: 8,
     title: {
       en: 'Insta360',
       'zh-CN': 'Insta360',
@@ -117,6 +121,20 @@ const works: WorkEntry[] = [
     hasCaseStudy: false,
     website: 'https://insta360.com',
     isOriginal: false,
+  },
+  {
+    slug: 'zoundfm',
+    year: 2025,
+    month: 7,
+    title: {
+      en: 'ZoundFM',
+      'zh-CN': 'ZoundFM',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: ZoundFMImage,
+    hasCaseStudy: false,
+    website: 'https://zound.fm',
+    isOriginal: true,
   },
   {
     slug: 'cronus',
