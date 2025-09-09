@@ -3,6 +3,7 @@ import type { WorkEntry } from '~/types/work'
 import NexusImage from '~/modules/portfolios/images/nexus-image.png'
 import AntigravityImage from '~/public/images/antigravity.jpg'
 import BeaconImage from '~/public/images/beacon.jpg'
+import BenchflowImage from '~/public/images/benchflow.jpg'
 import CelHiveImage from '~/public/images/celhive.jpg'
 import DownwordlyImage from '~/public/images/downwordly.jpg'
 import HiNotesImage from '~/public/images/hinotes.jpg'
@@ -12,6 +13,7 @@ import LearningPracticalImage from '~/public/images/learning-practical.jpg'
 import LetsVision24Image from '~/public/images/lets-visionos-24.jpg'
 import MoimoiImage from '~/public/images/moimoi.jpg'
 import NeuSalonImage from '~/public/images/neusalon.jpg'
+import NeushipImage from '~/public/images/neuship.jpg'
 import PaddingLeftImage from '~/public/images/paddingleft.jpg'
 import PaperGenImage from '~/public/images/papergen-ai.jpg'
 import TechPodfest23Image from '~/public/images/tech-podfest.jpg'
@@ -108,6 +110,39 @@ const works: WorkEntry[] = [
     hasCaseStudy: false,
     website: 'https://papergen.ai',
     isOriginal: false,
+  },
+  {
+    slug: 'benchflow',
+    year: 2025,
+    month: 2,
+    title: {
+      en: 'BenchFlow',
+      'zh-CN': 'BenchFlow',
+    },
+    categories: ['cap:001', 'cap:002', 'cap:003'],
+    featuredImage: BenchflowImage,
+    showreel: {
+      src: '/vids/work/benchflow-reel.mp4',
+    },
+    hasCaseStudy: false,
+    website: 'https://benchflow.ai',
+    isOriginal: false,
+  },
+  {
+    slug: 'neuship',
+    year: 2025,
+    month: 5,
+    title: {
+      en: 'Neuship',
+      'zh-CN': 'Neuship',
+    },
+    categories: ['cap:001', 'cap:003'],
+    featuredImage: NeushipImage,
+    showreel: {
+      src: '/vids/work/neuship-reel.mp4',
+    },
+    hasCaseStudy: false,
+    isOriginal: true,
   },
   {
     slug: 'padding-left',
