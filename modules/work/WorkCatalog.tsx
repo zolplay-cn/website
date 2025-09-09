@@ -99,6 +99,7 @@ const WorkCard = React.memo(function WorkCard({
               className='absolute inset-0 object-cover'
               fill
               sizes='(max-width: 1024px) 100vw, 960px'
+              placeholder='blur'
             />
             {hasVideo && <BackgroundVideo src={work.showreel!.src} poster={work.showreel!.poster} aspectRatio='16/9' />}
           </div>
