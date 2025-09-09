@@ -16,8 +16,7 @@ export function Zolplayers() {
       <section
         className='
           not-prose w-full
-          bg-[image:repeating-linear-gradient(0deg,_var(--grid-color)_0,_var(--grid-color)_1px,_transparent_1px,_transparent_80px),repeating-linear-gradient(90deg,_var(--grid-color)_0,_var(--grid-color)_1px,_transparent_1px,_transparent_80px)]
-          bg-[size:100%_80px,80px_100%]
+          bg-[image:repeating-linear-gradient(135deg,_var(--grid-color)_0,_var(--grid-color)_1px,_transparent_1px,_transparent_16px)]
           bg-fixed
           [--grid-color:var(--color-stone-100)] dark:[--grid-color:var(--color-stone-800)]
           border-t border-(--grid-border-color)
@@ -55,7 +54,7 @@ export function Zolplayers() {
                       alt={member.name}
                       width={280}
                       height={280}
-                      className='w-full aspect-square object-contain mix-blend-multiply dark:mix-blend-normal'
+                      className='w-full aspect-square object-contain mix-blend-hard-light dark:mix-blend-exclusion'
                       placeholder='blur'
                     />
                   </WithFrame>

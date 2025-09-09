@@ -1,11 +1,11 @@
 import type { StaticImageData } from 'next/image'
 import type { SocialPlatform } from './social-platform'
-import cali from './images/cali.png'
-import ethan from './images/ethan.png'
-import larry from './images/larry.png'
-import sonia from './images/sonia.png'
-import timx from './images/timx.png'
-import will from './images/will.png'
+import cali from './images/cali-dithered.jpeg'
+import ethan from './images/ethan-dithered.jpeg'
+import larry from './images/larry-dithered.jpeg'
+import sonia from './images/sonia-dithered.jpeg'
+import timx from './images/timx-dithered.jpeg'
+import will from './images/will-dithered.jpeg'
 
 export interface Zolplayer {
   name: string
