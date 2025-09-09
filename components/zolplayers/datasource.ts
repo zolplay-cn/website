@@ -83,8 +83,8 @@ export const ZOLPLAYERS = [
     name: 'Sonia Liu',
     slug: 'sonia',
     role: {
-      en: 'Senior Designer',
-      'zh-CN': '高级设计师',
+      en: 'Founding Designer',
+      'zh-CN': '创始设计师',
     },
     portrait: {
       url: sonia,
@@ -112,8 +112,8 @@ export const ZOLPLAYERS = [
     name: 'Will Xiang',
     slug: 'will-xiang',
     role: {
-      en: 'No-stack Developer & Headless Engineer',
-      'zh-CN': '全不会工程师',
+      en: 'Founding Engineer',
+      'zh-CN': '创始工程师',
     },
     portrait: {
       url: will,
