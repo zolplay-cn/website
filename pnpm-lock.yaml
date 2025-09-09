@@ -77,9 +77,6 @@ importers:
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@19.1.1)
-      react-parallax-tilt:
-        specifier: ^1.7.289
-        version: 1.7.289(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react-wrap-balancer:
         specifier: ^1.1.1
         version: 1.1.1(react@19.1.1)
@@ -4169,12 +4166,6 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-
-  react-parallax-tilt@1.7.289:
-    resolution: {integrity: sha512-TrmWUZ9wAmxlYxvODCobWb3eKhiESYe9bKAtFAWcMqeYcG6rl2v9t0m2RfD8gOM3ShlChjed0h0XSWE6TFMvUw==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-remove-scroll-bar@2.3.8:
     resolution: {integrity: sha512-9r+yi9+mgU33AKcj6IbT9oRCO78WriSj6t/cF8DWBZJ9aOGPOTEDvdUDz1FwKim7QXWwmHqtdHnRJfhAxEG46Q==}
@@ -9496,11 +9487,6 @@ snapshots:
       react: 19.1.1
 
   react-is@16.13.1: {}
-
-  react-parallax-tilt@1.7.289(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
-    dependencies:
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
 
   react-remove-scroll-bar@2.3.8(@types/react@19.1.9)(react@19.1.1):
     dependencies:
