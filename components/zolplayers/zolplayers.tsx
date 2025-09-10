@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useState } from 'react'
 import { WithFrame } from '../mdx'
 import { ZOLPLAYERS_SORTED } from './datasource'
 import { SocialLink } from './social-link'
@@ -9,6 +10,7 @@ import { SocialLink } from './social-link'
 export function Zolplayers() {
   const t = useTranslations('About')
   const locale = useLocale()
+  const [hoveredSlug, setHoveredSlug] = useState<string | null>(null)
 
   return (
     <>
@@ -28,7 +30,13 @@ export function Zolplayers() {
               {ZOLPLAYERS_SORTED.map((member) => (
                 <li
                   key={member.slug}
-                  className='grid grid-cols-[1fr_auto] items-center gap-x-3 md:gap-x-4 px-2 md:px-3 py-2 md:py-2.5 border-b border-(--grid-border-color)'
+                  onMouseEnter={() => setHoveredSlug(member.slug)}
+                  onMouseLeave={() => setHoveredSlug(null)}
+                  onFocus={() => setHoveredSlug(member.slug)}
+                  onBlur={() => setHoveredSlug(null)}
+                  className={`grid grid-cols-[1fr_auto] items-center gap-x-3 md:gap-x-4 px-2 md:px-3 py-2 md:py-2.5 border-b border-(--grid-border-color) transition-opacity duration-200 ${
+                    hoveredSlug && hoveredSlug !== member.slug ? '[opacity:.45]' : ''
+                  }`}
                 >
                   <div className='min-w-0'>
                     <div className='text-sm md:text-base text-[var(--accent)] truncate'>{member.name}</div>
@@ -49,7 +57,14 @@ export function Zolplayers() {
           <div className='p-0'>
             <div className='grid grid-cols-2 gap-0'>
               {ZOLPLAYERS_SORTED.map((member) => (
-                <WithFrame key={member.slug} className='relative w-full aspect-square'>
+                <WithFrame
+                  key={member.slug}
+                  className={`relative w-full aspect-square transition-opacity duration-200 ${
+                    hoveredSlug && hoveredSlug !== member.slug ? '[opacity:.65]' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredSlug(member.slug)}
+                  onMouseLeave={() => setHoveredSlug(null)}
+                >
                   <div className='hidden invisible dark:block dark:visible'>
                     <Image
                       src={member.portrait.dark}
