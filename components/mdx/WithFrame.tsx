@@ -1,21 +1,23 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 import { clsxm } from '@zolplay/utils'
 
 export function WithFrame({
   children,
   className,
   hasTicker = true,
+  ...props
 }: {
   children: ReactNode
   className?: string
   hasTicker?: boolean
-}) {
+} & HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={clsxm(
         'group relative max-w-[100%] after:pointer-events-none after:absolute after:inset-0 after:border after:border-(--grid-border-color)',
         className,
       )}
+      {...props}
     >
       {children}
 
