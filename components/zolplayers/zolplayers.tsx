@@ -12,7 +12,7 @@ export function Zolplayers() {
 
   return (
     <>
-      <h1>{t('MeetOurTeam')}</h1>
+      <h1 className='text-left'>{t('MeetOurTeam')}</h1>
       <section
         className='
           not-prose w-full
@@ -22,57 +22,64 @@ export function Zolplayers() {
           border-t border-(--grid-border-color)
         '
       >
-        {ZOLPLAYERS_SORTED.map((member, i) => {
-          return (
-            <article key={member.slug} className='border-b border-(--grid-border-color)'>
-              <div className='w-full text-left grid grid-cols-12 items-start gap-x-2 md:gap-x-3 hover:bg-black/2 dark:hover:bg-white/2 transition-colors duration-75'>
-                <span className='col-span-2 md:col-span-1 pl-2 pt-2 text-[10px] md:text-xs uppercase text-[var(--accent)]/60'>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-
-                <div className='col-span-10 md:col-span-7 tracking-tight flex flex-col p-2 gap-3'>
-                  <span className='leading-none text-2xl md:text-3xl text-[var(--accent)]'>{member.name}</span>
-                  <span className='text-sm md:text-base -tracking-[0.01em] text-[var(--accent)]/70 block'>
-                    {member.role[locale]}
-                  </span>
-
-                  <div className='col-span-12 md:col-span-10'>
-                    {member.social && member.social.length > 0 ? (
-                      <ul className='flex flex-wrap items-center gap-2 '>
-                        {member.social.map((social) => (
-                          <SocialLink social={social} key={social.url} />
-                        ))}
-                      </ul>
-                    ) : null}
+        <div className='relative grid grid-cols-1 lg:grid-cols-[minmax(260px,356px)_1fr]'>
+          <aside className='border-r border-(--grid-border-color) bg-black/2 dark:bg-white/1'>
+            <ul>
+              {ZOLPLAYERS_SORTED.map((member) => (
+                <li
+                  key={member.slug}
+                  className='grid grid-cols-[1fr_auto] items-center gap-x-3 md:gap-x-4 px-2 md:px-3 py-2 md:py-2.5 border-b border-(--grid-border-color)'
+                >
+                  <div className='min-w-0'>
+                    <div className='text-sm md:text-base text-[var(--accent)] truncate'>{member.name}</div>
+                    <div className='text-xs md:text-sm text-[var(--accent)]/70 truncate'>{member.role[locale]}</div>
                   </div>
-                </div>
+                  {member.social && member.social.length > 0 ? (
+                    <ul className='flex flex-wrap items-center gap-2 justify-end'>
+                      {member.social.map((social) => (
+                        <SocialLink social={social} key={social.url} />
+                      ))}
+                    </ul>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </aside>
 
-                <div className='relative col-span-5 md:col-span-4 col-start-8 md:col-start-9'>
-                  <WithFrame className='hidden invisible dark:block dark:visible'>
+          <div className='p-0'>
+            <div className='grid grid-cols-2 gap-0'>
+              {ZOLPLAYERS_SORTED.map((member) => (
+                <WithFrame key={member.slug} className='relative w-full aspect-square'>
+                  <div className='hidden invisible dark:block dark:visible'>
                     <Image
                       src={member.portrait.dark}
                       alt={member.name}
-                      width={280}
-                      height={280}
-                      className='w-full aspect-square object-contain'
+                      width={600}
+                      height={600}
+                      className='w-full h-full object-cover'
                       placeholder='blur'
                     />
-                  </WithFrame>
-                  <WithFrame className='block visible dark:hidden dark:invisible'>
+                  </div>
+                  <div className='block visible dark:hidden dark:invisible'>
                     <Image
                       src={member.portrait.light}
                       alt={member.name}
-                      width={280}
-                      height={280}
-                      className='w-full aspect-square object-contain'
+                      width={600}
+                      height={600}
+                      className='w-full h-full object-cover'
                       placeholder='blur'
                     />
-                  </WithFrame>
-                </div>
-              </div>
-            </article>
-          )
-        })}
+                  </div>
+
+                  <div className='absolute inset-x-0 bottom-0 px-2 py-1.5 md:pl-3 md:pb-3 text-sm md:text-xs text-white/90 mix-blend-difference'>
+                    {/* Only first name */}
+                    {member.name.split(' ')[0]}
+                  </div>
+                </WithFrame>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </>
   )
