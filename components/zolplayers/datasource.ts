@@ -1,11 +1,17 @@
 import type { StaticImageData } from 'next/image'
 import type { SocialPlatform } from './social-platform'
-import cali from './images/cali-dithered.jpeg'
-import ethan from './images/ethan-dithered.jpeg'
-import larry from './images/larry-dithered.jpeg'
-import sonia from './images/sonia-dithered.jpeg'
-import timx from './images/timx-dithered.jpeg'
-import will from './images/will-dithered.jpeg'
+import caliDark from './headshots/dark/cali.jpeg'
+import ethanDark from './headshots/dark/ethan.jpeg'
+import larryDark from './headshots/dark/larry.jpeg'
+import soniaDark from './headshots/dark/sonia.jpeg'
+import timxDark from './headshots/dark/timx.jpeg'
+import willDark from './headshots/dark/will.jpeg'
+import caliLight from './headshots/light/cali.jpeg'
+import ethanLight from './headshots/light/ethan.jpeg'
+import larryLight from './headshots/light/larry.jpeg'
+import soniaLight from './headshots/light/sonia.jpeg'
+import timxLight from './headshots/light/timx.jpeg'
+import willLight from './headshots/light/will.jpeg'
 
 export interface Zolplayer {
   name: string
@@ -15,7 +21,8 @@ export interface Zolplayer {
     'zh-CN': string
   }
   portrait: {
-    url: StaticImageData
+    dark: StaticImageData
+    light: StaticImageData
   }
   social: {
     platform: SocialPlatform
@@ -28,11 +35,12 @@ export const ZOLPLAYERS = [
     name: 'Cali Castle',
     slug: 'cali',
     role: {
-      'zh-CN': '创始人 CEO、设计工程师',
-      en: 'Founder & CEO, Design Engineer',
+      'zh-CN': '创始人 CEO',
+      en: 'Founder & CEO',
     },
     portrait: {
-      url: cali,
+      dark: caliDark,
+      light: caliLight,
     },
     social: [
       { platform: 'twitter', url: 'https://x.com/thecalicastle' },
@@ -49,7 +57,8 @@ export const ZOLPLAYERS = [
       en: 'Full Stack Engineer',
     },
     portrait: {
-      url: ethan,
+      dark: ethanDark,
+      light: ethanLight,
     },
     social: [
       {
@@ -66,11 +75,12 @@ export const ZOLPLAYERS = [
     name: 'Larry Zhou',
     slug: 'larry',
     role: {
-      en: 'Product & Project Manager',
-      'zh-CN': '产品 & 项目经理',
+      en: 'Product Manager',
+      'zh-CN': '产品经理',
     },
     portrait: {
-      url: larry,
+      dark: larryDark,
+      light: larryLight,
     },
     social: [
       {
@@ -87,7 +97,8 @@ export const ZOLPLAYERS = [
       'zh-CN': '创始设计师',
     },
     portrait: {
-      url: sonia,
+      dark: soniaDark,
+      light: soniaLight,
     },
     social: [
       {
@@ -100,11 +111,12 @@ export const ZOLPLAYERS = [
     name: 'Timx Wong',
     slug: 'timx',
     role: {
-      en: 'Tech Manager, Full Stack Engineer',
-      'zh-CN': '技术经理, 全栈工程师',
+      en: 'Tech Manager',
+      'zh-CN': '技术经理',
     },
     portrait: {
-      url: timx,
+      dark: timxDark,
+      light: timxLight,
     },
     social: [],
   },
@@ -116,7 +128,8 @@ export const ZOLPLAYERS = [
       'zh-CN': '创始工程师',
     },
     portrait: {
-      url: will,
+      dark: willDark,
+      light: willLight,
     },
     social: [
       {

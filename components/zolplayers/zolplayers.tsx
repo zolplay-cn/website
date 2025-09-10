@@ -48,13 +48,23 @@ export function Zolplayers() {
                 </div>
 
                 <div className='relative col-span-5 md:col-span-4 col-start-8 md:col-start-9'>
-                  <WithFrame>
+                  <WithFrame className='hidden invisible dark:block dark:visible'>
                     <Image
-                      src={member.portrait.url}
+                      src={member.portrait.dark}
                       alt={member.name}
                       width={280}
                       height={280}
-                      className='w-full aspect-square object-contain mix-blend-hard-light dark:mix-blend-exclusion'
+                      className='w-full aspect-square object-contain'
+                      placeholder='blur'
+                    />
+                  </WithFrame>
+                  <WithFrame className='block visible dark:hidden dark:invisible'>
+                    <Image
+                      src={member.portrait.light}
+                      alt={member.name}
+                      width={280}
+                      height={280}
+                      className='w-full aspect-square object-contain'
                       placeholder='blur'
                     />
                   </WithFrame>
