@@ -12,6 +12,7 @@ import {
   PartnerLogoWall,
   PortalToOurWork,
   Red,
+  WeChatQRButton,
   WithFrame,
 } from './components/mdx'
 import CalendarBooker from './modules/contact/calendar-booker'
@@ -26,6 +27,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CTAButton,
     Gradient,
     WithFrame,
+    WeChatQRButton,
     Red,
     Green,
     PartnerLogoWall,

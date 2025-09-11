@@ -1,4 +1,4 @@
-import { PricingPlans, WithFrame, CTAButton } from '~/components/mdx'
+import { PricingPlans, WithFrame, CTAButton, WeChatQRButton } from '~/components/mdx'
 
 # 定价方案
 
@@ -10,8 +10,11 @@ import { PricingPlans, WithFrame, CTAButton } from '~/components/mdx'
 
 无论是订阅制还是项目制，最佳的下一步都是预约一次线上洽谈。我们将确认是否契合、对齐目标与时间线，并给出合适的方案建议，帮助你快速推进。
 
+<div className='flex gap-4 flex-col lg:flex-row'>
+  <CTAButton href="/work">我们的项目作品</CTAButton>
+  <WeChatQRButton />
+</div>
+
 <WithFrame className="my-6">
   <CalendarBooker />
 </WithFrame>
-
-<CTAButton href="/work">我们的项目作品</CTAButton>
