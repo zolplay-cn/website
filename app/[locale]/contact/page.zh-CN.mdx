@@ -1,4 +1,4 @@
-import { WithFrame, CTAButton } from '~/components/mdx'
+import { WithFrame, CTAButton, WeChatQRButton } from '~/components/mdx'
 import { ContactForm } from '~/modules/contact/contact-form'
 
 # 联系我们
@@ -17,7 +17,8 @@ import { ContactForm } from '~/modules/contact/contact-form'
 <div className='flex gap-4 flex-col lg:flex-row mb-12'>
   <CTAButton href='/work'>我们的项目作品</CTAButton>
   <CTAButton href='/services'>探索我们的服务</CTAButton>
-</div>
+  <WeChatQRButton />
+ </div>
 
 <WithFrame className="my-6">
   <CalendarBooker />
