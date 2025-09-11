@@ -10,6 +10,7 @@
     "Work": "Work",
     "Contact": "Contact",
     "Gallery": "Gallery",
+    "Resources": "Resources",
     "Privacy": "Privacy Policy",
     "Terms": "Terms of Use",
     "ToggleNav": "Toggle navigation"
@@ -31,7 +32,7 @@
       "Title": "Zolplay (Design Studio)",
       "TitleTemplate": "%s — Zolplay (Design Studio)",
       "OpenGraphTitle": "A design studio for people with high standards.",
-      "Description": "A design studio for people with high standards who care about taste, speed, and outcomes",
+      "Description": "A design studio for people with high standards.",
       "Keywords": "Zolplay,Design Studio,Brand Design,Product Design,UI UX,Startup Design,Launch Design,Illustrations,Brand Strategy,Design Systems,Social Assets,Content & Copywriting,SEO,Motion & Video,Illustration,Merch & Swag"
     }
   },

@@ -98,12 +98,12 @@ export function Sidebar({ className }: { className?: string }) {
             href='/'
             aria-label={t('Title')}
             className={clsxm(
-              'group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-fg)/20',
+              'group relative px-3.5 py-2.5 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-start items-center gap-1.5 border-y border-(--sidebar-fg)/20',
               '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
             )}
           >
-            <LogoHelmetFilled className='size-6' />
-            <span className='text-xl font-bold tracking-tight'>Zolplay</span>
+            <LogoHelmetFilled className='size-4.5' />
+            <span className='text-sm font-medium tracking-tight'>Zolplay</span>
             <svg
               width='5'
               height='5'
@@ -189,6 +189,7 @@ export function Sidebar({ className }: { className?: string }) {
 
 function NavMenu() {
   const t = useTranslations('NavMenu')
+  const [resourcesOpen, setResourcesOpen] = React.useState(false)
 
   return (
     <NavigationMenu.Root className='relative z-50 ml-0 md:pt-6' orientation='vertical'>
@@ -202,6 +203,50 @@ function NavMenu() {
             <span>{t(label)}</span>
           </MenuLink>
         ))}
+
+        {/* Resources submenu */}
+        <li className='border-t border-(--sidebar-fg)/20 w-full'>
+          <button
+            type='button'
+            onClick={() => setResourcesOpen((v) => !v)}
+            aria-expanded={resourcesOpen}
+            aria-controls='resources-submenu'
+            className={clsxm(
+              'relative w-full text-left flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) outline-none transition-colors duration-75 hover:text-stone-800 dark:hover:text-stone-100',
+              'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
+            )}
+          >
+            <span className='relative z-40 flex items-center space-x-1.5 text-sm tracking-tight'>
+              <svg
+                className={clsxm('size-4.5 transition-transform', resourcesOpen && 'rotate-90')}
+                viewBox='0 0 20 20'
+                fill='currentColor'
+                aria-hidden='true'
+              >
+                <path d='M7 5l6 5-6 5V5z' />
+              </svg>
+              <span>{t('Resources')}</span>
+            </span>
+          </button>
+
+          {resourcesOpen ? (
+            <ul id='resources-submenu' className='pl-9 pr-3 pb-2 pt-1.5 space-y-1.5 list-disc'>
+              {[
+                { href: '/privacy', label: t('Privacy') },
+                { href: '/terms', label: t('Terms') },
+              ].map((item) => (
+                <li key={item.href} className='marker:text-(--sidebar-fg)/40 ml-3'>
+                  <Link
+                    href={item.href}
+                    className='block text-(--sidebar-fg) text-sm hover:text-stone-800 dark:hover:text-stone-100'
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </li>
       </NavigationMenu.List>
     </NavigationMenu.Root>
   )
