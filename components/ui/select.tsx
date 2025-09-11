@@ -11,7 +11,8 @@ const Group = SelectPrimitive.Group
 
 const Value = SelectPrimitive.Value
 
-function Trigger({ className, children, ...props }: SelectPrimitive.SelectTriggerProps) {
+function Trigger({ className, children, ...props }: SelectPrimitive.SelectTriggerProps & { noChevron?: boolean }) {
+  const { noChevron, ...rest } = props
   return (
     <SelectPrimitive.Trigger
       className={clsxm(
@@ -19,10 +20,10 @@ function Trigger({ className, children, ...props }: SelectPrimitive.SelectTrigge
         'tracking-tight',
         className,
       )}
-      {...props}
+      {...rest}
     >
       {children}
-      <BiChevronDown className='h-4 w-4 opacity-50' />
+      {!noChevron && <BiChevronDown className='h-4 w-4 opacity-50' />}
     </SelectPrimitive.Trigger>
   )
 }
