@@ -10,6 +10,8 @@
     "Work": "Work",
     "Contact": "Contact",
     "Gallery": "Gallery",
+    "Privacy": "Privacy Policy",
+    "Terms": "Terms of Use",
     "ToggleNav": "Toggle navigation"
   },
   "Themes": {
@@ -26,11 +28,11 @@
   "Root": {
     "Metadata": {
       "SiteName": "Zolplay",
-      "Title": "Zolplay (Creative Studio)",
-      "TitleTemplate": "%s — Zolplay (Creative Studio)",
-      "OpenGraphTitle": "A creative studio for people with high standards.",
-      "Description": "A creative studio for people with high standards who care about taste, speed, and outcomes",
-      "Keywords": "Zolplay,Creative Studio,Brand Design,Product Design,UI UX,Startup Design,Launch Design,Illustrations,Brand Strategy,Design Systems,Social Assets,Content & Copywriting,SEO,Motion & Video,Illustration,Merch & Swag"
+      "Title": "Zolplay (Design Studio)",
+      "TitleTemplate": "%s — Zolplay (Design Studio)",
+      "OpenGraphTitle": "A design studio for people with high standards.",
+      "Description": "A design studio for people with high standards who care about taste, speed, and outcomes",
+      "Keywords": "Zolplay,Design Studio,Brand Design,Product Design,UI UX,Startup Design,Launch Design,Illustrations,Brand Strategy,Design Systems,Social Assets,Content & Copywriting,SEO,Motion & Video,Illustration,Merch & Swag"
     }
   },
   "About": {
@@ -200,7 +202,7 @@
     "OpenGraphTitle": "Work — Our Portfolio",
     "PageTitle": "Work — Our Portfolio",
     "PageDescription": "See our most impactful brand and product projects—work that wins users and moves metrics across startups and enterprises.",
-    "PageKeywords": "Zolplay work, design portfolio, case studies, brand design, product design, UI UX, startup design, launch design, creative studio",
+    "PageKeywords": "Zolplay work, design portfolio, case studies, brand design, product design, UI UX, startup design, launch design, design studio",
     "Heading": "Projects showroom: witness our <gradient>exceptional software delight</gradient> in action.",
     "Description": "Explore our portfolios and see for yourself the exceptional software projects we've had the pleasure of working on. Discover how we can help you bring your digital vision to reality and exceed your expectations.",
     "Intro": "Welcome to our portfolios, where we showcase some of the <gradient>next-generation software projects</gradient> we've had the pleasure of working on. Our team of skilled developers and designers have tackled a wide range of challenges and brought our clients' ideas to life. We're proud of the work we've done and are excited to share it with you.<br></br><br></br>At our core, we believe that exceptional software should <b>not only function flawlessly</b>, but also <green>delight users with its design and ease of use</green>. That's why each project we take on is more than just code to us - it's an opportunity to create something that truly <red>makes a difference</red>. We work closely with our clients to understand their needs and goals, and then use our expertise to craft software experiences that exceed their expectations. Our portfolio is a testament to our commitment to excellence and we look forward to continuing to create amazing software for years to come.",
