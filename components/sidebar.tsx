@@ -241,13 +241,13 @@ function NavMenu() {
           </button>
 
           {resourcesOpen ? (
-            <ul id='resources-submenu' className='pl-7 pr-3 pb-2 pt-1.5 space-y-1.5 -mt-3.5 list-disc'>
+            <ul id='resources-submenu' className='pl-7 pr-3 pb-2 pt-1.5 space-y-1.5 -mt-3.5 list-decimal'>
               {[
                 { href: '/llms.txt', label: t('LLMs'), locale: 'en' },
                 { href: '/privacy', label: t('Privacy') },
                 { href: '/terms', label: t('Terms') },
               ].map((item) => (
-                <li key={item.href} className='marker:text-(--sidebar-fg)/40 ml-3'>
+                <li key={item.href} className='marker:text-(--sidebar-fg)/40 marker:text-xs ml-3'>
                   <Link
                     locale={item.locale ?? undefined}
                     href={item.href}
