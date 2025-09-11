@@ -4,9 +4,10 @@ import type { ComponentProps } from '@zolplay/react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { clsxm } from '@zolplay/utils'
 import { motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import NextLink from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { Drawer } from 'vaul'
 import { ZpAboutIcon } from '~/components/icons/ZpAboutIcon'
@@ -23,6 +24,7 @@ import { LocaleSelector } from '~/components/locale-selector'
 import { LogoHelmetFilled } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
+import { Select } from '~/components/ui/select'
 import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
@@ -98,12 +100,12 @@ export function Sidebar({ className }: { className?: string }) {
             href='/'
             aria-label={t('Title')}
             className={clsxm(
-              'group relative p-4 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-2 border-y border-(--sidebar-fg)/20',
+              'group relative px-3.5 py-2.5 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-start items-center gap-1.5 border-y border-(--sidebar-fg)/20',
               '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
             )}
           >
-            <LogoHelmetFilled className='size-6' />
-            <span className='text-xl font-bold tracking-tight'>Zolplay</span>
+            <LogoHelmetFilled className='size-4.5' />
+            <span className='text-sm font-medium tracking-tight'>Zolplay</span>
             <svg
               width='5'
               height='5'
@@ -189,6 +191,7 @@ export function Sidebar({ className }: { className?: string }) {
 
 function NavMenu() {
   const t = useTranslations('NavMenu')
+  const [resourcesOpen, setResourcesOpen] = React.useState(false)
 
   return (
     <NavigationMenu.Root className='relative z-50 ml-0 md:pt-6' orientation='vertical'>
@@ -202,6 +205,61 @@ function NavMenu() {
             <span>{t(label)}</span>
           </MenuLink>
         ))}
+
+        {/* Resources submenu */}
+        <li className='border-t border-(--sidebar-fg)/20 w-full'>
+          <button
+            type='button'
+            onClick={() => setResourcesOpen((v) => !v)}
+            aria-expanded={resourcesOpen}
+            aria-controls='resources-submenu'
+            className={clsxm(
+              'relative w-full text-left flex select-none p-3.5 font-medium leading-none text-(--sidebar-fg) outline-none transition-colors duration-75 hover:text-stone-800 dark:hover:text-stone-100',
+              'focus-visible:outline-stone-300 dark:focus-visible:outline-stone-700',
+            )}
+          >
+            <span className='relative z-40 flex items-center space-x-1.5 text-sm tracking-tight'>
+              <svg
+                aria-hidden='true'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+                className={clsxm('size-4.5 transition-transform', resourcesOpen && 'rotate-90')}
+              >
+                <g fill='none'>
+                  <path
+                    d='M10 8.14a20.4 20.4 0 0 1 3.894 3.701.47.47 0 0 1 0 .596A20.4 20.4 0 0 1 10 16.139'
+                    fill='none'
+                    stroke='currentColor'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                  />
+                </g>
+              </svg>
+              <span>{t('Resources')}</span>
+            </span>
+          </button>
+
+          {resourcesOpen ? (
+            <ul id='resources-submenu' className='pl-7 pr-3 pb-2 pt-1.5 space-y-1.5 -mt-3.5 list-disc'>
+              {[
+                { href: '/llms.txt', label: t('LLMs'), locale: 'en' },
+                { href: '/privacy', label: t('Privacy') },
+                { href: '/terms', label: t('Terms') },
+              ].map((item) => (
+                <li key={item.href} className='marker:text-(--sidebar-fg)/40 ml-3'>
+                  <Link
+                    locale={item.locale ?? undefined}
+                    href={item.href}
+                    className='block text-(--sidebar-fg) text-xs hover:text-stone-800 dark:hover:text-stone-100'
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </li>
       </NavigationMenu.List>
     </NavigationMenu.Root>
   )
@@ -251,6 +309,8 @@ export function NavBar() {
   const tMenu = useTranslations('NavMenu')
   const pathname = usePathname()
   const isLinkActive = (href: string) => href === pathname
+  const locale = useLocale()
+  const router = useRouter()
 
   const [isOpen, setIsOpen] = React.useState(false)
   React.useEffect(() => {
@@ -344,27 +404,85 @@ export function NavBar() {
 
                     {/* Navigation */}
                     <ul
-                      className='relative mb-2 grid grid-cols-3 gap-6 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
+                      className='relative mb-2 grid grid-cols-4 gap-4 before:absolute before:left-1 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:top-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) -left-1 -mr-2'
                       data-label='NAVIGATION'
                     >
                       {links.map(({ href, label, icon: Icon }) => (
                         <li
                           key={label}
                           className={clsxm(
-                            'flex relative h-18 items-center before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) data-active:**:data-highlight:opacity-20',
+                            'flex relative h-14 items-center before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) data-active:**:data-highlight:opacity-20',
                             'text-(--navbar-fg)',
-                            'data-active:text-black dark:data-active:text-white',
+                            'data-active:outline data-active:outline-black/30 dark:data-active:outline-white/20 data-active:bg-black/10 dark:data-active:bg-white/10 data-active:text-black dark:data-active:text-white',
                           )}
                           data-active={isLinkActive(href) ? 'true' : null}
                         >
                           <div className='absolute right-0 top-0 w-px h-full bg-(--grid-border-color)' />
                           <div className='absolute left-0 top-0 w-px h-full bg-(--grid-border-color)' />
-                          <Link className='flex flex-col justify-between w-full h-full' href={href}>
-                            <Icon className='size-6' />
-                            <span className='text-sm font-medium'>{tMenu(label)}</span>
+                          <Link className='flex flex-col justify-between w-full h-full p-0.5' href={href}>
+                            <Icon className='size-5' />
+                            <span className='text-[13px] font-medium tracking-tight'>{tMenu(label)}</span>
                           </Link>
                         </li>
                       ))}
+
+                      {/* Resources dropdown (mirrors NavMenu Resources) */}
+                      {(() => {
+                        const resources = [
+                          { href: '/llms.txt', label: tMenu('LLMs'), locale: 'en' as const },
+                          { href: '/privacy', label: tMenu('Privacy') },
+                          { href: '/terms', label: tMenu('Terms') },
+                        ]
+                        const isResourcesActive = resources.some((r) => r.href === pathname)
+
+                        return (
+                          <li
+                            className={clsxm(
+                              'flex relative h-14 items-center before:absolute before:top-0 before:h-px before:w-[200vw] before:-left-[100vw] before:bg-(--grid-border-color) after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color) data-active:**:data-highlight:opacity-20',
+                              'text-(--navbar-fg)',
+                              'data-active:outline data-active:outline-black/30 dark:data-active:outline-white/20 data-active:bg-black/10 dark:data-active:bg-white/10 data-active:text-black dark:data-active:text-white',
+                            )}
+                            data-active={isResourcesActive ? 'true' : null}
+                          >
+                            <div className='absolute right-0 top-0 w-px h-full bg-(--grid-border-color)' />
+                            <div className='absolute left-0 top-0 w-px h-full bg-(--grid-border-color)' />
+                            <Select.Root
+                              onValueChange={(value) => {
+                                const targetLocale = value === '/llms.txt' ? 'en' : (locale as string)
+                                router.push(`/${targetLocale}${value}`)
+                              }}
+                            >
+                              <Select.Trigger
+                                aria-label={tMenu('Resources')}
+                                className={clsxm(
+                                  'h-full w-full rounded-none border-0 bg-transparent p-0.5 text-left shadow-none items-start',
+                                  'flex flex-col justify-between',
+                                )}
+                                noChevron
+                              >
+                                {/* Simple icon placeholder to match grid style */}
+                                <span className='flex items-center'>
+                                  <svg aria-hidden='true' viewBox='0 0 24 24' className='size-5'>
+                                    <g fill='none' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round'>
+                                      <path d='M5 7h14' />
+                                      <path d='M5 12h14' />
+                                      <path d='M5 17h10' />
+                                    </g>
+                                  </svg>
+                                </span>
+                                <span className='text-[13px] font-medium tracking-tight'>{tMenu('Resources')}</span>
+                              </Select.Trigger>
+                              <Select.Content position='popper'>
+                                {resources.map((item) => (
+                                  <Select.Item key={item.href} value={item.href}>
+                                    {item.label}
+                                  </Select.Item>
+                                ))}
+                              </Select.Content>
+                            </Select.Root>
+                          </li>
+                        )
+                      })()}
                     </ul>
 
                     {/* Social */}
