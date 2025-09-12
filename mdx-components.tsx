@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks-extra/no-unnecessary-use-prefix */
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
-import Balancer from 'react-wrap-balancer'
 import {
   BackgroundVideo,
   Capabilities,
@@ -38,7 +37,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     FAQ,
     FAQItem,
     DefaultFAQ,
-    Balancer,
     Link,
     Image: FramedImage,
     NakedImage: NextImage,
