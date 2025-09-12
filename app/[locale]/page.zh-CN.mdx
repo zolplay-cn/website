@@ -1,10 +1,12 @@
 import headline from './zolplay-headline-illustration.png'
 import mantra from './mantra.webp'
 import founderTalking from './founder-talking.webp'
+import { PricingPlans } from '~/components/mdx'
+import { Zolplayers } from '~/components/zolplayers'
 
 <NakedImage src={headline} alt='佐玩头图' priority className='dark:invert-90' />
 
-# 一家专为高标准人士量身定制的<Gradient>设计工作室</Gradient>
+# 一家专为高标准人士打造的<Gradient>设计工作室</Gradient>
 
 总部位于中国深圳。自 2021 年以来，我们一直在打造产品、品牌与数字体验。
 
@@ -24,6 +26,8 @@ import founderTalking from './founder-talking.webp'
 
 <Capabilities />
 
+---
+
 # 无论团队的规模我们都深受信赖
 
 在全球各地，有雄心的品牌与我们携手合作以提升设计影响力。我们已累计帮助合作伙伴融资**超过 500 万美元**助力品牌成长。
@@ -32,17 +36,26 @@ import founderTalking from './founder-talking.webp'
 
 <CTAButton href='/work'>查看以往作品案例</CTAButton>
 
-<BackgroundVideo src='/vids/partner-logos.mp4' aspectRatio='16/9' className='my-6' />
+---
 
-# 设计无畏，金树成荫
+# 定价方案
 
-我们的口号是：「<Gradient>Design bold. Ship gold.</Gradient>」
+我们提供三种标准月度订阅方案：Creative Plus、Creative Pro、和 Creative Max。根据你的节奏与目标，选择最适合的并可随时升级。我们也支持按项目报价，请联系预约沟通以获取详细方案。
 
-当 AI 能使交差变得迅速，**过目不忘的关键**便是设计。我们有深度协作的激情，将产品从能用就行转变为非常好用，进而吸引目光、推动指标、赢得用户。在 AI 泛滥的时代，设计才是**终极差异化**的所在。
+<PricingPlans />
 
-我们着迷于能影响用户行为的细微、动人、流畅的每一处。与其仅仅交付功能，我们则更是在打造体验。如果你想要真正地脱颖而出，那么请坚定以设计为导向吧。
+# 即刻启动你的项目
 
-<Image src={mantra} alt='我们的口号：设计无畏，金树成荫' />
+无论是订阅制还是项目制，最佳的下一步都是预约一次线上洽谈。我们将确认是否契合、对齐目标与时间线，并给出合适的方案建议，帮助你快速推进。
+
+<div className='flex gap-4 flex-col lg:flex-row'>
+  <CTAButton href="/work">我们的项目作品</CTAButton>
+  <WeChatQRButton />
+</div>
+
+<WithFrame className="my-6">
+  <CalendarBooker />
+</WithFrame>
 
 # 在公众视野下成长至今
 
@@ -56,3 +69,7 @@ import founderTalking from './founder-talking.webp'
 <BackgroundVideo src='/vids/hangouts-reel.mp4' aspectRatio='4/3' />
 
 <BackgroundVideo src='/vids/swag-shop-reel.mp4' aspectRatio='16/9' />
+
+---
+
+<Zolplayers />

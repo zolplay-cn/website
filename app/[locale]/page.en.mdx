@@ -1,6 +1,8 @@
 import headline from './zolplay-headline-illustration.png'
 import mantra from './mantra.webp'
 import founderTalking from './founder-talking.webp'
+import { PricingPlans } from '~/components/mdx'
+import { Zolplayers } from '~/components/zolplayers'
 
 <NakedImage src={headline} alt='Zolplay Headline Illustration' priority className='dark:invert-90' />
 
@@ -24,7 +26,7 @@ Wherever you’re starting, we align the pieces and take your vision from **firs
 
 We solve challenges at 3 zoom levels—**Brand**, **Product**, and **Growth**—so ideas move from spark to scale with no handoffs.
 
-<CTAButton href='/services'>Explore our services</CTAButton>
+<Capabilities />
 
 ---
 
@@ -36,23 +38,25 @@ Ambitious brands across the world teamed up with us to elevate their design pres
 
 <CTAButton href='/work'>See our past work</CTAButton>
 
-<WithFrame>
-  <BackgroundVideo src='/vids/partner-logos.mp4' aspectRatio='16/9' className='my-6' />
-</WithFrame>
-
-# Design bold. Ship gold
-
-Our mantra: <Gradient>Design bold. Ship gold.</Gradient>
-
-AI made shipping fast; design makes you **unforgettable**. We collabed with ambitious teams and catapulted products from functional to beloved—work that wins users, moves metrics, and turns heads. In an AI-saturated market, design is the **ultimate differentiator.**
-
-We obsess over the details that change behavior—clarity, emotion, flow. While others ship features, we craft experiences. If you’re serious about standing out, lead with design and ship with confidence.
-
-<Image src={mantra} alt='Mantra: design bold, ship gold.' />
-
-<CTAButton href='/pricing'>Start your project today</CTAButton>
-
 ---
+
+# Pricing plans
+
+We offer three standard monthly tiers—Creative Plus, Creative Pro, and Creative Max. Choose the pace that matches your goals and scale up anytime. We also support project‑based quotes—book a discovery call to get a custom plan.
+
+<PricingPlans />
+
+# Start your project today
+
+Whether you prefer a monthly subscription or a scoped project, the best next step is a quick discovery call. We’ll confirm fit, align on goals and timeline, and recommend the right plan—then get you moving fast.
+
+If our design resonates with you and you’re excited by the craft and care we bring, we’d love to meet—book a short discovery call and let’s imagine what we can create together.
+
+<CTAButton href="/work">See our past projects</CTAButton>
+
+<WithFrame className="my-6">
+  <CalendarBooker />
+</WithFrame>
 
 # Built in public, together
 
@@ -71,3 +75,7 @@ tossed.
 <WithFrame>
   <BackgroundVideo src='/vids/swag-shop-reel.mp4' aspectRatio='16/9' />
 </WithFrame>
+
+---
+
+<Zolplayers />
