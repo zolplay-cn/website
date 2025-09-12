@@ -86,6 +86,9 @@ importers:
       sonner:
         specifier: ^2.0.3
         version: 2.0.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      unicornstudio-react:
+        specifier: github:zolplay-labs/unicornstudio-react#1.4.30
+        version: https://codeload.github.com/zolplay-labs/unicornstudio-react/tar.gz/5ad187511f0c91d1992dadabb44fdbcfdccb1949(next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react@19.1.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -4704,6 +4707,18 @@ packages:
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
+
+  unicornstudio-react@https://codeload.github.com/zolplay-labs/unicornstudio-react/tar.gz/5ad187511f0c91d1992dadabb44fdbcfdccb1949:
+    resolution: {tarball: https://codeload.github.com/zolplay-labs/unicornstudio-react/tar.gz/5ad187511f0c91d1992dadabb44fdbcfdccb1949}
+    version: 1.4.30
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      next: '*'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    peerDependenciesMeta:
+      next:
+        optional: true
 
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
@@ -10142,6 +10157,13 @@ snapshots:
       tiny-inflate: 1.0.3
 
   unicorn-magic@0.1.0: {}
+
+  unicornstudio-react@https://codeload.github.com/zolplay-labs/unicornstudio-react/tar.gz/5ad187511f0c91d1992dadabb44fdbcfdccb1949(next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+    optionalDependencies:
+      next: 15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
 
   unified@11.0.5:
     dependencies:
