@@ -77,9 +77,6 @@ importers:
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@19.1.1)
-      react-wrap-balancer:
-        specifier: ^1.1.1
-        version: 1.1.1(react@19.1.1)
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -4199,11 +4196,6 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
-
-  react-wrap-balancer@1.1.1:
-    resolution: {integrity: sha512-AB+l7FPRWl6uZ28VcJ8skkwLn2+UC62bjiw8tQUrZPlEWDVnR9MG0lghyn7EyxuJSsFEpht4G+yh2WikEqQ/5Q==}
-    peerDependencies:
-      react: '>=16.8.0 || ^17.0.0 || ^18'
 
   react@19.1.1:
     resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
@@ -9529,10 +9521,6 @@ snapshots:
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.1.9
-
-  react-wrap-balancer@1.1.1(react@19.1.1):
-    dependencies:
-      react: 19.1.1
 
   react@19.1.1: {}
 

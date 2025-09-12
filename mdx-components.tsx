@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks-extra/no-unnecessary-use-prefix */
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
-import Balancer from 'react-wrap-balancer'
 import {
   BackgroundVideo,
   Capabilities,
@@ -13,7 +12,6 @@ import {
   Gradient,
   Green,
   PartnerLogoWall,
-  PortalToOurWork,
   Red,
   WeChatQRButton,
   WithFrame,
@@ -34,11 +32,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Red,
     Green,
     PartnerLogoWall,
-    PortalToOurWork,
     FAQ,
     FAQItem,
     DefaultFAQ,
-    Balancer,
     Link,
     Image: FramedImage,
     NakedImage: NextImage,

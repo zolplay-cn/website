@@ -403,7 +403,7 @@ export function NavBar() {
                     <div className='absolute -right-1 -top-[100vh] w-px h-[200vh] bg-(--grid-border-color)' />
 
                     <Drawer.Title
-                      className='font-medium relative mb-6 text-2xl text-gray-900 dark:text-white tracking-tight before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
+                      className='font-medium relative mb-6 text-2xl text-gray-900 dark:text-white tracking-tight whitespace-pre-line before:absolute before:left-0 before:-top-3 before:font-mono before:text-xs before:text-(--navbar-fg)/50 before:content-[attr(data-label)] before:tracking-wide before:scale-65 before:origin-left before:select-none before:pointer-events-none before:opacity-40 after:absolute after:bottom-0 after:h-px after:w-[200vw] after:-right-[100vw] after:bg-(--grid-border-color)'
                       data-label='TAGLINE'
                     >
                       {t('OpenGraphTitle')}

@@ -35,7 +35,6 @@
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.55.0",
     "react-icons": "^5.5.0",
-    "react-wrap-balancer": "^1.1.1",
     "server-only": "^0.0.1",
     "sonner": "^2.0.3",
     "unicornstudio-react": "github:zolplay-labs/unicornstudio-react#1.4.30",
