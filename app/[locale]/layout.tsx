@@ -7,6 +7,7 @@ import { ThemeProvider } from 'next-themes'
 import localFont from 'next/font/local'
 import { Suspense } from 'react'
 import { Background } from '~/components/background'
+import { ChinaDomainBanner } from '~/components/china-domain-banner'
 import { Footer } from '~/components/footer'
 import { LenisProvider } from '~/components/lenis-provider'
 import { Rulers } from '~/components/rulers'
@@ -98,6 +99,8 @@ export default async function RootLayout({ children, params }: { children: React
 
       <PostHogProvider>
         <body className='bg-neutral-50 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300'>
+          {/* Show China domain recommendation banner when applicable */}
+          <ChinaDomainBanner locale={locale} />
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <NextIntlClientProvider>
               <Background />
