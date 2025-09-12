@@ -1,7 +1,8 @@
 import { clsxm } from '@zolplay/utils'
 import { useLocale, useTranslations } from 'next-intl'
-import { WithFrame } from '~/components/mdx'
-import WordmarkMorphScene from '~/modules/fx/wordmark-morph-scene'
+import Image from 'next/image'
+import Wordmark from '~/public/images/drawn-wordmark.png'
+import { WithFrame } from './mdx'
 
 export function Footer() {
   const t = useTranslations('Copyright')
@@ -15,8 +16,8 @@ export function Footer() {
         'after:absolute after:bottom-0 after:right-[-100vw] after:w-[200vw] after:h-px after:bg-(--grid-border-color)',
       )}
     >
-      <WithFrame className='w-full relative aspect-[35/12] h-auto'>
-        <WordmarkMorphScene className='mix-blend-difference dark:mix-blend-exclusion' />
+      <WithFrame className='p-6 my-4'>
+        <Image src={Wordmark} alt='Zolplay Wordmark' className='opacity-50 w-full dark:invert' placeholder='blur' />
       </WithFrame>
 
       <p className='my-6 text-sm opacity-50'>
