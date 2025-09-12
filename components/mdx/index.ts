@@ -1,6 +1,7 @@
 export * from './BackgroundVideo'
 export * from './Capabilities'
 export * from './CTAButton'
+export * from './FAQ'
 export * from './FramedImage'
 export * from './Gradient'
 export * from './PartnerLogoWall'
