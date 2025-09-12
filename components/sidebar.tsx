@@ -3,7 +3,7 @@
 import type { ComponentProps } from '@zolplay/react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { clsxm } from '@zolplay/utils'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import { useLocale, useTranslations } from 'next-intl'
 
 import NextLink from 'next/link'
@@ -238,25 +238,34 @@ function NavMenu() {
             </span>
           </button>
 
-          {resourcesOpen ? (
-            <ul id='resources-submenu' className='pl-7 pr-3 pb-2 pt-1.5 space-y-1.5 -mt-3.5 list-decimal'>
-              {[
-                { href: '/llms.txt', label: t('LLMs'), locale: 'en' },
-                { href: '/privacy', label: t('Privacy') },
-                { href: '/terms', label: t('Terms') },
-              ].map((item) => (
-                <li key={item.href} className='marker:text-(--sidebar-fg)/40 marker:text-xs ml-3'>
-                  <Link
-                    locale={item.locale ?? undefined}
-                    href={item.href}
-                    className='block text-(--sidebar-fg) text-xs hover:text-stone-800 dark:hover:text-stone-100'
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          <AnimatePresence initial={false}>
+            {resourcesOpen ? (
+              <motion.ul
+                id='resources-submenu'
+                className='pl-7 pr-3 pb-2 pt-1.5 space-y-1.5 -mt-3.5 list-decimal overflow-hidden'
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25, ease: 'easeInOut' }}
+              >
+                {[
+                  { href: '/llms.txt', label: t('LLMs'), locale: 'en' },
+                  { href: '/privacy', label: t('Privacy') },
+                  { href: '/terms', label: t('Terms') },
+                ].map((item) => (
+                  <li key={item.href} className='marker:text-(--sidebar-fg)/40 marker:text-xs ml-3'>
+                    <Link
+                      locale={item.locale ?? undefined}
+                      href={item.href}
+                      className='block text-(--sidebar-fg) text-xs hover:text-stone-800 dark:hover:text-stone-100'
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </motion.ul>
+            ) : null}
+          </AnimatePresence>
         </li>
       </NavigationMenu.List>
     </NavigationMenu.Root>
