@@ -10,7 +10,6 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { Drawer } from 'vaul'
-import { ZpAboutIcon } from '~/components/icons/ZpAboutIcon'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
 import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
@@ -30,10 +29,9 @@ import { Link, usePathname } from '~/modules/i18n/navigation'
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
   { href: '/work', label: 'Work', icon: ZpWorkIcon },
+  { href: '/services', label: 'Services', icon: ZpSignboardIcon },
   // { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
   { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
-  { href: '/services', label: 'Services', icon: ZpSignboardIcon },
-  { href: '/about', label: 'About', icon: ZpAboutIcon },
   { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
   // { href: '/blog', label: 'Blog', icon: ZpBlogIcon },
 ]

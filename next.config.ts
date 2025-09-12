@@ -58,6 +58,11 @@ const nextConfig: NextConfig = {
         destination: '/work/live-aware',
         permanent: true,
       },
+      {
+        source: '/about',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
   // This is required to support PostHog trailing slash API requests
