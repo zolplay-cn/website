@@ -1,0 +1,113 @@
+---
+title: 佐玩品牌规范
+description: 关于规范而专业地展示 Zolplay（佐玩）品牌的资源与说明。
+---
+
+import { ButtonLink } from '~/components/ui/button'
+import { LogoHelmetFilled } from '~/components/logo'
+
+<small className='block text-indigo-500 font-medium tracking-wide mb-2'>Brand</small>
+
+# 佐玩品牌规范
+
+帮助你在各类渠道中一致而专业地展示 Zolplay 品牌。
+
+<div className='not-prose mt-6 mb-8'>
+  <ButtonLink href='#assets' size='lg'>下载品牌资产</ButtonLink>
+  <span className='ml-2 text-xs text-neutral-500 dark:text-neutral-400'>下方提供 SVG 文件</span>
+
+</div>
+
+## 命名
+
+“Zolplay” 为一个单词，首字母大写 “Z”。它既是我们公司的名称，也是我们工作室的名称。对于具体的方法论或发布，请作为专有名词书写（例如 “Zolplay Method”）。
+
+## 使用规范
+
+为品牌图形留出足够留白。可以大可以小，但要能呼吸、不要拥挤。请勿拉伸、倾斜、随意改色或更改比例。
+
+<aside className='not-prose mt-6 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 p-4 text-[13px] leading-6'>
+  <b>友情提示：</b> 所提供的图形受版权与知识产权保护。未经授权不得修改或组合，不得以暗示背书的方式使用。如需咨询，请发送邮件至
+  {' '}<a className='underline' href='mailto:brand@zolplay.com'>brand@zolplay.com</a>。
+</aside>
+
+## 品牌字标（Wordmark）
+
+在大多数品牌露出场景下，优先使用字标。推荐使用下方配色的单色版本。
+
+<div className='not-prose grid grid-cols-1 sm:grid-cols-3 gap-4 my-5'>
+  <div className='rounded-lg border border-(--grid-border-color) bg-[color:oklch(63.37%_0.16_276.54)] p-6 flex items-center justify-center'>
+    <img src='/brand/wordmark.svg' alt='Zolplay Wordmark' className='w-[82%] invert-[.98]' />
+  </div>
+  <div className='rounded-lg border border-(--grid-border-color) bg-neutral-900 p-6 flex items-center justify-center'>
+    <img src='/brand/wordmark.svg' alt='Zolplay Wordmark' className='w-[82%] invert' />
+  </div>
+  <div className='rounded-lg border border-(--grid-border-color) bg-neutral-50 p-6 flex items-center justify-center'>
+    <img src='/brand/wordmark.svg' alt='Zolplay Wordmark' className='w-[82%]' />
+  </div>
+
+</div>
+
+## 品牌图标（Logomark）
+
+在仅有图标或空间受限的场景下，可使用品牌图标。一般情况下，字标具有更强的识别度。
+
+<div className='not-prose grid grid-cols-1 sm:grid-cols-3 gap-4 my-5'>
+  <div className='rounded-lg border border-(--grid-border-color) bg-[color:oklch(63.37%_0.16_276.54)] p-6 flex items-center justify-center'>
+    <div className='w-20 h-20 rounded-md bg-white/95 text-neutral-900 flex items-center justify-center'>
+      <LogoHelmetFilled className='w-9 h-9' />
+    </div>
+  </div>
+  <div className='rounded-lg border border-(--grid-border-color) bg-neutral-900 p-6 flex items-center justify-center'>
+    <div className='w-20 h-20 rounded-md bg-white/95 text-neutral-900 flex items-center justify-center'>
+      <LogoHelmetFilled className='w-9 h-9' />
+    </div>
+  </div>
+  <div className='rounded-lg border border-(--grid-border-color) bg-neutral-50 p-6 flex items-center justify-center'>
+    <div className='w-20 h-20 rounded-md bg-neutral-900 text-white flex items-center justify-center'>
+      <LogoHelmetFilled className='w-9 h-9' />
+    </div>
+  </div>
+
+</div>
+
+## 品牌色
+
+主品牌色为略微去饱和的蓝色，适合浅色与深色背景。单色字标推荐使用以下配色，而品牌蓝通常作为背景色使用。
+
+<div className='not-prose grid grid-cols-1 sm:grid-cols-3 gap-4 my-6'>
+  <div className='rounded-xl border border-(--grid-border-color) overflow-hidden'>
+    <div className='h-40 bg-[color:#5E6AD2]' />
+    <div className='p-4 text-sm'>
+      <b className='block'>Magic Blue</b>
+      <div className='text-neutral-500 dark:text-neutral-400 mt-1'>RGB 94, 106, 210<br/>#5E6AD2</div>
+    </div>
+  </div>
+  <div className='rounded-xl border border-(--grid-border-color) overflow-hidden'>
+    <div className='h-40 bg-[color:#F4F5F8]' />
+    <div className='p-4 text-sm'>
+      <b className='block'>Mercury White</b>
+      <div className='text-neutral-500 dark:text-neutral-400 mt-1'>RGB 244, 245, 248<br/>#F4F5F8</div>
+    </div>
+  </div>
+  <div className='rounded-xl border border-(--grid-border-color) overflow-hidden'>
+    <div className='h-40 bg-[color:#222326]' />
+    <div className='p-4 text-sm'>
+      <b className='block'>Nordic Gray</b>
+      <div className='text-neutral-500 dark:text-neutral-400 mt-1'>RGB 34, 35, 38<br/>#222326</div>
+    </div>
+  </div>
+
+</div>
+
+## 资源下载
+
+<div id='assets' className='not-prose mt-2 grid gap-2'>
+  <a className='text-sm underline' href='/brand/logo.svg' download>
+    下载 Zolplay 图标（SVG）
+  </a>
+  <a className='text-sm underline' href='/brand/wordmark.svg' download>
+    下载 Zolplay 字标（SVG）
+  </a>
+</div>
+

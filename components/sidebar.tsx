@@ -1,6 +1,7 @@
 'use client'
 
 import type { ComponentProps } from '@zolplay/react'
+import * as ContextMenu from '@radix-ui/react-context-menu'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'motion/react'
@@ -9,6 +10,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { toast } from 'sonner'
 import { Drawer } from 'vaul'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
@@ -20,7 +22,7 @@ import { ZpPricingIcon } from '~/components/icons/ZpPricingIcon'
 import { ZpSignboardIcon } from '~/components/icons/ZpSignboardIcon'
 import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
-import { LogoHelmetFilled } from '~/components/logo'
+import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
 import { Select } from '~/components/ui/select'
@@ -76,6 +78,32 @@ function Caption({ children }: { children: React.ReactNode }) {
 
 export function Sidebar({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
+  const router = useRouter()
+
+  // Helpers for logo context menu
+  const copyFromUrl = React.useCallback(async (url: string, label: string) => {
+    try {
+      const res = await fetch(url)
+      const text = await res.text()
+      await navigator.clipboard.writeText(text)
+      toast.success(`${label} copied`) // Transient confirmation
+    } catch {
+      toast.error(`Failed to copy ${label}`)
+    }
+  }, [])
+
+  const downloadAllBrandAssets = React.useCallback(() => {
+    const download = (u: string, name: string) => {
+      const a = document.createElement('a')
+      a.href = u
+      a.download = name
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+    }
+    download('/brand/logo.svg', 'Zolplay-Logomark.svg')
+    setTimeout(() => download('/brand/wordmark.svg', 'Zolplay-Wordmark.svg'), 180)
+  }, [])
 
   return (
     <aside
@@ -94,53 +122,84 @@ export function Sidebar({ className }: { className?: string }) {
           <div className='flex items-center justify-between'>
             <Caption>01_LOGO</Caption>
           </div>
-          <Link
-            href='/'
-            aria-label={t('Title')}
-            className={clsxm(
-              'group relative px-3.5 py-2.5 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-start items-center gap-1.5 border-y border-(--sidebar-fg)/20',
-              '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
-            )}
-          >
-            <LogoHelmetFilled className='size-4.5' />
-            <span className='text-sm font-medium tracking-tight'>Zolplay</span>
-            <svg
-              width='5'
-              height='5'
-              viewBox='0 0 5 5'
-              className='absolute top-[2px] left-[2px] fill-(--sidebar-fg)'
-              data-highlight
-            >
-              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
-            </svg>
-            <svg
-              width='5'
-              height='5'
-              viewBox='0 0 5 5'
-              className='absolute top-[2px] right-[2px] fill-(--sidebar-fg)'
-              data-highlight
-            >
-              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
-            </svg>
-            <svg
-              width='5'
-              height='5'
-              viewBox='0 0 5 5'
-              className='absolute bottom-[2px] left-[2px] fill-(--sidebar-fg)'
-              data-highlight
-            >
-              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
-            </svg>
-            <svg
-              width='5'
-              height='5'
-              viewBox='0 0 5 5'
-              className='absolute bottom-[2px] right-[2px] fill-(--sidebar-fg)'
-              data-highlight
-            >
-              <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
-            </svg>
-          </Link>
+          <ContextMenu.Root>
+            <ContextMenu.Trigger asChild>
+              <Link
+                href='/'
+                aria-label={t('Title')}
+                className={clsxm(
+                  'group relative px-3.5 py-2.5 flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--sidebar-bg) dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 justify-center items-center gap-1.5 border-y border-(--sidebar-fg)/20',
+                  '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
+                )}
+              >
+                <LogoHelmetFilled className='size-6' />
+                <LogoWordmark className='w-auto h-5' />
+                <svg
+                  width='5'
+                  height='5'
+                  viewBox='0 0 5 5'
+                  className='absolute top-[2px] left-[2px] fill-(--sidebar-fg)'
+                  data-highlight
+                >
+                  <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+                </svg>
+                <svg
+                  width='5'
+                  height='5'
+                  viewBox='0 0 5 5'
+                  className='absolute top-[2px] right-[2px] fill-(--sidebar-fg)'
+                  data-highlight
+                >
+                  <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+                </svg>
+                <svg
+                  width='5'
+                  height='5'
+                  viewBox='0 0 5 5'
+                  className='absolute bottom-[2px] left-[2px] fill-(--sidebar-fg)'
+                  data-highlight
+                >
+                  <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+                </svg>
+                <svg
+                  width='5'
+                  height='5'
+                  viewBox='0 0 5 5'
+                  className='absolute bottom-[2px] right-[2px] fill-(--sidebar-fg)'
+                  data-highlight
+                >
+                  <path d='M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z' />
+                </svg>
+              </Link>
+            </ContextMenu.Trigger>
+            <ContextMenu.Content className='z-[10000] min-w-48 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-[13px] shadow-xl p-1'>
+              <ContextMenu.Item
+                onSelect={() => copyFromUrl('/brand/logo.svg', 'Logo SVG')}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+              >
+                Copy logo as SVG
+              </ContextMenu.Item>
+              <ContextMenu.Item
+                onSelect={() => copyFromUrl('/brand/wordmark.svg', 'Wordmark SVG')}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+              >
+                Copy wordmark as SVG
+              </ContextMenu.Item>
+              <ContextMenu.Item
+                onSelect={downloadAllBrandAssets}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+              >
+                Download brand assets
+              </ContextMenu.Item>
+              <ContextMenu.Separator className='my-1 h-px bg-neutral-200 dark:bg-neutral-800' />
+              <ContextMenu.Item
+                onSelect={() => router.push('/brand')}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+              >
+                Brand guidelines
+              </ContextMenu.Item>
+            </ContextMenu.Content>
+          </ContextMenu.Root>
 
           <NavMenu />
 
@@ -344,7 +403,7 @@ export function NavBar() {
               )}
             >
               <LogoHelmetFilled className='size-4.5' />
-              <span className='text-base font-bold tracking-tight'>{t('SiteName')}</span>
+              <LogoWordmark className='h-4 w-auto' />
             </Link>
           </div>
 

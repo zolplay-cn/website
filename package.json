@@ -15,6 +15,7 @@
     "@calcom/embed-react": "^1.5.3",
     "@hookform/resolvers": "^2.9.11",
     "@mdx-js/react": "^3.1.0",
+    "@radix-ui/react-context-menu": "^2.2.2",
     "@radix-ui/react-navigation-menu": "^1.2.6",
     "@radix-ui/react-scroll-area": "^1.2.4",
     "@radix-ui/react-select": "^2.1.7",

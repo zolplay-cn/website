@@ -11,6 +11,8 @@ import {
   FramedImage,
   Gradient,
   Green,
+  Grid,
+  GridItem,
   PartnerLogoWall,
   Red,
   WeChatQRButton,
@@ -39,5 +41,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Image: FramedImage,
     NakedImage: NextImage,
     CalendarBooker,
+    Grid,
+    GridItem,
   }
 }
