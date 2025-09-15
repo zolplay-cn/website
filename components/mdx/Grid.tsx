@@ -253,8 +253,7 @@ export function GridItem({ className, action, children }: GridItemProps) {
               ) : (
                 <span className='inline-flex items-center gap-2'>
                   <CopyDefault className='size-4' />
-                  {action.label ?? m.copy}
-                  {copied ? (action.copiedLabel ?? m.copiedEmph) : null}
+                  {copied ? (action.copiedLabel ?? m.copiedEmph) : (action.label ?? m.copy)}
                 </span>
               )}
             </Button>
