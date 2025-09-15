@@ -1,5 +1,5 @@
 import { ButtonLink } from '~/components/ui/button'
-import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
+import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
 
 # Zolplay 品牌指南
 
@@ -7,9 +7,8 @@ import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
 
 <div className='not-prose mt-6 mb-8'>
   <WithFrame className='inline-flex'>
-    <ButtonLink href='#assets' size='lg'>下载品牌素材</ButtonLink>
+    <ButtonLink href='https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip' size='lg'>下载品牌素材</ButtonLink>
   </WithFrame>
-  
 </div>
 
 ## 命名
@@ -34,15 +33,41 @@ import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
   {' '}<a className='underline' href='mailto:contact@zolplay.com'>contact@zolplay.com</a>。
 </aside>
 
+## 组合标识（Lockup）
+
+当需要横向的品牌呈现时，可使用 Zolplay 的组合标识（图形标 + 文字标）。可在浅色或深色背景上使用，并限定在批准的颜色范围内。
+
+<Grid cols={1} md={2} gap={4} className='my-5'>
+  <GridItem
+    className='bg-neutral-50 text-neutral-900'
+    action={{ kind: 'download', href: '/assets/brand/logo-lockup-dark.svg', label: '下载 SVG' }}
+  >
+    <LogoLockup className='w-[82%]' />
+  </GridItem>
+  <GridItem
+    className='bg-neutral-900 text-white'
+    action={{ kind: 'download', href: '/assets/brand/logo-lockup-light.svg', label: '下载 SVG' }}
+  >
+    <LogoLockup className='w-[82%]' />
+  </GridItem>
+  
+</Grid>
+
 ## 文字标识（Wordmark）
 
 在大多数场景下请使用 Zolplay 文字标识。优先使用单色版本。可在浅色或深色背景上使用，下方为推荐颜色。
 
 <Grid cols={1} md={2} gap={4} className='my-5'>
-  <GridItem className='bg-neutral-50 text-neutral-900'>
+  <GridItem
+    className='bg-neutral-50 text-neutral-900'
+    action={{ kind: 'download', href: '/assets/brand/wordmark-dark.svg', label: '下载 SVG' }}
+  >
     <LogoWordmark className='w-[82%]' />
   </GridItem>
-  <GridItem className='bg-neutral-900 text-white'>
+  <GridItem
+    className='bg-neutral-900 text-white'
+    action={{ kind: 'download', href: '/assets/brand/wordmark-light.svg', label: '下载 SVG' }}
+  >
     <LogoWordmark className='w-[82%]' />
   </GridItem>
   
@@ -53,12 +78,12 @@ import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
 在紧凑布局或仅图标网格的场景，可使用 Zolplay 图形标。请酌情选择使用场景——文字标识通常具有更高的识别度。
 
 <Grid cols={1} md={2} gap={4} className='my-5'>
-  <GridItem className='bg-neutral-50'>
+  <GridItem className='bg-neutral-50' action={{ kind: 'download', href: '/assets/brand/logo-dark.svg', label: '下载 SVG' }}>
     <div className='w-20 h-20 text-black flex items-center justify-center'>
       <LogoHelmetFilled className='w-9 h-9' />
     </div>
   </GridItem>
-  <GridItem className='bg-neutral-900'>
+  <GridItem className='bg-neutral-900' action={{ kind: 'download', href: '/assets/brand/logo-light.svg', label: '下载 SVG' }}>
     <div className='w-20 h-20 text-white flex items-center justify-center'>
       <LogoHelmetFilled className='w-9 h-9' />
     </div>
@@ -71,13 +96,19 @@ import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
 我们的主色为「深空黑」（Space Black），在浅色与深色背景上都具有良好观感。用于文字标识的单色时，优先选择深空黑或冰松白色。点缀色请保持克制，并与整体系统风格一致。
 
 <Grid cols={1} md={2} gap={4} className='my-6'>
-  <GridItem className='overflow-hidden p-0 flex flex-col gap-4 w-full bg-[#FAFAFA]'>
+  <GridItem
+    className='overflow-hidden p-0 flex flex-col gap-4 w-full bg-[#FAFAFA]'
+    action={{ kind: 'copy', text: '#FAFAFA', label: '复制 #FAFAFA', copiedLabel: '已复制！' }}
+  >
     <div className='px-4 py-12 text-sm'>
       <span className='block text-neutral-800'>冰松白</span>
       <div className='text-neutral-500 mt-1'>RGB 250, 250, 250<br/>#FAFAFA</div>
     </div>
   </GridItem>
-  <GridItem className='overflow-hidden p-0 flex flex-col gap-4 w-full bg-[#262626]'>
+  <GridItem
+    className='overflow-hidden p-0 flex flex-col gap-4 w-full bg-[#262626]'
+    action={{ kind: 'copy', text: '#262626', label: '复制 #262626', copiedLabel: '已复制！' }}
+  >
     <div className='px-4 py-12 text-sm'>
       <span className='block text-neutral-300'>深空黑</span>
       <div className='text-neutral-500 mt-1'>RGB 38, 38, 38<br/>#262626</div>
@@ -85,14 +116,3 @@ import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
   </GridItem>
   
 </Grid>
-
-## 素材
-
-<div id='assets' className='not-prose mt-2 grid gap-2'>
-  <a className='text-sm underline' href='/brand/logo.svg' download>
-    下载 Zolplay 图形标（SVG）
-  </a>
-  <a className='text-sm underline' href='/brand/wordmark.svg' download>
-    下载 Zolplay 文字标（SVG）
-  </a>
-</div>

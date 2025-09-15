@@ -93,16 +93,14 @@ export function Sidebar({ className }: { className?: string }) {
   }, [])
 
   const downloadAllBrandAssets = React.useCallback(() => {
-    const download = (u: string, name: string) => {
+    const download = (url: string) => {
       const a = document.createElement('a')
-      a.href = u
-      a.download = name
+      a.href = url
       document.body.appendChild(a)
       a.click()
       a.remove()
     }
-    download('/brand/logo.svg', 'Zolplay-Logomark.svg')
-    setTimeout(() => download('/brand/wordmark.svg', 'Zolplay-Wordmark.svg'), 180)
+    download('https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip')
   }, [])
 
   return (
@@ -174,16 +172,22 @@ export function Sidebar({ className }: { className?: string }) {
             </ContextMenu.Trigger>
             <ContextMenu.Content className='z-[10000] min-w-48 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-[13px] shadow-xl p-1'>
               <ContextMenu.Item
-                onSelect={() => copyFromUrl('/brand/logo.svg', 'Logo SVG')}
+                onSelect={() => copyFromUrl('/assets/brand/logo.svg', 'Logo SVG')}
                 className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
               >
                 Copy logo as SVG
               </ContextMenu.Item>
               <ContextMenu.Item
-                onSelect={() => copyFromUrl('/brand/wordmark.svg', 'Wordmark SVG')}
+                onSelect={() => copyFromUrl('/assets/brand/wordmark.svg', 'Wordmark SVG')}
                 className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
               >
                 Copy wordmark as SVG
+              </ContextMenu.Item>
+              <ContextMenu.Item
+                onSelect={() => copyFromUrl('/assets/brand/logo-lockup.svg', 'Logo Lockup SVG')}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+              >
+                Copy logo lockup as SVG
               </ContextMenu.Item>
               <ContextMenu.Item
                 onSelect={downloadAllBrandAssets}
