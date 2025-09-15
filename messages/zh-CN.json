@@ -11,10 +11,23 @@
     "Contact": "联系我们",
     "Gallery": "图片墙",
     "Resources": "资源",
+    "BrandGuidelines": "品牌指南",
     "Privacy": "隐私政策",
     "Terms": "使用条款",
     "LLMs": "/llms.txt",
     "ToggleNav": "开关导航栏"
+  },
+  "LogoMenu": {
+    "CopyLogoSvg": "复制图标 SVG",
+    "CopyWordmarkSvg": "复制字标 SVG",
+    "CopyLockupSvg": "复制组合标 SVG",
+    "DownloadAssets": "下载品牌资源",
+    "BrandGuidelines": "品牌指南",
+    "CopiedToast": "{label} 已复制",
+    "CopyFailedToast": "复制 {label} 失败",
+    "LabelShortLogo": "Logo SVG",
+    "LabelShortWordmark": "字标 SVG",
+    "LabelShortLockup": "组合标 SVG"
   },
   "Themes": {
     "Placeholder": "选择颜色主题",
@@ -26,6 +39,10 @@
     "Placeholder": "选择语言",
     "en": "English",
     "zh-CN": "简体中文"
+  },
+  "Brand": {
+    "Title": "品牌指南",
+    "Description": "以统一而有品的方式呈现 Zolplay 的资源。"
   },
   "Root": {
     "Metadata": {

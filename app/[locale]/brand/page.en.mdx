@@ -1,0 +1,106 @@
+import { ButtonLink } from '~/components/ui/button'
+import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
+
+# Zolplay Brand Guidelines
+
+Resources to present Zolplay with taste and consistency.
+
+<div className='not-prose mt-6 mb-8'>
+  <WithFrame className='inline-flex'>
+    <ButtonLink href='https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip' size='lg'>Download Brand Assets</ButtonLink>
+  </WithFrame>
+</div>
+
+## Naming
+
+“Zolplay” is a single word, always spelled with a capital “Z”. It’s the name of our company and our studio. Treat initiatives as proper nouns (e.g., Zolplay Studio).
+
+## Usage
+
+Give Zolplay assets room to breathe. Scale them up or down—but never crowd them.
+Do not stretch, skew, recolor arbitrarily, or change proportions. Avoid effects, outlines, or busy backgrounds that reduce legibility.
+
+<aside className='not-prose mt-6 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 p-4 text-[13px] leading-6'>
+  <b>Friendly reminder:</b> Zolplay graphics are proprietary and protected by IP laws. Don’t alter the files, imply endorsement, or combine them with other marks without written consent from Zolplay. For questions, email
+  {' '}<a className='underline' href='mailto:contact@zolplay.com'>contact@zolplay.com</a>.
+</aside>
+
+## Logo lockup
+
+Use the combined Zolplay lockup (logomark + wordmark) when a horizontal brand treatment is preferred. Apply on light or dark backgrounds using approved colors.
+
+<Grid cols={1} md={2} gap={4} className='my-5'>
+  <GridItem
+    className='bg-neutral-50 text-neutral-900'
+    action={{ kind: 'download', href: '/assets/brand/logo-lockup-dark.svg', label: 'Download SVG' }}
+  >
+    <LogoLockup className='w-[82%]' />
+  </GridItem>
+  <GridItem
+    className='bg-neutral-900 text-white'
+    action={{ kind: 'download', href: '/assets/brand/logo-lockup-light.svg', label: 'Download SVG' }}
+  >
+    <LogoLockup className='w-[82%]' />
+  </GridItem>
+</Grid>
+
+## Wordmark
+
+Use the Zolplay wordmark in most cases. Monochrome is preferred. Apply it on light or dark backgrounds using the approved colors below.
+
+<Grid cols={1} md={2} gap={4} className='my-5'>
+  <GridItem
+    className='bg-neutral-50 text-neutral-900'
+    action={{ kind: 'download', href: '/assets/brand/wordmark-dark.svg', label: 'Download SVG' }}
+  >
+    <LogoWordmark className='w-[82%]' />
+  </GridItem>
+  <GridItem
+    className='bg-neutral-900 text-white'
+    action={{ kind: 'download', href: '/assets/brand/wordmark-light.svg', label: 'Download SVG' }}
+  >
+    <LogoWordmark className='w-[82%]' />
+  </GridItem>
+</Grid>
+
+## Logo
+
+For tight layouts or logo-only grids, use the Zolplay logomark. Use with judgment—the wordmark has stronger recognition.
+
+<Grid cols={1} md={2} gap={4} className='my-5'>
+  <GridItem className='bg-neutral-50' action={{ kind: 'download', href: '/assets/brand/logo-dark.svg', label: 'Download SVG' }}>
+    <div className='w-20 h-20 text-black flex items-center justify-center'>
+      <LogoHelmetFilled className='w-9 h-9' />
+    </div>
+  </GridItem>
+  <GridItem className='bg-neutral-900' action={{ kind: 'download', href: '/assets/brand/logo-light.svg', label: 'Download SVG' }}>
+    <div className='w-20 h-20 text-white flex items-center justify-center'>
+      <LogoHelmetFilled className='w-9 h-9' />
+    </div>
+  </GridItem>
+</Grid>
+
+## Colors
+
+Our primary color is Space Black, comfortable on light and dark surfaces. For monochrome wordmark usage, prefer black, white, or Space Black. Keep accents minimal and consistent with the system.
+
+<Grid cols={1} md={2} gap={4} className='my-6'>
+  <GridItem
+    className='overflow-hidden p-0 flex flex-col gap-4 w-full bg-[#FAFAFA]'
+    action={{ kind: 'copy', text: '#FAFAFA', label: 'Copy #FAFAFA', copiedLabel: 'Copied!' }}
+  >
+    <div className='px-4 py-12 text-sm'>
+      <span className='block text-neutral-800'>Ice White</span>
+      <div className='text-neutral-500 mt-1'>RGB 250, 250, 250<br/>#FAFAFA</div>
+    </div>
+  </GridItem>
+  <GridItem
+    className='overflow-hidden p-0 flex flex-col gap-4 w-full bg-[#262626]'
+    action={{ kind: 'copy', text: '#262626', label: 'Copy #262626', copiedLabel: 'Copied!' }}
+  >
+    <div className='px-4 py-12 text-sm'>
+      <span className='block text-neutral-300'>Space Black</span>
+      <div className='text-neutral-500 mt-1'>RGB 38, 38, 38<br/>#262626</div>
+    </div>
+  </GridItem>
+</Grid>

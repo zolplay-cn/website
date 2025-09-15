@@ -1,7 +1,6 @@
 import { clsxm } from '@zolplay/utils'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
-import Wordmark from '~/public/images/drawn-wordmark.png'
+import WordmarkGrainGradient from '~/modules/fx/wordmark-grain-gradient'
 import { WithFrame } from './mdx'
 
 export function Footer() {
@@ -16,8 +15,8 @@ export function Footer() {
         'after:absolute after:bottom-0 after:right-[-100vw] after:w-[200vw] after:h-px after:bg-(--grid-border-color)',
       )}
     >
-      <WithFrame className='p-6 my-4'>
-        <Image src={Wordmark} alt='Zolplay Wordmark' className='opacity-50 w-full dark:invert' placeholder='blur' />
+      <WithFrame className='w-full'>
+        <WordmarkGrainGradient />
       </WithFrame>
 
       <p className='my-6 text-sm opacity-50'>

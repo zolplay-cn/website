@@ -11,10 +11,23 @@
     "Contact": "Contact",
     "Gallery": "Gallery",
     "Resources": "Resources",
+    "BrandGuidelines": "Brand Guidelines",
     "Privacy": "Privacy Policy",
     "Terms": "Terms of Use",
     "LLMs": "/llms.txt",
     "ToggleNav": "Toggle navigation"
+  },
+  "LogoMenu": {
+    "CopyLogoSvg": "Copy logo as SVG",
+    "CopyWordmarkSvg": "Copy wordmark as SVG",
+    "CopyLockupSvg": "Copy logo lockup as SVG",
+    "DownloadAssets": "Download brand assets",
+    "BrandGuidelines": "Brand guidelines",
+    "CopiedToast": "{label} copied",
+    "CopyFailedToast": "Failed to copy {label}",
+    "LabelShortLogo": "logo SVG",
+    "LabelShortWordmark": "wordmark SVG",
+    "LabelShortLockup": "logo lockup SVG"
   },
   "Themes": {
     "Placeholder": "Select a theme",
@@ -26,6 +39,10 @@
     "Placeholder": "Select a language",
     "en": "English",
     "zh-CN": "简体中文"
+  },
+  "Brand": {
+    "Title": "Brand Guidelines",
+    "Description": "Resources to present Zolplay with taste and consistency."
   },
   "Root": {
     "Metadata": {
