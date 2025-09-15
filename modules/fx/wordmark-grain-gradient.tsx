@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import wordmark from '~/public/assets/wordmark.png'
 
-const MAX_OFFSET = 0.5
+const MAX_OFFSET = 0.03
 
 export default function WordmarkGrainGradient() {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -17,12 +17,15 @@ export default function WordmarkGrainGradient() {
   const rafRef = useRef<number | null>(null)
 
   const animate = useCallback(() => {
-    const k = 0.025 // lerp factor: higher = snappier
+    // Smaller k = smoother, slower ease on hover-in
+    const k = 0.03
+    // Snap when very close to avoid micro jitter (relative to MAX_OFFSET)
+    const eps = MAX_OFFSET * 0.02 // ~0.0006 with MAX_OFFSET=0.03
     setOffset((curr) => {
       const dx = targetRef.current.x - curr.x
       const dy = targetRef.current.y - curr.y
-      const nx = Math.abs(dx) < 0.2 ? targetRef.current.x : curr.x + dx * k
-      const ny = Math.abs(dy) < 0.2 ? targetRef.current.y : curr.y + dy * k
+      const nx = Math.abs(dx) < eps ? targetRef.current.x : curr.x + dx * k
+      const ny = Math.abs(dy) < eps ? targetRef.current.y : curr.y + dy * k
       return { x: nx, y: ny }
     })
     rafRef.current = requestAnimationFrame(animate)
@@ -59,9 +62,8 @@ export default function WordmarkGrainGradient() {
     const mappedY = (y * 2 - 1) * MAX_OFFSET
     const clamp = (v: number) => Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, v))
     const start = { x: clamp(mappedX), y: clamp(mappedY) }
-    // Initialize both target and current offset to the same value to avoid an entry jump
+    // Only set the target so we ease from current state (no snap on enter)
     targetRef.current = start
-    setOffset(start)
   }, [])
 
   const handlePointerLeave = useCallback(() => {
@@ -79,17 +81,17 @@ export default function WordmarkGrainGradient() {
     >
       <GrainGradient
         className='w-full h-full bg-neutral-50 dark:bg-black dark:mix-blend-hard-light absolute inset-0'
-        colors={['#29262A', '#E6E6E6', '#343434']}
+        colors={['#29262A', '#E6E6E6', '#817F7E']}
         colorBack='#00000000'
-        speed={1}
+        speed={0.83}
         scale={1}
         rotation={0}
         offsetX={offset.x}
         offsetY={offset.y}
-        softness={0.5}
-        intensity={0.5}
-        noise={0.25}
-        shape='corners'
+        softness={0.86}
+        intensity={0.15}
+        noise={0.5}
+        shape='wave'
       />
       <Image src={wordmark} alt='Zolplay Wordmark' className='invert-75 dark:invert-0 mix-blend-color-dodge w-10/12' />
     </div>
