@@ -1,14 +1,20 @@
 import type { Metadata } from 'next'
 import type { RootParams } from '~/types/app'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Brand' })
+
+  const title = t('Title')
+  const description = t('Description')
+
   return {
-    title: 'Brand Guidelines',
-    description: 'Resources to present Zolplay with taste and consistency.',
+    title,
+    description,
     openGraph: {
-      title: 'Brand Guidelines',
-      description: 'Resources to present Zolplay with taste and consistency.',
+      title,
+      description,
     },
     alternates: {
       canonical: '/brand',

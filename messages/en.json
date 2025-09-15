@@ -11,6 +11,7 @@
     "Contact": "Contact",
     "Gallery": "Gallery",
     "Resources": "Resources",
+    "BrandGuidelines": "Brand Guidelines",
     "Privacy": "Privacy Policy",
     "Terms": "Terms of Use",
     "LLMs": "/llms.txt",
@@ -26,6 +27,10 @@
     "Placeholder": "Select a language",
     "en": "English",
     "zh-CN": "简体中文"
+  },
+  "Brand": {
+    "Title": "Brand Guidelines",
+    "Description": "Resources to present Zolplay with taste and consistency."
   },
   "Root": {
     "Metadata": {

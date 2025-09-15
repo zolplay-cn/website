@@ -17,6 +17,9 @@ importers:
       '@mdx-js/react':
         specifier: ^3.1.0
         version: 3.1.0(@types/react@19.1.9)(react@19.1.1)
+      '@paper-design/shaders-react':
+        specifier: ^0.0.52
+        version: 0.0.52(@types/react@19.1.9)(react@19.1.1)
       '@radix-ui/react-context-menu':
         specifier: ^2.2.2
         version: 2.2.16(@types/react@19.1.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -844,6 +847,18 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
+
+  '@paper-design/shaders-react@0.0.52':
+    resolution: {integrity: sha512-C+9RzOeubBwsGxPZpouf5tFgLfRN38+7TYxg6oMW15OendqFraZn1/YIVWLRjgQVfuv2AkJjZelzCcHfq7uk/w==}
+    peerDependencies:
+      '@types/react': ^18 || ^19
+      react: ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@paper-design/shaders@0.0.52':
+    resolution: {integrity: sha512-it+wjb8QQpKCVH0UvzuqY7MYL6Hcqvu1xN9akMt8hGHlW5W2LkC4Ljpwcp3mrlx3oKuex+O3WUhzNtu6ONpvIQ==}
 
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
@@ -5817,6 +5832,15 @@ snapshots:
       fastq: 1.19.1
 
   '@nolyfill/is-core-module@1.0.39': {}
+
+  '@paper-design/shaders-react@0.0.52(@types/react@19.1.9)(react@19.1.1)':
+    dependencies:
+      '@paper-design/shaders': 0.0.52
+      react: 19.1.1
+    optionalDependencies:
+      '@types/react': 19.1.9
+
+  '@paper-design/shaders@0.0.52': {}
 
   '@pkgr/core@0.1.1': {}
 

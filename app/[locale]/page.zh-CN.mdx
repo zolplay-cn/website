@@ -1,10 +1,12 @@
-import headline from './zolplay-headline-illustration.png'
+import headline from './headline-art.png'
+import headlineDark from './headline-art-dark.png'
 import mantra from './mantra.webp'
 import founderTalking from './founder-talking.webp'
 import { PricingPlans } from '~/components/mdx'
 import { Zolplayers } from '~/components/zolplayers'
 
-<NakedImage src={headline} alt='佐玩头图' priority className='dark:invert-90' />
+<NakedImage src={headline} alt='佐玩头图' priority className='block visible dark:hidden dark:invisible' />
+<NakedImage src={headlineDark} alt='佐玩头图' priority className='mt-0 hidden invisible dark:block dark:visible' />
 
 # 一家专为高标准人士打造的<br /><Gradient>设计工作室</Gradient>
 
@@ -70,10 +72,13 @@ import { Zolplayers } from '~/components/zolplayers'
 <Gradient>好的工艺应当让人爱不释手</Gradient>
 。我们曾为亲朋好友与支持者们打造周边，甚至还搭建过一个小型商城售卖那些有纪念意义的限量服饰、包袋与小物件。
 
-<BackgroundVideo src='/vids/hangouts-reel.mp4' aspectRatio='4/3' />
+<WithFrame>
+  <BackgroundVideo src='/vids/hangouts-reel.mp4' aspectRatio='4/3' />
+</WithFrame>
 
-<BackgroundVideo src='/vids/swag-shop-reel.mp4' aspectRatio='16/9' />
-
+<WithFrame>
+  <BackgroundVideo src='/vids/swag-shop-reel.mp4' aspectRatio='16/9' />
+</WithFrame>
 ---
 
 <Zolplayers />

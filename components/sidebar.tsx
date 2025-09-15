@@ -309,6 +309,7 @@ function NavMenu() {
               >
                 {[
                   { href: '/llms.txt', label: t('LLMs'), locale: 'en' },
+                  { href: '/brand', label: t('BrandGuidelines') },
                   { href: '/privacy', label: t('Privacy') },
                   { href: '/terms', label: t('Terms') },
                 ].map((item) => (
@@ -496,6 +497,7 @@ export function NavBar() {
                       {(() => {
                         const resources = [
                           { href: '/llms.txt', label: tMenu('LLMs'), locale: 'en' as const },
+                          { href: '/brand', label: tMenu('BrandGuidelines') },
                           { href: '/privacy', label: tMenu('Privacy') },
                           { href: '/terms', label: tMenu('Terms') },
                         ]

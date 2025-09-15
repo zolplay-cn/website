@@ -11,6 +11,7 @@
     "Contact": "联系我们",
     "Gallery": "图片墙",
     "Resources": "资源",
+    "BrandGuidelines": "品牌指南",
     "Privacy": "隐私政策",
     "Terms": "使用条款",
     "LLMs": "/llms.txt",
@@ -26,6 +27,10 @@
     "Placeholder": "选择语言",
     "en": "English",
     "zh-CN": "简体中文"
+  },
+  "Brand": {
+    "Title": "品牌指南",
+    "Description": "以统一而有品的方式呈现 Zolplay 的资源。"
   },
   "Root": {
     "Metadata": {
