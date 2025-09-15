@@ -5,6 +5,7 @@
     "Home": "Home",
     "About": "About",
     "Careers": "Careers",
+    "Join": "Join",
     "Pricing": "Pricing",
     "Services": "Services",
     "Work": "Work",
@@ -61,9 +62,17 @@
     "MeetOurTeam": "Meet the crew"
   },
   "Careers": {
-    "Title": "Join us",
-    "Description": "We are looking for talented people to join our team. If you are passionate about software development and want to work with a team of superheroes, apply now!",
+    "Title": "Join us. Craft delightful designs, together.",
+    "Description": "We are looking for talented people to join our team. If you are passionate about crafting delightful designs, apply now!",
     "OpenPositions": "Open positions:",
+    "ProductDesigner": {
+      "Title": "Product Designer",
+      "OpenGraphTitle": "Careers — Product Designer"
+    },
+    "BrandDesigner": {
+      "Title": "Brand Designer",
+      "OpenGraphTitle": "Careers — Brand Designer"
+    },
     "Openings": {
       "Squad": "{squad} squad",
       "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings \uD83D\uDE4C"

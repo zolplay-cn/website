@@ -1,25 +1,26 @@
-import working from './working.jpg'
-import workshop from './careers-workshop.jpg'
-import { OpenPositionButton } from '~/modules/careers/open-position-button'
-import { SuspendedPositions } from '~/modules/careers/positions/positions'
-import { Benefits } from '~/components/benefits'
+import demo from './demo.jpg'
 
-# Join us on our journey
+# Join us. Craft delightful designs, together.
 
-Are you tired of the mundane and lackluster programs flooding the digital world? Remember when software felt like a thrilling adventure into the unknown? When it was a catalyst for changing how we lived and worked?<br></br><br></br>At Zolplay, we are on a mission to revive those feelings by building <b>next-generation applications</b>, we need <b>your</b> help to make it happen. If you're a believer in the power of crafting <Red>enchanting software experiences</Red>, we want to chat with you. Let's conjure up something extraordinary together - apply now and <b>let the magic begin!</b> 🪄
+<Image src={demo} alt='Will giving a demo on his phone.' />
 
-<OpenPositionButton />
+<OpenRolesHeader count={2} />
 
-<Image src={workshop} alt='Join us' placeholder='blur' />
+<RolesList>
+  <RoleCard
+    href='product-designer'
+    index={1}
+    title='Product Designer'
+    description='Craft thoughtful product experiences — UI, UX flows, and scalable design systems.'
+    tags={['REMOTE / SHENZHEN', 'DESIGN', 'FULL-TIME / CONTRACT']}
+  />
+  <RoleCard
+    href='brand-designer'
+    index={2}
+    title='Brand Designer'
+    description='Build a crisp visual identity — typography, systems, and campaign assets.'
+    tags={['REMOTE / SHENZHEN', 'DESIGN', 'FULL-TIME / CONTRACT']}
+  />
+</RolesList>
 
-At Zolplay, we have faith in the potential for individuals to <Gradient>develop and expand their skills</Gradient>. We aspire to foster an environment where team members can learn from one another and create the most promising prospect.
-
-We recognize the importance of <Green>balancing work and life</Green>, and we believe that a happy and motivated team is <b>one that enjoys what they do</b>, and sometimes that means having fun along the way. Whether it's a team outing or a celebration event, we believe in creating an environment where our team members can enjoy their work and have fun at the same time.
-
-We value efficiency and collaboration, and we believe that <Red>meetings can often be a waste of time</Red>. Instead, we prefer to work <b>independently</b>, communicate <b>asynchronously</b> and collaborate <b>transparently</b>. Additionally, we hold weekly demonstrations to showcase our accomplishments and exchange feedback.
-
-<Benefits />
-
-<Image src={working} alt='Join us' placeholder='blur' />
-
-<SuspendedPositions />
+<CareersEmailNote email='cv@zolplay.com' />

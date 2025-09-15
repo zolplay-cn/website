@@ -20,6 +20,7 @@ import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
 import { ZpPricingIcon } from '~/components/icons/ZpPricingIcon'
+import { ZpShirtIcon } from '~/components/icons/ZpShirtIcon'
 import { ZpSignboardIcon } from '~/components/icons/ZpSignboardIcon'
 import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
@@ -27,13 +28,14 @@ import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
 import { Select } from '~/components/ui/select'
+import { openRolesCount } from '~/modules/careers/open-roles'
 import { Link, usePathname } from '~/modules/i18n/navigation'
 
 const links = [
   { href: '/', label: 'Home', icon: ZpHomeIcon },
   { href: '/work', label: 'Work', icon: ZpWorkIcon },
   { href: '/services', label: 'Services', icon: ZpSignboardIcon },
-  // { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
+  { href: '/careers', label: 'Careers', icon: ZpShirtIcon },
   { href: '/pricing', label: 'Pricing', icon: ZpPricingIcon },
   { href: '/contact', label: 'Contact', icon: ZpContactUsIcon },
   // { href: '/blog', label: 'Blog', icon: ZpBlogIcon },
@@ -499,6 +501,7 @@ function MenuLink({
 }: ComponentProps<{ href: string; label?: string }> & { ref?: React.RefObject<HTMLAnchorElement | null> }) {
   const pathname = usePathname()
   const isActive = href === pathname
+
   return (
     <li className='border-t border-(--sidebar-fg)/20 w-full'>
       <NavigationMenu.Link active={isActive} asChild>
@@ -520,7 +523,17 @@ function MenuLink({
               layoutId='active-menu'
             />
           )}
-          <span className='relative z-40 flex items-center space-x-1.5 text-sm tracking-tight'>{children}</span>
+          <span className='relative z-40 flex items-center space-x-1.5 text-sm tracking-tight'>
+            {children}
+            {href === '/careers' && openRolesCount > 0 ? (
+              <span
+                className='ml-1 inline-flex items-center justify-center border border-(--sidebar-fg)/25 bg-(--sidebar-fg)/10 px-1 py-0.5 text-[10px] font-mono leading-none text-(--sidebar-fg)'
+                aria-label={`Open roles: ${openRolesCount}`}
+              >
+                {String(openRolesCount)}
+              </span>
+            ) : null}
+          </span>
         </Link>
       </NavigationMenu.Link>
     </li>
@@ -644,7 +657,15 @@ export function NavBar() {
                         >
                           <div className='absolute right-0 top-0 w-px h-full bg-(--grid-border-color)' />
                           <div className='absolute left-0 top-0 w-px h-full bg-(--grid-border-color)' />
-                          <Link className='flex flex-col justify-between w-full h-full p-0.5' href={href}>
+                          <Link className='flex flex-col justify-between w-full h-full p-0.5 relative' href={href}>
+                            {href === '/careers' && openRolesCount > 0 ? (
+                              <span
+                                className='absolute right-0 top-px inline-flex items-center justify-center border border-(--navbar-fg)/20 bg-(--navbar-fg)/10 px-1.5 py-0.5 text-[10px] font-mono leading-none text-(--navbar-fg)'
+                                aria-label={`Open roles: ${openRolesCount}`}
+                              >
+                                {String(openRolesCount)}
+                              </span>
+                            ) : null}
                             <Icon className='size-5' />
                             <span className='text-[13px] font-medium tracking-tight'>{tMenu(label)}</span>
                           </Link>
