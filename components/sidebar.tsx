@@ -1,12 +1,13 @@
 'use client'
 
 import type { ComponentProps } from '@zolplay/react'
+import type { SVGProps } from 'react'
 import * as ContextMenu from '@radix-ui/react-context-menu'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { clsxm } from '@zolplay/utils'
 import { AnimatePresence, motion } from 'motion/react'
-import { useLocale, useTranslations } from 'next-intl'
 
+import { useLocale, useTranslations } from 'next-intl'
 import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -76,21 +77,164 @@ function Caption({ children }: { children: React.ReactNode }) {
   )
 }
 
+type IconProps = SVGProps<SVGSVGElement> & {
+  secondaryfill?: string
+  strokewidth?: number
+  title?: string
+}
+
+function TextTool({ fill = 'currentColor', secondaryfill, ...props }: IconProps) {
+  secondaryfill = secondaryfill || fill
+
+  return (
+    <svg aria-hidden='true' height='18' width='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg' {...props}>
+      <g fill={fill}>
+        <path
+          d='M14.25,15.5H3.75c-1.517,0-2.75-1.233-2.75-2.75v-.75c0-.414,.336-.75,.75-.75s.75,.336,.75,.75v.75c0,.689,.561,1.25,1.25,1.25H14.25c.689,0,1.25-.561,1.25-1.25v-.75c0-.414,.336-.75,.75-.75s.75,.336,.75,.75v.75c0,1.517-1.233,2.75-2.75,2.75Z'
+          fill={fill}
+        />
+        <path
+          d='M16.25,6.75c-.414,0-.75-.336-.75-.75v-.75c0-.689-.561-1.25-1.25-1.25H3.75c-.689,0-1.25,.561-1.25,1.25v.75c0,.414-.336,.75-.75,.75s-.75-.336-.75-.75v-.75c0-1.517,1.233-2.75,2.75-2.75H14.25c1.517,0,2.75,1.233,2.75,2.75v.75c0,.414-.336,.75-.75,.75Z'
+          fill={fill}
+        />
+        <path
+          d='M12.489,11.959l-2.73-6.5c-.117-.278-.39-.459-.691-.459h-.135c-.302,0-.574,.181-.691,.459l-2.73,6.5c-.16,.382,.02,.822,.401,.982,.379,.16,.821-.018,.981-.401l.437-1.041h3.339l.437,1.041c.12,.287,.398,.459,.691,.459,.097,0,.195-.019,.29-.059,.382-.16,.562-.6,.401-.982Zm-4.528-1.959l1.039-2.474,1.039,2.474h-2.078Z'
+          fill={secondaryfill}
+        />
+        <circle cx='1.75' cy='9' fill={fill} r='.75' />
+        <circle cx='16.25' cy='9' fill={fill} r='.75' />
+      </g>
+    </svg>
+  )
+}
+
+function CloudArrowDownload({ fill = 'currentColor', secondaryfill, ...props }: IconProps) {
+  secondaryfill = secondaryfill || fill
+
+  return (
+    <svg aria-hidden='true' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' {...props}>
+      <g fill='none'>
+        <path
+          d='M6.51 6.97a6.502 6.502 0 0 1 11.734-.515c.237.446.355.668.42.756.1.136.067.1.191.215.08.073.305.228.755.537A5.5 5.5 0 0 1 22 12.5c0 1.33-.472 2.55-1.257 3.5M6.51 6.97l-.046.11m.046-.11-.045.108v.002m0 0A6.5 6.5 0 0 0 6 9.5m.465-2.42c-.322.803-.483 1.204-.561 1.325-.152.235-.038.1-.244.29-.106.097-.579.39-1.525.976A4.497 4.497 0 0 0 2.758 16'
+          fill='none'
+          opacity='.35'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='2'
+        />
+        <path
+          d='M16 17.596a19 19 0 0 1-3.445 3.232.94.94 0 0 1-1.11 0A19 19 0 0 1 8 17.596m4-5.37V21'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='2'
+        />
+      </g>
+    </svg>
+  )
+}
+
+function CopyDefault({ fill = 'currentColor', secondaryfill, ...props }: IconProps) {
+  secondaryfill = secondaryfill || fill
+
+  return (
+    <svg aria-hidden='true' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' {...props}>
+      <g fill='none'>
+        <path
+          d='M16.902 16.902a4 4 0 0 0 .643-.147 5 5 0 0 0 3.21-3.21C21 12.792 21 11.861 21 10s0-2.792-.245-3.545a5 5 0 0 0-3.21-3.21C16.792 3 15.861 3 14 3s-2.792 0-3.545.245a5 5 0 0 0-3.21 3.21 4 4 0 0 0-.147.643'
+          fill='none'
+          opacity='.45'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='2'
+        />
+        <path
+          d='M3 14c0-1.861 0-2.792.245-3.545a5 5 0 0 1 3.21-3.21C7.208 7 8.139 7 10 7s2.792 0 3.545.245a5 5 0 0 1 3.21 3.21C17 11.208 17 12.139 17 14s0 2.792-.245 3.545a5 5 0 0 1-3.21 3.21C12.792 21 11.861 21 10 21s-2.792 0-3.545-.245a5 5 0 0 1-3.21-3.21C3 16.792 3 15.861 3 14Z'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='2'
+        />
+      </g>
+    </svg>
+  )
+}
+
+function Book2({ fill = 'currentColor', secondaryfill, ...props }: IconProps) {
+  secondaryfill = secondaryfill || fill
+
+  return (
+    <svg aria-hidden='true' height='18' width='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg' {...props}>
+      <g fill={fill}>
+        <rect height='11' width='9.5' fill={secondaryfill} fillOpacity='0.15' stroke='none' x='5.75' y='1.75' />
+        <path
+          d='M5.75 1.75V12.75'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+        <path
+          d='M2.75 14.5V3.75C2.75 2.645 3.645 1.75 4.75 1.75H15.25V12.75'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+        <path
+          d='M5.25 16.25H4.5C3.534 16.25 2.75 15.467 2.75 14.5C2.75 13.533 3.534 12.75 4.5 12.75H15.25C14.609 13.594 14.516 15.297 15.25 16.25H5.25Z'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+        <path
+          d='M8.75 5.25H12.25'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+        <path
+          d='M8.75 8.25H12.25'
+          fill='none'
+          stroke={fill}
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='1.5'
+        />
+      </g>
+    </svg>
+  )
+}
+
 export function Sidebar({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
+  const tLogo = useTranslations('LogoMenu')
   const router = useRouter()
 
   // Helpers for logo context menu
-  const copyFromUrl = React.useCallback(async (url: string, label: string) => {
-    try {
-      const res = await fetch(url)
-      const text = await res.text()
-      await navigator.clipboard.writeText(text)
-      toast.success(`${label} copied`) // Transient confirmation
-    } catch {
-      toast.error(`Failed to copy ${label}`)
-    }
-  }, [])
+  const copyFromUrl = React.useCallback(
+    async (url: string, label: string) => {
+      try {
+        const res = await fetch(url)
+        const text = await res.text()
+        await navigator.clipboard.writeText(text)
+        toast.success(tLogo('CopiedToast', { label })) // Transient confirmation
+      } catch {
+        toast.error(tLogo('CopyFailedToast', { label }))
+      }
+    },
+    [tLogo],
+  )
 
   const downloadAllBrandAssets = React.useCallback(() => {
     const download = (url: string) => {
@@ -172,35 +316,45 @@ export function Sidebar({ className }: { className?: string }) {
             </ContextMenu.Trigger>
             <ContextMenu.Content className='z-[10000] min-w-48 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-[13px] shadow-xl p-1'>
               <ContextMenu.Item
-                onSelect={() => copyFromUrl('/assets/brand/logo.svg', 'Logo SVG')}
-                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+                onSelect={() => copyFromUrl('/assets/brand/logo.svg', tLogo('LabelShortLogo'))}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none flex items-center gap-2'
               >
-                Copy logo as SVG
+                {/* Copy icon */}
+                <LogoHelmetFilled className='size-4' />
+                <span>{tLogo('CopyLogoSvg')}</span>
               </ContextMenu.Item>
               <ContextMenu.Item
-                onSelect={() => copyFromUrl('/assets/brand/wordmark.svg', 'Wordmark SVG')}
-                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+                onSelect={() => copyFromUrl('/assets/brand/wordmark.svg', tLogo('LabelShortWordmark'))}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none flex items-center gap-2'
               >
-                Copy wordmark as SVG
+                {/* Copy icon */}
+                <TextTool className='size-4' />
+                <span>{tLogo('CopyWordmarkSvg')}</span>
               </ContextMenu.Item>
               <ContextMenu.Item
-                onSelect={() => copyFromUrl('/assets/brand/logo-lockup.svg', 'Logo Lockup SVG')}
-                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+                onSelect={() => copyFromUrl('/assets/brand/logo-lockup.svg', tLogo('LabelShortLockup'))}
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none flex items-center gap-2'
               >
-                Copy logo lockup as SVG
+                {/* Copy icon */}
+                <CopyDefault className='size-4' />
+                <span>{tLogo('CopyLockupSvg')}</span>
               </ContextMenu.Item>
               <ContextMenu.Item
                 onSelect={downloadAllBrandAssets}
-                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none flex items-center gap-2'
               >
-                Download brand assets
+                {/* Download icon */}
+                <CloudArrowDownload className='size-4' />
+                <span>{tLogo('DownloadAssets')}</span>
               </ContextMenu.Item>
               <ContextMenu.Separator className='my-1 h-px bg-neutral-200 dark:bg-neutral-800' />
               <ContextMenu.Item
                 onSelect={() => router.push('/brand')}
-                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none'
+                className='px-2 py-1.5 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 outline-none flex items-center gap-2'
               >
-                Brand guidelines
+                {/* Book icon */}
+                <Book2 className='size-4' />
+                <span>{tLogo('BrandGuidelines')}</span>
               </ContextMenu.Item>
             </ContextMenu.Content>
           </ContextMenu.Root>

@@ -17,6 +17,18 @@
     "LLMs": "/llms.txt",
     "ToggleNav": "开关导航栏"
   },
+  "LogoMenu": {
+    "CopyLogoSvg": "复制图标 SVG",
+    "CopyWordmarkSvg": "复制字标 SVG",
+    "CopyLockupSvg": "复制组合标 SVG",
+    "DownloadAssets": "下载品牌资源",
+    "BrandGuidelines": "品牌指南",
+    "CopiedToast": "{label} 已复制",
+    "CopyFailedToast": "复制 {label} 失败",
+    "LabelShortLogo": "Logo SVG",
+    "LabelShortWordmark": "字标 SVG",
+    "LabelShortLockup": "组合标 SVG"
+  },
   "Themes": {
     "Placeholder": "选择颜色主题",
     "Light": "浅色",
