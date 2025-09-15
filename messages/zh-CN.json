@@ -5,6 +5,7 @@
     "Home": "主页",
     "About": "关于佐玩",
     "Careers": "工作机会",
+    "Join": "加入我们",
     "Pricing": "定价方案",
     "Services": "服务提供",
     "Work": "项目作品",
@@ -60,9 +61,17 @@
     "MeetOurTeam": "团队成员"
   },
   "Careers": {
-    "Title": "加入我们",
-    "Description": "你是否厌倦了泛滥互联网世界的乏味和平庸应用？加入我们，用你的软件超能力和我们一起拯救世界",
+    "Title": "打造愉悦的设计，一起前行。",
+    "Description": "我们正在寻找有才华的人加入我们的团队。如果你对打造愉悦的设计充满热情，赶快来申请吧！",
     "OpenPositions": "开放职位：",
+    "ProductDesigner": {
+      "Title": "产品设计师",
+      "OpenGraphTitle": "工作机会 — 产品设计师"
+    },
+    "BrandDesigner": {
+      "Title": "品牌设计师",
+      "OpenGraphTitle": "工作机会 — 品牌设计师"
+    },
     "Openings": {
       "Squad": "{squad}团队",
       "Empty": "目前没有开放职位，关注我们的社交动态，第一时间了解新职位 🙌"
