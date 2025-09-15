@@ -1,11 +1,82 @@
 /** @paper-design/shaders-react@0.0.52 */
+'use client'
+
 import { GrainGradient } from '@paper-design/shaders-react'
 import Image from 'next/image'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import wordmark from '~/public/assets/wordmark.png'
 
+const MAX_OFFSET = 0.5
+
 export default function WordmarkGrainGradient() {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // We keep target and displayed offsets to enable a smooth magnetic-feel lerp
+  const targetRef = useRef({ x: 0, y: 0 })
+  const [offset, setOffset] = useState({ x: 0, y: 0 })
+  const rafRef = useRef<number | null>(null)
+
+  const animate = useCallback(() => {
+    const k = 0.025 // lerp factor: higher = snappier
+    setOffset((curr) => {
+      const dx = targetRef.current.x - curr.x
+      const dy = targetRef.current.y - curr.y
+      const nx = Math.abs(dx) < 0.2 ? targetRef.current.x : curr.x + dx * k
+      const ny = Math.abs(dy) < 0.2 ? targetRef.current.y : curr.y + dy * k
+      return { x: nx, y: ny }
+    })
+    rafRef.current = requestAnimationFrame(animate)
+  }, [])
+
+  useEffect(() => {
+    rafRef.current = requestAnimationFrame(animate)
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
+  }, [animate])
+
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = containerRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width // 0..1
+    const y = (e.clientY - rect.top) / rect.height // 0..1
+    // Map to -1..1 then scale to MAX_OFFSET
+    const mappedX = (x * 2 - 1) * MAX_OFFSET
+    const mappedY = (y * 2 - 1) * MAX_OFFSET
+    // Clamp to ±MAX_OFFSET
+    const clamp = (v: number) => Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, v))
+    targetRef.current = { x: clamp(mappedX), y: clamp(mappedY) }
+  }, [])
+
+  const handlePointerEnter = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = containerRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    const mappedX = (x * 2 - 1) * MAX_OFFSET
+    const mappedY = (y * 2 - 1) * MAX_OFFSET
+    const clamp = (v: number) => Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, v))
+    const start = { x: clamp(mappedX), y: clamp(mappedY) }
+    // Initialize both target and current offset to the same value to avoid an entry jump
+    targetRef.current = start
+    setOffset(start)
+  }, [])
+
+  const handlePointerLeave = useCallback(() => {
+    // Ease back to center when leaving the area
+    targetRef.current = { x: 0, y: 0 }
+  }, [])
+
   return (
-    <div className='w-full aspect-[3/1] contain-layout relative flex items-center justify-center'>
+    <div
+      ref={containerRef}
+      className='w-full aspect-[3/1] contain-layout relative flex items-center justify-center'
+      onPointerEnter={handlePointerEnter}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+    >
       <GrainGradient
         className='w-full h-full bg-neutral-50 dark:bg-black dark:mix-blend-hard-light absolute inset-0'
         colors={['#29262A', '#E6E6E6', '#343434']}
@@ -13,8 +84,8 @@ export default function WordmarkGrainGradient() {
         speed={1}
         scale={1}
         rotation={0}
-        offsetX={0}
-        offsetY={0}
+        offsetX={offset.x}
+        offsetY={offset.y}
         softness={0.5}
         intensity={0.5}
         noise={0.25}
