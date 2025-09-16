@@ -181,7 +181,18 @@ export function GridItem({ className, action, children }: GridItemProps) {
     if (action.kind === 'download') {
       const anchor = document.createElement('a')
       anchor.href = action.href
-      if (action.fileName) anchor.download = action.fileName
+      const resolvedFileName = (() => {
+        if (action.fileName) return action.fileName
+        try {
+          const url = new URL(action.href, window.location.href)
+          const lastSegment = url.pathname.split('/').filter(Boolean).pop()
+          return lastSegment ?? ''
+        } catch {
+          return ''
+        }
+      })()
+      anchor.download = resolvedFileName
+      anchor.rel = 'noopener'
       // Allow same-tab download by default; fallback to opening if blocked
       document.body.appendChild(anchor)
       anchor.click()
