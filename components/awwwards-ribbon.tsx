@@ -1,6 +1,10 @@
 export function AwwwardsRibbon() {
   return (
-    <div id='awwwards' className='fixed top-1/2 right-0 z-[999] -translate-y-1/2 transform' aria-hidden='true'>
+    <div
+      id='awwwards'
+      className='fixed top-1/2 right-0 z-[999] -translate-y-1/2 transform origin-right scale-50 md:scale-100'
+      aria-hidden='true'
+    >
       <a
         href='https://www.awwwards.com/sites/zolplay-design-studio'
         target='_blank'
