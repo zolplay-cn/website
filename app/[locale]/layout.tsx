@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import localFont from 'next/font/local'
 import { Suspense } from 'react'
+import { AwwwardsRibbon } from '~/components/awwwards-ribbon'
 import { Background } from '~/components/background'
 import { ChinaDomainBanner } from '~/components/china-domain-banner'
 import { Footer } from '~/components/footer'
@@ -102,6 +103,7 @@ export default async function RootLayout({ children, params }: { children: React
           {/* Show China domain recommendation banner when applicable */}
           <ChinaDomainBanner locale={locale} />
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+            <AwwwardsRibbon />
             <NextIntlClientProvider>
               <Background />
               <LenisProvider>
