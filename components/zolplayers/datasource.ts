@@ -2,12 +2,14 @@ import type { StaticImageData } from 'next/image'
 import type { SocialPlatform } from './social-platform'
 import caliDark from './headshots/dark/cali.jpg'
 import ethanDark from './headshots/dark/ethan.jpg'
+import jasperDark from './headshots/dark/jasper.jpg'
 import larryDark from './headshots/dark/larry.jpg'
 import soniaDark from './headshots/dark/sonia.jpg'
 import timxDark from './headshots/dark/timx.jpg'
 import willDark from './headshots/dark/will.jpg'
 import caliLight from './headshots/light/cali.jpg'
 import ethanLight from './headshots/light/ethan.jpg'
+import jasperLight from './headshots/light/jasper.jpg'
 import larryLight from './headshots/light/larry.jpg'
 import soniaLight from './headshots/light/sonia.jpg'
 import timxLight from './headshots/light/timx.jpg'
@@ -70,6 +72,19 @@ export const ZOLPLAYERS = [
         url: 'https://github.com/Peek-A-Booo',
       },
     ],
+  },
+  {
+    name: 'Jasper',
+    slug: 'jasper',
+    role: {
+      en: 'Product Designer',
+      'zh-CN': '产品设计师',
+    },
+    portrait: {
+      dark: jasperDark,
+      light: jasperLight,
+    },
+    social: [],
   },
   {
     name: 'Larry Zhou',

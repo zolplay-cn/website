@@ -11,6 +11,7 @@ export function Zolplayers() {
   const t = useTranslations('About')
   const locale = useLocale()
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null)
+  const needsPlaceholder = ZOLPLAYERS_SORTED.length % 2 !== 0
 
   return (
     <>
@@ -21,7 +22,7 @@ export function Zolplayers() {
           bg-[image:repeating-linear-gradient(135deg,_var(--grid-color)_0,_var(--grid-color)_1px,_transparent_1px,_transparent_16px)]
           bg-fixed
           [--grid-color:var(--color-stone-100)] dark:[--grid-color:var(--color-stone-800)]
-          border-t border-(--grid-border-color)
+          border-t border-b border-(--grid-border-color)
         '
       >
         <div className='relative grid grid-cols-1 lg:grid-cols-[minmax(260px,356px)_1fr]'>
@@ -39,8 +40,12 @@ export function Zolplayers() {
                   }`}
                 >
                   <div className='min-w-0'>
-                    <div className='text-sm md:text-base text-[var(--accent)] truncate'>{member.name}</div>
-                    <div className='text-xs md:text-sm text-[var(--accent)]/70 truncate'>{member.role[locale]}</div>
+                    <div className='text-sm md:text-base text-[var(--accent)] truncate font-medium tracking-tight'>
+                      {member.name}
+                    </div>
+                    <div className='text-xs md:text-sm text-[var(--accent)]/70 truncate tracking-[-0.015em] opacity-65'>
+                      {member.role[locale]}
+                    </div>
                   </div>
                   {member.social && member.social.length > 0 ? (
                     <ul className='flex flex-wrap items-center gap-2 justify-end'>
@@ -85,13 +90,17 @@ export function Zolplayers() {
                       placeholder='blur'
                     />
                   </div>
-
-                  <div className='absolute inset-x-0 bottom-0 px-2 py-1.5 md:pl-3 md:pb-3 text-sm md:text-xs text-white/90 mix-blend-difference'>
-                    {/* Only first name */}
-                    {member.name.split(' ')[0]}
-                  </div>
                 </WithFrame>
               ))}
+              {needsPlaceholder ? (
+                <WithFrame
+                  aria-hidden
+                  hasTicker={false}
+                  className='relative w-full aspect-square opacity-0 pointer-events-none'
+                >
+                  &nbsp;
+                </WithFrame>
+              ) : null}
             </div>
           </div>
         </div>
