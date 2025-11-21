@@ -97,7 +97,9 @@ export function Zolplayers() {
                   aria-hidden
                   hasTicker={false}
                   className='relative w-full aspect-square opacity-0 pointer-events-none'
-                />
+                >
+                  &nbsp;
+                </WithFrame>
               ) : null}
             </div>
           </div>
