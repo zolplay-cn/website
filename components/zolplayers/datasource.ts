@@ -74,7 +74,7 @@ export const ZOLPLAYERS = [
     ],
   },
   {
-    name: 'Jasper',
+    name: 'Jasper Xu',
     slug: 'jasper',
     role: {
       en: 'Product Designer',
