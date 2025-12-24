@@ -1,11 +1,11 @@
 import { clsxm } from '@zolplay/utils'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import WordmarkGrainGradient from '~/modules/fx/wordmark-grain-gradient'
+import { ICPRecord } from './icp-record'
 import { WithFrame } from './mdx'
 
 export function Footer() {
   const t = useTranslations('Copyright')
-  const locale = useLocale()
 
   return (
     <footer
@@ -25,11 +25,7 @@ export function Footer() {
         })}
       </p>
 
-      {locale === 'zh-CN' && (
-        <a className='my-2 text-xs opacity-50' href='https://beian.miit.gov.cn/' target='_blank' rel='noreferrer'>
-          粤ICP备2025454293号
-        </a>
-      )}
+      <ICPRecord />
     </footer>
   )
 }
