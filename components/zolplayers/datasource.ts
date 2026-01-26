@@ -1,19 +1,13 @@
 import type { StaticImageData } from 'next/image'
 import type { SocialPlatform } from './social-platform'
-import caliDark from './headshots/dark/cali.jpg'
-import ethanDark from './headshots/dark/ethan.jpg'
-import jasperDark from './headshots/dark/jasper.jpg'
-import larryDark from './headshots/dark/larry.jpg'
-import soniaDark from './headshots/dark/sonia.jpg'
-import timxDark from './headshots/dark/timx.jpg'
-import willDark from './headshots/dark/will.jpg'
-import caliLight from './headshots/light/cali.jpg'
-import ethanLight from './headshots/light/ethan.jpg'
-import jasperLight from './headshots/light/jasper.jpg'
-import larryLight from './headshots/light/larry.jpg'
-import soniaLight from './headshots/light/sonia.jpg'
-import timxLight from './headshots/light/timx.jpg'
-import willLight from './headshots/light/will.jpg'
+import cali from './headshots/cali.jpeg'
+import ethan from './headshots/ethan.jpeg'
+import jasper from './headshots/jasper.jpeg'
+import larry from './headshots/larry.jpeg'
+import sonia from './headshots/sonia.jpeg'
+import timx from './headshots/timx.jpeg'
+import tyler from './headshots/tyler.jpeg'
+import will from './headshots/will.jpeg'
 
 export interface Zolplayer {
   name: string
@@ -22,10 +16,7 @@ export interface Zolplayer {
     en: string
     'zh-CN': string
   }
-  portrait: {
-    dark: StaticImageData
-    light: StaticImageData
-  }
+  portrait: StaticImageData
   social: {
     platform: SocialPlatform
     url: string
@@ -40,10 +31,7 @@ export const ZOLPLAYERS = [
       'zh-CN': '创始人 CEO',
       en: 'Founder & CEO',
     },
-    portrait: {
-      dark: caliDark,
-      light: caliLight,
-    },
+    portrait: cali,
     social: [
       { platform: 'twitter', url: 'https://x.com/thecalicastle' },
       { platform: 'github', url: 'https://github.com/CaliCastle' },
@@ -58,10 +46,7 @@ export const ZOLPLAYERS = [
       'zh-CN': '全栈工程师',
       en: 'Full Stack Engineer',
     },
-    portrait: {
-      dark: ethanDark,
-      light: ethanLight,
-    },
+    portrait: ethan,
     social: [
       {
         platform: 'twitter',
@@ -80,10 +65,7 @@ export const ZOLPLAYERS = [
       en: 'Product Designer',
       'zh-CN': '产品设计师',
     },
-    portrait: {
-      dark: jasperDark,
-      light: jasperLight,
-    },
+    portrait: jasper,
     social: [],
   },
   {
@@ -93,10 +75,7 @@ export const ZOLPLAYERS = [
       en: 'Product Manager',
       'zh-CN': '产品经理',
     },
-    portrait: {
-      dark: larryDark,
-      light: larryLight,
-    },
+    portrait: larry,
     social: [
       {
         platform: 'twitter',
@@ -111,10 +90,7 @@ export const ZOLPLAYERS = [
       en: 'Founding Designer',
       'zh-CN': '创始设计师',
     },
-    portrait: {
-      dark: soniaDark,
-      light: soniaLight,
-    },
+    portrait: sonia,
     social: [
       {
         platform: 'twitter',
@@ -129,10 +105,17 @@ export const ZOLPLAYERS = [
       en: 'Tech Manager',
       'zh-CN': '技术经理',
     },
-    portrait: {
-      dark: timxDark,
-      light: timxLight,
+    portrait: timx,
+    social: [],
+  },
+  {
+    name: 'Tyler Lu',
+    slug: 'tyler',
+    role: {
+      en: 'Visual Designer',
+      'zh-CN': '视觉设计师',
     },
+    portrait: tyler,
     social: [],
   },
   {
@@ -142,10 +125,7 @@ export const ZOLPLAYERS = [
       en: 'Founding Engineer',
       'zh-CN': '创始工程师',
     },
-    portrait: {
-      dark: willDark,
-      light: willLight,
-    },
+    portrait: will,
     social: [
       {
         platform: 'twitter',

@@ -4,7 +4,7 @@
   "NavMenu": {
     "Home": "Home",
     "About": "About",
-    "Careers": "Careers",
+    "Team": "Team",
     "Join": "Join",
     "Pricing": "Pricing",
     "Services": "Services",
@@ -61,170 +61,11 @@
     "Heading": "Where Innovation Meets Imagination. Crafting Fun, Engineering Play.",
     "MeetOurTeam": "Meet the crew"
   },
-  "Careers": {
-    "Title": "Join us. Craft delightful designs, together.",
-    "Description": "We are looking for talented people to join our team. If you are passionate about crafting delightful designs, apply now!",
-    "OpenPositions": "Open positions:",
-    "ProductDesigner": {
-      "Title": "Product Designer",
-      "OpenGraphTitle": "Careers — Product Designer"
-    },
-    "BrandDesigner": {
-      "Title": "Brand Designer",
-      "OpenGraphTitle": "Careers — Brand Designer"
-    },
-    "Openings": {
-      "Squad": "{squad} squad",
-      "Empty": "No open positions at the moment, you can follow us on Twitter to get notified when we have new openings \uD83D\uDE4C"
-    },
-    "EmploymentType": {
-      "FullTime": "Full-time",
-      "PartTime": "Part-time",
-      "Contract": "Contract",
-      "Intern": "Internship",
-      "Temporary": "Temporary"
-    },
-    "Remote": {
-      "Yes": "Remote",
-      "No": "On-site"
-    },
-    "SeeAllCTA": "Open positions",
-    "Back": "Back to careers",
-    "ApplyCTA": {
-      "Idle": "Apply",
-      "Loading": "Applying...",
-      "Success": "Thank you for the application, we will reach out to you soon!",
-      "Error": "Error while sending application, try again later."
-    },
-    "Details": {
-      "Subtitle": "Careers",
-      "Preface": "Our team is like a high-tech flock of birds 🐦 - <green>fully remote, yet always connected</green>. While most of us are based in the bustling metropolis of 🏙️ <b>Shenzhen, China</b>, we also have an awesome office space where we can hang out and bounce ideas off each other. But no matter where we perch, we're all <red>makers at heart ❤️</red>. We thrive on pushing ourselves to tackle new challenges and pour our passion into every project we undertake. So whether you're a <b>coding ninja 🥷</b> from Tokyo, <b>tea connoisseur 🍵</b> from Hangzhou or a <b>dim sum master 🥟</b> from Hong Kong, if you share our love for quality work, we'd love to have you join our flock!",
-      "Application": {
-        "Title": "Apply now",
-        "Tips": "You can also apply by sending us an email via <email>cv@zolplay.com</email>",
-        "About": {
-          "Label": "About you",
-          "Placeholder": "✍\uFE0F Tell us a bit about yourself."
-        },
-        "Resume": {
-          "Add": "Add Resume",
-          "Change": "Change Resume",
-          "FileLimit": "Resume should be PDF files and under 50MB"
-        },
-        "Contact": "Contact Details",
-        "Links": "Links",
-        "FullName": {
-          "Label": "Full name",
-          "Placeholder": "e.g. Tony Stark"
-        },
-        "PreferredName": {
-          "Label": "Preferred name",
-          "Placeholder": "(Leave blank if same as full name)"
-        },
-        "Email": {
-          "Label": "Email",
-          "Placeholder": "e.g. tony@avengers.com"
-        },
-        "PhoneNumber": {
-          "Label": "Phone number",
-          "Placeholder": "1-415-555-1234..."
-        },
-        "Location": {
-          "Label": "Location",
-          "Placeholder": "Start typing..."
-        },
-        "OtherInfo": {
-          "Label": "Other information",
-          "Tips": "Let us know what makes you want to apply and join our team?",
-          "Placeholder": "Type here..."
-        },
-        "GitHub": {
-          "Label": "GitHub",
-          "Tips": "Link to your GitHub profile, if applicable",
-          "Placeholder": "Type here..."
-        },
-        "Website": {
-          "Label": "Portfolio or Website",
-          "Tips": "Link to your portfolio or personal website, if applicable",
-          "Placeholder": "Type here..."
-        },
-        "Twitter": {
-          "Label": "X  (twitter)",
-          "Tips": "Link to your X (twitter) profile, if applicable",
-          "Placeholder": "Type here..."
-        },
-        "LinkedIn": {
-          "Label": "LinkedIn",
-          "Tips": "Link to your LinkedIn profile, if applicable",
-          "Placeholder": "Type here..."
-        },
-        "Success": {
-          "Title": "Success",
-          "Description": "Thank you: your application was successfully submitted. We appreciate your patience as your application is under review."
-        }
-      }
-    },
-    "Benefits": {
-      "Title": "Benefits:",
-      "Content": [
-        "Async first workflow: zero meetings and asynchronous collaborations offers flexible working hours and increased productivity.",
-        "100% remote friendly: work from anywhere in the world, pants might be overrated.",
-        "Competitive compensation: we offer end of year bonuses and stock options.",
-        "Healthcare: housing, commute and other reimbursements included.",
-        "Growth: we host internal workshops and create opportunities for career advancement and professional development.",
-        "Fun: game nights, afternoon snacks, team outings, and other fun activities.",
-        "Equipment: we provide you with the best-in-class software and hardware tools you need to do your best work.",
-        "Additional benefits: We will provide you with high coverage commercial insurance to add an extra layer of protection to your career."
-      ]
-    },
-    "OurStacks": {
-      "Title": "Our stacks:",
-      "Content": [
-        "React.js: is it a library or a framework? We don't know, but we love it.",
-        "Next.js: in Vercel we trust.",
-        "TypeScript: it's JavaScript on steroids.",
-        "Tailwind CSS: once you go Tailwind, you never go vanilla.",
-        "Framer Motion: smooth animations and micro-interactions.",
-        "Laravel: back-end framework for web artisans.",
-        "PostgreSQL: the database of choice for the modern web.",
-        "Git: version control for the win.",
-        "Docker: scalable containerization.",
-        "Electron: cross-platform desktop apps.",
-        "Swift: native iOS apps.",
-        "Kotlin: native Android apps."
-      ]
-    },
-    "OurTools": {
-      "Title": "Our tools:",
-      "Content": [
-        "Slack: we use it for everything, from team communication to sharing the latest tech news, or chatting with our ChatGPT bot.",
-        "Google Workspace: we use Google Docs, Sheets, Slides, Drive, Mail and Calendar for collaboration.",
-        "GitHub: top-notch code repositories and CI/CD pipelines.",
-        "Linear: best project management and task tracking platform.",
-        "Vercel: the best deployment platform for web apps.",
-        "Figma: the best design tool for all things UI/UX.",
-        "Notion: the all-in-one workspace for notes, wikis, and databases.",
-        "Arc: the internet computer browser we all love."
-      ]
-    },
-    "Zod": {
-      "Name": {
-        "Required": "Name is required"
-      },
-      "Email": {
-        "Required": "Email is required",
-        "Invalid": "Invalid email"
-      },
-      "Phone": {
-        "Required": "Phone is required"
-      },
-      "Location": {
-        "Required": "Location is required"
-      },
-      "Resume": {
-        "Required": "Resume is required"
-      }
-    }
+  "Team": {
+    "Title": "Meet Our Team",
+    "Description": "Meet the talented people behind Zolplay. We're a diverse team of designers, developers, and creators passionate about crafting exceptional digital experiences.",
+    "Keywords": "Zolplay team, design team, development team, creative studio team",
+    "OpenGraphTitle": "Team — Meet the Crew"
   },
   "Portfolios": {
     "OpenGraphTitle": "Work — Our Portfolio",
@@ -244,12 +85,12 @@
   },
   "Contact": {
     "Title": "Contact us",
-    "Description": "We're always looking for new opportunities to collaborate with like-minded people. If you want to say hi, we'd love to hear from you \uD83D\uDC4F.",
+    "Description": "We're always looking for new opportunities to collaborate with like-minded people. If you want to say hi, we'd love to hear from you 👏.",
     "Tips": "You can also get in touch by sending us an email via <email>contact@zolplay.com</email>",
     "Form": {
       "Message": {
         "Label": "Leave a message",
-        "Placeholder": "Let us know what your needs are or just say hi \uD83D\uDC4B"
+        "Placeholder": "Let us know what your needs are or just say hi 👋"
       },
       "FullName": {
         "Label": "Full name",

@@ -7,16 +7,24 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
   const t = await getTranslations({ locale })
 
   return {
-    title: t('Careers.Title'),
-    description: t('Careers.Description'),
+    title: t('Team.Title'),
+    description: t('Team.Description'),
     openGraph: {
-      title: t('Careers.Title'),
-      description: t('Careers.Description'),
+      title: t('Team.Title'),
+      description: t('Team.Description'),
+    },
+    keywords: t('Team.Keywords'),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: '/team',
     },
   }
 }
 
-export default async function CareersPage({ params }: { params: Promise<RootParams> }) {
+export default async function TeamPage({ params }: { params: Promise<RootParams> }) {
   const { locale } = await params
 
   // Enable static rendering

@@ -4,7 +4,6 @@ import NextImage from 'next/image'
 import {
   BackgroundVideo,
   Capabilities,
-  CareersEmailNote,
   CTAButton,
   DefaultFAQ,
   FAQ,
@@ -14,11 +13,8 @@ import {
   Green,
   Grid,
   GridItem,
-  OpenRolesHeader,
   PartnerLogoWall,
   Red,
-  RoleCard,
-  RolesList,
   WeChatQRButton,
   WithFrame,
 } from './components/mdx'
@@ -30,10 +26,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
     // Explicitly list MDX components to avoid spreading a proxied module namespace
     BackgroundVideo,
-    OpenRolesHeader,
-    RolesList,
-    RoleCard,
-    CareersEmailNote,
     Capabilities,
     CTAButton,
     Gradient,
