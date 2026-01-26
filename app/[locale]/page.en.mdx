@@ -3,10 +3,19 @@ import headlineDark from './headline-art-dark.png'
 import mantra from './mantra.webp'
 import founderTalking from './founder-talking.webp'
 import { PricingPlans } from '~/components/mdx'
-import { Zolplayers } from '~/components/zolplayers'
 
-<NakedImage src={headline} alt='Zolplay Headline Illustration' priority className='block visible dark:hidden dark:invisible' />
-<NakedImage src={headlineDark} alt='Zolplay Headline Illustration' priority className='mt-0 hidden invisible dark:block dark:visible' />
+<NakedImage
+  src={headline}
+  alt='Zolplay Headline Illustration'
+  priority
+  className='block visible dark:hidden dark:invisible'
+/>
+<NakedImage
+  src={headlineDark}
+  alt='Zolplay Headline Illustration'
+  priority
+  className='mt-0 hidden invisible dark:block dark:visible'
+/>
 
 # A <Gradient>design studio</Gradient> for people with high standards
 
@@ -58,9 +67,9 @@ Whether you prefer a monthly subscription or a scoped project, the best next ste
 
 If our design resonates with you and you’re excited by the craft and care we bring, we’d love to meet—book a short discovery call and let’s imagine what we can create together.
 
-<CTAButton href="/work">See our past projects</CTAButton>
+<CTAButton href='/work'>See our past projects</CTAButton>
 
-<WithFrame className="my-6">
+<WithFrame className='my-6'>
   <CalendarBooker />
 </WithFrame>
 
@@ -81,7 +90,3 @@ tossed.
 <WithFrame>
   <BackgroundVideo src='/vids/swag-shop-reel.mp4' aspectRatio='16/9' />
 </WithFrame>
-
----
-
-<Zolplayers />

@@ -3,7 +3,6 @@ import headlineDark from './headline-art-dark.png'
 import mantra from './mantra.webp'
 import founderTalking from './founder-talking.webp'
 import { PricingPlans } from '~/components/mdx'
-import { Zolplayers } from '~/components/zolplayers'
 
 <NakedImage src={headline} alt='佐玩头图' priority className='block visible dark:hidden dark:invisible' />
 <NakedImage src={headlineDark} alt='佐玩头图' priority className='mt-0 hidden invisible dark:block dark:visible' />
@@ -55,11 +54,11 @@ import { Zolplayers } from '~/components/zolplayers'
 无论是订阅制还是项目制，最佳的下一步都是预约一次线上洽谈。我们将确认是否契合、对齐目标与时间线，并给出合适的方案建议，帮助你快速推进。
 
 <div className='flex gap-4 flex-col lg:flex-row'>
-  <CTAButton href="/work">我们的项目作品</CTAButton>
+  <CTAButton href='/work'>我们的项目作品</CTAButton>
   <WeChatQRButton />
 </div>
 
-<WithFrame className="my-6">
+<WithFrame className='my-6'>
   <CalendarBooker />
 </WithFrame>
 
@@ -79,6 +78,3 @@ import { Zolplayers } from '~/components/zolplayers'
 <WithFrame>
   <BackgroundVideo src='/vids/swag-shop-reel.mp4' aspectRatio='16/9' />
 </WithFrame>
----
-
-<Zolplayers />

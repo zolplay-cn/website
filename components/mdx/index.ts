@@ -1,6 +1,5 @@
 export * from './BackgroundVideo'
 export * from './Capabilities'
-export * from './Careers'
 export * from './CTAButton'
 export * from './FAQ'
 export * from './FramedImage'

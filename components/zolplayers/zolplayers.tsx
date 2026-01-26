@@ -64,32 +64,20 @@ export function Zolplayers() {
               {ZOLPLAYERS_SORTED.map((member) => (
                 <WithFrame
                   key={member.slug}
-                  className={`relative w-full aspect-square transition-opacity duration-200 ${
+                  className={`relative w-full aspect-square transition-opacity duration-200 mix-blend-darken dark:mix-blend-exclusion ${
                     hoveredSlug && hoveredSlug !== member.slug ? '[opacity:.65]' : ''
                   }`}
                   onMouseEnter={() => setHoveredSlug(member.slug)}
                   onMouseLeave={() => setHoveredSlug(null)}
                 >
-                  <div className='hidden invisible dark:block dark:visible'>
-                    <Image
-                      src={member.portrait.dark}
-                      alt={member.name}
-                      width={600}
-                      height={600}
-                      className='w-full h-full object-cover'
-                      placeholder='blur'
-                    />
-                  </div>
-                  <div className='block visible dark:hidden dark:invisible'>
-                    <Image
-                      src={member.portrait.light}
-                      alt={member.name}
-                      width={600}
-                      height={600}
-                      className='w-full h-full object-cover'
-                      placeholder='blur'
-                    />
-                  </div>
+                  <Image
+                    src={member.portrait}
+                    alt={member.name}
+                    width={600}
+                    height={600}
+                    className='w-full h-full object-cover'
+                    placeholder='blur'
+                  />
                 </WithFrame>
               ))}
               {needsPlaceholder ? (

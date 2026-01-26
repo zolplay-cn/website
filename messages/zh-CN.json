@@ -1,10 +1,9 @@
 {
-  "under_construction": "\uD83D\uDEA7 此页面正在建设中，稍后晚些会回来～",
+  "under_construction": "🚧 此页面正在建设中，稍后晚些会回来～",
   "Error": "错误了，刷新试试？",
   "NavMenu": {
     "Home": "主页",
     "About": "关于佐玩",
-    "Careers": "工作机会",
     "Join": "加入我们",
     "Pricing": "定价方案",
     "Services": "服务提供",
@@ -16,7 +15,8 @@
     "Privacy": "隐私政策",
     "Terms": "使用条款",
     "LLMs": "/llms.txt",
-    "ToggleNav": "开关导航栏"
+    "ToggleNav": "开关导航栏",
+    "Team": "团队"
   },
   "LogoMenu": {
     "CopyLogoSvg": "复制图标 SVG",
@@ -60,171 +60,6 @@
     "Description": "我们的使命不仅仅是创造另一家公司，而是建立一个让人们感到自豪的品牌。我们希望人们可以自信地说，“佐玩出品，必属精品”",
     "MeetOurTeam": "团队成员"
   },
-  "Careers": {
-    "Title": "打造愉悦的设计，一起前行。",
-    "Description": "我们正在寻找有才华的人加入我们的团队。如果你对打造愉悦的设计充满热情，赶快来申请吧！",
-    "OpenPositions": "开放职位：",
-    "ProductDesigner": {
-      "Title": "产品设计师",
-      "OpenGraphTitle": "工作机会 — 产品设计师"
-    },
-    "BrandDesigner": {
-      "Title": "品牌设计师",
-      "OpenGraphTitle": "工作机会 — 品牌设计师"
-    },
-    "Openings": {
-      "Squad": "{squad}团队",
-      "Empty": "目前没有开放职位，关注我们的社交动态，第一时间了解新职位 🙌"
-    },
-    "EmploymentType": {
-      "FullTime": "全职",
-      "PartTime": "兼职",
-      "Contract": "合同",
-      "Intern": "实习",
-      "Temporary": "临时"
-    },
-    "Remote": {
-      "Yes": "远程办公",
-      "No": "线下办公"
-    },
-    "SeeAllCTA": "查看开放职位",
-    "Back": "回到工作机会",
-    "ApplyCTA": {
-      "Idle": "投递简历",
-      "Loading": "投递中...",
-      "Success": "感谢你的投递，我们将尽快和你联系～",
-      "Error": "投递出错了，请稍后重试"
-    },
-    "Details": {
-      "Subtitle": "工作机会",
-      "Preface": "佐玩团队就像一群高科技的鸟群一样 🐦，<green>完全远程，却始终保持着联系</green>。虽然我们大部分人都在<b>居家远程办公</b>，但我们在 🏙️ <b>深圳</b> 也有一个很棒的办公空间，可以线下聚集在一起协作与玩耍。但无论我们在哪里停留，我们都是 <red>❤\uFE0F 衷心的创造者</red>。我们热爱挑战自己，为每个项目投入我们满腔的热情。所以无论你是来自东京的<b>「代码忍者 🥷」</b>、杭州的<b>「茶艺鉴赏家 🍵」</b>，还是香港的<b>「点心大师 🥟」</b>，只要你和我们一样热爱打造高品质产品，我们都很期待你的加入！",
-      "Application": {
-        "Title": "现在申请",
-        "Tips": "你也可以直接发送邮件到 <email>cv@zolplay.com</email>",
-        "About": {
-          "Label": "自我介绍",
-          "Placeholder": "✍\uFE0F 简短的自我描述."
-        },
-        "Resume": {
-          "Add": "添加简历",
-          "Change": "更换简历",
-          "FileLimit": "简历为 PDF 文件，大小不能超过 50MB"
-        },
-        "Contact": "联系方式",
-        "Links": "链接",
-        "FullName": {
-          "Label": "全名",
-          "Placeholder": "比如. 王嘉尔"
-        },
-        "PreferredName": {
-          "Label": "昵称/称呼",
-          "Placeholder": "(如果没有可留空)"
-        },
-        "Email": {
-          "Label": "电子邮箱地址",
-          "Placeholder": "比如. jackson@wang.com"
-        },
-        "PhoneNumber": {
-          "Label": "电话号码",
-          "Placeholder": "1-415-555-1234..."
-        },
-        "Location": {
-          "Label": "地点",
-          "Placeholder": "开始输入..."
-        },
-        "OtherInfo": {
-          "Label": "其他信息",
-          "Tips": "请告诉我们是什么让您想申请并加入我们的团队？",
-          "Placeholder": "在这里输入..."
-        },
-        "GitHub": {
-          "Label": "GitHub",
-          "Tips": "输入你的 GitHub 链接(如果适用)",
-          "Placeholder": "在这里输入..."
-        },
-        "Website": {
-          "Label": "作品集或个人网站",
-          "Tips": "输入你的作品集或个人网站链接(如果适用)",
-          "Placeholder": "在这里输入..."
-        },
-        "Twitter": {
-          "Label": "X  (twitter)",
-          "Tips": "输入你的 X (twitter) 链接(如果适用)",
-          "Placeholder": "在这里输入..."
-        },
-        "LinkedIn": {
-          "Label": "LinkedIn",
-          "Tips": "输入你的 LinkedIn 链接(如果适用)",
-          "Placeholder": "在这里输入..."
-        },
-        "Success": {
-          "Title": "提交成功",
-          "Description": "感谢你的投递，我们将尽快和你联系～"
-        }
-      }
-    },
-    "Benefits": {
-      "Title": "福利待遇：",
-      "Content": [
-        "异步优先工作流: 零会议和异步协作提供灵活工作时间的同时还提高了生产力。",
-        "100％远程友好: 任何地方都能是你的最佳办公地：惬意的咖啡馆或是温暖的被窝。",
-        "强力的薪酬: 我们提供年终奖金和期权鼓励。",
-        "五险一金: 包括住房、通勤和其他报销。",
-        "个人成长: 我们会举办内部研讨会，为职业晋升和专业发展创造机会。",
-        "娱乐: 游戏活动、下午茶点心、团建和其他有趣的活动。",
-        "设备: 我们为你提供最佳的软件和硬件工具，以助力你的工作效率。",
-        "额外福利: 我们将为你提供高保额的商业保险，为你的职业生涯更添一层保障。"
-      ]
-    },
-    "OurStacks": {
-      "Title": "我们的技术栈：",
-      "Content": [
-        "React.js: 它是库还是框架？无所谓，因为我们热爱用它。",
-        "Next.js: Vercel YYDS。",
-        "TypeScript: 八块腹肌版的 JavaScript。",
-        "Tailwind CSS: 一旦用上 Tailwind，就回不到普通 CSS 了。",
-        "Framer Motion: 丝滑的动画与微交互。",
-        "Laravel: 面向 Web 工匠的后端框架。",
-        "PostgreSQL: 现代 Web 的首选数据库。",
-        "Git: 版本控制真香。",
-        "Docker: 可扩展的容器化。",
-        "Electron: 跨平台桌面级应用。",
-        "Swift: 原生开发 iOS 应用。",
-        "Kotlin: 原生开发 Android 应用。"
-      ]
-    },
-    "OurTools": {
-      "Title": "我们的工具：",
-      "Content": [
-        "Slack: 我们干什么都用它，不管是团队沟通，还是分享最新的科技新闻，你还可以与我们的 ChatGPT 机器人聊天。",
-        "Google Workspace: 我们使用 Google Docs、Sheets、Slides、Drive、Mail 和 Calendar 进行协作。",
-        "GitHub: 一流的代码存储库和 CI/CD 运维。",
-        "Linear: 最棒的项目管理和任务跟踪平台。",
-        "Vercel: Web 应用程序的最佳部署平台。",
-        "Figma: 所有 UI/UX 相关设计工具中最好用的。",
-        "Notion: 用于文档和知识库的一站式工具。",
-        "Arc: 我们都爱的「互联网电脑」浏览器。"
-      ]
-    },
-    "Zod": {
-      "Name": {
-        "Required": "请输入全名"
-      },
-      "Email": {
-        "Required": "请输入电子邮箱地址",
-        "Invalid": "请输入正确的邮箱格式"
-      },
-      "Phone": {
-        "Required": "请输入电话号码"
-      },
-      "Location": {
-        "Required": "请输入地点"
-      },
-      "Resume": {
-        "Required": "请上传简历"
-      }
-    }
-  },
   "Portfolios": {
     "OpenGraphTitle": "作品集 — 我们的项目",
     "Title": "精选作品集",
@@ -250,7 +85,7 @@
     "Form": {
       "Message": {
         "Label": "留个言吧",
-        "Placeholder": "跟我们聊聊你的想法，或打个招呼也行～ \uD83D\uDC4B"
+        "Placeholder": "跟我们聊聊你的想法，或打个招呼也行～ 👋"
       },
       "FullName": {
         "Label": "名字/称呼",
@@ -272,5 +107,11 @@
     "Text": "© {year} - 深圳市佐玩信息技术有限公司",
     "Address": "公司办公地址：深圳市南山区高新南七道软件园 T3 栋四楼 A03",
     "Phone": "联系电话：18923441049"
+  },
+  "Team": {
+    "Title": "认识我们的团队",
+    "Description": "认识佐玩背后的才华横溢的团队成员。我们是一支由设计师、开发者和创作者组成的多元化团队，热衷于打造卓越的数字体验。",
+    "Keywords": "佐玩团队, 设计团队, 开发团队, 创意工作室团队",
+    "OpenGraphTitle": "团队 — 认识团队成员"
   }
 }
