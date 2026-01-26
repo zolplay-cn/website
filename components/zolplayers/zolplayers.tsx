@@ -35,7 +35,7 @@ export function Zolplayers() {
                   onMouseLeave={() => setHoveredSlug(null)}
                   onFocus={() => setHoveredSlug(member.slug)}
                   onBlur={() => setHoveredSlug(null)}
-                  className={`grid grid-cols-[1fr_auto] items-center gap-x-3 md:gap-x-4 px-2 md:px-3 py-2 md:py-2.5 border-b border-(--grid-border-color) transition-opacity duration-200 ${
+                  className={`grid grid-cols-[1fr_auto] items-center gap-x-3 md:gap-x-4 px-2 md:px-3 py-2 md:py-2.5 border-b last:border-b-0 border-(--grid-border-color) transition-opacity duration-200 ${
                     hoveredSlug && hoveredSlug !== member.slug ? '[opacity:.45]' : ''
                   }`}
                 >
