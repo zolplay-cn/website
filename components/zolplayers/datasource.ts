@@ -1,5 +1,6 @@
 import type { StaticImageData } from 'next/image'
 import type { SocialPlatform } from './social-platform'
+import amberley from './headshots/amberley.jpeg'
 import cali from './headshots/cali.jpeg'
 import ethan from './headshots/ethan.jpeg'
 import jasper from './headshots/jasper.jpeg'
@@ -24,6 +25,16 @@ export interface Zolplayer {
 }
 
 export const ZOLPLAYERS = [
+  {
+    name: 'Amberley Zhao',
+    slug: 'amberley',
+    role: {
+      en: 'Visual Designer',
+      'zh-CN': '视觉设计师',
+    },
+    portrait: amberley,
+    social: [],
+  },
   {
     name: 'Cali Castle',
     slug: 'cali',
