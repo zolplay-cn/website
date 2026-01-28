@@ -29,8 +29,8 @@ export const ZOLPLAYERS = [
     name: 'Amberley Zhao',
     slug: 'amberley',
     role: {
-      en: 'Visual Designer',
-      'zh-CN': '视觉设计师',
+      en: 'Product Designer',
+      'zh-CN': '产品设计师',
     },
     portrait: amberley,
     social: [],
