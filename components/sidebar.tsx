@@ -14,8 +14,8 @@ import React from 'react'
 import { toast } from 'sonner'
 import { Drawer } from 'vaul'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
+import { ZpBrandXiaohongshuIcon } from '~/components/icons/ZpBrandXiaohongshuIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
-import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
 import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
@@ -53,10 +53,10 @@ const social = [
     icon: ZpBrandGitHubIcon,
   },
   {
-    name: 'YouTube',
-    url: 'https://youtube.com/@zolplay',
-    label: 'YouTube',
-    icon: ZpBrandYouTubeIcon,
+    name: 'Xiaohongshu',
+    url: 'https://xhslink.com/m/8uj8HM0OMpF',
+    label: '小红书',
+    icon: ZpBrandXiaohongshuIcon,
   },
   {
     name: 'Email',
@@ -379,7 +379,7 @@ export function Sidebar({ className }: { className?: string }) {
                     'aspect-square border-r border-(--sidebar-fg)/20 last-of-type:border-r-0',
                     'flex items-center justify-center',
                     {
-                      'hover:text-[#FF0000] dark:hover:text-[#FF0000]': item.name === 'YouTube',
+                      'hover:text-[#FF2442] dark:hover:text-[#FF2442]': item.name === 'Xiaohongshu',
                     },
                   )}
                 >
