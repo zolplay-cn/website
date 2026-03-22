@@ -19,14 +19,14 @@
     "ToggleNav": "Toggle navigation"
   },
   "LogoMenu": {
-    "CopyLogoSvg": "Copy logo as SVG",
+    "CopyLogoSvg": "Copy origami mark as SVG",
     "CopyWordmarkSvg": "Copy wordmark as SVG",
     "CopyLockupSvg": "Copy logo lockup as SVG",
     "DownloadAssets": "Download brand assets",
     "BrandGuidelines": "Brand guidelines",
-    "CopiedToast": "{label} copied",
-    "CopyFailedToast": "Failed to copy {label}",
-    "LabelShortLogo": "logo SVG",
+    "CopiedToast": "Copied {label} to clipboard",
+    "CopyFailedToast": "Couldn't copy {label}",
+    "LabelShortLogo": "origami mark SVG",
     "LabelShortWordmark": "wordmark SVG",
     "LabelShortLockup": "logo lockup SVG"
   },

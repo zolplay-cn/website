@@ -1,5 +1,5 @@
 import { ButtonLink } from '~/components/ui/button'
-import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
+import { LogoHelmetFilled, LogoSidebarLockup, LogoWordmark } from '~/components/logo'
 
 # Zolplay 品牌指南
 
@@ -7,7 +7,7 @@ import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
 
 <div className='not-prose mt-6 mb-8'>
   <WithFrame className='inline-flex'>
-    <ButtonLink href='https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip' size='lg'>
+    <ButtonLink href='https://cdn.zolplay.com/brand/Zolplay%20Brand%20Assets.zip' size='lg'>
       下载品牌素材
     </ButtonLink>
   </WithFrame>
@@ -41,20 +41,24 @@ import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
 
 ## 组合标识（Lockup）
 
-当需要横向的品牌呈现时，可使用 Zolplay 的组合标识（图形标 + 文字标）。可在浅色或深色背景上使用，并限定在批准的颜色范围内。
+当需要横向的品牌呈现时，请优先使用提供好的 Zolplay 组合标识（折纸图形标 + 文字标）。不要自行调整两者间距或对齐关系，只在批准的浅色或深色配色中使用。
 
 <Grid cols={1} md={2} gap={4} className='my-5'>
   <GridItem
     className='bg-neutral-50 text-neutral-900'
     action={{ kind: 'download', href: '/assets/brand/logo-lockup-dark.svg', label: '下载 SVG' }}
   >
-    <LogoLockup className='w-[82%]' />
+    <div className='w-full px-4 py-3 md:px-6 md:py-4 flex items-center justify-center'>
+      <LogoSidebarLockup className='w-full max-w-[30rem]' />
+    </div>
   </GridItem>
   <GridItem
     className='bg-neutral-900 text-white'
     action={{ kind: 'download', href: '/assets/brand/logo-lockup-light.svg', label: '下载 SVG' }}
   >
-    <LogoLockup className='w-[82%]' />
+    <div className='w-full px-4 py-3 md:px-6 md:py-4 flex items-center justify-center'>
+      <LogoSidebarLockup className='w-full max-w-[30rem]' />
+    </div>
   </GridItem>
 </Grid>
 
@@ -67,35 +71,43 @@ import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
     className='bg-neutral-50 text-neutral-900'
     action={{ kind: 'download', href: '/assets/brand/wordmark-dark.svg', label: '下载 SVG' }}
   >
-    <LogoWordmark className='w-[82%]' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <LogoWordmark className='w-[82%]' />
+    </div>
   </GridItem>
   <GridItem
     className='bg-neutral-900 text-white'
     action={{ kind: 'download', href: '/assets/brand/wordmark-light.svg', label: '下载 SVG' }}
   >
-    <LogoWordmark className='w-[82%]' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <LogoWordmark className='w-[82%]' />
+    </div>
   </GridItem>
 </Grid>
 
-## 图形标识（Logo）
+## 图形标识（Origami Mark）
 
-在紧凑布局或仅图标网格的场景，可使用 Zolplay 图形标。请酌情选择使用场景——文字标识通常具有更高的识别度。
+在紧凑布局、头像或仅图标网格的场景，可使用 Zolplay 折纸图形标。请谨慎使用: 只要空间允许，优先使用组合标识或文字标识。
 
 <Grid cols={1} md={2} gap={4} className='my-5'>
   <GridItem
     className='bg-neutral-50'
     action={{ kind: 'download', href: '/assets/brand/logo-dark.svg', label: '下载 SVG' }}
   >
-    <div className='w-20 h-20 text-black flex items-center justify-center'>
-      <LogoHelmetFilled className='w-9 h-9' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <div className='w-28 h-20 text-black flex items-center justify-center'>
+        <LogoHelmetFilled className='w-16 h-auto' />
+      </div>
     </div>
   </GridItem>
   <GridItem
     className='bg-neutral-900'
     action={{ kind: 'download', href: '/assets/brand/logo-light.svg', label: '下载 SVG' }}
   >
-    <div className='w-20 h-20 text-white flex items-center justify-center'>
-      <LogoHelmetFilled className='w-9 h-9' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <div className='w-28 h-20 text-white flex items-center justify-center'>
+        <LogoHelmetFilled className='w-16 h-auto' />
+      </div>
     </div>
   </GridItem>
 </Grid>

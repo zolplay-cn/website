@@ -19,14 +19,14 @@
     "Team": "团队"
   },
   "LogoMenu": {
-    "CopyLogoSvg": "复制图标 SVG",
+    "CopyLogoSvg": "复制折纸图形标 SVG",
     "CopyWordmarkSvg": "复制字标 SVG",
     "CopyLockupSvg": "复制组合标 SVG",
     "DownloadAssets": "下载品牌资源",
     "BrandGuidelines": "品牌指南",
-    "CopiedToast": "{label} 已复制",
-    "CopyFailedToast": "复制 {label} 失败",
-    "LabelShortLogo": "Logo SVG",
+    "CopiedToast": "已复制 {label}",
+    "CopyFailedToast": "无法复制 {label}",
+    "LabelShortLogo": "折纸图形标 SVG",
     "LabelShortWordmark": "字标 SVG",
     "LabelShortLockup": "组合标 SVG"
   },
