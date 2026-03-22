@@ -19,14 +19,14 @@
     "Team": "团队"
   },
   "LogoMenu": {
-    "CopyLogoSvg": "复制折纸图形标 SVG",
+    "CopyLogoSvg": "复制千纸鹤图形标 SVG",
     "CopyWordmarkSvg": "复制字标 SVG",
     "CopyLockupSvg": "复制组合标 SVG",
     "DownloadAssets": "下载品牌资源",
     "BrandGuidelines": "品牌指南",
     "CopiedToast": "已复制 {label}",
     "CopyFailedToast": "无法复制 {label}",
-    "LabelShortLogo": "折纸图形标 SVG",
+    "LabelShortLogo": "千纸鹤图形标 SVG",
     "LabelShortWordmark": "字标 SVG",
     "LabelShortLockup": "组合标 SVG"
   },
@@ -50,8 +50,8 @@
       "SiteName": "佐玩",
       "Title": "佐玩（设计工作室）",
       "TitleTemplate": "%s / 佐玩（设计工作室）",
-      "OpenGraphTitle": "一家专为高标准人士打造的\n设计工作室",
-      "Description": "佐玩是一家专为高标准人士打造的设计工作室。",
+      "OpenGraphTitle": "一家承包品味的\n设计工作室",
+      "Description": "佐玩是一家承包品味的设计工作室。",
       "Keywords": "佐玩,Zolplay,设计工作室,品牌设计,产品设计,UI UX,初创设计,上线设计,插画,品牌策略,设计系统,社会资产,内容与文案,SEO,动效与视频,插画,周边与周边,品味,速度,成果"
     }
   },
