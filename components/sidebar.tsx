@@ -24,7 +24,7 @@ import { ZpShirtIcon } from '~/components/icons/ZpShirtIcon'
 import { ZpSignboardIcon } from '~/components/icons/ZpSignboardIcon'
 import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
-import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
+import { LogoHelmetFilled, LogoSidebarLockup } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
 import { Select } from '~/components/ui/select'
@@ -245,7 +245,7 @@ export function Sidebar({ className }: { className?: string }) {
       a.click()
       a.remove()
     }
-    download('https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip')
+    download('https://cdn.zolplay.com/brand/Zolplay%20Brand%20Assets.zip')
   }, [])
 
   return (
@@ -275,8 +275,7 @@ export function Sidebar({ className }: { className?: string }) {
                   '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
                 )}
               >
-                <LogoHelmetFilled className='size-6' />
-                <LogoWordmark className='w-auto h-5' />
+                <LogoSidebarLockup className='h-5.5 w-auto' />
                 <svg
                   width='5'
                   height='5'
@@ -563,8 +562,7 @@ export function NavBar() {
                 '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
               )}
             >
-              <LogoHelmetFilled className='size-4.5' />
-              <LogoWordmark className='h-4 w-auto' />
+              <LogoSidebarLockup className='h-4 w-auto' />
             </Link>
           </div>
 

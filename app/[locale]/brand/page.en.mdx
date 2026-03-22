@@ -1,5 +1,5 @@
 import { ButtonLink } from '~/components/ui/button'
-import { LogoHelmetFilled, LogoWordmark, LogoLockup } from '~/components/logo'
+import { LogoHelmetFilled, LogoSidebarLockup, LogoWordmark } from '~/components/logo'
 
 # Zolplay Brand Guidelines
 
@@ -7,7 +7,7 @@ Resources to present Zolplay with taste and consistency.
 
 <div className='not-prose mt-6 mb-8'>
   <WithFrame className='inline-flex'>
-    <ButtonLink href='https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip' size='lg'>
+    <ButtonLink href='https://cdn.zolplay.com/brand/Zolplay%20Brand%20Assets.zip' size='lg'>
       Download Brand Assets
     </ButtonLink>
   </WithFrame>
@@ -33,20 +33,24 @@ Do not stretch, skew, recolor arbitrarily, or change proportions. Avoid effects,
 
 ## Logo lockup
 
-Use the combined Zolplay lockup (logomark + wordmark) when a horizontal brand treatment is preferred. Apply on light or dark backgrounds using approved colors.
+Use the supplied Zolplay lockup (origami mark + wordmark) when a horizontal brand treatment is preferred. Keep the alignment intact and apply it only in approved colors on light or dark backgrounds.
 
 <Grid cols={1} md={2} gap={4} className='my-5'>
   <GridItem
     className='bg-neutral-50 text-neutral-900'
     action={{ kind: 'download', href: '/assets/brand/logo-lockup-dark.svg', label: 'Download SVG' }}
   >
-    <LogoLockup className='w-[82%]' />
+    <div className='w-full px-4 py-3 md:px-6 md:py-4 flex items-center justify-center'>
+      <LogoSidebarLockup className='w-full max-w-[30rem]' />
+    </div>
   </GridItem>
   <GridItem
     className='bg-neutral-900 text-white'
     action={{ kind: 'download', href: '/assets/brand/logo-lockup-light.svg', label: 'Download SVG' }}
   >
-    <LogoLockup className='w-[82%]' />
+    <div className='w-full px-4 py-3 md:px-6 md:py-4 flex items-center justify-center'>
+      <LogoSidebarLockup className='w-full max-w-[30rem]' />
+    </div>
   </GridItem>
 </Grid>
 
@@ -59,35 +63,43 @@ Use the Zolplay wordmark in most cases. Monochrome is preferred. Apply it on lig
     className='bg-neutral-50 text-neutral-900'
     action={{ kind: 'download', href: '/assets/brand/wordmark-dark.svg', label: 'Download SVG' }}
   >
-    <LogoWordmark className='w-[82%]' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <LogoWordmark className='w-[82%]' />
+    </div>
   </GridItem>
   <GridItem
     className='bg-neutral-900 text-white'
     action={{ kind: 'download', href: '/assets/brand/wordmark-light.svg', label: 'Download SVG' }}
   >
-    <LogoWordmark className='w-[82%]' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <LogoWordmark className='w-[82%]' />
+    </div>
   </GridItem>
 </Grid>
 
-## Logo
+## Origami mark
 
-For tight layouts or logo-only grids, use the Zolplay logomark. Use with judgment—the wordmark has stronger recognition.
+For tight layouts, avatars, and logo-only grids, use the Zolplay origami mark. Use it with judgment: the full lockup or wordmark should lead whenever there is room.
 
 <Grid cols={1} md={2} gap={4} className='my-5'>
   <GridItem
     className='bg-neutral-50'
     action={{ kind: 'download', href: '/assets/brand/logo-dark.svg', label: 'Download SVG' }}
   >
-    <div className='w-20 h-20 text-black flex items-center justify-center'>
-      <LogoHelmetFilled className='w-9 h-9' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <div className='w-28 h-20 text-black flex items-center justify-center'>
+        <LogoHelmetFilled className='w-16 h-auto' />
+      </div>
     </div>
   </GridItem>
   <GridItem
     className='bg-neutral-900'
     action={{ kind: 'download', href: '/assets/brand/logo-light.svg', label: 'Download SVG' }}
   >
-    <div className='w-20 h-20 text-white flex items-center justify-center'>
-      <LogoHelmetFilled className='w-9 h-9' />
+    <div className='w-full px-5 py-4 md:px-7 md:py-5 flex items-center justify-center'>
+      <div className='w-28 h-20 text-white flex items-center justify-center'>
+        <LogoHelmetFilled className='w-16 h-auto' />
+      </div>
     </div>
   </GridItem>
 </Grid>
