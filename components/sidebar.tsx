@@ -14,8 +14,8 @@ import React from 'react'
 import { toast } from 'sonner'
 import { Drawer } from 'vaul'
 import { ZpBrandGitHubIcon } from '~/components/icons/ZpBrandGitHubIcon'
+import { ZpBrandXiaohongshuIcon } from '~/components/icons/ZpBrandXiaohongshuIcon'
 import { ZpBrandXIcon } from '~/components/icons/ZpBrandXIcon'
-import { ZpBrandYouTubeIcon } from '~/components/icons/ZpBrandYouTubeIcon'
 import { ZpContactUsIcon } from '~/components/icons/ZpContactUsIcon'
 import { ZpHomeIcon } from '~/components/icons/ZpHomeIcon'
 import { ZpMailIcon } from '~/components/icons/ZpMailIcon'
@@ -24,7 +24,7 @@ import { ZpShirtIcon } from '~/components/icons/ZpShirtIcon'
 import { ZpSignboardIcon } from '~/components/icons/ZpSignboardIcon'
 import { ZpWorkIcon } from '~/components/icons/ZpWorkIcon'
 import { LocaleSelector } from '~/components/locale-selector'
-import { LogoHelmetFilled, LogoWordmark } from '~/components/logo'
+import { LogoHelmetFilled, LogoSidebarLockup } from '~/components/logo'
 import { ThemeSelector } from '~/components/theme-selector'
 import { Clock } from '~/components/ui/clock'
 import { Select } from '~/components/ui/select'
@@ -53,10 +53,10 @@ const social = [
     icon: ZpBrandGitHubIcon,
   },
   {
-    name: 'YouTube',
-    url: 'https://youtube.com/@zolplay',
-    label: 'YouTube',
-    icon: ZpBrandYouTubeIcon,
+    name: 'Xiaohongshu',
+    url: 'https://xhslink.com/m/8uj8HM0OMpF',
+    label: '小红书',
+    icon: ZpBrandXiaohongshuIcon,
   },
   {
     name: 'Email',
@@ -245,7 +245,7 @@ export function Sidebar({ className }: { className?: string }) {
       a.click()
       a.remove()
     }
-    download('https://cdn.zolplay.com/brand/Zolplay-Brand-Assets.zip')
+    download('https://cdn.zolplay.com/brand/Zolplay%20Brand%20Assets.zip')
   }, [])
 
   return (
@@ -275,8 +275,7 @@ export function Sidebar({ className }: { className?: string }) {
                   '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
                 )}
               >
-                <LogoHelmetFilled className='size-6' />
-                <LogoWordmark className='w-auto h-5' />
+                <LogoSidebarLockup className='h-5.5 w-auto' />
                 <svg
                   width='5'
                   height='5'
@@ -380,7 +379,7 @@ export function Sidebar({ className }: { className?: string }) {
                     'aspect-square border-r border-(--sidebar-fg)/20 last-of-type:border-r-0',
                     'flex items-center justify-center',
                     {
-                      'hover:text-[#FF0000] dark:hover:text-[#FF0000]': item.name === 'YouTube',
+                      'hover:text-[#FF2442] dark:hover:text-[#FF2442]': item.name === 'Xiaohongshu',
                     },
                   )}
                 >
@@ -563,8 +562,7 @@ export function NavBar() {
                 '**:data-highlight:opacity-35 hover:**:data-highlight:opacity-100',
               )}
             >
-              <LogoHelmetFilled className='size-4.5' />
-              <LogoWordmark className='h-4 w-auto' />
+              <LogoSidebarLockup className='h-4 w-auto' />
             </Link>
           </div>
 

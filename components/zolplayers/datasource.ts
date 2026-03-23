@@ -6,7 +6,6 @@ import ethan from './headshots/ethan.jpeg'
 import jasper from './headshots/jasper.jpeg'
 import larry from './headshots/larry.jpeg'
 import sonia from './headshots/sonia.jpeg'
-import timx from './headshots/timx.jpeg'
 import tyler from './headshots/tyler.jpeg'
 import will from './headshots/will.jpeg'
 
@@ -108,16 +107,6 @@ export const ZOLPLAYERS = [
         url: 'https://x.com/thesonia33',
       },
     ],
-  },
-  {
-    name: 'Timx Wong',
-    slug: 'timx',
-    role: {
-      en: 'Tech Manager',
-      'zh-CN': '技术经理',
-    },
-    portrait: timx,
-    social: [],
   },
   {
     name: 'Tyler Lu',

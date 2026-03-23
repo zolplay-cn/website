@@ -46,12 +46,6 @@ export async function generateMetadata({ params }: { params: RootParams }): Prom
     },
     description: t('Root.Metadata.Description'),
     keywords: t('Root.Metadata.Keywords'),
-    icons: {
-      icon: '/assets/favicon-v2.ico',
-      shortcut: '/assets/favicon-v2.ico',
-      apple: '/assets/apple-touch-icon.png',
-    },
-    manifest: '/assets/site.webmanifest',
     openGraph: {
       title: {
         default: t('Root.Metadata.Title'),

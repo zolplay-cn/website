@@ -60,7 +60,7 @@ export async function OpenGraphImageTemplate({ text, locale }: OpenGraphImagePro
             fontFamily: 'ZolplaySans',
             letterSpacing: '-0.03em',
             fontStyle: 'normal',
-            color: '#1a1a1a',
+            color: '#E0DDD6',
             lineHeight: '80px',
             whiteSpace: 'pre-wrap',
             textWrap: 'balance',
